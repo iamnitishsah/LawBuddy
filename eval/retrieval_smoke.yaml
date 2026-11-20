@@ -1,0 +1,50 @@
+# Retrieval smoke set: realistic questions and the KB chunk(s) that should come back.
+# `expect`: any of these chunk ids in the top results counts as a hit. `expect: []` = out of scope, nothing should
+# match well; these set the refusal threshold (search.min_score in configs/retrieval.yaml).
+# Run: python -m lawbuddy.evaluation.retrieval_smoke
+
+questions:
+  - q: my landlord in Bangalore is not returning my 2 lakh deposit after I vacated
+    expect: [deposit-overview, deposit-steps]
+  - q: landlord deducted painting charges from my advance, is that allowed?
+    expect: [deposit-deductions]
+  - q: is there a 2 month limit on deposit in karnataka
+    expect: [deposit-no-cap]
+  - q: does the rent control act apply to my flat in Whitefield, rent is 25000
+    expect: [deposit-rent-act-scope, statute-rent-act-2-3]
+  - q: what proof do I need to show I paid the deposit and left the house in good condition
+    expect: [deposit-evidence]
+  - q: how many years do I have to sue the owner for my deposit
+    expect: [deposit-steps, statute-limitation-55-113]
+  - q: online seller refused to take back a defective phone and won't refund
+    expect: [consumer-ecommerce-refunds, statute-cp-ecommerce-rules, consumer-overview]
+  - q: where can I file consumer case, company is in Delhi but I live in Mysuru
+    expect: [consumer-commission-complaint, statute-cpa-34-69]
+  - q: I bought a fridge 3 years ago, can I still file a consumer complaint
+    expect: [consumer-time-limit, statute-cpa-34-69]
+  - q: consumer helpline number
+    expect: [consumer-helpline]
+  - q: I bought printers for my shop to resell, am I a consumer
+    expect: [consumer-who-is-consumer]
+  - q: company has not paid salary for 3 months after I resigned
+    expect: [salary-overview, statute-wages-17, salary-steps]
+  - q: mera salary 2 mahine se nahi mila, kya karu
+    expect: [salary-overview, salary-steps, salary-claim]
+  - q: how much compensation can the labour authority give for unpaid wages
+    expect: [salary-claim, statute-wages-45]
+  - q: can I get free legal aid, I am a woman
+    expect: [general-legal-aid, statute-lsa-12-21]
+  - q: what is a lok adalat and is its decision final
+    expect: [general-lok-adalat, statute-lsa-12-21]
+  - q: is section 420 IPC still valid
+    expect: [general-old-laws]
+
+  # out of scope: should not match anything well
+  - q: how do I file for divorce and get custody of my child
+    expect: []
+  - q: the police refused to register my FIR
+    expect: []
+  - q: how to save income tax on my salary
+    expect: []
+  - q: my neighbour built a wall on my land
+    expect: []

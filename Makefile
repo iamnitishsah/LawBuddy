@@ -1,10 +1,13 @@
 .DEFAULT_GOAL := help
 
-.PHONY: help install test api frontend docker-build docker-run
+.PHONY: help install test kb kb-build smoke api frontend docker-build docker-run
 
 help:
 	@echo "make install       install the package and dev tools into the active environment"
 	@echo "make test          unit tests (no network)"
+	@echo "make kb            validate the knowledge base against kb/registry.yaml (no network)"
+	@echo "make kb-build      embed new or changed KB chunks into kb/index/ (embedding API)"
+	@echo "make smoke         retrieval smoke test: keyword, dense and rerank (API for dense and rerank)"
 	@echo "make api           run the FastAPI backend on http://localhost:8000"
 	@echo "make frontend      run the Vite React frontend on http://localhost:5173"
 	@echo "make docker-build  build the API image"
@@ -15,6 +18,15 @@ install:
 
 test:
 	pytest -q
+
+kb:
+	python -m lawbuddy.kb.loader
+
+kb-build:
+	python -m lawbuddy.kb.build
+
+smoke:
+	python -m lawbuddy.evaluation.retrieval_smoke
 
 api:
 	uvicorn lawbuddy.api.main:app --reload

@@ -1,0 +1,147 @@
+# The only laws LawBuddy may name, and the sections the knowledge base relies on.
+#
+# The answer guard (Phase 2) checks every Act, section, rule or article an answer mentions against this file:
+# a law that is not listed here, or a section that is not listed for its law, is treated as unverified.
+# A KB chunk may cite only what is listed here (enforced by tests/test_kb.py).
+#
+# status: in_force | repealed. Repealed laws are listed so the guard can say what replaced them.
+# sections: provisions the KB cites. Rules use rule numbers, the Limitation Act uses Schedule article numbers.
+
+documents:
+  cpa-2019:
+    title: Consumer Protection Act, 2019
+    number: Act No. 35 of 2019
+    jurisdiction: central
+    status: in_force
+    aliases: ["Consumer Protection Act", "CPA 2019", "CPA, 2019", "Consumer Protection Act 2019"]
+    sections: ["2", "34", "35", "36", "37", "39", "41", "69", "72", "107"]
+    file: central_consumer-protection-act-2019.pdf
+    url: https://prsindia.org/files/bills_acts/bills_parliament/2021/Consumer%20Protection%20Act%202019.pdf
+
+  cp-jurisdiction-rules-2021:
+    title: Consumer Protection (Jurisdiction of the District Commission, the State Commission and the National Commission) Rules, 2021
+    number: Gazette notification, 2021
+    jurisdiction: central
+    status: in_force
+    aliases: ["Consumer Protection (Jurisdiction) Rules", "Jurisdiction Rules, 2021"]
+    sections: ["3", "4", "5"]
+    file: central_cp-jurisdiction-rules-2021.pdf
+    url: https://www.thc.nic.in/Central%20Governmental%20Rules/Consumer%20Protection%20(Jurisdiction%20of%20the%20District%20Commission,%20the%20State%20Commission%20and%20the%20National%20Commission)%20Rules,%202021.pdf
+
+  cp-ecommerce-rules-2020:
+    title: Consumer Protection (E-Commerce) Rules, 2020
+    number: G.S.R. 462(E), 23 July 2020
+    jurisdiction: central
+    status: in_force
+    aliases: ["E-Commerce Rules", "E-Commerce Rules, 2020", "Consumer Protection (E-Commerce) Rules"]
+    sections: ["4", "6", "7"]
+    file: central_cp-ecommerce-rules-2020.pdf
+    url: https://prsindia.org/files/bills_acts/bills_parliament/2021/Consumer%20Protection%20(E-Commerce)%20Rules,%202020.pdf
+
+  code-on-wages-2019:
+    title: Code on Wages, 2019
+    number: Act No. 29 of 2019
+    jurisdiction: central
+    status: in_force
+    aliases: ["Code on Wages", "Wage Code", "Code on Wages 2019"]
+    sections: ["2", "17", "18", "43", "45", "49", "69"]
+    file: central_code-on-wages-2019.pdf
+    url: https://www.indiacode.nic.in/bitstream/123456789/15793/1/aA2019-29.pdf
+
+  karnataka-rent-act-1999:
+    title: Karnataka Rent Act, 1999
+    number: Karnataka Act No. 34 of 2001
+    jurisdiction: karnataka
+    status: in_force
+    aliases: ["Karnataka Rent Act", "Rent Act", "Karnataka Rent Act 1999"]
+    sections: ["2", "3", "4", "15", "16", "17", "23", "70"]
+    file: karnataka_rent-act-1999.pdf
+    url: https://www.indiacode.nic.in/handle/123456789/7810
+
+  karnataka-rent-amendment-2025:
+    title: Karnataka Rent (Amendment) Act, 2025
+    number: Karnataka Act No. 07 of 2026
+    jurisdiction: karnataka
+    status: in_force
+    aliases: ["Karnataka Rent (Amendment) Act", "Rent (Amendment) Act, 2025"]
+    sections: ["2", "3", "4", "5"]
+    file: karnataka_rent-amendment-act-2025_as-passed.pdf
+    url: https://kla.kar.nic.in/council/house/bills/157/02eng.pdf
+
+  contract-act-1872:
+    title: Indian Contract Act, 1872
+    number: Act No. 9 of 1872
+    jurisdiction: central
+    status: in_force
+    aliases: ["Indian Contract Act", "Contract Act", "Indian Contract Act 1872"]
+    sections: ["73", "74"]
+    file: central_indian-contract-act-1872.pdf
+    url: https://www.indiacode.nic.in
+
+  limitation-act-1963:
+    title: Limitation Act, 1963
+    number: Act No. 36 of 1963
+    jurisdiction: central
+    status: in_force
+    aliases: ["Limitation Act", "Limitation Act 1963"]
+    sections: ["3", "Article 7", "Article 22", "Article 55", "Article 113"]
+    file: central_limitation-act-1963.pdf
+    url: https://www.indiacode.nic.in
+
+  lsa-act-1987:
+    title: Legal Services Authorities Act, 1987
+    number: Act No. 39 of 1987
+    jurisdiction: central
+    status: in_force
+    aliases: ["Legal Services Authorities Act", "LSA Act", "Legal Services Authorities Act 1987"]
+    sections: ["12", "13", "19", "20", "21"]
+    file: central_legal-services-authorities-act-1987.pdf
+    url: https://www.indiacode.nic.in/handle/123456789/1925
+
+  constitution:
+    title: Constitution of India
+    number: as on 10 September 2026
+    jurisdiction: central
+    status: in_force
+    aliases: ["Constitution", "Constitution of India", "Indian Constitution"]
+    sections: ["Article 39A"]
+    file: IndianConstitution.pdf
+    url: https://legislative.gov.in
+
+repealed:
+  - title: Consumer Protection Act, 1986
+    aliases: ["Consumer Protection Act 1986", "CPA 1986"]
+    replaced_by: cpa-2019
+    authority: "Consumer Protection Act, 2019, s. 107"
+  - title: Payment of Wages Act, 1936
+    aliases: ["Payment of Wages Act"]
+    replaced_by: code-on-wages-2019
+    authority: "Code on Wages, 2019, s. 69"
+  - title: Minimum Wages Act, 1948
+    aliases: ["Minimum Wages Act"]
+    replaced_by: code-on-wages-2019
+    authority: "Code on Wages, 2019, s. 69"
+  - title: Payment of Bonus Act, 1965
+    aliases: ["Payment of Bonus Act"]
+    replaced_by: code-on-wages-2019
+    authority: "Code on Wages, 2019, s. 69"
+  - title: Equal Remuneration Act, 1976
+    aliases: ["Equal Remuneration Act"]
+    replaced_by: code-on-wages-2019
+    authority: "Code on Wages, 2019, s. 69"
+  - title: Karnataka Rent Control Act, 1961
+    aliases: ["Karnataka Rent Control Act"]
+    replaced_by: karnataka-rent-act-1999
+    authority: "Karnataka Rent Act, 1999, s. 70"
+  - title: Indian Penal Code, 1860
+    aliases: ["IPC", "Indian Penal Code"]
+    replaced_by: null               # Bharatiya Nyaya Sanhita, 2023: criminal law is out of scope
+    authority: "Bharatiya Nyaya Sanhita, 2023 (in force from 1 July 2024); to verify"
+  - title: Code of Criminal Procedure, 1973
+    aliases: ["CrPC", "Cr.P.C.", "Code of Criminal Procedure"]
+    replaced_by: null               # Bharatiya Nagarik Suraksha Sanhita, 2023
+    authority: "Bharatiya Nagarik Suraksha Sanhita, 2023 (in force from 1 July 2024); to verify"
+  - title: Indian Evidence Act, 1872
+    aliases: ["Evidence Act", "Indian Evidence Act"]
+    replaced_by: null               # Bharatiya Sakshya Adhiniyam, 2023
+    authority: "Bharatiya Sakshya Adhiniyam, 2023 (in force from 1 July 2024); to verify"

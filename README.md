@@ -11,7 +11,8 @@ prepares what they need to act, such as a legal notice.
 small, hand-verified knowledge base, and code checks every Act and section the answer names. When the knowledge
 base does not cover a question, or the matter needs a real lawyer, LawBuddy says so.
 
-> Status: **Phase 0** (project skeleton). See [docs/ROADMAP.md](docs/ROADMAP.md) for the plan.
+> Status: **Phase 1** (legal knowledge base for Karnataka: deposits, consumer refunds, unpaid salary). See
+> [docs/ROADMAP.md](docs/ROADMAP.md) for the plan and [docs/SOURCES.md](docs/SOURCES.md) for the legal sources.
 
 ---
 
@@ -22,6 +23,9 @@ python -m venv .venv && source .venv/bin/activate
 make install                 # pip install -e ".[dev]"
 cp .env.example .env         # add at least the key for LLM_BACKEND
 make test                    # unit tests, no network
+make kb                      # validate the knowledge base (no network)
+make kb-build                # re-embed changed KB chunks into kb/index/ (only after editing kb/)
+make smoke                   # retrieval smoke test (keyword, dense, rerank)
 make api                     # http://localhost:8000/health
 make frontend                # http://localhost:5173 (first time: cd frontend && npm install)
 ```
@@ -38,15 +42,15 @@ config entry, not a code change. List a provider's models with `python -m lawbud
 configs/            llm.yaml (providers), retrieval.yaml (embedding, rerank, search)
 src/lawbuddy/
   llm/              one interface for every LLM provider
-  retrieval/        embeddings, reranking (in-memory index in Phase 1)
+  retrieval/        in-memory dense search, reranking, keyword (BM25) fallback
   guard/            citation checks (legal-reference checks in Phase 2)
-  kb/               knowledge-base loading and indexing (Phase 1)
+  kb/               knowledge-base loading, validation and index build
   conversation/     triage, case intake, grounded advice (Phase 2)
   drafting/         legal notices and complaints (Phase 3)
   api/              FastAPI service
   evaluation/       test-case runner and scoring (Phase 6)
-kb/                 the curated legal knowledge base (Phase 1)
-eval/cases/         test cases (Phase 6)
+kb/                 the curated legal knowledge base: <category>/*.md chunks, registry.yaml, index/
+eval/               retrieval_smoke.yaml; cases/ for the test cases (Phase 6)
 outputs/            raw, unedited outputs of the test cases (Phase 6)
 frontend/           React + Vite web client
 tests/              unit tests (no network)

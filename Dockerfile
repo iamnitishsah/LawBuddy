@@ -15,6 +15,7 @@ RUN mkdir -p src/lawbuddy && touch src/lawbuddy/__init__.py && pip install -e .
 
 COPY src ./src
 COPY configs ./configs
+COPY kb ./kb
 
 # Run as an unprivileged user; data/logs is the only place the app writes.
 RUN useradd --create-home --uid 1000 lawbuddy && mkdir -p data/logs && chown -R lawbuddy:lawbuddy /app

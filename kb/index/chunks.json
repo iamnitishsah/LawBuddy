@@ -1,0 +1,957 @@
+{
+ "built_at": "2026-11-20T23:39:29+00:00",
+ "model": "nvidia/nemotron-3.5-embed-8b",
+ "dimensions": 1024,
+ "chunks": [
+  {
+   "id": "consumer-after-filing",
+   "title": "What happens after you file a consumer complaint",
+   "category": "consumer",
+   "kind": "guide",
+   "jurisdiction": "central",
+   "cites": [
+    {
+     "doc": "cpa-2019",
+     "section": "36"
+    },
+    {
+     "doc": "cpa-2019",
+     "section": "37"
+    },
+    {
+     "doc": "cpa-2019",
+     "section": "41"
+    },
+    {
+     "doc": "cpa-2019",
+     "section": "72"
+    }
+   ],
+   "text": "- **Admission.** The District Commission should ordinarily decide within 21 days whether to admit the complaint. It\n  cannot reject it without hearing you, and if it does not decide in time, the complaint is treated as admitted\n  (Consumer Protection Act, 2019, s. 36(2) and (3)).\n- **Mediation.** If a settlement looks possible, the Commission may ask both sides to agree in writing, within five\n  days, to mediation (Consumer Protection Act, 2019, s. 37(1)).\n- **Order.** If your complaint is proved, the Commission orders relief such as replacement, refund with interest,\n  compensation and costs.\n- **Appeal.** Either side can appeal a District Commission order to the State Commission within 45 days of the order\n  (Consumer Protection Act, 2019, s. 41).\n- **If the trader ignores the order.** Not complying with a Commission's order is punishable with imprisonment from\n  one month up to three years, or a fine from Rs. 25,000 up to Rs. 1 lakh, or both (Consumer Protection Act, 2019,\n  s. 72(1)).",
+   "path": "kb/consumer/after-filing.md",
+   "verified_on": null,
+   "sources": [
+    {
+     "doc": "cpa-2019",
+     "title": "Consumer Protection Act, 2019",
+     "url": "https://prsindia.org/files/bills_acts/bills_parliament/2021/Consumer%20Protection%20Act%202019.pdf"
+    }
+   ],
+   "header": "What happens after you file a consumer complaint | consumer | guide",
+   "hash": "a00bc0a22847f0d7"
+  },
+  {
+   "id": "consumer-commission-complaint",
+   "title": "Filing a complaint with the District Consumer Commission",
+   "category": "consumer",
+   "kind": "guide",
+   "jurisdiction": "central",
+   "cites": [
+    {
+     "doc": "cpa-2019",
+     "section": "34"
+    },
+    {
+     "doc": "cpa-2019",
+     "section": "35"
+    },
+    {
+     "doc": "cp-jurisdiction-rules-2021",
+     "section": "3"
+    },
+    {
+     "doc": "cp-jurisdiction-rules-2021",
+     "section": "4"
+    },
+    {
+     "doc": "cp-jurisdiction-rules-2021",
+     "section": "5"
+    }
+   ],
+   "text": "**Which Commission.** It depends on the value of the goods or services you paid for: up to Rs. 50 lakh goes to the\nDistrict Commission; above Rs. 50 lakh and up to Rs. 2 crore to the State Commission; above Rs. 2 crore to the\nNational Commission (Consumer Protection (Jurisdiction) Rules, 2021, rr. 3 to 5). Most everyday complaints go to the\nDistrict Commission.\n\n**Which district.** You can file where the opposite party lives or does business or has a branch, where the cause of\naction arose, or **where you live or work** (Consumer Protection Act, 2019, s. 34(2)). So you can usually file in\nyour own district, even against a company based elsewhere.\n\n**Who can file.** The consumer, a recognised consumer association, or several consumers with the same interest\ntogether, with the Commission's permission (Consumer Protection Act, 2019, s. 35(1)).\n\n**How.** A complaint may be filed electronically (Consumer Protection Act, 2019, s. 35(1), proviso), through the\ne-Jagriti portal (e-jagriti.gov.in). It must be accompanied by the prescribed fee (s. 35(2)); check the current fee\non e-Jagriti for your claim amount.\n\nYou do not need a lawyer to file; you can present your own case.",
+   "path": "kb/consumer/commission-complaint.md",
+   "verified_on": null,
+   "sources": [
+    {
+     "doc": "cpa-2019",
+     "title": "Consumer Protection Act, 2019",
+     "url": "https://prsindia.org/files/bills_acts/bills_parliament/2021/Consumer%20Protection%20Act%202019.pdf"
+    },
+    {
+     "doc": "cp-jurisdiction-rules-2021",
+     "title": "Consumer Protection (Jurisdiction of the District Commission, the State Commission and the National Commission) Rules, 2021",
+     "url": "https://www.thc.nic.in/Central%20Governmental%20Rules/Consumer%20Protection%20(Jurisdiction%20of%20the%20District%20Commission,%20the%20State%20Commission%20and%20the%20National%20Commission)%20Rules,%202021.pdf"
+    }
+   ],
+   "header": "Filing a complaint with the District Consumer Commission | consumer | guide",
+   "hash": "8acff1cfc64ea6b0"
+  },
+  {
+   "id": "consumer-ecommerce-refunds",
+   "title": "Online orders: what sellers and platforms must do about returns and refunds",
+   "category": "consumer",
+   "kind": "guide",
+   "jurisdiction": "central",
+   "cites": [
+    {
+     "doc": "cp-ecommerce-rules-2020",
+     "section": "4"
+    },
+    {
+     "doc": "cp-ecommerce-rules-2020",
+     "section": "6"
+    },
+    {
+     "doc": "cp-ecommerce-rules-2020",
+     "section": "7"
+    }
+   ],
+   "text": "The Consumer Protection (E-Commerce) Rules, 2020 put duties on online platforms and sellers:\n\n- **No refusal to take back or refund** when goods or services are defective, deficient or spurious, not as\n  advertised or agreed, or delivered late (except late delivery due to force majeure). This applies to sellers on a\n  marketplace (E-Commerce Rules, 2020, r. 6(3)) and to platforms that sell their own inventory (r. 7(4)).\n- **Grievance officer.** Every platform must appoint a grievance officer and show their name and contact details on\n  the platform (r. 4(4)). The officer must acknowledge your complaint within 48 hours and resolve it within one month\n  of receiving it (r. 4(5)). Marketplace sellers must do the same (r. 6(4)(b)).\n- **Refunds** accepted by the platform must be paid within a reasonable time, as prescribed by the Reserve Bank of\n  India or other applicable law (r. 4(10)).\n- **Cancellation charges** cannot be imposed on you unless the platform bears similar charges when it cancels an\n  order itself (r. 4(8)).\n\nKeep the order ID, invoice, delivery proof, photos or videos of the product, and every chat or email with customer\ncare. Write to the grievance officer in writing and note the date: if there is no answer within a month, you have\na clear record for the next step.",
+   "path": "kb/consumer/ecommerce-refunds.md",
+   "verified_on": null,
+   "sources": [
+    {
+     "doc": "cp-ecommerce-rules-2020",
+     "title": "Consumer Protection (E-Commerce) Rules, 2020",
+     "url": "https://prsindia.org/files/bills_acts/bills_parliament/2021/Consumer%20Protection%20(E-Commerce)%20Rules,%202020.pdf"
+    }
+   ],
+   "header": "Online orders: what sellers and platforms must do about returns and refunds | consumer | guide",
+   "hash": "9d6788b0225253f8"
+  },
+  {
+   "id": "consumer-helpline",
+   "title": "National Consumer Helpline (1915): free help before going to a Commission",
+   "category": "consumer",
+   "kind": "practice",
+   "jurisdiction": "central",
+   "cites": [],
+   "text": "The National Consumer Helpline (NCH), run by the Department of Consumer Affairs, Government of India, helps resolve\nconsumer grievances with companies before a formal complaint.\n\n- Toll-free: **1915** (8 AM to 8 PM) or 1800-11-4000\n- WhatsApp: +91 88000 01915\n- Online: consumerhelpline.gov.in → \"Register Grievance\"\n\nMany large companies and platforms are \"convergence partners\" of the NCH, so a grievance registered there is sent to\nthe company directly. If the matter is not resolved, the next step is a complaint to the District Consumer\nCommission on e-Jagriti.\n\nSource: consumerhelpline.gov.in, checked 2026-11-21.",
+   "path": "kb/consumer/helpline.md",
+   "verified_on": null,
+   "sources": [],
+   "header": "National Consumer Helpline (1915): free help before going to a Commission | consumer | practice",
+   "hash": "7494bf63fea349f6"
+  },
+  {
+   "id": "consumer-overview",
+   "title": "Refund, replacement or compensation for a bad product or service",
+   "category": "consumer",
+   "kind": "guide",
+   "jurisdiction": "central",
+   "cites": [
+    {
+     "doc": "cpa-2019",
+     "section": "2"
+    },
+    {
+     "doc": "cpa-2019",
+     "section": "39"
+    }
+   ],
+   "text": "If you paid for goods or a service and got something defective, deficient, not as promised, or no refund that was\ndue, the Consumer Protection Act, 2019 protects you. It applies to purchases made online or offline, including by\nteleshopping and direct selling (Consumer Protection Act, 2019, s. 2(7), Explanation (b)).\n\nYou can complain about (Consumer Protection Act, 2019, s. 2(6)):\n- goods with a defect: a fault or shortcoming in quality, quantity, purity or standard (s. 2(10));\n- a service with a deficiency: a shortcoming in quality or manner of performance, including negligence or\n  deliberately withholding relevant information (s. 2(11));\n- an unfair trade practice, or being charged more than the displayed, fixed or agreed price.\n\nIf the complaint is proved, a Consumer Commission can order the trader to remove the defect, replace the goods,\nreturn the price with interest, pay compensation for loss or injury, pay punitive damages, and pay your costs\n(Consumer Protection Act, 2019, s. 39(1)).\n\nUsual path: complain to the seller (and the platform's grievance officer) → National Consumer Helpline 1915 →\ncomplaint to the District Consumer Commission, which can be filed online on e-Jagriti.",
+   "path": "kb/consumer/overview.md",
+   "verified_on": null,
+   "sources": [
+    {
+     "doc": "cpa-2019",
+     "title": "Consumer Protection Act, 2019",
+     "url": "https://prsindia.org/files/bills_acts/bills_parliament/2021/Consumer%20Protection%20Act%202019.pdf"
+    }
+   ],
+   "header": "Refund, replacement or compensation for a bad product or service | consumer | guide",
+   "hash": "0c32d454d0912408"
+  },
+  {
+   "id": "consumer-time-limit",
+   "title": "Time limit for a consumer complaint",
+   "category": "consumer",
+   "kind": "guide",
+   "jurisdiction": "central",
+   "cites": [
+    {
+     "doc": "cpa-2019",
+     "section": "69"
+    }
+   ],
+   "text": "A Consumer Commission will not admit a complaint unless it is filed within **two years** from the date the cause of\naction arose (Consumer Protection Act, 2019, s. 69(1)). The cause of action is usually when the defect appeared, the\nservice failed, or the refund was refused.\n\nA late complaint can still be heard if you show sufficient cause for the delay, and the Commission records its\nreasons for accepting it (Consumer Protection Act, 2019, s. 69(2)). Do not rely on this: file within two years.",
+   "path": "kb/consumer/time-limit.md",
+   "verified_on": null,
+   "sources": [
+    {
+     "doc": "cpa-2019",
+     "title": "Consumer Protection Act, 2019",
+     "url": "https://prsindia.org/files/bills_acts/bills_parliament/2021/Consumer%20Protection%20Act%202019.pdf"
+    }
+   ],
+   "header": "Time limit for a consumer complaint | consumer | guide",
+   "hash": "f1602fd6564f54bf"
+  },
+  {
+   "id": "consumer-who-is-consumer",
+   "title": "Are you a \"consumer\" under the law?",
+   "category": "consumer",
+   "kind": "guide",
+   "jurisdiction": "central",
+   "cites": [
+    {
+     "doc": "cpa-2019",
+     "section": "2"
+    }
+   ],
+   "text": "You are a consumer if you bought goods, or hired or used a service, for a price that was paid or promised, fully or\nin part, including in instalments (Consumer Protection Act, 2019, s. 2(7)). Someone who uses the goods or service\nwith the buyer's approval, such as a family member, also counts.\n\nYou are **not** a consumer if you bought the goods for resale or for a commercial purpose, or used the service for a\ncommercial purpose. Buying something to earn your own livelihood by self-employment is not a commercial purpose\n(Consumer Protection Act, 2019, s. 2(7), Explanation (a)).\n\nOnline purchases count: buying goods or hiring services includes transactions made online or through electronic\nmeans, teleshopping, direct selling or multi-level marketing (Consumer Protection Act, 2019, s. 2(7),\nExplanation (b)).",
+   "path": "kb/consumer/who-is-consumer.md",
+   "verified_on": null,
+   "sources": [
+    {
+     "doc": "cpa-2019",
+     "title": "Consumer Protection Act, 2019",
+     "url": "https://prsindia.org/files/bills_acts/bills_parliament/2021/Consumer%20Protection%20Act%202019.pdf"
+    }
+   ],
+   "header": "Are you a \"consumer\" under the law? | consumer | guide",
+   "hash": "05538a8cf9c313a5"
+  },
+  {
+   "id": "deposit-deductions",
+   "title": "What a landlord may deduct from the deposit",
+   "category": "deposit",
+   "kind": "guide",
+   "jurisdiction": "karnataka",
+   "cites": [
+    {
+     "doc": "contract-act-1872",
+     "section": "73"
+    },
+    {
+     "doc": "contract-act-1872",
+     "section": "74"
+    }
+   ],
+   "text": "What can be deducted depends on your rental agreement. Read its clauses on the deposit, notice period, painting,\nrepairs and unpaid bills.\n\nUnder contract law, a party who breaks a contract must compensate only the loss that naturally arises from that\nbreach; remote or indirect losses are not compensated (Indian Contract Act, 1872, s. 73). So a landlord can\ngenerally deduct, for example, unpaid rent or the cost of real damage that you caused, but should be able to show\nwhat the loss was. If the agreement names a fixed amount payable for a breach (for example, a penalty for leaving\nwithout notice), the landlord can claim only reasonable compensation up to that amount, not automatically the whole\nof it (Indian Contract Act, 1872, s. 74).\n\nPractical steps:\n- Ask the landlord for an itemised list of deductions with bills or photos.\n- Compare each deduction with the agreement.\n- Pay or accept only what the agreement and the evidence support, and dispute the rest in writing.",
+   "path": "kb/deposit/deductions.md",
+   "verified_on": null,
+   "sources": [
+    {
+     "doc": "contract-act-1872",
+     "title": "Indian Contract Act, 1872",
+     "url": "https://www.indiacode.nic.in"
+    }
+   ],
+   "header": "What a landlord may deduct from the deposit | deposit | guide",
+   "hash": "2706288dc41d6451"
+  },
+  {
+   "id": "deposit-evidence",
+   "title": "Evidence to collect for a deposit dispute",
+   "category": "deposit",
+   "kind": "practice",
+   "jurisdiction": "karnataka",
+   "cites": [],
+   "text": "Collect these before you send a demand or a notice. Keep copies; give originals to no one.\n\n- **Rental agreement**, including any renewal, and the clause on the deposit and notice period.\n- **Proof that you paid the deposit**: bank transfer statement, UPI screenshot, cheque details or a signed receipt.\n- **Proof of rent payments**, to show nothing is due.\n- **Proof that you moved out on time**: your notice to vacate, the landlord's reply, the date you handed over keys.\n- **Condition of the home**: photos or video on moving in and moving out, with dates.\n- **All messages** with the landlord or agent about the deposit, repairs and deductions.\n- **Bills you paid** (electricity, water, maintenance) up to the day you left.\n\nIf something is missing, say so in your notice instead of guessing; a notice with wrong facts weakens your case.",
+   "path": "kb/deposit/evidence.md",
+   "verified_on": null,
+   "sources": [],
+   "header": "Evidence to collect for a deposit dispute | deposit | practice",
+   "hash": "33c166aa9fb79cf9"
+  },
+  {
+   "id": "deposit-no-cap",
+   "title": "Is there a legal limit on the security deposit in Karnataka?",
+   "category": "deposit",
+   "kind": "guide",
+   "jurisdiction": "karnataka",
+   "cites": [
+    {
+     "doc": "karnataka-rent-act-1999",
+     "section": "17"
+    },
+    {
+     "doc": "karnataka-rent-amendment-2025",
+     "section": "2"
+    }
+   ],
+   "text": "LawBuddy's sources contain no legal limit on the size of a security deposit for homes in Karnataka.\n\nThe Karnataka Rent Act, 1999 does not set a maximum deposit. Where the Act talks about \"deposit\", it means a tenant\ndepositing rent with the Controller when the landlord refuses to accept it (Karnataka Rent Act, 1999, s. 17). The\nKarnataka Rent (Amendment) Act, 2025 changed the Controller's powers and the offences and penalties under the Act\n(for example, fines in place of imprisonment); it did not add a deposit limit (Karnataka Rent (Amendment) Act, 2025,\nss. 2 to 5).\n\nClaims online of a \"two-month deposit cap\" in Karnataka do not come from these laws. If someone relies on a deposit\ncap, ask them which law and section it comes from.\n\nSo the amount of the deposit, and when it must be returned, is whatever your rental agreement says.",
+   "path": "kb/deposit/no-deposit-cap.md",
+   "verified_on": null,
+   "sources": [
+    {
+     "doc": "karnataka-rent-act-1999",
+     "title": "Karnataka Rent Act, 1999",
+     "url": "https://www.indiacode.nic.in/handle/123456789/7810"
+    },
+    {
+     "doc": "karnataka-rent-amendment-2025",
+     "title": "Karnataka Rent (Amendment) Act, 2025",
+     "url": "https://kla.kar.nic.in/council/house/bills/157/02eng.pdf"
+    }
+   ],
+   "header": "Is there a legal limit on the security deposit in Karnataka? | deposit | guide",
+   "hash": "ce0be629928fd3af"
+  },
+  {
+   "id": "deposit-overview",
+   "title": "Getting your security deposit back from a landlord in Karnataka",
+   "category": "deposit",
+   "kind": "guide",
+   "jurisdiction": "karnataka",
+   "cites": [
+    {
+     "doc": "contract-act-1872",
+     "section": "73"
+    },
+    {
+     "doc": "karnataka-rent-act-1999",
+     "section": "2"
+    }
+   ],
+   "text": "A security deposit is money you gave the landlord to hold, to be returned when you leave. Whether you get it back,\nand how much may be deducted, is decided mainly by your rental agreement.\n\nFor most rented homes in Karnataka today, a dispute over a deposit is a dispute about a contract. The Karnataka\nRent Act, 1999 does not apply to many homes: it excludes premises whose rent is above a low limit and buildings\nconstructed or substantially renovated in the last fifteen years (Karnataka Rent Act, 1999, s. 2(3)). When the\nlandlord keeps money the agreement says must be returned, that is a breach of contract, and the person who suffers\nfrom a breach can claim compensation for the loss it caused (Indian Contract Act, 1872, s. 73).\n\nThe usual path, from cheapest to most formal:\n1. Ask in writing (message or email) for the refund, with a date to pay by.\n2. Send a legal notice that sets out the facts, the amount and a deadline.\n3. Try settlement through a Lok Adalat via the District Legal Services Authority.\n4. File a civil suit to recover the money.",
+   "path": "kb/deposit/overview.md",
+   "verified_on": null,
+   "sources": [
+    {
+     "doc": "contract-act-1872",
+     "title": "Indian Contract Act, 1872",
+     "url": "https://www.indiacode.nic.in"
+    },
+    {
+     "doc": "karnataka-rent-act-1999",
+     "title": "Karnataka Rent Act, 1999",
+     "url": "https://www.indiacode.nic.in/handle/123456789/7810"
+    }
+   ],
+   "header": "Getting your security deposit back from a landlord in Karnataka | deposit | guide",
+   "hash": "25a7d1691331c1db"
+  },
+  {
+   "id": "deposit-rent-act-scope",
+   "title": "Does the Karnataka Rent Act apply to your rented home?",
+   "category": "deposit",
+   "kind": "guide",
+   "jurisdiction": "karnataka",
+   "cites": [
+    {
+     "doc": "karnataka-rent-act-1999",
+     "section": "2"
+    }
+   ],
+   "text": "The Karnataka Rent Act, 1999 regulates rent and eviction, but only for some premises. Its main rules (Chapters I to\nIII and V to VIII) apply in the areas listed in its First Schedule: Part A covers the cities constituted under the\nKarnataka Municipal Corporations Act, 1976 and a radius of three kilometres around them; Part B covers areas within\nCity Municipal Councils (Karnataka Rent Act, 1999, s. 2(1) and First Schedule).\n\nEven in those areas, the Act does not apply to (Karnataka Rent Act, 1999, s. 2(3)):\n- premises whose deemed rent or standard rent is above Rs. 3,500 a month in a Part A area, or above Rs. 2,000 a\n  month in any other area;\n- premises constructed or substantially renovated in the last fifteen years, counted from completion;\n- premises used for non-residential purposes, except small commercial premises of up to fourteen square metres;\n- premises of the Central or State Government, a local authority, a religious or charitable institution or a Wakf,\n  and buildings of co-operative societies.\n\nIn practice, most rented flats and houses in Bengaluru and other cities pay more than these limits, so the Act\nusually does not apply. The tenancy is then governed by the rental agreement and general contract law.",
+   "path": "kb/deposit/rent-act-scope.md",
+   "verified_on": null,
+   "sources": [
+    {
+     "doc": "karnataka-rent-act-1999",
+     "title": "Karnataka Rent Act, 1999",
+     "url": "https://www.indiacode.nic.in/handle/123456789/7810"
+    }
+   ],
+   "header": "Does the Karnataka Rent Act apply to your rented home? | deposit | guide",
+   "hash": "bb2c2eae1062518c"
+  },
+  {
+   "id": "deposit-rent-act-tenants",
+   "title": "If the Karnataka Rent Act does apply to your home",
+   "category": "deposit",
+   "kind": "guide",
+   "jurisdiction": "karnataka",
+   "cites": [
+    {
+     "doc": "karnataka-rent-act-1999",
+     "section": "4"
+    },
+    {
+     "doc": "karnataka-rent-act-1999",
+     "section": "15"
+    },
+    {
+     "doc": "karnataka-rent-act-1999",
+     "section": "16"
+    },
+    {
+     "doc": "karnataka-rent-act-1999",
+     "section": "17"
+    },
+    {
+     "doc": "karnataka-rent-act-1999",
+     "section": "23"
+    }
+   ],
+   "text": "For the smaller group of tenancies the Karnataka Rent Act, 1999 covers (low rent, older buildings, in listed areas):\n\n- A tenancy must be by a written agreement (Karnataka Rent Act, 1999, s. 4).\n- A tenant who pays rent, other charges or an advance is entitled to a signed written receipt from the landlord\n  (Karnataka Rent Act, 1999, s. 16(2)).\n- If the landlord refuses to accept rent, the tenant may deposit it with the Controller (Karnataka Rent Act, 1999,\n  s. 17).\n- If a tenant paid any sum to the landlord in breach of the Act, the Controller may order the landlord to refund\n  it, or adjust it against rent, on an application made within one year of the payment (Karnataka Rent Act, 1999,\n  s. 15).\n- Controllers are officers appointed by the State Government to decide these matters (Karnataka Rent Act, 1999,\n  s. 23).\n\nWhether the Act applies to a particular home turns on its rent, age and location; a lawyer or the DLSA can confirm.",
+   "path": "kb/deposit/rent-act-tenants.md",
+   "verified_on": null,
+   "sources": [
+    {
+     "doc": "karnataka-rent-act-1999",
+     "title": "Karnataka Rent Act, 1999",
+     "url": "https://www.indiacode.nic.in/handle/123456789/7810"
+    }
+   ],
+   "header": "If the Karnataka Rent Act does apply to your home | deposit | guide",
+   "hash": "a4438a4cc30b475e"
+  },
+  {
+   "id": "deposit-steps",
+   "title": "Steps to recover a deposit, from demand to court",
+   "category": "deposit",
+   "kind": "guide",
+   "jurisdiction": "karnataka",
+   "cites": [
+    {
+     "doc": "lsa-act-1987",
+     "section": "20"
+    },
+    {
+     "doc": "lsa-act-1987",
+     "section": "21"
+    },
+    {
+     "doc": "limitation-act-1963",
+     "section": "Article 55"
+    }
+   ],
+   "text": "1. **Written demand.** Message or email the landlord asking for the deposit by a clear date (for example, 7 days).\n   Keep the reply, or the lack of one.\n2. **Legal notice.** If there is no payment, send a legal notice by registered post (and email or WhatsApp) stating\n   the facts, the amount due, the deadline and that you will take legal action. LawBuddy can draft one for you to\n   review and sign.\n3. **Lok Adalat (settlement).** The District Legal Services Authority can take up a dispute that is not yet in court\n   on the application of one party and refer it to a Lok Adalat (Legal Services Authorities Act, 1987, s. 20). A\n   settlement there becomes an award that is final and binding, with no appeal (Legal Services Authorities Act,\n   1987, s. 21). It only works if the landlord agrees to settle.\n4. **Civil suit.** If nothing else works, file a suit to recover the money. Which court hears it depends on the\n   amount and the place, so ask a lawyer or your DLSA before filing.\n\nTime limit: a suit for compensation for breach of a contract must generally be filed within three years from when\nthe contract is broken (Limitation Act, 1963, Schedule, Article 55). Act early; the exact start date depends on\nyour facts.",
+   "path": "kb/deposit/steps.md",
+   "verified_on": null,
+   "sources": [
+    {
+     "doc": "lsa-act-1987",
+     "title": "Legal Services Authorities Act, 1987",
+     "url": "https://www.indiacode.nic.in/handle/123456789/1925"
+    },
+    {
+     "doc": "limitation-act-1963",
+     "title": "Limitation Act, 1963",
+     "url": "https://www.indiacode.nic.in"
+    }
+   ],
+   "header": "Steps to recover a deposit, from demand to court | deposit | guide",
+   "hash": "22ef0a4d414766fe"
+  },
+  {
+   "id": "general-legal-aid",
+   "title": "Free legal aid: who qualifies and where to ask",
+   "category": "general",
+   "kind": "guide",
+   "jurisdiction": "central",
+   "cites": [
+    {
+     "doc": "constitution",
+     "section": "Article 39A"
+    },
+    {
+     "doc": "lsa-act-1987",
+     "section": "12"
+    },
+    {
+     "doc": "lsa-act-1987",
+     "section": "13"
+    }
+   ],
+   "text": "The Constitution directs the State to provide free legal aid so that no citizen is denied justice because of\neconomic or other disabilities (Constitution of India, Article 39A). The Legal Services Authorities Act, 1987 puts\nthis into practice.\n\nYou are entitled to free legal services to file or defend a case if you are (Legal Services Authorities Act, 1987,\ns. 12):\n- a woman or a child;\n- a member of a Scheduled Caste or Scheduled Tribe;\n- a person with a disability;\n- an industrial workman;\n- a victim of trafficking, or of a mass disaster, ethnic violence, caste atrocity, flood, drought, earthquake or\n  industrial disaster;\n- in custody; or\n- a person whose annual income is below the limit set by the State Government (for cases in courts other than the\n  Supreme Court).\n\nThe Authority must also be satisfied that you have a prima facie case (Legal Services Authorities Act, 1987,\ns. 13(1)).\n\n**Where to ask:** the District Legal Services Authority (DLSA) at your district court, the Taluk Legal Services\nCommittee, the Karnataka State Legal Services Authority (kslsa.kar.nic.in), or the NALSA helpline **15100**\n(toll-free). Ask them for the current income limit in Karnataka.",
+   "path": "kb/general/legal-aid.md",
+   "verified_on": null,
+   "sources": [
+    {
+     "doc": "constitution",
+     "title": "Constitution of India",
+     "url": "https://legislative.gov.in"
+    },
+    {
+     "doc": "lsa-act-1987",
+     "title": "Legal Services Authorities Act, 1987",
+     "url": "https://www.indiacode.nic.in/handle/123456789/1925"
+    }
+   ],
+   "header": "Free legal aid: who qualifies and where to ask | general | guide",
+   "hash": "ab5ad82bcecc6216"
+  },
+  {
+   "id": "general-legal-notice",
+   "title": "What a legal notice is and why to send one",
+   "category": "general",
+   "kind": "practice",
+   "jurisdiction": "central",
+   "cites": [],
+   "text": "A legal notice is a formal letter telling the other side what they owe or must do, by when, and that you will take\nlegal action if they do not. For deposit, refund and salary disputes, none of the laws in LawBuddy's sources requires\none before going to a Consumer Commission, a wage authority or a Lok Adalat, but it is a good first formal step\nbecause:\n\n- it often makes the other side pay or settle, at little cost;\n- it creates a dated record that you demanded payment, which helps prove your case and when the dispute began;\n- it forces you to set out the facts and the amount clearly.\n\nA good notice states: who you are and who it is addressed to; the facts in date order; the amount or action\ndemanded; a deadline (commonly 15 days); and what you will do if they do not comply. It should be factual and\npolite, with no threats beyond lawful action, and no facts you cannot prove.\n\nSend it by registered post or speed post with acknowledgement, and also by email or WhatsApp. Keep the postal receipt\nand tracking record. A notice can be sent by you yourself or through a lawyer; one sent through a lawyer often\ncarries more weight.",
+   "path": "kb/general/legal-notice.md",
+   "verified_on": null,
+   "sources": [],
+   "header": "What a legal notice is and why to send one | general | practice",
+   "hash": "a5da1d31ca53c81e"
+  },
+  {
+   "id": "general-lok-adalat",
+   "title": "Lok Adalat: settling a dispute without a long court case",
+   "category": "general",
+   "kind": "guide",
+   "jurisdiction": "central",
+   "cites": [
+    {
+     "doc": "lsa-act-1987",
+     "section": "19"
+    },
+    {
+     "doc": "lsa-act-1987",
+     "section": "20"
+    },
+    {
+     "doc": "lsa-act-1987",
+     "section": "21"
+    }
+   ],
+   "text": "Lok Adalats are organised by the State and District Legal Services Authorities (Legal Services Authorities Act, 1987,\ns. 19). They settle disputes by compromise.\n\n- **Before a case is filed:** one party can apply to the Legal Services Authority to have a dispute that is not yet in\n  court referred to a Lok Adalat (Legal Services Authorities Act, 1987, s. 20(2)). The other side is heard before\n  the matter is referred.\n- **Result:** if both sides settle, the award is treated as a decree of a civil court, is final and binding on all\n  parties, and no appeal lies against it. If a pending court case is settled this way, the court fee paid is\n  refunded (Legal Services Authorities Act, 1987, s. 21).\n- **If there is no settlement,** the parties are advised to seek their remedy in court (s. 20(6)).\n\nLok Adalat suits disputes where the other side may be willing to pay something to close the matter, such as a\ndeposit or dues dispute. Contact your District Legal Services Authority to ask about the next Lok Adalat.",
+   "path": "kb/general/lok-adalat.md",
+   "verified_on": null,
+   "sources": [
+    {
+     "doc": "lsa-act-1987",
+     "title": "Legal Services Authorities Act, 1987",
+     "url": "https://www.indiacode.nic.in/handle/123456789/1925"
+    }
+   ],
+   "header": "Lok Adalat: settling a dispute without a long court case | general | guide",
+   "hash": "0cbd0382c9b42252"
+  },
+  {
+   "id": "general-old-laws",
+   "title": "Laws that have been replaced",
+   "category": "general",
+   "kind": "guide",
+   "jurisdiction": "central",
+   "cites": [
+    {
+     "doc": "cpa-2019",
+     "section": "107"
+    },
+    {
+     "doc": "code-on-wages-2019",
+     "section": "69"
+    },
+    {
+     "doc": "karnataka-rent-act-1999",
+     "section": "70"
+    }
+   ],
+   "text": "Many websites and older documents still quote laws that have been repealed. Do not rely on them:\n\n- The **Consumer Protection Act, 1986** was repealed by the Consumer Protection Act, 2019 (s. 107). Consumer\n  complaints now go to District, State and National Consumer **Commissions** (earlier called Forums).\n- The **Payment of Wages Act, 1936**, the **Minimum Wages Act, 1948**, the **Payment of Bonus Act, 1965** and the\n  **Equal Remuneration Act, 1976** were repealed by the Code on Wages, 2019 (s. 69).\n- The **Karnataka Rent Control Act, 1961** was replaced by the Karnataka Rent Act, 1999 (s. 70).\n- The **Indian Penal Code (IPC)**, the **Code of Criminal Procedure (CrPC)** and the **Indian Evidence Act** were\n  replaced in 2024 by the Bharatiya Nyaya Sanhita, the Bharatiya Nagarik Suraksha Sanhita and the Bharatiya Sakshya\n  Adhiniyam. Criminal matters are outside LawBuddy's scope; see a lawyer.",
+   "path": "kb/general/old-laws.md",
+   "verified_on": null,
+   "sources": [
+    {
+     "doc": "cpa-2019",
+     "title": "Consumer Protection Act, 2019",
+     "url": "https://prsindia.org/files/bills_acts/bills_parliament/2021/Consumer%20Protection%20Act%202019.pdf"
+    },
+    {
+     "doc": "code-on-wages-2019",
+     "title": "Code on Wages, 2019",
+     "url": "https://www.indiacode.nic.in/bitstream/123456789/15793/1/aA2019-29.pdf"
+    },
+    {
+     "doc": "karnataka-rent-act-1999",
+     "title": "Karnataka Rent Act, 1999",
+     "url": "https://www.indiacode.nic.in/handle/123456789/7810"
+    }
+   ],
+   "header": "Laws that have been replaced | general | guide",
+   "hash": "dbd1be466dc376d6"
+  },
+  {
+   "id": "general-when-lawyer",
+   "title": "When you need a real lawyer, and what LawBuddy does not cover",
+   "category": "general",
+   "kind": "practice",
+   "jurisdiction": "central",
+   "cites": [],
+   "text": "LawBuddy covers three everyday problems in Karnataka: a security deposit not returned, a consumer refund or defect,\nand unpaid salary or final dues. It gives legal information, not legal advice.\n\n**Talk to a lawyer or your District Legal Services Authority (free if you qualify) when:**\n- you have received a court summons, a court notice or a legal notice with a deadline;\n- the other side has already filed a case against you, or a case is pending;\n- the amount is large, or the matter involves property ownership, title or eviction proceedings;\n- the employer has closed down, become insolvent, or you are a government employee with service rules;\n- you are unsure which court or authority to approach, or a time limit may have passed.\n\n**Not covered by LawBuddy:** criminal matters, police complaints and FIRs, arrest or bail, family matters (divorce,\ncustody, maintenance), property title disputes, cheque bounce cases, tax, immigration, and law outside Karnataka's\ncentral and state laws listed in its sources. LawBuddy says so and points to a lawyer or the DLSA.\n\n**In an emergency** (violence, threats to safety, someone in danger), call **112** first.",
+   "path": "kb/general/when-to-get-a-lawyer.md",
+   "verified_on": null,
+   "sources": [],
+   "header": "When you need a real lawyer, and what LawBuddy does not cover | general | practice",
+   "hash": "86f5269bbc4863d8"
+  },
+  {
+   "id": "salary-claim",
+   "title": "Filing a wage claim under the Code on Wages",
+   "category": "salary",
+   "kind": "guide",
+   "jurisdiction": "central",
+   "cites": [
+    {
+     "doc": "code-on-wages-2019",
+     "section": "43"
+    },
+    {
+     "doc": "code-on-wages-2019",
+     "section": "45"
+    },
+    {
+     "doc": "code-on-wages-2019",
+     "section": "49"
+    }
+   ],
+   "text": "The government appoints authorities (officers not below the rank of Gazetted Officer) to hear and decide claims under\nthe Code (Code on Wages, 2019, s. 45(1)). In Karnataka, ask the Labour Department which officer hears these\nclaims for your area.\n\n- **Who can file:** you, a registered trade union you belong to, or an Inspector-cum-Facilitator. One application\n  can cover many employees of the same establishment (s. 45(4) and (5)).\n- **Time limit:** within **three years** from when the claim arises; a later application may be accepted if you show\n  sufficient cause (s. 45(6)).\n- **What you can get:** the amount due, plus compensation of up to **ten times** the claim, depending on the\n  circumstances. The authority should try to decide within three months (s. 45(2)).\n- **If the employer still does not pay:** the authority sends a recovery certificate to the Collector or District\n  Magistrate, who recovers it as arrears of land revenue (s. 45(3)).\n- **Who is responsible:** the employer; if the employer fails, the company, firm or proprietor of the establishment\n  (s. 43).\n- **Appeal:** either side may appeal the authority's order within 90 days (s. 49(1)).",
+   "path": "kb/salary/claim.md",
+   "verified_on": null,
+   "sources": [
+    {
+     "doc": "code-on-wages-2019",
+     "title": "Code on Wages, 2019",
+     "url": "https://www.indiacode.nic.in/bitstream/123456789/15793/1/aA2019-29.pdf"
+    }
+   ],
+   "header": "Filing a wage claim under the Code on Wages | salary | guide",
+   "hash": "36b70bb6e8b643fc"
+  },
+  {
+   "id": "salary-evidence",
+   "title": "Evidence to collect for unpaid salary",
+   "category": "salary",
+   "kind": "practice",
+   "jurisdiction": "central",
+   "cites": [],
+   "text": "- **Proof you were employed**: offer or appointment letter, ID card, joining email, PF/ESI number, or messages from\n  your manager.\n- **Proof of salary**: payslips, bank statements showing earlier salary credits, or the salary stated in the offer.\n- **Proof of work in the unpaid period**: attendance records, timesheets, emails or work you submitted.\n- **Exit documents** if you left: resignation email, acceptance, relieving letter, last working day.\n- **Every message** asking for payment, and any promise the employer made to pay.\n- **Who the employer is**: the company or proprietor's legal name and address, from the offer letter, payslip or\n  GST/website details. You need the correct name for a notice or claim.\n\nWrite down the months unpaid and the exact amount for each month; LawBuddy will put them in a table.",
+   "path": "kb/salary/evidence.md",
+   "verified_on": null,
+   "sources": [],
+   "header": "Evidence to collect for unpaid salary | salary | practice",
+   "hash": "ad3dd904a6f05d58"
+  },
+  {
+   "id": "salary-overview",
+   "title": "Unpaid salary or final dues: your rights",
+   "category": "salary",
+   "kind": "guide",
+   "jurisdiction": "central",
+   "cites": [
+    {
+     "doc": "code-on-wages-2019",
+     "section": "2"
+    },
+    {
+     "doc": "code-on-wages-2019",
+     "section": "17"
+    },
+    {
+     "doc": "code-on-wages-2019",
+     "section": "69"
+    }
+   ],
+   "text": "Wages are governed by the Code on Wages, 2019, which replaced the Payment of Wages Act, 1936, the Minimum Wages Act,\n1948, the Payment of Bonus Act, 1965 and the Equal Remuneration Act, 1976 (Code on Wages, 2019, s. 69).\n\n\"Employee\" under the Code covers anyone employed on wages by an establishment to do skilled, semi-skilled, unskilled,\nmanual, operational, supervisory, managerial, administrative, technical or clerical work, except apprentices and\nmembers of the Armed Forces (Code on Wages, 2019, s. 2(k)).\n\n**When wages must be paid** (Code on Wages, 2019, s. 17(1)):\n- daily workers: at the end of the shift;\n- weekly: on the last working day of the week;\n- fortnightly: before the end of the second day after the fortnight ends;\n- **monthly: before the seventh day of the next month ends.**\n\n**When you leave.** If you resign, or are removed, dismissed or retrenched, or the establishment closes, the wages due\nto you must be paid **within two working days** (Code on Wages, 2019, s. 17(2)).\n\nThe government may set other time limits in some circumstances (s. 17(3)). Karnataka's own rules under the Code were\nstill in draft when LawBuddy's sources were collected, so check with the Karnataka Labour Department for procedure.",
+   "path": "kb/salary/overview.md",
+   "verified_on": null,
+   "sources": [
+    {
+     "doc": "code-on-wages-2019",
+     "title": "Code on Wages, 2019",
+     "url": "https://www.indiacode.nic.in/bitstream/123456789/15793/1/aA2019-29.pdf"
+    }
+   ],
+   "header": "Unpaid salary or final dues: your rights | salary | guide",
+   "hash": "0a6133a438d544fa"
+  },
+  {
+   "id": "salary-steps",
+   "title": "Steps to recover unpaid salary",
+   "category": "salary",
+   "kind": "guide",
+   "jurisdiction": "central",
+   "cites": [
+    {
+     "doc": "code-on-wages-2019",
+     "section": "45"
+    },
+    {
+     "doc": "limitation-act-1963",
+     "section": "Article 7"
+    }
+   ],
+   "text": "1. **Written demand** to HR or the owner by email, listing the unpaid months and amounts and a date to pay by.\n2. **Legal notice** if there is no payment: facts, amounts, the legal deadline for payment, and a warning that you\n   will file a claim. LawBuddy can draft one for you to review and sign.\n3. **Wage claim** before the authority appointed under the Code on Wages (ask the Karnataka Labour Department which\n   officer hears claims for your area), within three years (Code on Wages, 2019, s. 45(6)). This is usually faster and cheaper than court, and can award compensation\n   of up to ten times the claim (s. 45(2)).\n4. **Civil suit** as an alternative: a suit for wages must be filed within three years from when the wages became\n   due (Limitation Act, 1963, Schedule, Article 7). Talk to a lawyer or the DLSA before choosing this route.\n\nFree help: industrial workmen are among those entitled to free legal services (see \"Free legal aid\").",
+   "path": "kb/salary/steps.md",
+   "verified_on": null,
+   "sources": [
+    {
+     "doc": "code-on-wages-2019",
+     "title": "Code on Wages, 2019",
+     "url": "https://www.indiacode.nic.in/bitstream/123456789/15793/1/aA2019-29.pdf"
+    },
+    {
+     "doc": "limitation-act-1963",
+     "title": "Limitation Act, 1963",
+     "url": "https://www.indiacode.nic.in"
+    }
+   ],
+   "header": "Steps to recover unpaid salary | salary | guide",
+   "hash": "8b0d3aa16368dabd"
+  },
+  {
+   "id": "statute-contract-act-73-74",
+   "title": "Indian Contract Act, 1872, sections 73 and 74 (text)",
+   "category": "deposit",
+   "kind": "statute",
+   "jurisdiction": "central",
+   "cites": [
+    {
+     "doc": "contract-act-1872",
+     "section": "73"
+    },
+    {
+     "doc": "contract-act-1872",
+     "section": "74"
+    }
+   ],
+   "text": "**Section 73. Compensation for loss or damage caused by breach of contract.** When a contract has been broken, the\nparty who suffers by such breach is entitled to receive, from the party who has broken the contract, compensation\nfor any loss or damage caused to him thereby, which naturally arose in the usual course of things from such breach,\nor which the parties knew, when they made the contract, to be likely to result from the breach of it.\n\nSuch compensation is not to be given for any remote and indirect loss or damage sustained by reason of the breach.\n\n**Section 74. Compensation for breach of contract where penalty stipulated for.** When a contract has been broken,\nif a sum is named in the contract as the amount to be paid in case of such breach, or if the contract contains any\nother stipulation by way of penalty, the party complaining of the breach is entitled, whether or not actual damage\nor loss is proved to have been caused thereby, to receive from the party who has broken the contract reasonable\ncompensation not exceeding the amount so named or, as the case may be, the penalty stipulated for.",
+   "path": "kb/deposit/statute-contract-act-73-74.md",
+   "verified_on": null,
+   "sources": [
+    {
+     "doc": "contract-act-1872",
+     "title": "Indian Contract Act, 1872",
+     "url": "https://www.indiacode.nic.in"
+    }
+   ],
+   "header": "Indian Contract Act, 1872, sections 73 and 74 (text) | deposit | statute",
+   "hash": "a06ccee912656d4b"
+  },
+  {
+   "id": "statute-cp-ecommerce-rules",
+   "title": "Consumer Protection (E-Commerce) Rules, 2020, rules 4(5), 4(10) and 6(3) (text)",
+   "category": "consumer",
+   "kind": "statute",
+   "jurisdiction": "central",
+   "cites": [
+    {
+     "doc": "cp-ecommerce-rules-2020",
+     "section": "4"
+    },
+    {
+     "doc": "cp-ecommerce-rules-2020",
+     "section": "6"
+    }
+   ],
+   "text": "**Rule 4(5).** Every e-commerce entity shall ensure that the grievance officer referred to in sub-rule (4)\nacknowledges the receipt of any consumer complaint within forty-eight hours and redresses the complaint within one\nmonth from the date of receipt of the complaint.\n\n**Rule 4(10).** Every e-commerce entity shall effect all payments towards accepted refund requests of the consumers\nas prescribed by the Reserve Bank of India or any other competent authority under any law for the time being in\nforce, within a reasonable period of time, or as prescribed under applicable laws.\n\n**Rule 6(3).** No seller offering goods or services through a marketplace e-commerce entity shall refuse to take\nback goods, or withdraw or discontinue services purchased or agreed to be purchased, or refuse to refund\nconsideration, if paid, if such goods or services are defective, deficient or spurious, or if the goods or services\nare not of the characteristics or features as advertised or as agreed to, or if such goods or services are delivered\nlate from the stated delivery schedule: Provided that in the case of late delivery, this sub-rule shall not be\napplied if such late delivery was due to force majeure.",
+   "path": "kb/consumer/statute-ecommerce-rules.md",
+   "verified_on": null,
+   "sources": [
+    {
+     "doc": "cp-ecommerce-rules-2020",
+     "title": "Consumer Protection (E-Commerce) Rules, 2020",
+     "url": "https://prsindia.org/files/bills_acts/bills_parliament/2021/Consumer%20Protection%20(E-Commerce)%20Rules,%202020.pdf"
+    }
+   ],
+   "header": "Consumer Protection (E-Commerce) Rules, 2020, rules 4(5), 4(10) and 6(3) (text) | consumer | statute",
+   "hash": "cdddb835fe411eb8"
+  },
+  {
+   "id": "statute-cp-jurisdiction-rules",
+   "title": "Consumer Protection (Jurisdiction) Rules, 2021, rules 3 to 5 (text)",
+   "category": "consumer",
+   "kind": "statute",
+   "jurisdiction": "central",
+   "cites": [
+    {
+     "doc": "cp-jurisdiction-rules-2021",
+     "section": "3"
+    },
+    {
+     "doc": "cp-jurisdiction-rules-2021",
+     "section": "4"
+    },
+    {
+     "doc": "cp-jurisdiction-rules-2021",
+     "section": "5"
+    }
+   ],
+   "text": "**3. Jurisdiction of District Commission.** Subject to the other provisions of the Act and in pursuance of proviso to\nsub-section (1) of section 34 of the Act, the District Commission shall have jurisdiction to entertain complaints\nwhere the value of the goods or services paid as consideration does not exceed fifty lakh rupees.\n\n**4. Jurisdiction of State Commission.** ... the State Commission shall have jurisdiction to entertain complaints\nwhere the value of the goods or services paid as consideration exceeds fifty lakh but does not exceed two crore\nrupees.\n\n**5. Jurisdiction of National Commission.** ... the National Commission shall have jurisdiction to entertain\ncomplaints where the value of the goods or services paid as consideration, exceeds two crore rupees.",
+   "path": "kb/consumer/statute-jurisdiction-rules.md",
+   "verified_on": null,
+   "sources": [
+    {
+     "doc": "cp-jurisdiction-rules-2021",
+     "title": "Consumer Protection (Jurisdiction of the District Commission, the State Commission and the National Commission) Rules, 2021",
+     "url": "https://www.thc.nic.in/Central%20Governmental%20Rules/Consumer%20Protection%20(Jurisdiction%20of%20the%20District%20Commission,%20the%20State%20Commission%20and%20the%20National%20Commission)%20Rules,%202021.pdf"
+    }
+   ],
+   "header": "Consumer Protection (Jurisdiction) Rules, 2021, rules 3 to 5 (text) | consumer | statute",
+   "hash": "3208773b1832e24f"
+  },
+  {
+   "id": "statute-cpa-34-69",
+   "title": "Consumer Protection Act, 2019, sections 34(2), 35(1) proviso and 69 (text)",
+   "category": "consumer",
+   "kind": "statute",
+   "jurisdiction": "central",
+   "cites": [
+    {
+     "doc": "cpa-2019",
+     "section": "34"
+    },
+    {
+     "doc": "cpa-2019",
+     "section": "35"
+    },
+    {
+     "doc": "cpa-2019",
+     "section": "69"
+    }
+   ],
+   "text": "**Section 34(2).** A complaint shall be instituted in a District Commission within the local limits of whose\njurisdiction,\n(a) the opposite party or each of the opposite parties, where there are more than one, at the time of the\ninstitution of the complaint, ordinarily resides or carries on business or has a branch office or personally works\nfor gain; or\n(b) any of the opposite parties, where there are more than one, at the time of the institution of the complaint,\nactually and voluntarily resides, or carries on business or has a branch office, or personally works for gain,\nprovided that in such case the permission of the District Commission is given; or\n(c) the cause of action, wholly or in part, arises; or\n(d) the complainant resides or personally works for gain.\n\n**Section 35(1), proviso.** Provided that the complaint under this sub-section may be filed electronically in such\nmanner as may be prescribed.\n\n**Section 69.** (1) The District Commission, the State Commission or the National Commission shall not admit a\ncomplaint unless it is filed within two years from the date on which the cause of action has arisen.\n(2) Notwithstanding anything contained in sub-section (1), a complaint may be entertained after the period specified\nin sub-section (1), if the complainant satisfies the District Commission, the State Commission or the National\nCommission, as the case may be, that he had sufficient cause for not filing the complaint within such period:\nProvided that no such complaint shall be entertained unless the District Commission or the State Commission or the\nNational Commission, as the case may be, records its reasons for condoning such delay.",
+   "path": "kb/consumer/statute-cpa-34-69.md",
+   "verified_on": null,
+   "sources": [
+    {
+     "doc": "cpa-2019",
+     "title": "Consumer Protection Act, 2019",
+     "url": "https://prsindia.org/files/bills_acts/bills_parliament/2021/Consumer%20Protection%20Act%202019.pdf"
+    }
+   ],
+   "header": "Consumer Protection Act, 2019, sections 34(2), 35(1) proviso and 69 (text) | consumer | statute",
+   "hash": "910414f87caa8b7d"
+  },
+  {
+   "id": "statute-limitation-55-113",
+   "title": "Limitation Act, 1963, Schedule, Articles 22, 55 and 113 (text)",
+   "category": "deposit",
+   "kind": "statute",
+   "jurisdiction": "central",
+   "cites": [
+    {
+     "doc": "limitation-act-1963",
+     "section": "Article 22"
+    },
+    {
+     "doc": "limitation-act-1963",
+     "section": "Article 55"
+    },
+    {
+     "doc": "limitation-act-1963",
+     "section": "Article 113"
+    }
+   ],
+   "text": "| Article | Description of suit | Period of limitation | Time from which period begins to run |\n|---|---|---|---|\n| 22 | For money deposited under an agreement that it shall be payable on demand, including money of a customer in the hands of his banker so payable. | Three years. | When the demand is made. |\n| 55 | For compensation for the breach of any contract, express or implied not herein specially provided for. | Three years. | When the contract is broken or (where there are successive breaches) when the breach in respect of which the suit is instituted occurs or (where the breach is continuing) when it ceases. |\n| 113 | Any suit for which no period of limitation is provided elsewhere in this Schedule. | Three years. | When the right to sue accrues. |",
+   "path": "kb/deposit/statute-limitation-55.md",
+   "verified_on": null,
+   "sources": [
+    {
+     "doc": "limitation-act-1963",
+     "title": "Limitation Act, 1963",
+     "url": "https://www.indiacode.nic.in"
+    }
+   ],
+   "header": "Limitation Act, 1963, Schedule, Articles 22, 55 and 113 (text) | deposit | statute",
+   "hash": "37a8f18e2805ec5f"
+  },
+  {
+   "id": "statute-lsa-12-21",
+   "title": "Legal Services Authorities Act, 1987, sections 12 and 21, and Constitution Article 39A (text)",
+   "category": "general",
+   "kind": "statute",
+   "jurisdiction": "central",
+   "cites": [
+    {
+     "doc": "lsa-act-1987",
+     "section": "12"
+    },
+    {
+     "doc": "lsa-act-1987",
+     "section": "21"
+    },
+    {
+     "doc": "constitution",
+     "section": "Article 39A"
+    }
+   ],
+   "text": "**Constitution of India, Article 39A. Equal justice and free legal aid.** The State shall secure that the operation\nof the legal system promotes justice, on a basis of equal opportunity, and shall, in particular, provide free legal\naid, by suitable legislation or schemes or in any other way, to ensure that opportunities for securing justice are\nnot denied to any citizen by reason of economic or other disabilities.\n\n**Legal Services Authorities Act, 1987, section 12.** Every person who has to file or defend a case shall be entitled\nto legal services under this Act if that person is: (a) a member of a Scheduled Caste or Scheduled Tribe; (b) a\nvictim of trafficking in human beings or beggar as referred in article 23 of the Constitution; (c) a woman or a\nchild; (d) a person with disability ...; (e) a person under circumstances of undeserved want such as being a victim of\na mass disaster, ethnic violence, caste atrocity, flood, drought, earthquake or industrial disaster; or (f) an\nindustrial workman; or (g) in custody ...; or (h) in receipt of annual income less than rupees nine thousand or such\nother higher amount as may be prescribed by the State Government, if the case is before a court other than the\nSupreme Court ...\n\n**Section 21(1)-(2).** Every award of the Lok Adalat shall be deemed to be a decree of a civil court ... Every award\nmade by a Lok Adalat shall be final and binding on all the parties to the dispute, and no appeal shall lie to any\ncourt against the award.",
+   "path": "kb/general/statute-lsa-12-21.md",
+   "verified_on": null,
+   "sources": [
+    {
+     "doc": "lsa-act-1987",
+     "title": "Legal Services Authorities Act, 1987",
+     "url": "https://www.indiacode.nic.in/handle/123456789/1925"
+    },
+    {
+     "doc": "constitution",
+     "title": "Constitution of India",
+     "url": "https://legislative.gov.in"
+    }
+   ],
+   "header": "Legal Services Authorities Act, 1987, sections 12 and 21, and Constitution Article 39A (text) | general | statute",
+   "hash": "e3f125f018381063"
+  },
+  {
+   "id": "statute-rent-act-2-3",
+   "title": "Karnataka Rent Act, 1999, section 2(3)(e) to (g) (text)",
+   "category": "deposit",
+   "kind": "statute",
+   "jurisdiction": "karnataka",
+   "cites": [
+    {
+     "doc": "karnataka-rent-act-1999",
+     "section": "2"
+    }
+   ],
+   "text": "**Section 2(3).** Nothing contained in this Act shall apply, ...\n\n(e) to any premises, deemed rent on the date of commencement of this Act or the standard rent of which exceeds,\n(i) three thousand five hundred rupees per month in any area referred to in part A of the first schedule; and\n(ii) two thousand rupees per month in any other area.\n\n(f) to any premises constructed or substantially renovated, either before or after the commencement of this Act for\na period of fifteen years from the date of completion of such construction or substantial renovation.\nExplanation-I. A premises may be said to be substantially renovated if not less than seventy-five percent of the\npremises is built new in accordance with the criteria prescribed for determining the extent of renovation.\n\n(g) to any premises used for non-residential purpose but excluding premises having a plinth area of not exceeding\nfourteen square meters used for commercial purpose.\n\n**First Schedule, Part A.** Areas within the limits of Cities constituted under the Karnataka Municipal Corporation\nAct 1976 and within a radius of three kilometres from the limit of the said cities. **Part B.** Areas within the\nlimits of the City Municipal Councils constituted under Karnataka Municipalities Act 1964.",
+   "path": "kb/deposit/statute-rent-act-2-3.md",
+   "verified_on": null,
+   "sources": [
+    {
+     "doc": "karnataka-rent-act-1999",
+     "title": "Karnataka Rent Act, 1999",
+     "url": "https://www.indiacode.nic.in/handle/123456789/7810"
+    }
+   ],
+   "header": "Karnataka Rent Act, 1999, section 2(3)(e) to (g) (text) | deposit | statute",
+   "hash": "7a4bb4c3d7f3a094"
+  },
+  {
+   "id": "statute-wages-17",
+   "title": "Code on Wages, 2019, section 17 (text)",
+   "category": "salary",
+   "kind": "statute",
+   "jurisdiction": "central",
+   "cites": [
+    {
+     "doc": "code-on-wages-2019",
+     "section": "17"
+    }
+   ],
+   "text": "**17. Time limit for payment of wages.** (1) The employer shall pay or cause to be paid wages to the employees,\nengaged on,\n(i) daily basis, at the end of the shift;\n(ii) weekly basis, on the last working day of the week, that is to say, before the weekly holiday;\n(iii) fortnightly basis, before the end of the second day after the end of the fortnight;\n(iv) monthly basis, before the expiry of the seventh day of the succeeding month.\n(2) Where an employee has been, (i) removed or dismissed from service; or (ii) retrenched or has resigned from\nservice, or became unemployed due to closure of the establishment, the wages payable to him shall be paid within two\nworking days of his removal, dismissal, retrenchment or, as the case may be, his resignation.\n(3) Notwithstanding anything contained in sub-section (1) or sub-section (2), the appropriate Government may,\nprovide any other time limit for payment of wages where it considers reasonable having regard to the circumstances\nunder which the wages are to be paid.\n(4) Nothing contained in sub-section (1) or sub-section (2) shall affect any time limit for payment of wages provided\nin any other law for the time being in force.",
+   "path": "kb/salary/statute-wages-17.md",
+   "verified_on": null,
+   "sources": [
+    {
+     "doc": "code-on-wages-2019",
+     "title": "Code on Wages, 2019",
+     "url": "https://www.indiacode.nic.in/bitstream/123456789/15793/1/aA2019-29.pdf"
+    }
+   ],
+   "header": "Code on Wages, 2019, section 17 (text) | salary | statute",
+   "hash": "e2cd3f9ce347e20f"
+  },
+  {
+   "id": "statute-wages-45",
+   "title": "Code on Wages, 2019, section 45 (text, extract)",
+   "category": "salary",
+   "kind": "statute",
+   "jurisdiction": "central",
+   "cites": [
+    {
+     "doc": "code-on-wages-2019",
+     "section": "45"
+    }
+   ],
+   "text": "**45. Claims under Code and procedure thereof.** (1) The appropriate Government may, by notification, appoint one or\nmore authorities, not below the rank of a Gazetted Officer, to hear and determine the claims which arises under the\nprovisions of this Code.\n(2) The authority appointed under sub-section (1), while deciding the claim under that sub-section, may order,\nhaving regard to the circumstances under which the claim arises, the payment of compensation in addition to the claim\ndetermined, which may extend to ten times of the claim determined and endeavour shall be made by the authority to\ndecide the claim within a period of three months.\n(3) If an employer fails to pay the claim determined and compensation ordered to be paid under sub-section (2), the\nauthority shall issue a certificate of recovery to the Collector or District Magistrate of the district where the\nestablishment is located who shall recover the same as arrears of land revenue and remit the same to the authority\nfor payment to the concerned employee.\n(4) Any application before the authority for claim referred to in sub-section (1) may be filed by, (a) the employee\nconcerned; or (b) any Trade Union registered under the Trade Unions Act, 1926 of which the employee is a member; or\n(c) the Inspector-cum-Facilitator.\n(6) The application under sub-section (4) may be filed within a period of three years from the date on which claims\nreferred to in sub-section (1) arises: Provided that the authority referred to in sub-section (1) may, entertain the\napplication after three years on sufficient cause being shown by the applicant for such delay.",
+   "path": "kb/salary/statute-wages-45.md",
+   "verified_on": null,
+   "sources": [
+    {
+     "doc": "code-on-wages-2019",
+     "title": "Code on Wages, 2019",
+     "url": "https://www.indiacode.nic.in/bitstream/123456789/15793/1/aA2019-29.pdf"
+    }
+   ],
+   "header": "Code on Wages, 2019, section 45 (text, extract) | salary | statute",
+   "hash": "bc60b9ddfb6719dc"
+  }
+ ]
+}

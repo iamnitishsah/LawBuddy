@@ -17,7 +17,7 @@ a legal problem.* Built phase by phase; each phase ends with a check that it wor
 | Emergencies → helplines first | Violence, threats, arrest, self-harm |
 | Languages | English, Hindi, Hinglish (tested); others best effort, untested, and said so |
 | Voice | Speech-to-text via Groq Whisper (free tier) |
-| Jurisdiction | All-India central law; tenancy is state law, so ask the user's state and flag the difference |
+| Jurisdiction | **Karnataka only** (central law + Karnataka state law). Users elsewhere are told the state-specific parts may not apply |
 | Grounding rule | Only law present in the curated knowledge base may be cited; no case law ever; code checks every legal reference |
 
 ---
@@ -31,21 +31,25 @@ a legal problem.* Built phase by phase; each phase ends with a check that it wor
 - [x] Frontend rebranded; hard-coded server IP and default API key removed
 - [x] Checks: `pytest` (15 pass), `/health` serves, `npm run build` + lint pass, no traces of the old project
 
-## Phase 1: Legal knowledge base
+## Phase 1: Legal knowledge base (built; human check and threshold pending)
 
 **Goal:** a small, hand-checked law base. Every fact in it has a source; nothing outside it can be cited.
 
-- [ ] Download the official sources (bare acts from India Code, portal FAQs) into `data/sources/` (see *Sources* below)
-- [ ] `kb/<category>/*.md` with frontmatter `id, title, category, applies_to (central | state), source_url, source_ref (Act + section / page), verified_on`
-- [ ] Per category: which law applies · rights · first steps (written demand → legal notice) · which forum and its money limits · time limits · fees · documents needed · online portals and helplines · when you need a lawyer
-- [ ] Cross-cutting: free legal aid (who qualifies, DLSA), Lok Adalat, legal notice basics, repealed-law trap list (IPC → BNS, CrPC → BNSS, Evidence Act → BSA, CPA 1986 → 2019, Payment of Wages Act → Code on Wages)
-- [ ] Statute chunks: the exact text of the few sections the guides rely on, extracted from the bare acts, so answers can quote them
-- [ ] `kb/registry.yaml`: the only Acts and sections the bot may name (used by the guard)
-- [ ] **Human check:** every chunk verified against its official source and dated (`verified_on`)
-- [ ] `python -m lawbuddy.kb.build`: chunk, embed and save the index to `data/kb_index.npz`; in-memory search with a category filter, then reranking
-- [ ] Calibrate `min_score` on a few in-scope and out-of-scope questions
+- [x] Official sources in `data/sources/` (10 PDFs, see [SOURCES.md](SOURCES.md)); text extracted to `data/text/`
+- [x] `kb/<category>/*.md`, one chunk per file, frontmatter `id, title, category, kind (guide | statute | practice), jurisdiction, cites [{doc, section}], verified_on`
+- [x] Per category (deposit, consumer, salary): which law applies, rights, steps, forum and money limits, time limits, evidence, portals and helplines
+- [x] Cross-cutting (general): free legal aid, Lok Adalat, legal notice, when to get a lawyer / out of scope, replaced laws
+- [x] Statute chunks: verbatim text of the sections the guides rely on (9 chunks)
+- [x] `kb/registry.yaml`: the only laws and sections that may be named, plus repealed laws and what replaced them
+- [x] `python -m lawbuddy.kb.loader` validates the KB against the registry (unknown law, unlisted section, repealed law, wrong folder, too long)
+- [x] `python -m lawbuddy.kb.build`: embeds only new or changed chunks into `kb/index/` (committed, ~130 KB); in-memory dense search with category/kind filters, then reranking
+- [x] Keyword (BM25) fallback when the embedding or rerank API fails (the NVIDIA endpoint timed out during the build session)
+- [ ] **Human check:** read every chunk against its source and set `verified_on` (32 chunks, 0 verified)
+- [ ] Run `make smoke` and set `search.min_score` from the in-scope / out-of-scope score ranges
 
-**Done when:** about 60–120 chunks, 100% with a source, the index builds, and smoke queries return the right chunks.
+**Result:** 32 chunks (deposit 10, consumer 10, salary 6, general 6; 18 guides, 9 statute extracts, 5 practice
+notes), ~5,800 words, every legal chunk linked to a registered source. Fewer chunks than the 60–120 first planned:
+each chunk covers one question fully, and more can be added where the Phase 6 test cases show gaps.
 
 ## Phase 2: Conversation engine
 
@@ -109,19 +113,7 @@ a legal problem.* Built phase by phase; each phase ends with a check that it wor
 
 ## Sources
 
-Official sources go in `data/sources/` (gitignored). KB chunks cite them by URL and section.
-
-| Source | Use | Status |
-|---|---|---|
-| Constitution of India (Legislative Dept., as on 10 Sep 2026) | Art. 39A (free legal aid) and a few cross-cutting rights; **not indexed in bulk** | ✅ have |
-| Consumer Protection Act, 2019 | Consumer rights, complaints, Commissions | ⬜ |
-| CP (Jurisdiction of District, State and National Commissions) Rules, 2021 | Money limits per forum | ⬜ |
-| CP (E-Commerce) Rules, 2020 | Online purchase refunds, seller duties | ⬜ |
-| e-Jagriti / National Consumer Helpline (1915) guides | Filing steps, fees, helpline | ⬜ |
-| Code on Wages, 2019 (+ Industrial Relations Code for dues/disputes) | Wage payment deadlines, claims authority | ⬜ verify commencement and state rules |
-| Model Tenancy Act, 2021 + rent law of 1–2 target states | Deposit caps, refund on vacating, Rent Authority | ⬜ pick states |
-| Indian Contract Act, 1872 | Breach of agreement, compensation (deposit refund as a contract claim) | ⬜ |
-| Limitation Act, 1963 | Time limits for civil money claims | ⬜ |
-| Code of Civil Procedure, 1908 (Order XXXVII) | Summary suits for money recovery | ⬜ optional |
-| Legal Services Authorities Act, 1987 (s. 12) + NALSA/DLSA pages | Who gets free legal aid, how to apply; Lok Adalat | ⬜ |
-| BNS / BNSS / BSA, 2023 (titles only) | Repealed-law trap list, so the bot never cites IPC/CrPC as current | ⬜ |
+Tracked in [SOURCES.md](SOURCES.md): every official text, where it came from, when, and its checksum. Scope is
+central law plus Karnataka: Consumer Protection Act 2019 and its rules, Code on Wages 2019, Karnataka Rent Act 1999
+(+ 2025 amendment), Indian Contract Act 1872, Limitation Act 1963, Legal Services Authorities Act 1987, and the
+Constitution (Art. 39A only, not indexed in bulk).
