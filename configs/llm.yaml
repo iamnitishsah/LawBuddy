@@ -1,0 +1,22 @@
+default_backend: groq                      # groq | gemini | nvidia; LLM_BACKEND or --backend overrides
+
+backends:
+  nvidia:
+    # OpenAI-compatible NVIDIA API
+    base_url: https://integrate.api.nvidia.com/v1
+    api_key_env: NVIDIA_API_KEY
+    model: nvidia/nemotron-3-super-120b-a12b   # confirm with: python -m lawbuddy.llm.base nvidia
+  groq:
+    # OpenAI-compatible Groq API
+    base_url: https://api.groq.com/openai/v1
+    api_key_env: GROQ_API_KEY
+    model: openai/gpt-oss-120b             # confirm with: python -m lawbuddy.llm.base groq
+  gemini:
+    # OpenAI-compatible Gemini API
+    base_url: https://generativelanguage.googleapis.com/v1beta/openai/
+    api_key_env: GEMINI_API_KEY
+    model: gemini-3.8-flash               # confirm with: python -m lawbuddy.llm.base gemini
+
+generation:
+  temperature: 0.0                         # deterministic: same question, same answer
+  max_tokens: 2000

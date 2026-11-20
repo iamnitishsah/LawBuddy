@@ -1,0 +1,18 @@
+embedding:
+  url: https://integrate.api.nvidia.com/v1/embeddings
+  model: nvidia/nemotron-3.5-embed-8b
+  api_key_env: NVIDIA_API_KEY
+  dimensions: 1024
+  batch_size: 32
+  doc_input_type: passage
+  query_input_type: query
+
+rerank:
+  url: https://ai.api.nvidia.com/v1/retrieval/nvidia/nemotron-3.5-rerank-8b/reranking
+  model: nvidia/nemotron-3.5-rerank-8b
+  api_key_env: NVIDIA_API_KEY
+  candidates: 20                     # top chunks from dense search that the reranker re-sorts
+
+search:
+  top_k: 5                           # passages given to the LLM
+  min_score: null                    # refusal threshold; calibrated on the KB in Phase 1
