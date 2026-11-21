@@ -53,7 +53,7 @@ AI help); no Kannada; scores from one run of each mode.
 ## Conversation, first end-to-end run (Phase 2, 2026-11-21)
 
 Setup: `make chat-smoke`, 5 scripted conversations (11 user turns), Groq `openai/gpt-oss-120b`, rerank retrieval.
-Raw transcripts: `outputs/chat_smoke/run1/`.
+Raw transcripts: `outputs/chat_smoke/run1/` (reconstructed from the turn log; see `outputs/README.md`).
 
 **What worked**
 - **Traps.** "2-month deposit cap in Karnataka": "there is no legal limit ... a two-month deposit cap is not found
@@ -85,7 +85,7 @@ Raw transcripts: `outputs/chat_smoke/run1/`.
 
 ## Conversation, second run after the fixes (Phase 2, 2026-11-21)
 
-Same 5 scripts. Raw transcripts: `outputs/chat_smoke/run2/`.
+Same 5 scripts. Raw transcripts: `outputs/chat_smoke/run2/` (reconstructed from the turn log).
 
 | Check | Run 1 | Run 2 |
 |---|---|---|

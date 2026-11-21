@@ -66,7 +66,7 @@ each chunk covers one question fully, and more can be added where the Phase 6 te
 - [x] Guard (`guard/legal_refs.py`): every law, section, article and rule is traced to the registry or the passages shown; case law, unknown laws, wrong years, repealed laws used as current, unlisted or unanchored sections and invalid citations are caught; regenerate once with the problems named, then remove the offending sentences and add a note
 - [x] CLI `python -m lawbuddy.chat` (interactive or `--script`, `--debug` trace); every turn logged to `data/logs/chat.jsonl`
 - [x] Offline tests: 106, with a scripted fake model (every branch of a turn, guard regeneration and removal, API failure)
-- [x] `make chat-smoke`, two runs reviewed ([findings.md](findings.md)): run 1 exposed 5 failures (empty reply, an invented user fact, wrong script for Hinglish, a guard false alarm, 27-60 s turns); all fixed with regression tests; run 2 clean on traps, scope and safety; raw transcripts in `outputs/chat_smoke/run1/` and `run2/`
+- [x] `make chat-smoke`, two runs reviewed ([findings.md](findings.md)): run 1 exposed 5 failures (empty reply, an invented user fact, wrong script for Hinglish, a guard false alarm, 27-60 s turns); all fixed with regression tests; run 2 clean on traps, scope and safety; raw transcripts in `outputs/chat_smoke/run1/` and `run2/` (reconstructed from the turn log after the originals were deleted)
 
 **Done when:** the Hinglish deposit script ends in grounded advice, and the 420 / judgment / deposit-cap traps produce no untraceable law.
 
@@ -86,7 +86,7 @@ each chunk covers one question fully, and more can be added where the Phase 6 te
 
 Skipped to keep within the time budget; the prototype link (Phase 5) is a required deliverable and practice mode is not.
 
-## Phase 5: API and frontend
+## Phase 5: API and frontend ✅
 
 - [x] FastAPI service with Pydantic models (`api/main.py`, `api/schemas.py`): health, backends, sessions, messages, voice, draft button, draft download, transcription
 - [x] Model swapping per session or per message (`backend`, `model`); backend `custom` for any https OpenAI-compatible endpoint, off unless `ALLOW_CUSTOM_LLM_BASE_URL=1`
@@ -95,8 +95,9 @@ Skipped to keep within the time budget; the prototype link (Phase 5) is a requir
 - [x] In-memory sessions with idle expiry and a cap; one turn at a time per conversation; per-thread retrieval mode so concurrent turns cannot mix score scales; rate limit and optional server key kept
 - [x] 177 offline tests (API with fake model, retriever and transcriber); `make api-smoke` for the live check
 - [x] `make api-smoke` runs 1-2 reviewed ([findings.md](findings.md)): all endpoints, model swap and 401 on a bad key work; Kannada voice was heard as Tamil (fixed: re-transcribe as Kannada); Gemini 101 s (low reasoning effort)
-- [ ] UI: chat with mic and language indicator · case panel · sources panel · draft viewer with download · escalation card · disclaimer · model picker with own-key field
-- [ ] Pages: Overview, How it works, Evaluation (Phase 6 results)
+- [x] UI (React + Vite + Tailwind): chat with mic (MediaRecorder; webm/mp4/ogg) and a voice-language picker (Auto/EN/HI/KN) · reply cards by kind (emergency, referral, not found, error, draft) · clickable [n] citations · "Why this answer?" (steps, search, guard, timings) · side panel: case file, sources with official links, notice viewer with blanks highlighted, download and copy · Settings: model picker from /backends, model name, own API key (memory only), server access key · safe Markdown renderer (React elements only)
+- [x] UI checked in a browser by the user
+- [x] Pages: Overview, How it works, Evaluation (from findings.md; Phase 6 adds the full test-case results)
 
 ## Phase 6: Test cases, evaluation, raw outputs
 

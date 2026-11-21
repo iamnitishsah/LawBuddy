@@ -1,7 +1,8 @@
 import React from 'react';
 import type { HealthResponse } from '../../types/api';
+import { useSettings } from '../../services/settings';
 
-export type NavTab = 'overview';
+export type NavTab = 'overview' | 'chat' | 'how' | 'evaluation';
 
 interface HeaderProps {
   activeTab: NavTab;
@@ -15,6 +16,9 @@ interface HeaderProps {
 
 const NAV_ITEMS: { id: NavTab; label: string }[] = [
   { id: 'overview', label: 'Overview' },
+  { id: 'chat', label: 'Talk to LawBuddy' },
+  { id: 'how', label: 'How it works' },
+  { id: 'evaluation', label: 'Evaluation' },
 ];
 
 export const Header: React.FC<HeaderProps> = ({
@@ -26,7 +30,9 @@ export const Header: React.FC<HeaderProps> = ({
   onOpenSettings,
   onRefreshHealth,
 }) => {
+  const { llm, llmKey } = useSettings();
   const isHealthy = health?.status === 'ok';
+  const modelLabel = llm.backend ? `${llm.backend}${llm.model ? ` · ${llm.model}` : ''}` : health?.backend || 'model';
   const status = isHealthy ? 'Online' : healthLoading ? 'Connecting' : 'Offline';
   const dot = isHealthy ? 'bg-accent' : healthLoading ? 'bg-faint animate-pulse' : 'bg-danger';
 
@@ -49,7 +55,7 @@ export const Header: React.FC<HeaderProps> = ({
 
   return (
     <header className="sticky top-0 z-40 bg-bg/85 backdrop-blur-md border-b border-rule">
-      <div className="max-w-[1680px] mx-auto px-6 sm:px-10 lg:px-16">
+      <div className="max-w-[1680px] mx-auto px-4 sm:px-10 lg:px-16">
         <div className="flex items-center justify-between h-16 gap-6">
           <button onClick={() => onTabChange('overview')} className="flex items-center gap-2.5 shrink-0">
             <img src="/favicon.svg" alt="" className="w-6 h-6" />
@@ -74,7 +80,7 @@ export const Header: React.FC<HeaderProps> = ({
               onClick={onOpenSettings}
               className="px-3 py-1.5 rounded-md border border-rule-strong text-ink-2 hover:text-ink hover:bg-surface transition-colors"
             >
-              API key
+              <span className="hidden sm:inline">{modelLabel}{llmKey ? ' · own key' : ''} · </span>Settings
             </button>
           </div>
         </div>

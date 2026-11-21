@@ -1,89 +1,101 @@
 # LawBuddy
 
-**An AI lawyer that an ordinary person in India can talk to about a legal problem.**
+**An AI lawyer that an ordinary person in India can talk to about an everyday legal problem.**
 
-Most people never get legal help for everyday problems: a deposit the landlord won't return, a refund that
-never came, salary that stopped. LawBuddy takes the problem by text or voice, in the person's language, turns
-it into a case (what happened, when, what proof exists), explains where they stand in plain language, and
-prepares what they need to act, such as a legal notice.
+Most people never get legal help for a deposit the landlord won't return, a refund that never came, or salary that
+stopped: a lawyer feels too expensive and the process too confusing, so they give up. LawBuddy takes the problem by
+text or voice, in English, Hindi, Hinglish or Kannada, turns it into a case (what happened, when, what proof exists),
+explains where the person stands in plain language, and drafts the legal notice they can send.
 
-**Design principle: the model never supplies law from memory.** Every legal statement must cite a passage from a
-small, hand-verified knowledge base, and code checks every Act and section the answer names. When the knowledge
-base does not cover a question, or the matter needs a real lawyer, LawBuddy says so.
+**The one rule: the model never supplies law from memory.** Every legal statement comes from a small knowledge base
+written from the official texts and checked by a person; the model must cite it; and code (not another model) checks
+every Act, section, rule and article named in an answer. When the knowledge base does not cover a question, or the
+matter needs a real lawyer, LawBuddy says so.
 
-> Status: **Phase 5** (HTTP API with voice, model swapping and user API keys; conversation engine with grounded
-> advice and a legal-reference guard; legal-notice drafts; terminal chat). Web UI next. See [docs/ROADMAP.md](docs/ROADMAP.md) for the plan and [docs/SOURCES.md](docs/SOURCES.md) for
-> the legal sources.
+> Built for the Kuku AI Generalist Assignment, Problem 2. Scope: **Karnataka**, central and Karnataka law;
+> security deposits, consumer refunds, unpaid salary. Legal information, not legal advice.
 
 ---
 
-## Running locally
+## What it does
+
+| | |
+|---|---|
+| **Understands the problem** | Messy stories, Hinglish, Hindi, Kannada; by text or voice (Whisper). Classifies it (deposit / refund / salary / out of scope / emergency) and asks only for missing key facts |
+| **Builds the case** | Facts, timeline, proof held and missing, parties: shown live in the UI's case panel |
+| **Explains where you stand** | Plain-language answer from verified articles, every legal point cited `[n]` with a link to the official source |
+| **Drafts the legal notice** | Layout, legal basis, demand and deadline written by code; facts written by the model from what you said and checked for invented numbers; blanks you must fill are highlighted |
+| **Knows its limits** | Emergencies get helplines first (112, women 181, child 1098, Tele-MANAS 14416, NALSA 15100), from a rule with no model call; out-of-scope questions get a referral to the District Legal Services Authority; questions the knowledge base cannot answer get "I don't know", not a guess |
+| **Lets you choose the model** | Any OpenAI-compatible provider (Groq, Gemini, NVIDIA, or a custom endpoint), per conversation or per message, with your own API key if you want |
+
+## How it stops invented law
+
+1. **A small, verified knowledge base.** 32 articles written from the bare acts (Consumer Protection Act 2019 and
+   its rules, Code on Wages 2019, Karnataka Rent Act 1999 and its 2025 amendment, Indian Contract Act, Limitation
+   Act, Legal Services Authorities Act, Constitution Art. 39A), each checked against its source and dated.
+2. **A registry of allowed law** (`kb/registry.yaml`): the only laws and sections that may be named, with Hindi names,
+   and repealed laws with what replaced them.
+3. **A guard on every answer:** patterns find every law, section, rule, article and court-case citation; anything
+   not traceable is rewritten once, then removed. Court cases are never allowed.
+
+The guard's tests catch "Section 420 IPC", an invented "Model Tenancy Act" deposit cap, "Sharma v. State" and
+"Limitation Act, 1908". In the live runs, the "2-month deposit cap in Karnataka" circulating online was answered
+correctly (no such limit exists), and no untraceable law reached a user.
+
+## Results (details in [docs/findings.md](docs/findings.md))
+
+| | |
+|---|---|
+| Right article in the top 3 for questions reworded the way people type them | **20/20** (rerank), incl. 3/3 in Hindi; keyword search alone 8/20 |
+| Untraceable law shown to a user, across all smoke runs | **0** |
+| Typical answer time | ~5 s on Groq (Gemini: 73-101 s) |
+| Automated tests (offline) | **182** |
+
+Failures found and fixed along the way (an empty answer, a fact the user never gave, Kannada heard as Tamil, notice
+facts embellished, guard false alarms) are documented with their fixes; some limits remain (the guard checks
+references to law, not every claim).
+
+## Quick start
 
 ```bash
 python -m venv .venv && source .venv/bin/activate
-make install                 # pip install -e ".[dev]"
-cp .env.example .env         # add at least the key for LLM_BACKEND
-make test                    # unit tests, no network
-make kb                      # validate the knowledge base (no network)
-make kb-build                # re-embed changed KB chunks into kb/index/ (only after editing kb/)
-make smoke                   # retrieval smoke test (keyword, dense, rerank)
-make chat                    # talk to LawBuddy in the terminal (shows each turn's decisions)
-make chat-smoke              # replay the scripted conversations in eval/chat_smoke/
-make api                     # http://localhost:8000/health
-make frontend                # http://localhost:5173 (first time: cd frontend && npm install)
+make install
+cp .env.example .env          # GROQ_API_KEY (LLM + voice), NVIDIA_API_KEY (search); GEMINI_API_KEY optional
+make test                     # 182 tests, no network
+make api                      # API on http://localhost:8000 (docs at /docs)
+cd frontend && npm install && cp .env.example .env && npm run dev    # UI on http://localhost:5173
 ```
 
-## API
+Without the UI: `make chat` (terminal chat with the decision trace). On new input, for example in a review:
 
-`make api` starts the FastAPI service; interactive docs at http://localhost:8000/docs.
+```bash
+python -m lawbuddy.chat --debug                         # type any problem
+python -m lawbuddy.chat --script my-conversation.txt    # one message per line
+python -m lawbuddy.chat --backend gemini                # another model
+```
 
-| Endpoint | What it does |
+## Documentation
+
+| Document | |
 |---|---|
-| `GET /health`, `GET /backends` | status; the models a client can switch between, and which have a server key |
-| `POST /sessions`, `GET` / `DELETE /sessions/{id}` | a conversation: messages, case file, drafts |
-| `POST /sessions/{id}/messages` | one turn: reply, kind, sources, case file, guard result, decision trace, usage |
-| `POST /sessions/{id}/voice` | one turn from an audio file (Whisper), in any language Whisper hears |
-| `POST /sessions/{id}/draft`, `GET /sessions/{id}/drafts/{n}` | draft the legal notice now; download it as Markdown |
-| `POST /transcribe` | audio to text only |
+| [docs/ARCHITECTURE.md](docs/ARCHITECTURE.md) | How a turn works, classification, retrieval, the guard, notices, voice, design decisions, scale and cost |
+| [docs/API.md](docs/API.md) | Endpoints, headers, model swapping and your own key, responses, errors |
+| [docs/KNOWLEDGE_BASE.md](docs/KNOWLEDGE_BASE.md) | The 32 articles, the registry, how to add or verify an article |
+| [docs/SOURCES.md](docs/SOURCES.md) | The official legal texts, where they came from, checksums, open questions |
+| [docs/DEVELOPMENT.md](docs/DEVELOPMENT.md) | Setup, configuration, every command, tests, evaluation workflow, repository layout |
+| [docs/findings.md](docs/findings.md) | What every evaluation run showed, including failures and fixes |
+| [docs/AI_LOG.md](docs/AI_LOG.md) | Where AI tools (including LawBuddy's own model) got it wrong |
+| [docs/ROADMAP.md](docs/ROADMAP.md) | The phased plan and its status |
+| [outputs/README.md](outputs/README.md) | The raw, unedited outputs of every run |
+| [frontend/README.md](frontend/README.md) | The web UI |
 
-**Model swapping:** each request may choose `{"llm": {"backend": "gemini", "model": "..."}}` (form fields for voice).
-**Your own key:** the header `X-LLM-API-Key` replaces the server's key for that provider, for that request only; keys
-are never stored, logged or returned. Backend `custom` (any https OpenAI-compatible endpoint) is off unless
-`ALLOW_CUSTOM_LLM_BASE_URL=1`. Search always uses the server's NVIDIA key.
+## Status
 
-`make api-smoke` (with the server running) calls every endpoint, switches model, tries a bad key and sends the test
-recordings in `eval/audio/` (English, Hindi, Kannada); raw responses go to `outputs/api_smoke/`.
-
-## Switching the model
-
-Every LLM call goes through `lawbuddy.llm.base.get_llm()`. Backends are OpenAI-compatible endpoints listed in
-[`configs/llm.yaml`](configs/llm.yaml); pick one with `LLM_BACKEND=<name>` in `.env`. Adding a provider is a
-config entry, not a code change. List a provider's models with `python -m lawbuddy.llm.base <backend>`.
-
-## Repository structure
-
-```
-configs/            llm.yaml (providers), retrieval.yaml (embedding, rerank, search)
-src/lawbuddy/
-  llm/              one interface for every LLM provider
-  retrieval/        in-memory dense search, reranking, keyword (BM25) fallback
-  guard/            citation checks and the legal-reference guard (every law named must be traceable)
-  kb/               knowledge-base loading, validation and index build
-  conversation/     classification (triage), case file, replies, the turn engine
-  chat.py           terminal chat
-  voice/            speech to text (Whisper through an OpenAI-compatible API)
-  drafting/         legal notices: legal parts written in code, facts by the model, checked
-  api/              FastAPI service
-  evaluation/       test-case runner and scoring (Phase 6)
-kb/                 the curated legal knowledge base: <category>/*.md chunks, registry.yaml, index/
-eval/               retrieval_smoke.yaml; cases/ for the test cases (Phase 6)
-outputs/            raw, unedited outputs of the test cases (Phase 6)
-frontend/           React + Vite web client
-tests/              unit tests (no network)
-docs/               roadmap and notes
-```
+Phases 0-3 and 5 complete: knowledge base, conversation engine, guard, legal notices, API with voice and model
+swapping, web UI. Practice mode (Phase 4) skipped. Next: Phase 6 (test cases and evaluation), Phase 7 (deployment),
+Phase 8 (submission).
 
 ## Disclaimer
 
-LawBuddy gives legal information, not legal advice, and does not replace a lawyer. For free legal aid, contact
-your District Legal Services Authority (DLSA).
+LawBuddy gives legal information, not legal advice, and does not replace a lawyer. For free legal aid, contact your
+District Legal Services Authority (DLSA) or call NALSA on 15100.

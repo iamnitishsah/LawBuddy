@@ -3,6 +3,9 @@ import { Header } from './components/layout/Header';
 import type { NavTab } from './components/layout/Header';
 import { SettingsModal } from './components/layout/SettingsModal';
 import { OverviewPage } from './pages/OverviewPage';
+import { ChatPage } from './pages/ChatPage';
+import { HowItWorksPage } from './pages/HowItWorksPage';
+import { EvaluationPage } from './pages/EvaluationPage';
 import { checkHealth } from './services/api';
 import type { HealthResponse } from './types/api';
 
@@ -57,8 +60,14 @@ export const App: React.FC = () => {
         onRefreshHealth={refreshHealth}
       />
 
-      <main className="flex-1 w-full max-w-[1680px] mx-auto px-6 sm:px-10 lg:px-16 pt-14 pb-24">
-        {activeTab === 'overview' && <OverviewPage />}
+      <main className="flex-1 w-full max-w-[1680px] mx-auto px-4 sm:px-10 lg:px-16 pt-8 sm:pt-10 pb-16">
+        {activeTab === 'overview' && <OverviewPage onStart={() => goTo('chat')} />}
+        {/* The chat stays mounted while hidden, so switching tabs does not lose the conversation. */}
+        <div hidden={activeTab !== 'chat'}>
+          <ChatPage />
+        </div>
+        {activeTab === 'how' && <HowItWorksPage />}
+        {activeTab === 'evaluation' && <EvaluationPage />}
       </main>
 
       <SettingsModal
@@ -68,7 +77,7 @@ export const App: React.FC = () => {
       />
 
       <footer className="border-t border-rule">
-        <div className="max-w-[1680px] mx-auto px-6 sm:px-10 lg:px-16 py-6 flex flex-col sm:flex-row gap-2 sm:items-center justify-between text-xs text-muted">
+        <div className="max-w-[1680px] mx-auto px-4 sm:px-10 lg:px-16 py-6 flex flex-col sm:flex-row gap-2 sm:items-center justify-between text-xs text-muted">
           <span>
             <span className="font-medium text-ink-2">LawBuddy</span> — legal help for everyday problems in India
           </span>
