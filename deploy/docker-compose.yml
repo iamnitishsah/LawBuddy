@@ -1,0 +1,18 @@
+# Production stack on the EC2 instance, in /opt/lawbuddy (copied there by the CI/CD workflow).
+# The API image is built by GitHub Actions; API_IMAGE is set in /opt/lawbuddy/.env by deploy.sh.
+# App secrets (API keys) are in /opt/lawbuddy/lawbuddy.env, which never leaves the server.
+
+services:
+  api:
+    image: ${API_IMAGE:?set API_IMAGE in /opt/lawbuddy/.env}
+    container_name: lawbuddy-api
+    restart: unless-stopped
+    env_file: lawbuddy.env
+    ports:
+      - "8000:8000"
+    volumes:
+      - ./logs:/app/data/logs
+    mem_limit: 700m                       # a t3.micro has 1 GB
+    logging:
+      driver: json-file
+      options: {max-size: "10m", max-file: "3"}

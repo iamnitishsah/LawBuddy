@@ -112,9 +112,13 @@ Skipped to keep within the time budget; the prototype link (Phase 5) is a requir
 
 ## Phase 7: Deployment
 
-- [ ] Backend on Hugging Face Spaces (Docker) or Render free tier; the KB index ships with the image
-- [ ] Frontend on Vercel; API URL from an environment variable; secrets only in platform settings
-- [ ] Cost model: tokens per conversation × provider price → cost at 10k and 1M conversations
+- [x] Frontend on Vercel; `/api/*` rewritten to the API, so the browser talks only to the Vercel origin
+- [x] API on AWS EC2 (t3.micro) with Docker Compose; image built by GitHub Actions and pulled from GHCR
+- [x] CI/CD (`.github/workflows/ci-cd.yml`): tests and frontend build on every push and PR; on `main`: image to GHCR, SSH deploy, health check with automatic rollback, public health check
+- [x] Secrets stay on the server (`/opt/lawbuddy/lawbuddy.env`); GitHub holds only the deploy SSH key
+- [x] Real client IP through `X-Forwarded-For` (uvicorn `--proxy-headers`), so the rate limit is per user
+- [x] Cost and scale: [ARCHITECTURE.md](ARCHITECTURE.md#10-scale-and-cost); runbook: [DEPLOYMENT.md](DEPLOYMENT.md)
+- [ ] One-time setup (Elastic IP, security group, `setup-ec2.sh`, GitHub secrets, Vercel `VITE_API_BASE_URL=/api`) and the first deploy
 
 ## Phase 8: Submission
 

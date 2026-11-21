@@ -57,7 +57,7 @@ Adding an OpenAI-compatible provider is a new entry under `backends:` in `llm.ya
 | `make api` | at request time | the API on :8000 (`/docs`) |
 | `make api-smoke` | all | every endpoint against a running API; responses to `outputs/api_smoke/` |
 | `make frontend` | no | the web UI on :5173 |
-| `make docker-build`, `make docker-run` | | the API as a container (copies `src/`, `configs/`, `kb/`) |
+| `make docker-build`, `make docker-run` | | the API as a container (copies `src/`, `configs/`, `kb/`); production: [DEPLOYMENT.md](DEPLOYMENT.md) |
 | `python -m lawbuddy.llm.base <backend>` | LLM | list a provider's models |
 | `python -m lawbuddy.voice.transcribe file.wav [--language kn]` | Whisper | transcribe one file |
 | `python -m lawbuddy.kb.extract` / `.verify` / `.loader` | no | PDF text extraction / mark verified / validate |
@@ -110,6 +110,8 @@ eval/                 retrieval smoke sets, chat smoke scripts, test recordings 
 outputs/              raw outputs of every evaluation run
 frontend/             React + Vite + Tailwind web UI
 tests/                unit tests (no network)
-docs/                 architecture, API, knowledge base, development, sources, findings, AI log, roadmap
+docs/                 architecture, API, knowledge base, development, deployment, sources, findings, AI log, roadmap
+deploy/               EC2 stack: docker-compose.yml, deploy.sh, setup-ec2.sh
+.github/workflows/    CI/CD
 data/                 source PDFs, extracted text, logs, drafts (gitignored)
 ```

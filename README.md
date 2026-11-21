@@ -85,6 +85,7 @@ python -m lawbuddy.chat --backend gemini                # another model
 | [docs/KNOWLEDGE_BASE.md](docs/KNOWLEDGE_BASE.md) | The 32 articles, the registry, how to add or verify an article |
 | [docs/SOURCES.md](docs/SOURCES.md) | The official legal texts, where they came from, checksums, open questions |
 | [docs/DEVELOPMENT.md](docs/DEVELOPMENT.md) | Setup, configuration, every command, tests, evaluation workflow, repository layout |
+| [docs/DEPLOYMENT.md](docs/DEPLOYMENT.md) | AWS EC2 + Vercel, CI/CD with GitHub Actions, operating it |
 | [docs/findings.md](docs/findings.md) | What every evaluation run showed, including failures and fixes |
 | [docs/AI_LOG.md](docs/AI_LOG.md) | Where AI tools (including LawBuddy's own model) got it wrong |
 | [docs/ROADMAP.md](docs/ROADMAP.md) | The phased plan and its status |

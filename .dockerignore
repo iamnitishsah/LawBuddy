@@ -24,3 +24,7 @@ frontend
 *.pem
 Makefile
 Dockerfile
+deploy
+.github
+.claude
+notebooks
