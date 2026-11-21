@@ -15,6 +15,12 @@ matter needs a real lawyer, LawBuddy says so.
 > Built for the Kuku AI Generalist Assignment, Problem 2. Scope: **Karnataka**, central and Karnataka law;
 > security deposits, consumer refunds, unpaid salary. Legal information, not legal advice.
 
+| | |
+|---|---|
+| **Live app** | https://iamlawbuddy.vercel.app/ |
+| **API** | http://54.253.206.245:8000 (interactive docs: http://54.253.206.245:8000/docs, health: `/health`) |
+| **Raw outputs** | [`outputs/`](outputs/README.md): every evaluation run, unedited |
+
 ```mermaid
 flowchart LR
     U(["Person with a problem<br/>text or voice"]) --> UI["Web UI (Vercel)"]
