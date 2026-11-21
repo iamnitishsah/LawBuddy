@@ -1,0 +1,41 @@
+LawBuddy [groq / openai/gpt-oss-120b]  -  legal information for Karnataka: deposits, refunds, unpaid salary. Type 'quit' to stop.
+
+You: Amazon delivered a phone with a cracked screen on 2 November and keeps rejecting my return request. I paid Rs. 32,000. I live in Mysuru. What can I do?
+
+LawBuddy [advice]:
+**Where you stand**  
+- 
+- The platform must have a grievance officer who must acknowledge your complaint within 48 hours and resolve it within one month [1][2]. 
+- Any accepted refund must be paid within a “reasonable period” as prescribed by the RBI or other law [1][2]. 
+- Under the Consumer Protection Act, 2019 you are entitled to a replacement, a refund with interest, or compensation for the defective goods [3].
+
+**What you can do**  
+1. **Write to the platform’s grievance officer** (use the contact shown on Amazon’s site), stating the order ID, payment proof, delivery proof and photos of the cracked screen, and ask for a refund or replacement. 
+2. If the officer does not respond within 48 hours or does not resolve the issue within one month, **call the National Consumer Helpline (1915)** or register a grievance on its website [4]. 
+3. If still unresolved, **file a complaint with the District Consumer Commission** (Mysuru) online via e‑Jagriti. The Commission will admit the complaint within 21 days and may order replacement, refund with interest, compensation and costs [5][3].
+
+**Next step**  
+Send a written complaint today to Amazon’s grievance officer, attaching the invoice, delivery proof and photos, and note the date you send it. If you receive no acknowledgment within 48 hours or no resolution within one month, call 1915 or file the District Commission complaint (you have up to 21 days for admission and 45 days to appeal any order) [1][2][4][5].
+
+(Some statements were removed because LawBuddy could not trace them to its legal sources. Please confirm the exact law with a lawyer or your District Legal Services Authority.)
+
+*LawBuddy gives legal information, not legal advice.*
+
+Sources:
+  [1] Online orders: what sellers and platforms must do about returns and refunds  (https://prsindia.org/files/bills_acts/bills_parliament/2021/Consumer%20Protection%20(E-Commerce)%20Rules,%202020.pdf)
+  [2] Consumer Protection (E-Commerce) Rules, 2020, rules 4(5), 4(10) and 6(3) (text)  (https://prsindia.org/files/bills_acts/bills_parliament/2021/Consumer%20Protection%20(E-Commerce)%20Rules,%202020.pdf)
+  [3] Refund, replacement or compensation for a bad product or service  (https://prsindia.org/files/bills_acts/bills_parliament/2021/Consumer%20Protection%20Act%202019.pdf)
+  [4] National Consumer Helpline (1915): free help before going to a Commission
+  [5] What happens after you file a consumer complaint  (https://prsindia.org/files/bills_acts/bills_parliament/2021/Consumer%20Protection%20Act%202019.pdf)
+
+-- trace
+   analysis: category=consumer intent=question language=English emergency=False query='defective phone delivered online return request rejected by Amazon consumer rights India'
+   case category: None -> consumer
+   retrieval: primary top=0.0675 floor=0.035 ids=['consumer-ecommerce-refunds', 'statute-cp-ecommerce-rules', 'consumer-overview', 'consumer-helpline', 'consumer-after-filing']
+   guard: unknown_law: Commerce) Rules (not in the registry or the passages) -> regenerating once
+   guard: still unknown_law: Commerce) Rules, 2020 (not in the registry or the passages) -> removing those sentences
+   guard first: ['unknown_law: Commerce) Rules']
+   guard final: []
+   3 LLM calls | 5228 in / 2430 out tokens | 60.65s
+
+(session 0fbae2a8e56f saved to data/logs/chat.jsonl)

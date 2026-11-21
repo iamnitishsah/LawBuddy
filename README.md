@@ -11,8 +11,9 @@ prepares what they need to act, such as a legal notice.
 small, hand-verified knowledge base, and code checks every Act and section the answer names. When the knowledge
 base does not cover a question, or the matter needs a real lawyer, LawBuddy says so.
 
-> Status: **Phase 1** (legal knowledge base for Karnataka: deposits, consumer refunds, unpaid salary). See
-> [docs/ROADMAP.md](docs/ROADMAP.md) for the plan and [docs/SOURCES.md](docs/SOURCES.md) for the legal sources.
+> Status: **Phase 2** (conversation engine: classification, case intake, grounded advice, legal-reference guard;
+> terminal chat). See [docs/ROADMAP.md](docs/ROADMAP.md) for the plan and [docs/SOURCES.md](docs/SOURCES.md) for
+> the legal sources.
 
 ---
 
@@ -26,6 +27,8 @@ make test                    # unit tests, no network
 make kb                      # validate the knowledge base (no network)
 make kb-build                # re-embed changed KB chunks into kb/index/ (only after editing kb/)
 make smoke                   # retrieval smoke test (keyword, dense, rerank)
+make chat                    # talk to LawBuddy in the terminal (shows each turn's decisions)
+make chat-smoke              # replay the scripted conversations in eval/chat_smoke/
 make api                     # http://localhost:8000/health
 make frontend                # http://localhost:5173 (first time: cd frontend && npm install)
 ```
@@ -43,9 +46,10 @@ configs/            llm.yaml (providers), retrieval.yaml (embedding, rerank, sea
 src/lawbuddy/
   llm/              one interface for every LLM provider
   retrieval/        in-memory dense search, reranking, keyword (BM25) fallback
-  guard/            citation checks (legal-reference checks in Phase 2)
+  guard/            citation checks and the legal-reference guard (every law named must be traceable)
   kb/               knowledge-base loading, validation and index build
-  conversation/     triage, case intake, grounded advice (Phase 2)
+  conversation/     classification (triage), case file, replies, the turn engine
+  chat.py           terminal chat
   drafting/         legal notices and complaints (Phase 3)
   api/              FastAPI service
   evaluation/       test-case runner and scoring (Phase 6)

@@ -108,6 +108,36 @@ documents:
     file: IndianConstitution.pdf
     url: https://legislative.gov.in
 
+  # Named only to say what replaced the old criminal laws; criminal law is out of scope, so no sections are listed
+  # and any section of these is flagged by the guard.
+  bns-2023:
+    title: Bharatiya Nyaya Sanhita, 2023
+    number: Act No. 45 of 2023
+    jurisdiction: central
+    status: in_force
+    aliases: ["Bharatiya Nyaya Sanhita", "BNS"]
+    sections: []
+    file: null
+    url: https://www.indiacode.nic.in
+  bnss-2023:
+    title: Bharatiya Nagarik Suraksha Sanhita, 2023
+    number: Act No. 46 of 2023
+    jurisdiction: central
+    status: in_force
+    aliases: ["Bharatiya Nagarik Suraksha Sanhita", "BNSS"]
+    sections: []
+    file: null
+    url: https://www.indiacode.nic.in
+  bsa-2023:
+    title: Bharatiya Sakshya Adhiniyam, 2023
+    number: Act No. 47 of 2023
+    jurisdiction: central
+    status: in_force
+    aliases: ["Bharatiya Sakshya Adhiniyam", "BSA"]
+    sections: []
+    file: null
+    url: https://www.indiacode.nic.in
+
 repealed:
   - title: Consumer Protection Act, 1986
     aliases: ["Consumer Protection Act 1986", "CPA 1986"]

@@ -1,0 +1,19 @@
+retriever: rerank                  # rerank | dense; both fall back to keyword search if the API fails
+top_k: 5                           # passages given to the model for advice
+max_followup_turns: 2              # turns spent asking for missing facts before advising with what is known
+max_questions_per_turn: 3
+history_messages: 12               # conversation messages shown to the model
+analyze_max_tokens: 1500
+respond_max_tokens: 1200
+temperature: 0.0
+
+# Fixed numbers used in emergency and referral replies (written in code, not by the model).
+# Checked on the official sites: 1915 (consumerhelpline.gov.in), 15100 (nalsa.gov.in), on 2026-11-21.
+# Not yet checked against an official source (general knowledge): 112, 181, 1098, 14416. Verify before release.
+helplines:
+  emergency: "112"                 # national emergency number (police, fire, ambulance)
+  women: "181"                     # women helpline
+  child: "1098"                    # child helpline
+  mental_health: "14416"           # Tele-MANAS, national mental health helpline
+  legal_aid: "15100"               # NALSA legal aid helpline (verified)
+  consumer: "1915"                 # National Consumer Helpline (verified)

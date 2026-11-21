@@ -49,6 +49,7 @@ encodes its text as glyph codes (`/G75/G65...`), which are decimal character cod
 - **Free legal aid income limit in Karnataka**: s. 12(h) of the LSA Act lets the State set it; the current Karnataka
   figure is not in our sources, so the KB tells users to ask the DLSA.
 - **Helplines** checked on the official sites on 2026-11-21: National Consumer Helpline 1915 / 1800-11-4000 /
-  WhatsApp 8800001915 (consumerhelpline.gov.in); NALSA 15100 (nalsa.gov.in). Emergency number 112 is from general
-  knowledge; verify.
+  WhatsApp 8800001915 (consumerhelpline.gov.in); NALSA 15100 (nalsa.gov.in). The emergency reply also uses 112
+  (emergency), 181 (women), 1098 (child) and 14416 (Tele-MANAS) from general knowledge: verify them on official
+  sites before release (configs/conversation.yaml).
 - **Code on Wages in Karnataka**: the Code has been in force since 21 Nov 2025. Karnataka's state rules were still in draft (notification of 23 Jan 2026) per secondary sources. The KB should rely on the Code itself and say that state rules may add procedure.

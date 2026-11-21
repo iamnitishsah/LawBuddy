@@ -1,0 +1,50 @@
+LawBuddy [groq / openai/gpt-oss-120b]  -  legal information for Karnataka: deposits, refunds, unpaid salary. Type 'quit' to stop.
+
+You: कंपनी ने तीन महीने से तनख्वाह नहीं दी, मैंने अगस्त में इस्तीफा दे दिया था
+
+LawBuddy [follow_up]:
+मैं समझता हूँ कि आपकी कंपनी ने तीन महीने से वेतन नहीं दिया और आपने अगस्त में इस्तीफा दे दिया है।  
+
+1. आपके नियोक्ता का नाम क्या है?  
+2. आपका मासिक वेतन कितना है?  
+3. आप किस शहर में काम करते हैं?
+
+-- trace
+   analysis: category=salary intent=story language=Hindi emergency=False query='employer not paying salary for three months after employee resignation in India'
+   case category: None -> salary
+   follow-up 1/2: missing ['employer']
+   2 LLM calls | 1277 in / 1261 out tokens | 3.53s
+
+You: कंपनी का नाम ब्राइटवेव सॉल्यूशंस है, बेंगलुरु में। महीने की तनख्वाह 28,000 थी। जून, जुलाई और अगस्त की बाकी है।
+
+LawBuddy [advice]:
+**Where you stand**  
+कोड ऑन वेजेज, 2019 के तहत आपका वेतन ₹28,000 प्रति माह है और यह मासिक वेतन 7वें दिन से पहले दिया जाना चाहिए [1]। आपने अगस्त में इस्तीफा दिया, इसलिए आपका बकाया वेतन जून‑अगस्त के लिए नियोक्ता को आपके इस्तीफे के दो कार्यदिवसों के भीतर देना था [1][2]। यह नियम तोड़ने पर आप कोड के तहत वेतन दावा करने का अधिकार रखते हैं [3][5]।
+
+**What you can do**  
+1. सबसे पहले HR को ई‑मेल या पत्र में लिखित मांग भेजें, जिसमें बकाया महीनों (जून, जुलाई, अगस्त) और कुल राशि बताएं, और भुगतान की अंतिम तिथि दें [3]।  
+2. यदि दो‑तीन हफ्तों में जवाब न मिले तो आप कानूनी नोटिस भेज सकते हैं [3]।  
+3. फिर कोड ऑन वेजेज के तहत वेज क्लेम दायर करें; यह प्रक्रिया अदालत से तेज़ और सस्ती है [3][5]। क्लेम दाखिल करने की समय सीमा तीन वर्ष है [3][5] और आप बकाया के साथ‑साथ दस गुना तक का मुआवजा भी माँग सकते हैं [3][5]।  
+4. यदि आप चाहें तो सिविल सूट भी दायर कर सकते हैं, पर इसकी समय सीमा भी तीन वर्ष है [3] और इसमें वकील की मदद लेनी पड़ेगी [3]।
+
+**Next step**  
+अभी तुरंत HR को लिखित मांग भेजें और साथ में अपने रोजगार‑साक्ष्य (ऑफ़र लेटर, पेस्लिप, बैंक स्टेटमेंट, इस्तीफा‑स्वीकार ई‑मेल आदि) तैयार रखें [4]। यदि दो कार्यदिवस के भीतर भुगतान नहीं मिलता, तो अगले दो‑तीन हफ्तों में कानूनी नोटिस तैयार करवा कर भेजें, और साथ ही वेज क्लेम फ़ॉर्म कर्नाटक लेबर डिपार्टमेंट से प्राप्त करके तीन वर्षों के भीतर दायर करें [5]।  
+
+*ध्यान दें: वर्तमान में आपके पास रोजगार‑साक्ष्य नहीं दिख रहा है; इसे इकट्ठा करना आपके दावे को मजबूत करेगा [4]।*
+
+*LawBuddy कानूनी जानकारी देता है, कानूनी सलाह नहीं।*
+
+Sources:
+  [1] Unpaid salary or final dues: your rights  (https://www.indiacode.nic.in/bitstream/123456789/15793/1/aA2019-29.pdf)
+  [2] Code on Wages, 2019, section 17 (text)  (https://www.indiacode.nic.in/bitstream/123456789/15793/1/aA2019-29.pdf)
+  [3] Steps to recover unpaid salary  (https://www.indiacode.nic.in/bitstream/123456789/15793/1/aA2019-29.pdf, https://www.indiacode.nic.in)
+  [4] Evidence to collect for unpaid salary
+  [5] Filing a wage claim under the Code on Wages  (https://www.indiacode.nic.in/bitstream/123456789/15793/1/aA2019-29.pdf)
+
+-- trace
+   analysis: category=salary intent=story language=Hindi emergency=False query='non-payment of salary after resignation employer India'
+   retrieval: primary top=0.0911 floor=0.035 ids=['salary-overview', 'statute-wages-17', 'salary-steps', 'salary-evidence', 'salary-claim']
+   guard: all legal references traced
+   2 LLM calls | 3379 in / 1673 out tokens | 30.22s
+
+(session cd94753498c7 saved to data/logs/chat.jsonl)

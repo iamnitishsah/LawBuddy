@@ -56,17 +56,19 @@ each chunk covers one question fully, and more can be added where the Phase 6 te
 
 **Goal:** a multi-turn CLI chat that understands the case, asks for what's missing and advises using only the KB.
 
-- [ ] LLM layer: `chat(messages)` with history and a JSON mode; model switching stays a config change
-- [ ] Graph: `message → triage → intake → (follow-up | advise) → guard → localize → reply`; triage can branch to escalate
-- [ ] `triage`: rules in code first (emergency, criminal, out of scope), then an LLM classifier (category, urgency)
-- [ ] `intake`: structured `CaseFile` (parties, timeline of dated events, amounts, state, evidence held vs missing, desired outcome, language); at most 2–3 targeted follow-up questions, only when key facts are missing
-- [ ] Query rewriting: intake turns the user's message (any language, everyday words) into a short English search query in the KB's vocabulary before retrieval. Reason: on the paraphrased smoke set, keyword search fell from 17/17 to 8/16 (English) and 0/4 (Hindi/Hinglish) hit@3
-- [ ] `advise`: retrieval within the category → plain-language answer with `[n]` citations: where they stand, options ranked by cost and effort, deadlines, next step
-- [ ] `guard`: every Act/Section/Article named must be in a cited passage or the registry; case-law patterns ("X v. Y", AIR, SCC) are blocked; invalid citations flagged; on failure regenerate once, then remove the claim and add "verify with a lawyer"
-- [ ] `localize`: reply in the user's language, citations intact
-- [ ] In-memory session store keyed by `session_id`; run log in `data/logs/`
+- [x] LLM layer: `chat(messages)` with history; `chat_json()` parses the reply and retries once if it is not JSON; model switching stays a config change
+- [x] Pipeline (`conversation/engine.py`, plain functions instead of LangGraph: five steps, each testable alone): emergency rule → analysis → follow-up decision → rerank retrieval → advice + guard
+- [x] Classification in three layers: (1) emergency rules in code (English, Hinglish, Hindi; no API); (2) one LLM analysis call returning category, emergency, intent, language and facts as JSON; (3) rerank as the evidence check: in-scope advice only if a chunk clears the score floor, and for unclear messages a whole-KB rerank search suggests the topic to confirm
+- [x] Fixed replies written in code (English and Hindi): emergency helplines, out-of-scope referral (DLSA, NALSA 15100), "not in my sources"
+- [x] `CaseFile` (`conversation/case.py`): facts per category, timeline, evidence held and missing, other party, goal, state; code decides which critical facts are missing; at most 2 follow-up turns, 3 questions each; general questions are answered without follow-ups
+- [x] Query rewriting: the analysis returns an English search query in legal terms
+- [x] Advice: retrieval within {category, general}; answer only from the passages with `[n]` citations; sections "Where you stand / What you can do / Next step"; reply in the user's language (no separate localize call); note when the state is not Karnataka; disclaimer
+- [x] Guard (`guard/legal_refs.py`): every law, section, article and rule is traced to the registry or the passages shown; case law, unknown laws, wrong years, repealed laws used as current, unlisted or unanchored sections and invalid citations are caught; regenerate once with the problems named, then remove the offending sentences and add a note
+- [x] CLI `python -m lawbuddy.chat` (interactive or `--script`, `--debug` trace); every turn logged to `data/logs/chat.jsonl`
+- [x] Offline tests: 106, with a scripted fake model (every branch of a turn, guard regeneration and removal, API failure)
+- [ ] Run `make chat-smoke` (5 scripted conversations, raw transcripts to `outputs/chat_smoke/`) and review them
 
-**Done when:** `python -m lawbuddy.chat` handles a messy Hinglish deposit story end to end, and the guard catches a planted fake section.
+**Done when:** the Hinglish deposit script ends in grounded advice, and the 420 / judgment / deposit-cap traps produce no untraceable law.
 
 ## Phase 3: Documents
 

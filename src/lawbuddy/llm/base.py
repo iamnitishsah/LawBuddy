@@ -1,13 +1,16 @@
 """One interface for every LLM provider.
 
-The rest of the code calls get_llm().complete(system, user) and never knows
+The rest of the code calls get_llm().chat(messages) (or .complete(system, user)) and never knows
 which provider or model is behind it. Backends are defined in configs/llm.yaml;
-LLM_BACKEND (env) or the `backend` argument picks one.
+LLM_BACKEND (env) or the `backend` argument picks one. chat_json() asks for a JSON object and
+retries once if the reply does not parse.
 """
 
 from __future__ import annotations
 
+import json
 import os
+import re
 import time
 from dataclasses import dataclass
 from pathlib import Path
@@ -41,10 +44,15 @@ class OpenAICompatibleLLM:
         self.client = OpenAI(api_key=key, base_url=base_url, max_retries=max_retries, timeout=timeout)
 
     def complete(self, system: str, user: str, temperature: float = 0.0, max_tokens: int = 800) -> LLMResponse:
+        return self.chat([{"role": "system", "content": system}, {"role": "user", "content": user}],
+                         temperature, max_tokens)
+
+    def chat(self, messages: list[dict], temperature: float = 0.0, max_tokens: int = 800) -> LLMResponse:
+        """messages: [{"role": "system" | "user" | "assistant", "content": str}, ...]"""
         t0 = time.monotonic()
         resp = self.client.chat.completions.create(
             model=self.model,
-            messages=[{"role": "system", "content": system}, {"role": "user", "content": user}],
+            messages=messages,
             temperature=temperature,
             max_tokens=max_tokens,
             **({"extra_body": self.extra_body} if self.extra_body else {}),
@@ -61,6 +69,36 @@ class OpenAICompatibleLLM:
 
     def list_models(self) -> list[str]:
         return sorted(m.id for m in self.client.models.list())
+
+
+JSON_BLOCK_RE = re.compile(r"\{.*\}", re.S)
+
+
+def parse_json(text: str) -> dict:
+    """The first JSON object in a model reply, tolerating ```json fences and text around it. Raises ValueError."""
+    m = JSON_BLOCK_RE.search(text or "")
+    if not m:
+        raise ValueError("no JSON object in the reply")
+    try:
+        value = json.loads(m.group(0))
+    except json.JSONDecodeError as exc:
+        raise ValueError(f"invalid JSON in the reply: {exc}") from None
+    if not isinstance(value, dict):
+        raise ValueError("the reply's JSON is not an object")
+    return value
+
+
+def chat_json(llm, messages: list[dict], temperature: float = 0.0, max_tokens: int = 1500) -> tuple[dict, list]:
+    """-> (parsed object, [LLMResponse, ...]). One retry with a reminder if the first reply is not valid JSON."""
+    responses = [llm.chat(messages, temperature, max_tokens)]
+    try:
+        return parse_json(responses[0].text), responses
+    except ValueError as exc:
+        retry = messages + [{"role": "assistant", "content": responses[0].text},
+                            {"role": "user", "content": f"That was not valid JSON ({exc}). "
+                                                        "Reply with only the JSON object."}]
+        responses.append(llm.chat(retry, temperature, max_tokens))
+        return parse_json(responses[1].text), responses
 
 
 def load_config() -> dict:
