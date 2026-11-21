@@ -1,0 +1,147 @@
+{
+ "request": "POST /sessions/6b747d2347204d92a69c15494ffc9005/voice",
+ "status": 200,
+ "body": {
+  "session_id": "6b747d2347204d92a69c15494ffc9005",
+  "kind": "advice",
+  "text": "**Where you stand**  \nकोड ऑन वेजेज, 2019 के अनुसार, जब आप इस्तीफा देते हैं तो आपका बकाया वेतन दो कार्यदिवसों के भीतर देना अनिवार्य है [3][4]। चूँकि आपने अगस्त में इस्तीफा दिया और अब तक तीन महीने का वेतन नहीं मिला है, यह कानून का उल्लंघन है।\n\n**What you can do**  \n1. **लिखित मांग** - सबसे पहले ई-मेल या पत्र के माध्यम से HR/मालिक को बकाया महीनों और राशि का विवरण देकर एक निश्चित भुगतान तिथि के साथ लिखित मांग भेजें [1]।  \n2. **कानूनी नोटिस** - यदि लिखित मांग पर कोई जवाब नहीं मिलता तो आप एक कानूनी नोटिस भेज सकते हैं, जिसमें बकाया, भुगतान की अंतिम तिथि और मुकदमा दायर करने की चेतावनी हो [1]।  \n3. **वेज क्लेम** - लिखित मांग/नोटिस के बाद भी भुगतान न हो तो आप कोड ऑन वेजेज के तहत वेज क्लेम दायर कर सकते हैं। यह दावा तीन साल के भीतर दायर करना होगा (कोड ऑन वेजेज, 2019, s. 45(6)) [1][5] और यह अदालत की तुलना में तेज़ व सस्ता विकल्प है; इसमें बकाया के साथ-साथ अधिकतम दस गुना तक का मुआवजा मिल सकता है [5]।  \n4. **सिविल मुकदमा** - यदि क्लेम भी सफल नहीं होता तो आप सीमित समय (तीन साल) के भीतर सिविल मुकदमा दायर कर सकते हैं [1]।\n\n**Next step**  \nसबसे पहले, HR को ई-मेल के माध्यम से लिखित मांग भेजें, जिसमें:  \n- बकाया महीनों (अगस्त, सितंबर, अक्टूबर) और प्रत्येक महीने की सटीक राशि लिखें,  \n- भुगतान की अंतिम तिथि (उदाहरण के लिए, 7 दिन के भीतर) बताएं,  \n- यदि आपके पास रोजगार-संबंधी दस्तावेज़ (ऑफ़र लेटर, पेस्लिप, बैंक स्टेटमेंट, रिज़ाइनेशन ई-मेल) हैं तो उन्हें संलग्न रखें [2]।  \n\nयदि आपके पास ये दस्तावेज़ हैं, तो उन्हें सुरक्षित रखें; आगे के किसी भी दावे में ये प्रमाण आवश्यक होंगे।  \n\nसमय सीमा: लिखित मांग भेजने के बाद दो कार्यदिवसों के भीतर उत्तर न मिलने पर आप वेज क्लेम दायर कर सकते हैं, और कुल मिलाकर क्लेम को तीन साल के भीतर दायर करना होगा [5][1]।\n\nअगर आप चाहें तो मैं आपके लिए एक कानूनी नोटिस का ड्राफ़्ट बना सकता हूँ - बस लिखिए \"नोटिस बनाओ\"।\n\n*LawBuddy कानूनी जानकारी देता है, कानूनी सलाह नहीं।*",
+  "language": "Hindi",
+  "category": "salary",
+  "sources": [
+   {
+    "n": 1,
+    "cited": true,
+    "chunk_id": "salary-steps",
+    "title": "Steps to recover unpaid salary",
+    "category": "salary",
+    "kind": "guide",
+    "score": 0.0985,
+    "urls": [
+     "https://www.indiacode.nic.in/bitstream/123456789/15793/1/aA2019-29.pdf",
+     "https://www.indiacode.nic.in"
+    ],
+    "verified_on": "2026-11-21"
+   },
+   {
+    "n": 2,
+    "cited": true,
+    "chunk_id": "salary-evidence",
+    "title": "Evidence to collect for unpaid salary",
+    "category": "salary",
+    "kind": "practice",
+    "score": 0.0952,
+    "urls": [],
+    "verified_on": "2026-11-21"
+   },
+   {
+    "n": 3,
+    "cited": true,
+    "chunk_id": "salary-overview",
+    "title": "Unpaid salary or final dues: your rights",
+    "category": "salary",
+    "kind": "guide",
+    "score": 0.0925,
+    "urls": [
+     "https://www.indiacode.nic.in/bitstream/123456789/15793/1/aA2019-29.pdf"
+    ],
+    "verified_on": "2026-11-21"
+   },
+   {
+    "n": 4,
+    "cited": true,
+    "chunk_id": "statute-wages-17",
+    "title": "Code on Wages, 2019, section 17 (text)",
+    "category": "salary",
+    "kind": "statute",
+    "score": 0.0879,
+    "urls": [
+     "https://www.indiacode.nic.in/bitstream/123456789/15793/1/aA2019-29.pdf"
+    ],
+    "verified_on": "2026-11-21"
+   },
+   {
+    "n": 5,
+    "cited": true,
+    "chunk_id": "salary-claim",
+    "title": "Filing a wage claim under the Code on Wages",
+    "category": "salary",
+    "kind": "guide",
+    "score": 0.0709,
+    "urls": [
+     "https://www.indiacode.nic.in/bitstream/123456789/15793/1/aA2019-29.pdf"
+    ],
+    "verified_on": "2026-11-21"
+   }
+  ],
+  "case": {
+   "category": "salary",
+   "facts": {
+    "employer": null,
+    "monthly_salary": null,
+    "unpaid_period": "three months",
+    "employment_status": "left in August",
+    "city": null,
+    "proof_of_employment": null
+   },
+   "missing": [
+    "employer",
+    "monthly_salary",
+    "city",
+    "proof_of_employment"
+   ],
+   "timeline": [
+    {
+     "date": "unknown",
+     "event": "User resigned in August"
+    },
+    {
+     "date": "unknown",
+     "event": "Company has not paid salary for three months"
+    }
+   ],
+   "evidence_have": [],
+   "evidence_missing": [],
+   "other_party": "employer",
+   "user_goal": "receive unpaid salary",
+   "state": null,
+   "summary": "The user resigned from their job in August and reports that the employer has not paid salary for the past three months. They are seeking advice on what steps to take.",
+   "parties": {}
+  },
+  "guard": {
+   "checked": true,
+   "regenerated": false,
+   "removed": false,
+   "first_problems": [],
+   "problems": [],
+   "uncited_sentences": 4
+  },
+  "retrieval": {
+   "query": "unpaid salary after resignation employer not paying wages for three months",
+   "mode": "primary",
+   "top_score": 0.0985,
+   "floor": 0.035,
+   "seconds": 4.59
+  },
+  "draft": null,
+  "transcript": "कम्पनी ने तीन महीने से मेरी तंवाह नहीं दी है, मैंने अगस्त में इस तीफा दे दिया था, मैं क्या करूँ?",
+  "model": "groq / openai/gpt-oss-120b",
+  "steps": [
+   "voice: whisper-large-v3-turbo heard Hindi in 0.99s",
+   "analysis: category=salary intent=question language=Hindi emergency=False query='unpaid salary after resignation employer not paying wages for three months'",
+   "case category: None -> salary",
+   "advising without ['employer'] (question)",
+   "retrieval: primary top=0.0985 floor=0.035 ids=['salary-steps', 'salary-evidence', 'salary-overview', 'statute-wages-17', 'salary-claim']",
+   "guard: all legal references traced",
+   "guard: 4 sentence(s) without a citation (warning only)"
+  ],
+  "error": null,
+  "usage": {
+   "llm_calls": 2,
+   "input_tokens": 3392,
+   "output_tokens": 966,
+   "llm_s": 2.77,
+   "retrieval_s": 4.59
+  },
+  "latency_ms": 8373
+ }
+}

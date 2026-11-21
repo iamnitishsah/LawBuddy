@@ -1,0 +1,32 @@
+{
+ "request": "GET /backends",
+ "status": 200,
+ "body": {
+  "backends": [
+   {
+    "name": "nvidia",
+    "model": "nvidia/nemotron-3-super-120b-a12b",
+    "base_url": "https://integrate.api.nvidia.com/v1",
+    "server_key": true,
+    "default": false
+   },
+   {
+    "name": "groq",
+    "model": "openai/gpt-oss-120b",
+    "base_url": "https://api.groq.com/openai/v1",
+    "server_key": true,
+    "default": true
+   },
+   {
+    "name": "gemini",
+    "model": "gemini-3.8-flash",
+    "base_url": "https://generativelanguage.googleapis.com/v1beta/openai/",
+    "server_key": true,
+    "default": false
+   }
+  ],
+  "custom_allowed": false,
+  "transcription_model": "whisper-large-v3-turbo",
+  "transcription_server_key": true
+ }
+}

@@ -130,3 +130,36 @@ Scripts 06 (deposit, names and address given) and 07 (Flipkart phone, online). R
 
 Latency: the turn time is now split. LLM time was 1.6-54 s per turn and retrieval 0-6 s, so the slow turns are
 the Groq free tier, not search.
+
+## API and voice, first live run (Phase 5, 2026-11-21)
+
+`make api-smoke` against a local server: 18 calls. Raw responses: `outputs/api_smoke/run1/`.
+
+**What worked**
+- Every endpoint answered as designed: health, backends, sessions, a grounded deposit answer (4.9 s), the draft
+  button (0.9 s, facts passed the number check), the Markdown download, session state.
+- Model swap: the same question on Gemini (`llm.backend = gemini`) gave the correct "no deposit cap" answer.
+- A key the provider rejects returned **401** with a clear message and no key in the response.
+- Voice in English: transcript exact ("1 lakh 50 thousand rupees ... 31st of October"), grounded answer in 5.1 s.
+- Voice in Hindi: transcript slightly misspelt ("तंवाह", "इस तीफा") but understood; correct Hindi advice
+  (2 working days after resigning, 3-year claim, up to 10x compensation) in 5.4 s.
+
+**What failed, and the fix**
+
+| Failure | Cause | Fix |
+|---|---|---|
+| Kannada speech transcribed in **Tamil script**; the analysis then labelled the language Tamil and the advice was written in Tamil | Whisper's language detection confused Kannada with Tamil (synthetic voice). With the hint `kn` the transcript was correct Kannada | When no language is chosen and Whisper reports Tamil, Telugu or Malayalam, the audio is transcribed again as Kannada (`transcription.retry_as_kannada_when_detected`); the step is recorded in the trace. The UI will offer a language choice |
+| A Gemini turn took **101 s** (Groq: 4.9 s) | Most likely Gemini's own reasoning | `reasoning_effort: low` for Gemini, as for Groq |
+| The Tamil reply contained stray Chinese characters ("欠薪") | Model glitch | Not fixed; recorded. With the Kannada fix this reply would not be produced |
+
+Not yet tested: real (non-synthetic) voices, noisy phone audio, a Kannada conversation beyond one message.
+
+## API and voice, second live run (Phase 5, 2026-11-21)
+
+Raw responses: `outputs/api_smoke/run2/`.
+- **Kannada fixed:** the trace shows "Whisper detected Tamil; transcribed again as Kannada"; the transcript was correct
+  Kannada and the advice was written in Kannada, citing Code on Wages, 2019, s. 17(1) (pay by the 7th). 5.2 s.
+- **Gemini:** accepted `reasoning_effort: low` but still took 73 s (LLM time 71.6 s) against 4.3 s on Groq for the same
+  kind of turn; the answer was correct. Groq stays the default; Gemini is usable but slow on the free tier.
+- Everything else unchanged and passing: deposit advice 4.3 s, draft 1.4 s, English voice 5.7 s, Hindi voice 8.4 s,
+  rejected key 401.

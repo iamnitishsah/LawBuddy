@@ -1,0 +1,29 @@
+{
+ "request": "POST /sessions",
+ "status": 201,
+ "body": {
+  "session_id": "f55ef6fe075448f3acce6943a7d166c0",
+  "created_at": "2026-11-21T01:41:52+00:00",
+  "language": "English",
+  "llm": {
+   "backend": null,
+   "model": null,
+   "base_url": null
+  },
+  "messages": [],
+  "case": {
+   "category": null,
+   "facts": {},
+   "missing": [],
+   "timeline": [],
+   "evidence_have": [],
+   "evidence_missing": [],
+   "other_party": null,
+   "user_goal": null,
+   "state": null,
+   "summary": "",
+   "parties": {}
+  },
+  "drafts": []
+ }
+}

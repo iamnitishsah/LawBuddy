@@ -1,0 +1,78 @@
+{
+ "request": "GET /sessions/0c82a93464014fea98fae1bfbff29a87",
+ "status": 200,
+ "body": {
+  "session_id": "0c82a93464014fea98fae1bfbff29a87",
+  "created_at": "2026-11-21T01:40:32+00:00",
+  "language": "English",
+  "llm": {
+   "backend": null,
+   "model": null,
+   "base_url": null
+  },
+  "messages": [
+   {
+    "role": "user",
+    "content": "My name is Asha Rao. My landlord Mr. R. Kumar in HSR Layout, Bengaluru has not returned my deposit of Rs. 1,50,000. I moved out on 31 October and handed over the keys."
+   },
+   {
+    "role": "assistant",
+    "content": "**Where you stand**  \nThe deposit you paid is governed by your rental agreement; if the landlord keeps it without a valid reason, that is a breach of contract and you can claim compensation for the loss (Indian Contract Act, 1872, s. 73)[1]. The dispute is therefore a contract matter, not a matter under the Karnataka Rent Act unless your tenancy falls within its limited scope[1].  \n\n**What you can do** - cheapest to most formal  \n1. **Written demand** - send a clear message or email to Mr. R. Kumar asking for the Rs 1,50,000 back by a specific date (e.g., 7 days) and keep any reply or silence as evidence[2].  \n2. **Legal notice** - if there is no payment, send a registered-post legal notice stating the facts, amount due, deadline and that you will take legal action[2].  \n3. **Lok Adalat settlement** - you may apply to the District Legal Services Authority for a Lok Adalat; any award there is final and binding if the landlord agrees[2].  \n4. **Civil suit** - as a last resort, file a suit for breach of contract. Such a suit must be filed within three years from the date the contract was broken (the date you vacated)[2].  \n\n**Next step**  \nSend a written demand today, asking Mr. Kumar to return the full deposit by a date 7 days from now and keep a copy of the message and any response.  \n\n*If you have the rental agreement, proof of deposit payment (bank/UPI receipt or signed receipt), proof of rent payments, and evidence that you handed over the keys on 31 Oct, keep those documents ready for the notice or any later proceeding*[3].\n\nIf you like, I can draft a legal notice for you to send - just say \"draft the notice\".\n\n*LawBuddy gives legal information, not legal advice.*"
+   },
+   {
+    "role": "assistant",
+    "content": "I've drafted a legal notice for you, in English (legal notices are normally sent in English).\n\n**Before you send it:**\n1. Fill in the [● ...] parts:\n   - your full address\n   - their full address\n2. Check every fact, date and amount, and correct anything that is not right.\n3. Sign it, keep a copy, and send it by Registered Post AD or Speed Post and by email; keep the postal receipt.\nA notice sent through a lawyer often carries more weight.\n\n---\n\n**LEGAL NOTICE**\n\nDate: 21 November 2026\nBy Registered Post with Acknowledgement Due / Speed Post, and by email\n\n**From:** Asha Rao\n[● fill: your full address]\n\n**To:** Mr. R. Kumar\n[● fill: their full address]\n\n**Subject:** Legal notice for refund of security deposit of Rs. 1,50,000\n\nSir/Madam,\n\nI, the undersigned, hereby give you notice as follows:\n\n**Facts**\n\n1. I, Asha Rao, paid a security deposit of Rs. 1,50,000 to you, Mr. R. Kumar, for the rental of the house in HSR Layout, Bengaluru.\n\n2. I vacated the premises and handed over the keys to you on 31 October.\n\n3. Since that date, you have not returned the security deposit to me.\n\n**Legal position**\n\n4. The security deposit was paid to you to be held and returned to me when the tenancy ended, as agreed between us. By withholding it you have broken that agreement. Under section 73 of the Indian Contract Act, 1872, a party who suffers by a breach of contract is entitled to receive compensation for the loss caused by the breach from the party who broke it.\n\n5. You may retain only such amount as our agreement permits and as reflects an actual loss caused by me, supported by bills. Under sections 73 and 74 of the Indian Contract Act, 1872, compensation is limited to loss that naturally arises from a breach, and where a contract names a sum for a breach, only reasonable compensation up to that sum may be claimed.\n\n**Demand**\n\n6. I therefore call upon you to refund the security deposit of Rs. 1,50,000 to me within 15 (fifteen) days of receipt of this notice. If you claim any deduction, send me an itemised statement with bills within the same period.\n\n7. If you fail to do so within the said period, I shall be constrained to take appropriate legal action to recover the amount and compensation, including by approaching the District Legal Services Authority for a Lok Adalat or by filing a civil suit, entirely at your risk as to costs and consequences.\n\nA copy of this notice is retained by me for further action.\n\nYours faithfully,\n\n\n(Signature)\nAsha Rao\n\n*LawBuddy gives legal information, not legal advice.*"
+   }
+  ],
+  "case": {
+   "category": "deposit",
+   "facts": {
+    "deposit_amount": "150000",
+    "move_out_date": "31 October",
+    "written_agreement": null,
+    "city": "Bengaluru",
+    "landlord_reason": null,
+    "deposit_proof": null
+   },
+   "missing": [
+    "written_agreement",
+    "landlord_reason",
+    "deposit_proof"
+   ],
+   "timeline": [
+    {
+     "date": "31 October",
+     "event": "Moved out and handed over keys to landlord"
+    }
+   ],
+   "evidence_have": [],
+   "evidence_missing": [],
+   "other_party": "Mr. R. Kumar",
+   "user_goal": "return of security deposit",
+   "state": "Karnataka",
+   "summary": "Asha Rao moved out of a rented property in HSR Layout, Bengaluru on 31 October and handed over the keys. Her landlord, Mr. R. Kumar, has not returned her security deposit of Rs. 1,50,000.",
+   "parties": {
+    "user_name": "Asha Rao",
+    "other_name": "Mr. R. Kumar"
+   }
+  },
+  "drafts": [
+   {
+    "n": 1,
+    "category": "deposit",
+    "text": "**LEGAL NOTICE**\n\nDate: 21 November 2026\nBy Registered Post with Acknowledgement Due / Speed Post, and by email\n\n**From:** Asha Rao\n[● fill: your full address]\n\n**To:** Mr. R. Kumar\n[● fill: their full address]\n\n**Subject:** Legal notice for refund of security deposit of Rs. 1,50,000\n\nSir/Madam,\n\nI, the undersigned, hereby give you notice as follows:\n\n**Facts**\n\n1. I, Asha Rao, paid a security deposit of Rs. 1,50,000 to you, Mr. R. Kumar, for the rental of the house in HSR Layout, Bengaluru.\n\n2. I vacated the premises and handed over the keys to you on 31 October.\n\n3. Since that date, you have not returned the security deposit to me.\n\n**Legal position**\n\n4. The security deposit was paid to you to be held and returned to me when the tenancy ended, as agreed between us. By withholding it you have broken that agreement. Under section 73 of the Indian Contract Act, 1872, a party who suffers by a breach of contract is entitled to receive compensation for the loss caused by the breach from the party who broke it.\n\n5. You may retain only such amount as our agreement permits and as reflects an actual loss caused by me, supported by bills. Under sections 73 and 74 of the Indian Contract Act, 1872, compensation is limited to loss that naturally arises from a breach, and where a contract names a sum for a breach, only reasonable compensation up to that sum may be claimed.\n\n**Demand**\n\n6. I therefore call upon you to refund the security deposit of Rs. 1,50,000 to me within 15 (fifteen) days of receipt of this notice. If you claim any deduction, send me an itemised statement with bills within the same period.\n\n7. If you fail to do so within the said period, I shall be constrained to take appropriate legal action to recover the amount and compensation, including by approaching the District Legal Services Authority for a Lok Adalat or by filing a civil suit, entirely at your risk as to costs and consequences.\n\nA copy of this notice is retained by me for further action.\n\nYours faithfully,\n\n\n(Signature)\nAsha Rao",
+    "placeholders": [
+     "your full address",
+     "their full address"
+    ],
+    "warnings": [],
+    "chunks": [
+     "deposit-deductions",
+     "deposit-overview",
+     "deposit-steps",
+     "statute-contract-act-73-74"
+    ]
+   }
+  ]
+ }
+}

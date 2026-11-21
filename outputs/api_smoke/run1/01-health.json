@@ -1,0 +1,13 @@
+{
+ "request": "GET /health",
+ "status": 200,
+ "body": {
+  "status": "ok",
+  "backend": "groq",
+  "llm": "openai/gpt-oss-120b",
+  "kb_chunks": 32,
+  "kb_verified": 32,
+  "retrieval": "rerank",
+  "sessions": 0
+ }
+}

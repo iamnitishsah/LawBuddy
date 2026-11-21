@@ -11,8 +11,8 @@ prepares what they need to act, such as a legal notice.
 small, hand-verified knowledge base, and code checks every Act and section the answer names. When the knowledge
 base does not cover a question, or the matter needs a real lawyer, LawBuddy says so.
 
-> Status: **Phase 3** (conversation engine with grounded advice and a legal-reference guard; drafts a legal notice
-> the user can send; terminal chat). See [docs/ROADMAP.md](docs/ROADMAP.md) for the plan and [docs/SOURCES.md](docs/SOURCES.md) for
+> Status: **Phase 5** (HTTP API with voice, model swapping and user API keys; conversation engine with grounded
+> advice and a legal-reference guard; legal-notice drafts; terminal chat). Web UI next. See [docs/ROADMAP.md](docs/ROADMAP.md) for the plan and [docs/SOURCES.md](docs/SOURCES.md) for
 > the legal sources.
 
 ---
@@ -33,6 +33,27 @@ make api                     # http://localhost:8000/health
 make frontend                # http://localhost:5173 (first time: cd frontend && npm install)
 ```
 
+## API
+
+`make api` starts the FastAPI service; interactive docs at http://localhost:8000/docs.
+
+| Endpoint | What it does |
+|---|---|
+| `GET /health`, `GET /backends` | status; the models a client can switch between, and which have a server key |
+| `POST /sessions`, `GET` / `DELETE /sessions/{id}` | a conversation: messages, case file, drafts |
+| `POST /sessions/{id}/messages` | one turn: reply, kind, sources, case file, guard result, decision trace, usage |
+| `POST /sessions/{id}/voice` | one turn from an audio file (Whisper), in any language Whisper hears |
+| `POST /sessions/{id}/draft`, `GET /sessions/{id}/drafts/{n}` | draft the legal notice now; download it as Markdown |
+| `POST /transcribe` | audio to text only |
+
+**Model swapping:** each request may choose `{"llm": {"backend": "gemini", "model": "..."}}` (form fields for voice).
+**Your own key:** the header `X-LLM-API-Key` replaces the server's key for that provider, for that request only; keys
+are never stored, logged or returned. Backend `custom` (any https OpenAI-compatible endpoint) is off unless
+`ALLOW_CUSTOM_LLM_BASE_URL=1`. Search always uses the server's NVIDIA key.
+
+`make api-smoke` (with the server running) calls every endpoint, switches model, tries a bad key and sends the test
+recordings in `eval/audio/` (English, Hindi, Kannada); raw responses go to `outputs/api_smoke/`.
+
 ## Switching the model
 
 Every LLM call goes through `lawbuddy.llm.base.get_llm()`. Backends are OpenAI-compatible endpoints listed in
@@ -50,6 +71,7 @@ src/lawbuddy/
   kb/               knowledge-base loading, validation and index build
   conversation/     classification (triage), case file, replies, the turn engine
   chat.py           terminal chat
+  voice/            speech to text (Whisper through an OpenAI-compatible API)
   drafting/         legal notices: legal parts written in code, facts by the model, checked
   api/              FastAPI service
   evaluation/       test-case runner and scoring (Phase 6)

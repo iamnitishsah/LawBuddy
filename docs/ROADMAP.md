@@ -82,17 +82,21 @@ each chunk covers one question fully, and more can be added where the Phase 6 te
 
 **Done when:** each test case produces a draft with zero invented facts, and the guard passes.
 
-## Phase 4: Practice mode (optional)
+## Phase 4: Practice mode (skipped)
 
-- [ ] The bot plays the landlord, employer or customer care with realistic pushback; afterwards, three tips grounded in the KB
+Skipped to keep within the time budget; the prototype link (Phase 5) is a required deliverable and practice mode is not.
 
 ## Phase 5: API and frontend
 
-- [ ] API: `POST /session`, `POST /chat`, `POST /transcribe` (Whisper), `POST /draft`, `GET /case/{id}`, `GET /health`
-- [ ] UI: chat with mic and language indicator · case panel (timeline, evidence checklist, missing items) · sources panel (cited KB chunks, official links) · draft viewer with copy/download · escalation card (real lawyer / DLSA) · disclaimer
-- [ ] Pages: Overview, How it works (architecture, anti-hallucination), Evaluation (Phase 6 results)
-
-**Done when:** the full flow works in a browser, including voice.
+- [x] FastAPI service with Pydantic models (`api/main.py`, `api/schemas.py`): health, backends, sessions, messages, voice, draft button, draft download, transcription
+- [x] Model swapping per session or per message (`backend`, `model`); backend `custom` for any https OpenAI-compatible endpoint, off unless `ALLOW_CUSTOM_LLM_BASE_URL=1`
+- [x] User's own LLM key in `X-LLM-API-Key`, replacing the server key for that request; never stored, logged or returned (error text redacted); a key the provider rejects is a 401. Retrieval keeps the server's NVIDIA key
+- [x] Voice: Whisper (`whisper-large-v3-turbo` on Groq) via the OpenAI-compatible audio API; type and size checked before any call; test recordings in English, Hindi and Kannada (`eval/audio/`, made with macOS `say`)
+- [x] In-memory sessions with idle expiry and a cap; one turn at a time per conversation; per-thread retrieval mode so concurrent turns cannot mix score scales; rate limit and optional server key kept
+- [x] 177 offline tests (API with fake model, retriever and transcriber); `make api-smoke` for the live check
+- [x] `make api-smoke` runs 1-2 reviewed ([findings.md](findings.md)): all endpoints, model swap and 401 on a bad key work; Kannada voice was heard as Tamil (fixed: re-transcribe as Kannada); Gemini 101 s (low reasoning effort)
+- [ ] UI: chat with mic and language indicator · case panel · sources panel · draft viewer with download · escalation card · disclaimer · model picker with own-key field
+- [ ] Pages: Overview, How it works, Evaluation (Phase 6 results)
 
 ## Phase 6: Test cases, evaluation, raw outputs
 

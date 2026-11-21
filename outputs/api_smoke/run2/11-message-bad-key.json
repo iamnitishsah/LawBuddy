@@ -1,0 +1,7 @@
+{
+ "request": "POST /sessions/f55ef6fe075448f3acce6943a7d166c0/messages",
+ "status": 401,
+ "body": {
+  "detail": "the groq API rejected the API key (check X-LLM-API-Key, or the server's key)"
+ }
+}

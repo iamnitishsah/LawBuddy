@@ -1,0 +1,85 @@
+{
+ "request": "POST /sessions/333d9e517215448c85c89b522d0aed87/draft",
+ "status": 200,
+ "body": {
+  "session_id": "333d9e517215448c85c89b522d0aed87",
+  "kind": "draft",
+  "text": "I've drafted a legal notice for you, in English (legal notices are normally sent in English).\n\n**Before you send it:**\n1. Fill in the [● ...] parts:\n   - your full address\n   - their full address\n2. Check every fact, date and amount, and correct anything that is not right.\n3. Sign it, keep a copy, and send it by Registered Post AD or Speed Post and by email; keep the postal receipt.\nA notice sent through a lawyer often carries more weight.\n\n---\n\n**LEGAL NOTICE**\n\nDate: 21 November 2026\nBy Registered Post with Acknowledgement Due / Speed Post, and by email\n\n**From:** Asha Rao\n[● fill: your full address]\n\n**To:** Mr. R. Kumar\n[● fill: their full address]\n\n**Subject:** Legal notice for refund of security deposit of Rs. 1,50,000\n\nSir/Madam,\n\nI, the undersigned, hereby give you notice as follows:\n\n**Facts**\n\n1. I paid a security deposit of Rs. 1,50,000 to you for the rented premises in HSR Layout, Bengaluru.\n\n2. I vacated the premises and handed over the keys to you on 31 October.\n\n3. Since that date, you have not returned the security deposit to me.\n\n**Legal position**\n\n4. The security deposit was paid to you to be held and returned to me when the tenancy ended, as agreed between us. By withholding it you have broken that agreement. Under section 73 of the Indian Contract Act, 1872, a party who suffers by a breach of contract is entitled to receive compensation for the loss caused by the breach from the party who broke it.\n\n5. You may retain only such amount as our agreement permits and as reflects an actual loss caused by me, supported by bills. Under sections 73 and 74 of the Indian Contract Act, 1872, compensation is limited to loss that naturally arises from a breach, and where a contract names a sum for a breach, only reasonable compensation up to that sum may be claimed.\n\n**Demand**\n\n6. I therefore call upon you to refund the security deposit of Rs. 1,50,000 to me within 15 (fifteen) days of receipt of this notice. If you claim any deduction, send me an itemised statement with bills within the same period.\n\n7. If you fail to do so within the said period, I shall be constrained to take appropriate legal action to recover the amount and compensation, including by approaching the District Legal Services Authority for a Lok Adalat or by filing a civil suit, entirely at your risk as to costs and consequences.\n\nA copy of this notice is retained by me for further action.\n\nYours faithfully,\n\n\n(Signature)\nAsha Rao\n\n*LawBuddy gives legal information, not legal advice.*",
+  "language": "English",
+  "category": "deposit",
+  "sources": [],
+  "case": {
+   "category": "deposit",
+   "facts": {
+    "deposit_amount": "150000",
+    "move_out_date": "31 October",
+    "written_agreement": null,
+    "city": "Bengaluru",
+    "landlord_reason": null,
+    "deposit_proof": null
+   },
+   "missing": [
+    "written_agreement",
+    "landlord_reason",
+    "deposit_proof"
+   ],
+   "timeline": [
+    {
+     "date": "31 October",
+     "event": "Moved out and handed over keys to landlord"
+    }
+   ],
+   "evidence_have": [],
+   "evidence_missing": [],
+   "other_party": "Mr. R. Kumar",
+   "user_goal": "return of security deposit",
+   "state": "Karnataka",
+   "summary": "Asha Rao moved out of a rented property in HSR Layout, Bengaluru on 31 October and handed over the keys. Her landlord, Mr. R. Kumar, has not returned her security deposit of Rs. 1,50,000.",
+   "parties": {
+    "user_name": "Asha Rao",
+    "other_name": "Mr. R. Kumar"
+   }
+  },
+  "guard": {
+   "checked": false,
+   "regenerated": false,
+   "removed": false,
+   "first_problems": [],
+   "problems": [],
+   "uncited_sentences": 0
+  },
+  "retrieval": null,
+  "draft": {
+   "n": 1,
+   "category": "deposit",
+   "text": "**LEGAL NOTICE**\n\nDate: 21 November 2026\nBy Registered Post with Acknowledgement Due / Speed Post, and by email\n\n**From:** Asha Rao\n[● fill: your full address]\n\n**To:** Mr. R. Kumar\n[● fill: their full address]\n\n**Subject:** Legal notice for refund of security deposit of Rs. 1,50,000\n\nSir/Madam,\n\nI, the undersigned, hereby give you notice as follows:\n\n**Facts**\n\n1. I paid a security deposit of Rs. 1,50,000 to you for the rented premises in HSR Layout, Bengaluru.\n\n2. I vacated the premises and handed over the keys to you on 31 October.\n\n3. Since that date, you have not returned the security deposit to me.\n\n**Legal position**\n\n4. The security deposit was paid to you to be held and returned to me when the tenancy ended, as agreed between us. By withholding it you have broken that agreement. Under section 73 of the Indian Contract Act, 1872, a party who suffers by a breach of contract is entitled to receive compensation for the loss caused by the breach from the party who broke it.\n\n5. You may retain only such amount as our agreement permits and as reflects an actual loss caused by me, supported by bills. Under sections 73 and 74 of the Indian Contract Act, 1872, compensation is limited to loss that naturally arises from a breach, and where a contract names a sum for a breach, only reasonable compensation up to that sum may be claimed.\n\n**Demand**\n\n6. I therefore call upon you to refund the security deposit of Rs. 1,50,000 to me within 15 (fifteen) days of receipt of this notice. If you claim any deduction, send me an itemised statement with bills within the same period.\n\n7. If you fail to do so within the said period, I shall be constrained to take appropriate legal action to recover the amount and compensation, including by approaching the District Legal Services Authority for a Lok Adalat or by filing a civil suit, entirely at your risk as to costs and consequences.\n\nA copy of this notice is retained by me for further action.\n\nYours faithfully,\n\n\n(Signature)\nAsha Rao",
+   "placeholders": [
+    "your full address",
+    "their full address"
+   ],
+   "warnings": [],
+   "chunks": [
+    "deposit-deductions",
+    "deposit-overview",
+    "deposit-steps",
+    "statute-contract-act-73-74"
+   ]
+  },
+  "transcript": null,
+  "model": "groq / openai/gpt-oss-120b",
+  "steps": [
+   "draft requested directly",
+   "facts: 3 paragraphs, no law, every number given by the user",
+   "draft: deposit notice, 2 placeholder(s), 0 warning(s), legal basis from ['deposit-deductions', 'deposit-overview', 'deposit-steps', 'statute-contract-act-73-74']"
+  ],
+  "error": null,
+  "usage": {
+   "llm_calls": 1,
+   "input_tokens": 641,
+   "output_tokens": 133,
+   "llm_s": 0.94,
+   "retrieval_s": 0.0
+  },
+  "latency_ms": 944
+ }
+}

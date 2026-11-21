@@ -88,6 +88,22 @@ class Engine:
         session.messages.append({"role": "assistant", "content": reply.text})
         return reply
 
+    def draft(self, session: Session) -> Reply:
+        """Draft the legal notice now, from the case so far (the API's "draft" button). The case must have a
+        category; the conversation is not changed except for the assistant's reply."""
+        if session.case.category not in IN_SCOPE:
+            raise ValueError("there is no deposit, refund or salary case in this conversation yet")
+        t0 = time.monotonic()
+        usage = {"input_tokens": 0, "output_tokens": 0, "llm_calls": 0, "llm_s": 0.0, "retrieval_s": 0.0}
+        try:
+            reply = self._draft(session, ["draft requested directly"], usage)
+        except Exception as exc:
+            reply = Reply("error", "Sorry, I could not draft the notice. Please try again in a minute.",
+                          language=session.language, trace=[f"error: {type(exc).__name__}: {str(exc)[:200]}"])
+        reply.usage, reply.latency_s = usage, round(time.monotonic() - t0, 2)
+        session.messages.append({"role": "assistant", "content": reply.text})
+        return reply
+
     def _turn(self, s: Session, message: str, usage: dict) -> Reply:
         trace: list[str] = []
 

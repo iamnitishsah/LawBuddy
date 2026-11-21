@@ -1,0 +1,138 @@
+{
+ "request": "POST /sessions/edd762c065674a6d9d7d32392cf601af/voice",
+ "status": 200,
+ "body": {
+  "session_id": "edd762c065674a6d9d7d32392cf601af",
+  "kind": "advice",
+  "text": "**Where you stand**  \nஉங்கள் சம்பளம் மாதம் அடிப்படையில் இருந்தால், Code on Wages, 2019-இன் s. 17(1)-ப்படி அடுத்த மாதத்தின் 7-ஆம் தேதி வரை செலுத்தப்பட வேண்டும்[2]. நீங்கள் வேலைவிட்டு விட்டால், 2 வேலைநாட்களில் சம்பளம் செலுத்தப்பட வேண்டும்[2]. இதைச் செய்யாதால், நீங்கள் 3 ஆண்டுகளுக்குள் (Code on Wages, 2019, s. 45(6)) wage claim தாக்கல் செய்யலாம்[1][4][5].\n\n**What you can do**  \n1. **எழுத்து கோரிக்கை** - HR-க்கு அல்லது நிறுவன உரிமையாளருக்கு மின்னஞ்சல் மூலம், எத்தனை மாதங்கள், எவ்வளவு தொகை, மற்றும் செலுத்த வேண்டிய கடைசித் தேதி குறிப்பிடுங்கள்[1].  \n2. **Legal notice** - பதில் வராதால், சட்ட அறிவிப்பு (facts, amounts, deadline, claim of court) அனுப்பலாம்[1].  \n3. **Wage claim** - Karnataka Labour Department-இல் நிர்ணயிக்கப்பட்ட அதிகாரியிடம் (Gazetted Officer) wage claim தாக்கல் செய்யுங்கள்; இது வேகமாகவும் குறைந்த செலவிலும் முடியும், மேலும் கோரிக்கைக்கு 10 மடங்கு வரை இழப்பீடு பெறலாம்[1][4][5].  \n4. **Civil suit** - 3 ஆண்டுகளுக்குள் (Limitation Act, 1963) நீதிமன்றத்தில் வழக்கு தொடரலாம், ஆனால் இது அதிக செலவாகும்[1].\n\n**Next step**  \nமுதலில், உங்கள் வேலை ஒப்பந்தம், payslip, bank statement, attendance record போன்ற **உங்கள் வேலை மற்றும் சம்பளத்தின் ஆதாரங்களை** (offer letter, payslips, bank credits, வேலை காலம்) சேகரித்து, ஒவ்வொரு மாதத்தின்欠薪 தொகையை எழுதிக் கொள்ளுங்கள்[3]. பின்னர், HR-க்கு எழுத்து கோரிக்கையை அனுப்பி, 7 நாட்களில் பதில் கேளுங்கள். இந்தக் கோரிக்கைக்கு 7 நாட்கள் காலவரம்பு இல்லை, ஆனால் wage claim-க்கு 3 ஆண்டுகள் மட்டுமே உள்ளது, ஆகவே தாமதமில்லாமல் நடவடிக்கை எடுக்கவும்[1][4][5].\n\nIf you like, I can draft a legal notice for you to send - just say \"draft the notice\".\n\n*LawBuddy gives legal information, not legal advice.*",
+  "language": "Tamil",
+  "category": "salary",
+  "sources": [
+   {
+    "n": 1,
+    "cited": true,
+    "chunk_id": "salary-steps",
+    "title": "Steps to recover unpaid salary",
+    "category": "salary",
+    "kind": "guide",
+    "score": 0.1368,
+    "urls": [
+     "https://www.indiacode.nic.in/bitstream/123456789/15793/1/aA2019-29.pdf",
+     "https://www.indiacode.nic.in"
+    ],
+    "verified_on": "2026-11-21"
+   },
+   {
+    "n": 2,
+    "cited": true,
+    "chunk_id": "salary-overview",
+    "title": "Unpaid salary or final dues: your rights",
+    "category": "salary",
+    "kind": "guide",
+    "score": 0.1095,
+    "urls": [
+     "https://www.indiacode.nic.in/bitstream/123456789/15793/1/aA2019-29.pdf"
+    ],
+    "verified_on": "2026-11-21"
+   },
+   {
+    "n": 3,
+    "cited": true,
+    "chunk_id": "salary-evidence",
+    "title": "Evidence to collect for unpaid salary",
+    "category": "salary",
+    "kind": "practice",
+    "score": 0.106,
+    "urls": [],
+    "verified_on": "2026-11-21"
+   },
+   {
+    "n": 4,
+    "cited": true,
+    "chunk_id": "salary-claim",
+    "title": "Filing a wage claim under the Code on Wages",
+    "category": "salary",
+    "kind": "guide",
+    "score": 0.0997,
+    "urls": [
+     "https://www.indiacode.nic.in/bitstream/123456789/15793/1/aA2019-29.pdf"
+    ],
+    "verified_on": "2026-11-21"
+   },
+   {
+    "n": 5,
+    "cited": true,
+    "chunk_id": "statute-wages-45",
+    "title": "Code on Wages, 2019, section 45 (text, extract)",
+    "category": "salary",
+    "kind": "statute",
+    "score": 0.0909,
+    "urls": [
+     "https://www.indiacode.nic.in/bitstream/123456789/15793/1/aA2019-29.pdf"
+    ],
+    "verified_on": "2026-11-21"
+   }
+  ],
+  "case": {
+   "category": "salary",
+   "facts": {
+    "employer": null,
+    "monthly_salary": null,
+    "unpaid_period": null,
+    "employment_status": null,
+    "city": null,
+    "proof_of_employment": null
+   },
+   "missing": [
+    "employer",
+    "unpaid_period",
+    "employment_status",
+    "monthly_salary",
+    "city",
+    "proof_of_employment"
+   ],
+   "timeline": [],
+   "evidence_have": [],
+   "evidence_missing": [],
+   "other_party": null,
+   "user_goal": "receive unpaid salary",
+   "state": null,
+   "summary": "The user is asking why their salary has not been paid by their company.",
+   "parties": {}
+  },
+  "guard": {
+   "checked": true,
+   "regenerated": false,
+   "removed": false,
+   "first_problems": [],
+   "problems": [],
+   "uncited_sentences": 0
+  },
+  "retrieval": {
+   "query": "unpaid salary from employer in India",
+   "mode": "primary",
+   "top_score": 0.1368,
+   "floor": 0.035,
+   "seconds": 1.19
+  },
+  "draft": null,
+  "transcript": "நன்ன கம்பனி மூறு திங்களிந்த சம்பல கொட்டில் நானு ஏனு மாடபேக்கு?",
+  "model": "groq / openai/gpt-oss-120b",
+  "steps": [
+   "analysis: category=salary intent=question language=Tamil emergency=False query='unpaid salary from employer in India'",
+   "case category: None -> salary",
+   "advising without ['employer', 'unpaid_period', 'employment_status'] (question)",
+   "retrieval: primary top=0.1368 floor=0.035 ids=['salary-steps', 'salary-overview', 'salary-evidence', 'salary-claim', 'statute-wages-45']",
+   "guard: all legal references traced"
+  ],
+  "error": null,
+  "usage": {
+   "llm_calls": 2,
+   "input_tokens": 3371,
+   "output_tokens": 818,
+   "llm_s": 14.54,
+   "retrieval_s": 1.19
+  },
+  "latency_ms": 16841
+ }
+}

@@ -20,7 +20,19 @@ backends:
     base_url: https://generativelanguage.googleapis.com/v1beta/openai/
     api_key_env: GEMINI_API_KEY
     model: gemini-3.8-flash               # confirm with: python -m lawbuddy.llm.base gemini
+    # One api-smoke turn took 101 s on Gemini (Groq: 5 s), most likely its own reasoning; same setting as Groq.
+    # Remove this line if Gemini rejects the parameter.
+    extra_body: {reasoning_effort: low}
 
 generation:
   temperature: 0.0                         # deterministic: same question, same answer
   max_tokens: 2000
+
+transcription:                             # speech to text for voice messages (POST /transcribe, /sessions/{id}/voice)
+  backend: groq                            # uses this backend's base_url and API key (or the key the user sends)
+  model: whisper-large-v3-turbo            # OpenAI-compatible /audio/transcriptions model
+  max_mb: 20                               # larger uploads are refused before any API call
+  # Whisper heard synthetic Kannada speech as Tamil and wrote it in Tamil script (api smoke, 2026-11-21); with the
+  # hint "kn" it was correct. LawBuddy serves Karnataka, so when no language was chosen and Whisper reports one of
+  # these, the audio is transcribed again as Kannada. (A Tamil speaker would then need to pick Tamil explicitly.)
+  retry_as_kannada_when_detected: [tamil, telugu, malayalam]

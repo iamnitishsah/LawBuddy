@@ -1,0 +1,143 @@
+{
+ "request": "POST /sessions/333d9e517215448c85c89b522d0aed87/messages",
+ "status": 200,
+ "body": {
+  "session_id": "333d9e517215448c85c89b522d0aed87",
+  "kind": "advice",
+  "text": "**Where you stand**  \nA security deposit is a sum the landlord holds and must return when you leave, unless the rental agreement allows deductions for actual loss (e.g., unpaid rent or damage) [1]. If the landlord keeps the deposit contrary to the agreement, it is a breach of contract and you can claim compensation for the loss caused [1][4]. A civil suit for breach of contract must be filed within three years from the date the contract was broken [2].\n\n**What you can do**  \n1. **Written demand** - Send a clear message or email to Mr. R. Kumar asking for the Rs 1,50,000 back by a specific date (e.g., within 7 days) and keep any reply or silence as evidence [2].  \n2. **Legal notice** - If there is no payment, send a legal notice by registered post (and also by email/WhatsApp) stating the facts, amount due, deadline and that you will take legal action [2].  \n3. **Lok Adalat settlement** - Apply to the District Legal Services Authority for a Lok Adalat; any award there is final and binding, but it works only if the landlord agrees [2].  \n4. **Civil suit** - As a last resort, file a suit in the appropriate court for the amount owed [2].\n\n**Next step**  \nDraft and send a written demand today, asking the landlord to return the full deposit by a date 7 days from now, and keep a copy of the message and any response [2].  \n\n*If you have the rental agreement, proof of deposit payment, proof of rent payments, and evidence of handing over the keys, keep them ready for the notice or any later proceedings* [3].\n\nIf you like, I can draft a legal notice for you to send - just say \"draft the notice\".\n\n*LawBuddy gives legal information, not legal advice.*",
+  "language": "English",
+  "category": "deposit",
+  "sources": [
+   {
+    "n": 1,
+    "cited": true,
+    "chunk_id": "deposit-overview",
+    "title": "Getting your security deposit back from a landlord in Karnataka",
+    "category": "deposit",
+    "kind": "guide",
+    "score": 0.0989,
+    "urls": [
+     "https://www.indiacode.nic.in",
+     "https://www.indiacode.nic.in/handle/123456789/7810"
+    ],
+    "verified_on": "2026-11-21"
+   },
+   {
+    "n": 2,
+    "cited": true,
+    "chunk_id": "deposit-steps",
+    "title": "Steps to recover a deposit, from demand to court",
+    "category": "deposit",
+    "kind": "guide",
+    "score": 0.0931,
+    "urls": [
+     "https://www.indiacode.nic.in/handle/123456789/1925",
+     "https://www.indiacode.nic.in"
+    ],
+    "verified_on": "2026-11-21"
+   },
+   {
+    "n": 3,
+    "cited": true,
+    "chunk_id": "deposit-evidence",
+    "title": "Evidence to collect for a deposit dispute",
+    "category": "deposit",
+    "kind": "practice",
+    "score": 0.0886,
+    "urls": [],
+    "verified_on": "2026-11-21"
+   },
+   {
+    "n": 4,
+    "cited": true,
+    "chunk_id": "deposit-deductions",
+    "title": "What a landlord may deduct from the deposit",
+    "category": "deposit",
+    "kind": "guide",
+    "score": 0.0738,
+    "urls": [
+     "https://www.indiacode.nic.in"
+    ],
+    "verified_on": "2026-11-21"
+   },
+   {
+    "n": 5,
+    "cited": false,
+    "chunk_id": "deposit-rent-act-tenants",
+    "title": "If the Karnataka Rent Act does apply to your home",
+    "category": "deposit",
+    "kind": "guide",
+    "score": 0.0665,
+    "urls": [
+     "https://www.indiacode.nic.in/handle/123456789/7810"
+    ],
+    "verified_on": "2026-11-21"
+   }
+  ],
+  "case": {
+   "category": "deposit",
+   "facts": {
+    "deposit_amount": "150000",
+    "move_out_date": "31 October",
+    "written_agreement": null,
+    "city": "Bengaluru",
+    "landlord_reason": null,
+    "deposit_proof": null
+   },
+   "missing": [
+    "written_agreement",
+    "landlord_reason",
+    "deposit_proof"
+   ],
+   "timeline": [
+    {
+     "date": "31 October",
+     "event": "Moved out and handed over keys to landlord"
+    }
+   ],
+   "evidence_have": [],
+   "evidence_missing": [],
+   "other_party": "Mr. R. Kumar",
+   "user_goal": "return of security deposit",
+   "state": "Karnataka",
+   "summary": "Asha Rao moved out of a rented property in HSR Layout, Bengaluru on 31 October and handed over the keys. Her landlord, Mr. R. Kumar, has not returned her security deposit of Rs. 1,50,000.",
+   "parties": {
+    "user_name": "Asha Rao",
+    "other_name": "Mr. R. Kumar"
+   }
+  },
+  "guard": {
+   "checked": true,
+   "regenerated": false,
+   "removed": false,
+   "first_problems": [],
+   "problems": [],
+   "uncited_sentences": 0
+  },
+  "retrieval": {
+   "query": "landlord not returning security deposit after tenant vacated",
+   "mode": "primary",
+   "top_score": 0.0989,
+   "floor": 0.035,
+   "seconds": 1.91
+  },
+  "draft": null,
+  "transcript": null,
+  "model": "groq / openai/gpt-oss-120b",
+  "steps": [
+   "analysis: category=deposit intent=story language=English emergency=False query='landlord not returning security deposit after tenant vacated'",
+   "case category: None -> deposit",
+   "retrieval: primary top=0.0989 floor=0.035 ids=['deposit-overview', 'deposit-steps', 'deposit-evidence', 'deposit-deductions', 'deposit-rent-act-tenants']",
+   "guard: all legal references traced"
+  ],
+  "error": null,
+  "usage": {
+   "llm_calls": 2,
+   "input_tokens": 3327,
+   "output_tokens": 829,
+   "llm_s": 2.93,
+   "retrieval_s": 1.91
+  },
+  "latency_ms": 4869
+ }
+}

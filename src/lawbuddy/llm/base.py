@@ -30,15 +30,21 @@ class LLMResponse:
     finish_reason: str = "stop"
 
 
+class MissingKey(RuntimeError):
+    """No API key for the chosen backend: neither in the environment nor sent with the request."""
+
+
 class OpenAICompatibleLLM:
     """Any provider with an OpenAI-style /chat/completions endpoint (Groq, Gemini, OpenAI...)."""
 
     def __init__(self, name: str, base_url: str, api_key_env: str, model: str,
-                 extra_body: dict | None = None, max_retries: int = 4, timeout: float = 60.0):
+                 extra_body: dict | None = None, max_retries: int = 4, timeout: float = 60.0,
+                 api_key: str | None = None):
+        """`api_key`, if given, is used instead of the `api_key_env` variable (a key sent by the user)."""
         from openai import OpenAI
-        key = os.getenv(api_key_env)
+        key = api_key or os.getenv(api_key_env)
         if not key:
-            raise RuntimeError(f"{api_key_env} is not set (add it to .env)")
+            raise MissingKey(f"no API key for {name}: set {api_key_env} on the server or send your own key")
         self.name, self.model, self.extra_body = name, model, extra_body or {}
         # The SDK retries 429 (rate limit) and 5xx errors itself, with exponential backoff.
         self.client = OpenAI(api_key=key, base_url=base_url, max_retries=max_retries, timeout=timeout)
@@ -118,13 +124,34 @@ def resolve_backend(backend: str | None = None) -> tuple[str, str]:
     return load_config()["default_backend"], "configs/llm.yaml"
 
 
-def get_llm(backend: str | None = None) -> OpenAICompatibleLLM:
+CUSTOM = "custom"          # any OpenAI-compatible endpoint, given per request (see get_llm)
+MODEL_NAME_RE = re.compile(r"^[\w.\-/:@]{1,120}$")
+
+
+def get_llm(backend: str | None = None, model: str | None = None, api_key: str | None = None,
+            base_url: str | None = None) -> OpenAICompatibleLLM:
+    """The LLM for a backend in configs/llm.yaml, optionally with another model of that provider and/or the
+    caller's own API key (which then replaces the server's key). Backend "custom" needs base_url, model and api_key:
+    any OpenAI-compatible endpoint, for example one a reviewer provides.
+
+    A backend's `extra_body` (for example gpt-oss reasoning_effort) applies only to its configured model: another
+    model of the same provider may reject the parameter."""
     cfg = load_config()
     name, source = resolve_backend(backend)
-    if name not in cfg["backends"]:
-        raise ValueError(f"Unknown LLM backend {name!r} (from {source}); choose from {list(cfg['backends'])}")
-    b = cfg["backends"][name]
-    llm = OpenAICompatibleLLM(name, b["base_url"], b["api_key_env"], b["model"], b.get("extra_body"))
+    if model is not None and not MODEL_NAME_RE.match(model):
+        raise ValueError(f"invalid model name {model!r}")
+    if name == CUSTOM:
+        if not (base_url and model and api_key):
+            raise ValueError("the custom backend needs base_url, model and an API key")
+        llm = OpenAICompatibleLLM(CUSTOM, base_url, "", model, api_key=api_key)
+    else:
+        if name not in cfg["backends"]:
+            raise ValueError(f"Unknown LLM backend {name!r} (from {source}); "
+                             f"choose from {list(cfg['backends']) + [CUSTOM]}")
+        b = cfg["backends"][name]
+        chosen = model or b["model"]
+        extra = b.get("extra_body") if chosen == b["model"] else None
+        llm = OpenAICompatibleLLM(name, b["base_url"], b["api_key_env"], chosen, extra, api_key=api_key)
     llm.source = source
     return llm
 

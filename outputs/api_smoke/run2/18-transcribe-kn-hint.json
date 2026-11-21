@@ -1,0 +1,12 @@
+{
+ "request": "POST /transcribe",
+ "status": 200,
+ "body": {
+  "text": "ನನ್ನ ಕಂಪನಿ ಮೂರು ತಿಂಗಳಿಂದ ಸಂಬಳ ಕೋಟ್ಟಿಲ್ಲ ನಾನು ಎನು ಮಾಡಬೇಕು?",
+  "language": "Kannada",
+  "duration_s": 4.4784373760000005,
+  "model": "whisper-large-v3-turbo",
+  "latency_ms": 1012,
+  "note": ""
+ }
+}

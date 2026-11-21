@@ -18,10 +18,24 @@ def load_config() -> dict:
     return yaml.safe_load(open(ROOT / "configs" / "retrieval.yaml"))
 
 
+class KeywordOnly:
+    """Keyword search alone, for a server with no embedding API key. Reports itself as a fallback, so the
+    dense / rerank score floor is not applied to its BM25 scores."""
+
+    def __init__(self, reason: str):
+        from lawbuddy.retrieval.lexical import LexicalIndex
+        self.index, self.last_mode, self.last_error = LexicalIndex(), "fallback", reason
+
+    def search(self, query: str, k: int | None = None, **filters) -> list[dict]:
+        return self.index.search(query, k=k or 5, **filters)
+
+
 def get_retriever(variant: str = "rerank", log=None):
     """dense: embedding search over the KB index. rerank: the dense candidates re-sorted by a cross-encoder.
 
     Either way the result is wrapped in a FallbackRetriever: if the hosted API fails, keyword search answers.
+    The embedding and rerank APIs always use the server's key (NVIDIA_API_KEY). Without it, the result is keyword
+    search only (KeywordOnly), so the service still starts.
     """
     if variant not in VARIANTS:
         raise SystemExit(f"unknown retrieval variant {variant!r}; choose from {VARIANTS}")
@@ -31,7 +45,11 @@ def get_retriever(variant: str = "rerank", log=None):
 
     cfg = load_config()
     e = cfg["embedding"]
-    dense = KBIndex(Embedder(e, max_retries=e.get("max_retries", 2), timeout=e.get("timeout_s", 15)))
+    try:
+        embedder = Embedder(e, max_retries=e.get("max_retries", 2), timeout=e.get("timeout_s", 15))
+    except RuntimeError as exc:
+        return KeywordOnly(f"keyword search only: {exc}")
+    dense = KBIndex(embedder)
     if dense.model != e["model"]:
         raise SystemExit(f"the index was built with {dense.model}, but configs/retrieval.yaml uses "
                          f"{e['model']}; rebuild it with: python -m lawbuddy.kb.build")

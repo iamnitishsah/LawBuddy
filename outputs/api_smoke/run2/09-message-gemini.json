@@ -1,0 +1,141 @@
+{
+ "request": "POST /sessions/1b73b269647a4570b0b659a688b92c59/messages",
+ "status": 200,
+ "body": {
+  "session_id": "1b73b269647a4570b0b659a688b92c59",
+  "kind": "advice",
+  "text": "**Where you stand**  \nThere is no legal limit on the size of a security deposit for homes in Karnataka [1]. The Karnataka Rent Act, 1999 does not set a maximum deposit, and the Karnataka Rent (Amendment) Act, 2025 did not introduce a deposit limit either [1]. Online claims of a \"two-month deposit cap\" in Karnataka do not come from these laws [1]. The amount of the security deposit, and when it must be returned, depends entirely on what your rental agreement says [1].\n\n**What you can do**  \n- If someone insists there is a two-month limit, ask them to name the specific law and section they are relying on [1].  \n- Check your rental agreement to see the agreed deposit amount and the terms for its return [1].  \n- If a dispute arises over returning the deposit, you can ask the landlord in writing (by message or email) for the refund with a specific payment date [4].  \n- If that fails, you can send a formal legal notice, try settlement through a Lok Adalat via the District Legal Services Authority (DLSA), or file a civil suit for breach of contract (Indian Contract Act, 1872, s. 73) [4].\n\n**Next step**  \nCheck the exact terms of your rental agreement regarding the security deposit amount and refund conditions [1]. If you have a written rental agreement or receipts of your deposit payment, keep them safe [4][5].\n\nIf you like, I can draft a legal notice for you to send - just say \"draft the notice\".\n\n*LawBuddy gives legal information, not legal advice.*",
+  "language": "English",
+  "category": "deposit",
+  "sources": [
+   {
+    "n": 1,
+    "cited": true,
+    "chunk_id": "deposit-no-cap",
+    "title": "Is there a legal limit on the security deposit in Karnataka?",
+    "category": "deposit",
+    "kind": "guide",
+    "score": 0.1805,
+    "urls": [
+     "https://www.indiacode.nic.in/handle/123456789/7810",
+     "https://kla.kar.nic.in/council/house/bills/157/02eng.pdf"
+    ],
+    "verified_on": "2026-11-21"
+   },
+   {
+    "n": 2,
+    "cited": false,
+    "chunk_id": "statute-rent-act-2-3",
+    "title": "Karnataka Rent Act, 1999, section 2(3)(e) to (g) (text)",
+    "category": "deposit",
+    "kind": "statute",
+    "score": 0.0835,
+    "urls": [
+     "https://www.indiacode.nic.in/handle/123456789/7810"
+    ],
+    "verified_on": "2026-11-21"
+   },
+   {
+    "n": 3,
+    "cited": false,
+    "chunk_id": "deposit-rent-act-scope",
+    "title": "Does the Karnataka Rent Act apply to your rented home?",
+    "category": "deposit",
+    "kind": "guide",
+    "score": 0.0779,
+    "urls": [
+     "https://www.indiacode.nic.in/handle/123456789/7810"
+    ],
+    "verified_on": "2026-11-21"
+   },
+   {
+    "n": 4,
+    "cited": true,
+    "chunk_id": "deposit-overview",
+    "title": "Getting your security deposit back from a landlord in Karnataka",
+    "category": "deposit",
+    "kind": "guide",
+    "score": 0.0769,
+    "urls": [
+     "https://www.indiacode.nic.in",
+     "https://www.indiacode.nic.in/handle/123456789/7810"
+    ],
+    "verified_on": "2026-11-21"
+   },
+   {
+    "n": 5,
+    "cited": true,
+    "chunk_id": "deposit-rent-act-tenants",
+    "title": "If the Karnataka Rent Act does apply to your home",
+    "category": "deposit",
+    "kind": "guide",
+    "score": 0.0718,
+    "urls": [
+     "https://www.indiacode.nic.in/handle/123456789/7810"
+    ],
+    "verified_on": "2026-11-21"
+   }
+  ],
+  "case": {
+   "category": "deposit",
+   "facts": {
+    "deposit_amount": null,
+    "move_out_date": null,
+    "written_agreement": null,
+    "city": null,
+    "landlord_reason": null,
+    "deposit_proof": null
+   },
+   "missing": [
+    "deposit_amount",
+    "move_out_date",
+    "written_agreement",
+    "city",
+    "landlord_reason",
+    "deposit_proof"
+   ],
+   "timeline": [],
+   "evidence_have": [],
+   "evidence_missing": [],
+   "other_party": null,
+   "user_goal": "know legal limit on security deposit in Karnataka",
+   "state": "Karnataka",
+   "summary": "User is asking if Karnataka law imposes a 2-month limit on rental security deposits.",
+   "parties": {}
+  },
+  "guard": {
+   "checked": true,
+   "regenerated": false,
+   "removed": false,
+   "first_problems": [],
+   "problems": [],
+   "uncited_sentences": 0
+  },
+  "retrieval": {
+   "query": "statutory limit or cap on rental security deposit under Karnataka tenancy law",
+   "mode": "primary",
+   "top_score": 0.1805,
+   "floor": 0.035,
+   "seconds": 1.61
+  },
+  "draft": null,
+  "transcript": null,
+  "model": "gemini / gemini-3.8-flash",
+  "steps": [
+   "analysis: category=deposit intent=question language=English emergency=False query='statutory limit or cap on rental security deposit under Karnataka tenancy law'",
+   "case category: None -> deposit",
+   "advising without ['deposit_amount', 'move_out_date'] (question)",
+   "retrieval: primary top=0.1805 floor=0.035 ids=['deposit-no-cap', 'statute-rent-act-2-3', 'deposit-rent-act-scope', 'deposit-overview', 'deposit-rent-act-tenants']",
+   "guard: all legal references traced"
+  ],
+  "error": null,
+  "usage": {
+   "llm_calls": 2,
+   "input_tokens": 3268,
+   "output_tokens": 569,
+   "llm_s": 71.62,
+   "retrieval_s": 1.61
+  },
+  "latency_ms": 73267
+ }
+}
