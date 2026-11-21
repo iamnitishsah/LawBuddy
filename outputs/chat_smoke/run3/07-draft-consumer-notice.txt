@@ -1,0 +1,114 @@
+LawBuddy [groq / openai/gpt-oss-120b]  -  legal information for Karnataka: deposits, refunds, unpaid salary. Type 'quit' to stop.
+
+You: I ordered a Samsung phone on Flipkart for Rs. 24,999. It arrived on 5 November with a dead battery and Flipkart rejected my return request twice. I live in Mysuru.
+
+LawBuddy [advice]:
+**Where you stand**  
+You bought a Samsung phone that arrived with a dead battery - a clear defect. Under the Consumer Protection (E-Commerce) Rules, 2020 the seller and the platform may not refuse to take back or refund defective goods [1][2]. Flipkart must have a grievance officer who must acknowledge your complaint within 48 hours and resolve it within one month [1][2]. If the defect is proved, the Consumer Protection Act, 2019 allows a consumer commission to order a replacement, a refund with interest, or compensation [3].
+
+**What you can do**  
+1. **Raise a formal complaint with Flipkart’s grievance officer** in writing (email or letter), attaching the order ID, invoice, delivery proof, photos/video of the dead battery and any chat/email with customer-care. The officer must reply within 48 hours and settle the matter within a month [1][2].  
+2. If the grievance officer does not resolve it, you can **contact the National Consumer Helpline (1915)** for free assistance and to have your grievance forwarded to Flipkart [4].  
+3. As a next step, you may **file a complaint with the District Consumer Commission** (Mysuru district) since the value is Rs 24,999 (under Rs 50 lakh) [5]. The commission can order a replacement or a full refund with interest [3].
+
+**Next step**  
+Write to Flipkart’s grievance officer right away, stating the defect, requesting a refund or replacement, and attaching all proof (keep it if you have it). Note the date of your complaint; if you do not receive a resolution within one month, you can then approach the National Consumer Helpline or file a complaint with the Mysuru District Consumer Commission.
+
+If you like, I can draft a legal notice for you to send - just say "draft the notice".
+
+*LawBuddy gives legal information, not legal advice.*
+
+Sources:
+  [1] Online orders: what sellers and platforms must do about returns and refunds  (https://prsindia.org/files/bills_acts/bills_parliament/2021/Consumer%20Protection%20(E-Commerce)%20Rules,%202020.pdf)
+  [2] Consumer Protection (E-Commerce) Rules, 2020, rules 4(5), 4(10) and 6(3) (text)  (https://prsindia.org/files/bills_acts/bills_parliament/2021/Consumer%20Protection%20(E-Commerce)%20Rules,%202020.pdf)
+  [3] Refund, replacement or compensation for a bad product or service  (https://prsindia.org/files/bills_acts/bills_parliament/2021/Consumer%20Protection%20Act%202019.pdf)
+  [4] National Consumer Helpline (1915): free help before going to a Commission
+  [5] Filing a complaint with the District Consumer Commission  (https://prsindia.org/files/bills_acts/bills_parliament/2021/Consumer%20Protection%20Act%202019.pdf, https://www.thc.nic.in/Central%20Governmental%20Rules/Consumer%20Protection%20(Jurisdiction%20of%20the%20District%20Commission,%20the%20State%20Commission%20and%20the%20National%20Commission)%20Rules,%202021.pdf)
+
+-- trace
+   analysis: category=consumer intent=question language=English emergency=False query='Flipkart not accepting return of defective phone with dead battery'
+   case category: None -> consumer
+   advising without ['purchase_date'] (question)
+   retrieval: primary top=0.0641 floor=0.035 ids=['consumer-ecommerce-refunds', 'statute-cp-ecommerce-rules', 'consumer-overview', 'consumer-helpline', 'consumer-commission-complaint']
+   guard: all legal references traced
+   guard: 2 sentence(s) without a citation (warning only)
+   2 LLM calls | 3445 in / 900 out tokens | 22.07s total = LLM 20.45s + retrieval 1.59s + other
+
+You: can you write a legal notice to the seller for me?
+
+LawBuddy [draft]:
+I've drafted a legal notice for you, in English (legal notices are normally sent in English).
+
+**Before you send it:**
+1. Fill in the [● ...] parts:
+   - your full name
+   - your full address
+   - their full address
+   - date of order
+2. Check every fact, date and amount, and correct anything that is not right.
+3. Sign it, keep a copy, and send it by Registered Post AD or Speed Post and by email; keep the postal receipt.
+A notice sent through a lawyer often carries more weight.
+
+---
+
+**LEGAL NOTICE**
+
+Date: 21 November 2026
+By Registered Post with Acknowledgement Due / Speed Post, and by email
+
+**From:** [● fill: your full name]
+[● fill: your full address]
+
+**To:** Flipkart
+[● fill: their full address]
+
+**Subject:** Legal notice for refund / replacement of Samsung phone
+
+Sir/Madam,
+
+I, the undersigned, hereby give you notice as follows:
+
+**Facts**
+
+1. I placed an order for a Samsung phone on Flipkart for Rs. 24,999 on [● fill: date of order].
+
+2. The phone was delivered to my residence in Mysuru on 5 November, and I discovered that the battery was dead upon receipt.
+
+3. I promptly requested a return and replacement from you, but my return request was rejected twice.
+
+4. As a result, I have been unable to use the phone due to the defective battery.
+
+**Legal position**
+
+5. Under section 2 of the Consumer Protection Act, 2019, a "defect" means any fault, imperfection or shortcoming in the quality, quantity or standard of goods, and a "deficiency" means any fault, imperfection or shortcoming in the quality, nature and manner of performance of a service.
+
+6. Under rule 6(3) of the Consumer Protection (E-Commerce) Rules, 2020, a seller offering goods through an e-commerce marketplace may not refuse to take back goods, or refuse to refund the consideration paid, if the goods are defective, deficient or spurious, or are not of the characteristics or features advertised or agreed.
+
+7. Under section 39 of the Consumer Protection Act, 2019, a Consumer Commission may order a trader to remove the defect, replace the goods, return the price with interest, and pay compensation and costs.
+
+**Demand**
+
+8. I therefore call upon you to refund 24999 paid for Samsung phone, or to replace it with one free from defect, within 15 (fifteen) days of receipt of this notice.
+
+9. If you fail to do so within the said period, I shall file a complaint before the District Consumer Commission under section 35 of the Consumer Protection Act, 2019, seeking a refund, compensation and costs, without further notice to you.
+
+A copy of this notice is retained by me for further action.
+
+Yours faithfully,
+
+
+(Signature)
+[● fill: your full name]
+
+*LawBuddy gives legal information, not legal advice.*
+
+-- trace
+   analysis: category=consumer intent=draft language=English emergency=False query='draft legal notice to e-commerce seller for defective smartphone and refusal of return under Consumer Protection Act'
+   facts: 4 paragraphs, no law, every number given by the user
+   draft: consumer notice, 4 placeholder(s), 0 warning(s), legal basis from ['consumer-commission-complaint', 'consumer-ecommerce-refunds', 'consumer-overview', 'statute-cp-ecommerce-rules']
+   draft legal basis from: ['consumer-commission-complaint', 'consumer-ecommerce-refunds', 'consumer-overview', 'statute-cp-ecommerce-rules']
+   2 LLM calls | 2297 in / 663 out tokens | 15.95s total = LLM 15.95s + retrieval 0.0s + other
+
+(notice saved to /Users/iamnitishsah/Documents/LawBuddy/data/drafts/d4440bb05bf8-1.md; edit the [● fill: ...] parts before sending)
+
+(session d4440bb05bf8 saved to data/logs/chat.jsonl)

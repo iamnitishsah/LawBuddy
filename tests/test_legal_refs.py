@@ -125,3 +125,22 @@ def test_removing_a_whole_bullet_leaves_no_empty_bullet():
     cleaned = remove_problem_sentences(answer, check_answer(answer, [passage("x")], REGISTRY))
     assert "\n- \n" not in cleaned and not any(line.strip() == "-" for line in cleaned.splitlines())
     assert "- Send a notice [1]." in cleaned
+
+
+def test_a_section_after_its_law_is_not_tied_to_a_later_law():
+    """Run 3: "Consumer Protection Act, 2019 (s. 2(10))" was tied to an E-Commerce Rules mention that followed."""
+    answer = ("A defect is defined in the Consumer Protection Act, 2019 (s. 2(10)), and the Consumer Protection "
+              "(E-Commerce) Rules, 2020 bar refusals [1].")
+    assert kinds(answer) == []
+
+
+def test_section_of_law_binds_to_the_law_after_of():
+    laws = LawIndex(REGISTRY)
+    _, refs = find_refs("The Limitation Act, 1963 aside, see section 17 of the Code on Wages.", laws)
+    assert [(r["doc"], r["section"]) for r in refs] == [("code-on-wages-2019", "17")]
+
+
+def test_hindi_law_names_anchor_sections():
+    """Run 3: "कोड ऑन वेजेज, 2019 ... s. 45(6)" was flagged as having no law."""
+    assert kinds("कोड ऑन वेजेज, 2019 के तहत दावा तीन साल में करें (s. 45(6)) [1]।") == []
+    assert "unlisted_section" in kinds("कोड ऑन वेजेज की धारा 50 के तहत रजिस्टर रखें [1]।")

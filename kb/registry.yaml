@@ -5,6 +5,7 @@
 # A KB chunk may cite only what is listed here (enforced by tests/test_kb.py).
 #
 # status: in_force | repealed. Repealed laws are listed so the guard can say what replaced them.
+# aliases include Hindi (Devanagari) names, so answers in Hindi are checked too.
 # sections: provisions the KB cites. Rules use rule numbers, the Limitation Act uses Schedule article numbers.
 
 documents:
@@ -13,7 +14,8 @@ documents:
     number: Act No. 35 of 2019
     jurisdiction: central
     status: in_force
-    aliases: ["Consumer Protection Act", "CPA 2019", "CPA, 2019", "Consumer Protection Act 2019"]
+    aliases: ["Consumer Protection Act", "CPA 2019", "CPA, 2019", "Consumer Protection Act 2019",
+              "उपभोक्ता संरक्षण अधिनियम", "कंज़्यूमर प्रोटेक्शन एक्ट", "कंज्यूमर प्रोटेक्शन एक्ट"]
     sections: ["2", "34", "35", "36", "37", "39", "41", "69", "72", "107"]
     file: central_consumer-protection-act-2019.pdf
     url: https://prsindia.org/files/bills_acts/bills_parliament/2021/Consumer%20Protection%20Act%202019.pdf
@@ -43,7 +45,7 @@ documents:
     number: Act No. 29 of 2019
     jurisdiction: central
     status: in_force
-    aliases: ["Code on Wages", "Wage Code", "Code on Wages 2019"]
+    aliases: ["Code on Wages", "Wage Code", "Code on Wages 2019", "कोड ऑन वेजेज", "वेतन संहिता", "मजदूरी संहिता"]
     sections: ["2", "17", "18", "43", "45", "49", "69"]
     file: central_code-on-wages-2019.pdf
     url: https://www.indiacode.nic.in/bitstream/123456789/15793/1/aA2019-29.pdf
@@ -53,7 +55,7 @@ documents:
     number: Karnataka Act No. 34 of 2001
     jurisdiction: karnataka
     status: in_force
-    aliases: ["Karnataka Rent Act", "Rent Act", "Karnataka Rent Act 1999"]
+    aliases: ["Karnataka Rent Act", "Rent Act", "Karnataka Rent Act 1999", "कर्नाटक रेंट एक्ट", "कर्नाटक किराया अधिनियम"]
     sections: ["2", "3", "4", "15", "16", "17", "23", "70"]
     file: karnataka_rent-act-1999.pdf
     url: https://www.indiacode.nic.in/handle/123456789/7810
@@ -73,7 +75,8 @@ documents:
     number: Act No. 9 of 1872
     jurisdiction: central
     status: in_force
-    aliases: ["Indian Contract Act", "Contract Act", "Indian Contract Act 1872"]
+    aliases: ["Indian Contract Act", "Contract Act", "Indian Contract Act 1872", "भारतीय संविदा अधिनियम",
+              "इंडियन कॉन्ट्रैक्ट एक्ट", "कॉन्ट्रैक्ट एक्ट"]
     sections: ["73", "74"]
     file: central_indian-contract-act-1872.pdf
     url: https://www.indiacode.nic.in
@@ -83,7 +86,7 @@ documents:
     number: Act No. 36 of 1963
     jurisdiction: central
     status: in_force
-    aliases: ["Limitation Act", "Limitation Act 1963"]
+    aliases: ["Limitation Act", "Limitation Act 1963", "परिसीमा अधिनियम", "लिमिटेशन एक्ट"]
     sections: ["3", "Article 7", "Article 22", "Article 55", "Article 113"]
     file: central_limitation-act-1963.pdf
     url: https://www.indiacode.nic.in
@@ -93,7 +96,8 @@ documents:
     number: Act No. 39 of 1987
     jurisdiction: central
     status: in_force
-    aliases: ["Legal Services Authorities Act", "LSA Act", "Legal Services Authorities Act 1987"]
+    aliases: ["Legal Services Authorities Act", "LSA Act", "Legal Services Authorities Act 1987",
+              "विधिक सेवा प्राधिकरण अधिनियम"]
     sections: ["12", "13", "19", "20", "21"]
     file: central_legal-services-authorities-act-1987.pdf
     url: https://www.indiacode.nic.in/handle/123456789/1925
@@ -103,7 +107,7 @@ documents:
     number: as on 10 September 2026
     jurisdiction: central
     status: in_force
-    aliases: ["Constitution", "Constitution of India", "Indian Constitution"]
+    aliases: ["Constitution", "Constitution of India", "Indian Constitution", "भारत का संविधान", "संविधान"]
     sections: ["Article 39A"]
     file: IndianConstitution.pdf
     url: https://legislative.gov.in

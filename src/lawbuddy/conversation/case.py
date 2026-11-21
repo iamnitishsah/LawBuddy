@@ -46,6 +46,9 @@ CRITICAL: dict[str, tuple[str, ...]] = {
 }
 
 
+PARTY_KEYS = ("user_name", "user_address", "other_name", "other_address")
+
+
 @dataclass
 class CaseFile:
     category: str | None = None                  # deposit | consumer | salary, once known
@@ -57,6 +60,7 @@ class CaseFile:
     user_goal: str | None = None
     state: str | None = None                     # Indian state of the problem, if known
     summary: str = ""                            # neutral English summary, rewritten every turn
+    parties: dict[str, str] = field(default_factory=dict)   # user_name, user_address, other_name, other_address
 
     def set_category(self, category: str) -> None:
         """Switching to another problem type starts that type's facts afresh."""
@@ -83,6 +87,9 @@ class CaseFile:
                 setattr(self, key, str(update[key]).strip())
         if _known(update.get("summary")):
             self.summary = str(update["summary"]).strip()
+        for k, v in (update.get("parties") or {}).items():
+            if k in PARTY_KEYS and _known(v):
+                self.parties[k] = str(v).strip()
 
     def missing(self, critical_only: bool = False) -> list[str]:
         """Fact keys still unknown, critical ones first."""

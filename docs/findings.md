@@ -106,3 +106,27 @@ Still wrong in run 2 (not caught by the guard):
   the model must say "my sources").
 - Latency varied from 2 s to 32 s per turn; "hi" took 10 s with no retrieval, so Groq free-tier response time
   varies on its own. The trace now splits each turn into LLM time and retrieval time.
+
+## Legal notices, first run (Phase 3, 2026-11-21)
+
+Scripts 06 (deposit, names and address given) and 07 (Flipkart phone, online). Raw transcripts and the two drafts:
+`outputs/chat_smoke/run3/` and `run3/drafts/`.
+
+**What worked**
+- Both notices: correct layout; legal position only from code (Contract Act ss. 73-74 for the deposit; CPA s. 2,
+  E-Commerce rule 6(3) and CPA s. 39 for the online phone); demand with a 15-day deadline; the right forum.
+- Names and addresses the user gave filled the header (Asha Rao, Mr. R. Kumar, his address; Flipkart); unknown
+  details stayed as placeholders and were listed (the user's address; the order date, which the user never gave).
+- The number check passed on both: every amount and date in the facts came from the user.
+
+**What failed, and the fix**
+
+| Failure | Cause | Fix |
+|---|---|---|
+| "refund the security deposit of 150000" / "refund 24999" | The analysis stored bare digits | Code formats amounts as rupees with Indian grouping ("Rs. 1,50,000") |
+| Deposit facts said "returned the premises in good condition" and "thereby fulfilling my obligations"; consumer facts added "promptly" and "replacement" | The model embellished; the number check cannot see invented wording | The facts prompt forbids descriptions, conclusions and requests the user did not give. Not checkable in code: the intro asks the user to check every fact before sending |
+| Advice (script 02) regenerated over "Consumer Protection Act, 2019 (s. 2(10))" | The guard tied the section to the nearest law in either direction, an E-Commerce Rules mention after it | Anchoring: "section N of <law>" binds forward; otherwise the nearest law before the section |
+| Hindi advice (script 03) regenerated over "कोड ऑन वेजेज, 2019 ... s. 45(6)" | The guard could not read law names in Devanagari | Hindi names for the registered laws added as aliases; Hindi answers are now checked (a "धारा 50" of the Code on Wages is now caught) |
+
+Latency: the turn time is now split. LLM time was 1.6-54 s per turn and retrieval 0-6 s, so the slow turns are
+the Groq free tier, not search.

@@ -17,7 +17,7 @@ from lawbuddy.conversation.case import FACTS, IN_SCOPE, CaseFile
 from lawbuddy.llm.base import chat_json
 
 CATEGORIES = (*IN_SCOPE, "out_of_scope", "unclear")
-INTENTS = ("story", "question", "other")
+INTENTS = ("story", "question", "draft", "other")
 
 EMERGENCY_PATTERNS = [
     # self-harm
@@ -55,8 +55,10 @@ Read the conversation and the case file so far, then reply with ONLY one JSON ob
   "emergency": true or false,          // danger to life or safety right now: violence, threats, self-harm
   "category": "deposit" | "consumer" | "salary" | "out_of_scope" | "unclear",
   "out_of_scope_topic": "",            // if out_of_scope: the topic in 2-5 words, e.g. "divorce and custody"
-  "intent": "story" | "question" | "other",
-      // story: describes their own situation; question: a general legal question; other: greetings, thanks
+  "intent": "story" | "question" | "draft" | "other",
+      // story: describes their own situation; question: a general legal question;
+      // draft: asks you to write a legal notice / letter for them (e.g. "notice bana do", "draft the notice");
+      // other: greetings, thanks
   "language": "",                      // the user's language AND script: "English", "Hindi" (Devanagari),
                                        // "Hinglish" (Hindi words in Latin letters, e.g. "mera paisa nahi mila"),
                                        // "Kannada", ...  Hindi typed in Latin letters is always "Hinglish".
@@ -66,6 +68,8 @@ Read the conversation and the case file so far, then reply with ONLY one JSON ob
   "evidence_have": [],                 // documents or proof the user says they have
   "evidence_missing": [],              // ONLY proof the user explicitly says they do not have; never guess
   "other_party": "",                   // who the dispute is with (name or role)
+  "parties": {"user_name": "", "user_address": "", "other_name": "", "other_address": ""},
+                                       // only names and addresses the user actually gave; else ""
   "user_goal": "",                     // what the user wants, in a few words
   "summary": "",                       // 1-3 neutral English sentences: the case so far
   "search_query": ""                   // one English sentence in legal terms to search a legal knowledge base,
@@ -116,7 +120,9 @@ def normalize(raw: dict) -> Analysis:
     category = str(raw.get("category", "unclear")).strip().lower()
     intent = str(raw.get("intent", "other")).strip().lower()
     update = {k: raw.get(k) for k in ("facts", "timeline", "evidence_have", "evidence_missing", "other_party",
-                                      "user_goal", "state", "summary")}
+                                      "user_goal", "state", "summary", "parties")}
+    if not isinstance(update["parties"], dict):
+        update["parties"] = {}
     if not isinstance(update["facts"], dict):
         update["facts"] = {}
     for k in ("timeline", "evidence_have", "evidence_missing"):

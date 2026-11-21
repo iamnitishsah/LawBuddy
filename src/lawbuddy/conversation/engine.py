@@ -9,6 +9,8 @@
       4. retrieval (rerank, evidence)   -> not_found, if nothing in the KB clears the score floor
       5. advice (LLM) + guard (code)    -> advice; regenerated once if the guard finds untraceable law,
                                            then the offending sentences are removed
+    A request for a legal notice (analysis intent "draft") in an in-scope case goes to drafting/notice.py after
+    step 2: code writes the legal parts, the model only the facts.
 
 Layer 3 of classification is step 4: the model's category is only acted on if the knowledge base has evidence for
 it. For an unclear message, a rerank search over the whole KB suggests the likely topic for the clarifying question.
@@ -28,6 +30,7 @@ import yaml
 from lawbuddy.conversation import respond
 from lawbuddy.conversation.case import IN_SCOPE, CaseFile
 from lawbuddy.conversation.triage import Analysis, analyze, emergency_rule
+from lawbuddy.drafting.notice import build_notice
 from lawbuddy.guard.legal_refs import check_answer, remove_problem_sentences
 from lawbuddy.guard.citations import normalize_citations, normalize_text
 
@@ -57,6 +60,7 @@ class Reply:
     trace: list[str] = field(default_factory=list)
     usage: dict = field(default_factory=dict)
     latency_s: float = 0.0
+    draft: dict = field(default_factory=dict)                 # for kind "draft": text, placeholders, warnings, chunks
 
 
 def load_config() -> dict:
@@ -118,6 +122,10 @@ class Engine:
         s.case.set_category(category)
         s.case.merge(a.update)
 
+        # the user asked for a legal notice: drafted now, with placeholders for anything still unknown
+        if a.intent == "draft":
+            return self._draft(s, trace, usage)
+
         # 3. follow-up questions
         missing = s.case.missing(critical_only=True)
         if missing and a.intent == "story" and s.followup_turns < self.cfg["max_followup_turns"]:
@@ -144,7 +152,7 @@ class Engine:
         if s.case.outside_karnataka():
             text += respond.outside_karnataka_note(s.language, s.case.state)
             trace.append(f"note added: state is {s.case.state}")
-        text += respond.disclaimer(s.language)
+        text += respond.offer_draft(s.language) + respond.disclaimer(s.language)
         return Reply("advice", text, s.language, category, passages=hits, cited=guard["cited"], guard=guard,
                      retrieval=retrieval, trace=trace)
 
@@ -161,6 +169,19 @@ class Engine:
             trace.append("unclear: no search query, asking what happened")
         text = self._generate(respond.clarify_messages(s.language, s.messages, hint), usage, trace)
         return Reply("clarify", text, s.language, None, retrieval=retrieval, trace=trace)
+
+    def _draft(self, s: Session, trace: list[str], usage: dict) -> Reply:
+        def add(r):
+            self._add_usage(usage, {"input_tokens": r.input_tokens, "output_tokens": r.output_tokens, "calls": 1,
+                                    "latency_s": r.latency_s})
+        d = build_notice(self.llm, s.case, s.messages, self.registry, usage_add=add,
+                         max_tokens=self.cfg["respond_max_tokens"])
+        trace += d.trace
+        trace.append(f"draft: {s.case.category} notice, {len(d.placeholders)} placeholder(s), "
+                     f"{len(d.warnings)} warning(s), legal basis from {d.chunks}")
+        text = (respond.draft_intro(s.language, d.placeholders, d.warnings) + "\n\n---\n\n" + d.text
+                + respond.disclaimer(s.language))
+        return Reply("draft", text, s.language, s.case.category, trace=trace, draft=asdict(d))
 
     def _search(self, query: str, categories: list[str] | None, k: int | None = None,
                 usage: dict | None = None) -> tuple[list[dict], dict]:

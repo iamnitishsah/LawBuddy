@@ -156,25 +156,40 @@ def find_refs(text: str, laws: LawIndex) -> tuple[list[LawMention], list[dict]]:
     refs: list[dict] = []
     for kind, rx in REF_RES:
         for m in rx.finditer(text):
-            law = _anchor(m.start(), m.end(), mentions)
+            law = _anchor(m.start(), m.end(), mentions, text)
             for n in _numbers(m.group(1)):
                 refs.append({"kind": kind, "text": m.group(0).strip(), "section": n,
                              "doc": law.doc if law else None, "law": law})
     for m in BARE_SECTION_RE.finditer(text):                  # "420 IPC"
-        law = next((x for x in mentions if x.start <= m.start(2) < x.end), None) or _anchor(m.start(), m.end(),
-                                                                                            mentions)
+        law = next((x for x in mentions if x.start <= m.start(2) < x.end), None) or \
+            _anchor(m.start(), m.end(), mentions, text)
         refs.append({"kind": "section", "text": m.group(0), "section": m.group(1),
                      "doc": law.doc if law else None, "law": law})
     return mentions, refs
 
 
-def _anchor(start: int, end: int, mentions: list[LawMention]) -> LawMention | None:
-    """The law a reference belongs to: the nearest mention within ANCHOR_WINDOW, else the last one before it."""
-    near = [(min(abs(m.start - end), abs(start - m.end)), m) for m in mentions
-            if min(abs(m.start - end), abs(start - m.end)) <= ANCHOR_WINDOW]
-    if near:
-        return min(near, key=lambda pair: pair[0])[1]
+OF_LAW_RE = re.compile(r"\s*(?:of|under|in)\s+(?:the\s+)?", re.I)
+
+
+def _anchor(start: int, end: int, mentions: list[LawMention], text: str = "") -> LawMention | None:
+    """The law a reference belongs to:
+    1. "section 17 of the Code on Wages": the law right after "of";
+    2. else the nearest law before it within ANCHOR_WINDOW ("Code on Wages, 2019, s. 17" is the citation style);
+    3. else the nearest law after it within the window;
+    4. else the last law mentioned anywhere before it.
+    (Nearest-in-either-direction tied "Consumer Protection Act, 2019, s. 2(10)" to an E-Commerce Rules mention that
+    followed it: chat smoke run 3.)"""
+    of = OF_LAW_RE.match(text, end) if text else None
+    if of:
+        nxt = next((m for m in mentions if m.start == of.end()), None)
+        if nxt:
+            return nxt
     before = [m for m in mentions if m.end <= start]
+    if before and start - before[-1].end <= ANCHOR_WINDOW:
+        return before[-1]
+    after = [m for m in mentions if m.start >= end and m.start - end <= ANCHOR_WINDOW]
+    if after:
+        return after[0]
     return before[-1] if before else None
 
 

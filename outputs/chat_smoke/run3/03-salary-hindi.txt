@@ -1,0 +1,53 @@
+LawBuddy [groq / openai/gpt-oss-120b]  -  legal information for Karnataka: deposits, refunds, unpaid salary. Type 'quit' to stop.
+
+You: कंपनी ने तीन महीने से तनख्वाह नहीं दी, मैंने अगस्त में इस्तीफा दे दिया था
+
+LawBuddy [follow_up]:
+समझ गया, आप तीन महीने से वेतन नहीं मिलने और अगस्त में इस्तीफा देने की बात कर रहे हैं।  
+1. आपके नियोक्ता का नाम क्या है?  
+2. आपका मासिक वेतन कितना है?  
+3. आप किस शहर में काम करते हैं?
+
+-- trace
+   analysis: category=salary intent=story language=Hindi emergency=False query='employer not paying salary for three months after employee resignation'
+   case category: None -> salary
+   follow-up 1/2: missing ['employer']
+   2 LLM calls | 1421 in / 454 out tokens | 14.89s total = LLM 14.89s + retrieval 0.0s + other
+
+You: कंपनी का नाम ब्राइटवेव सॉल्यूशंस है, बेंगलुरु में। महीने की तनख्वाह 28,000 थी। जून, जुलाई और अगस्त की बाकी है।
+
+LawBuddy [advice]:
+**Where you stand**  
+कोड ऑन वेजेज, 2019 के अनुसार, जब आप इस्तीफा देते हैं तो आपका बकाया वेतन दो कार्यदिवसों के भीतर देना अनिवार्य है [2][3]। चूँकि आपका इस्तीफा अगस्त में हुआ और जून-जुलाई-अगस्त के वेतन अभी तक नहीं मिला, यह देय है और आप इसे कानूनी तौर पर माँग सकते हैं [2][3]।
+
+**What you can do**  
+1. **लिखित मांग** - ई-मेल या पत्र से HR/मालिक को बकाया महीनों (जून, जुलाई, अगस्त) और कुल राशि (₹28,000 × 3) लिखित रूप में माँगें, साथ में भुगतान की अंतिम तिथि दें [1]।  
+2. **कानूनी नोटिस** - यदि लिखित मांग पर जवाब न मिले तो आप एक कानूनी नोटिस भेज सकते हैं, जिसमें तथ्य, राशि और भुगतान की अंतिम तिथि बताई जाए [1]।  
+3. **वेज क्लेम** - यदि नोटिस के बाद भी भुगतान नहीं होता तो कोड ऑन वेजेज के तहत श्रम विभाग के नियुक्त अधिकारी के सामने वेज क्लेम दायर करें। यह प्रक्रिया तेज़ और सस्ती है, और तीन साल के भीतर दायर की जानी चाहिए [1][5]।  
+4. **सिविल सूट** - विकल्प के रूप में, आप तीन साल की सीमा के भीतर सिविल मुकदमा भी दायर कर सकते हैं [1]।  
+
+**Next step**  
+सबसे पहले, कंपनी को लिखित मांग भेजें और दो कार्यदिवसों के भीतर भुगतान की मांग करें [1][2][3]। यदि दो कार्यदिवस बीतने के बाद भी भुगतान नहीं होता, तो तुरंत वेज क्लेम फॉर्म भरें और अपने क्षेत्र के लेबर विभाग से संबंधित अधिकारी की जानकारी प्राप्त करें [5]।  
+
+*यदि आपके पास रोजगार का प्रमाण (ऑफ़र लेटर, पेस्लिप, बैंक स्टेटमेंट आदि) है, तो उसे सुरक्षित रखें* [4]।
+
+अगर आप चाहें तो मैं आपके लिए एक कानूनी नोटिस का ड्राफ़्ट बना सकता हूँ - बस लिखिए "नोटिस बनाओ"।
+
+*LawBuddy कानूनी जानकारी देता है, कानूनी सलाह नहीं।*
+
+Sources:
+  [1] Steps to recover unpaid salary  (https://www.indiacode.nic.in/bitstream/123456789/15793/1/aA2019-29.pdf, https://www.indiacode.nic.in)
+  [2] Unpaid salary or final dues: your rights  (https://www.indiacode.nic.in/bitstream/123456789/15793/1/aA2019-29.pdf)
+  [3] Code on Wages, 2019, section 17 (text)  (https://www.indiacode.nic.in/bitstream/123456789/15793/1/aA2019-29.pdf)
+  [4] Evidence to collect for unpaid salary
+  [5] Filing a wage claim under the Code on Wages  (https://www.indiacode.nic.in/bitstream/123456789/15793/1/aA2019-29.pdf)
+
+-- trace
+   analysis: category=salary intent=story language=Hindi emergency=False query='unpaid salary after resignation employer not paying wages for three months India'
+   retrieval: primary top=0.1005 floor=0.035 ids=['salary-steps', 'salary-overview', 'statute-wages-17', 'salary-evidence', 'salary-claim']
+   guard: unanchored_section: s. 45(6) (no law named for this reference) -> regenerating once
+   guard first: ['unanchored_section: s. 45(6)']
+   guard final: []
+   3 LLM calls | 5898 in / 1631 out tokens | 55.59s total = LLM 54.3s + retrieval 1.23s + other
+
+(session 97c8437148c9 saved to data/logs/chat.jsonl)

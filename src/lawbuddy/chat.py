@@ -30,6 +30,8 @@ def show(reply: Reply, debug: bool) -> None:
         print("\n-- trace")
         for step in reply.trace:
             print(f"   {step}")
+        if reply.draft:
+            print(f"   draft legal basis from: {reply.draft['chunks']}")
         if reply.guard.get("problems") or reply.guard.get("first_problems"):
             print(f"   guard first: {[p['kind'] + ': ' + p['text'] for p in reply.guard.get('first_problems', [])]}")
             print(f"   guard final: {[p['kind'] + ': ' + p['text'] for p in reply.guard.get('problems', [])]}")
@@ -37,6 +39,16 @@ def show(reply: Reply, debug: bool) -> None:
         print(f"   {u.get('llm_calls', 0)} LLM calls | {u.get('input_tokens', 0)} in / {u.get('output_tokens', 0)} "
               f"out tokens | {reply.latency_s}s total = LLM {u.get('llm_s', 0)}s + retrieval "
               f"{u.get('retrieval_s', 0)}s + other")
+
+
+def save_draft(session_id: str, text: str, folder: Path | None = None) -> Path:
+    """data/drafts/<session>-<n>.md, numbered so a later draft never overwrites an earlier one."""
+    folder = folder or Path(__file__).resolve().parents[2] / "data" / "drafts"
+    folder.mkdir(parents=True, exist_ok=True)
+    n = len(list(folder.glob(f"{session_id}-*.md"))) + 1
+    path = folder / f"{session_id}-{n}.md"
+    path.write_text(text + "\n", encoding="utf-8")
+    return path
 
 
 def main() -> None:  # pragma: no cover - needs API keys
@@ -74,6 +86,9 @@ def main() -> None:  # pragma: no cover - needs API keys
                 continue
         reply = engine.turn(session, message)
         show(reply, args.debug)
+        if reply.kind == "draft":
+            path = save_draft(session.id, reply.draft["text"])
+            print(f"\n(notice saved to {path}; edit the [● fill: ...] parts before sending)")
         log_turn(session, message, reply, backend)
     print(f"\n(session {session.id} saved to data/logs/chat.jsonl)")
 

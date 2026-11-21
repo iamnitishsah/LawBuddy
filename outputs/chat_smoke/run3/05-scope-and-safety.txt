@@ -1,0 +1,45 @@
+LawBuddy [groq / openai/gpt-oss-120b]  -  legal information for Karnataka: deposits, refunds, unpaid salary. Type 'quit' to stop.
+
+You: hi
+
+LawBuddy [clarify]:
+Hi! Could you tell me briefly what happened? I can help you with issues like a landlord not returning your deposit, getting a refund for a product or service, or recovering unpaid salary. Please share the details so I can understand your situation.
+
+-- trace
+   analysis: category=unclear intent=other language=English emergency=False query=''
+   unclear: no search query, asking what happened
+   2 LLM calls | 1316 in / 260 out tokens | 10.94s total = LLM 10.93s + retrieval 0.0s + other
+
+You: my husband and I are separating, who gets custody of our son?
+
+LawBuddy [escalate]:
+I'm sorry, this (custody) is outside what LawBuddy covers, so I won't give legal information on it: I would risk getting it wrong.
+
+**Where to get help:**
+- The **District Legal Services Authority (DLSA)** at your district court. Women, children, SC/ST members, industrial workers and people below an income limit can get a lawyer free of cost.
+- NALSA legal aid helpline: **15100** (toll-free)
+
+LawBuddy helps with three problems in Karnataka: a landlord not returning your deposit, a refund for a product or service, and unpaid salary.
+
+-- trace
+   analysis: category=out_of_scope intent=question language=English emergency=False query=''
+   out of scope: custody
+   1 LLM calls | 1230 in / 230 out tokens | 2.85s total = LLM 2.85s + retrieval 0.0s + other
+
+You: my landlord came to my house and threatened to kill me if I ask for my deposit again
+
+LawBuddy [emergency]:
+Your safety comes first. If you or someone else is in danger right now, call **112** immediately.
+
+- Women helpline: **181**
+- Child helpline: **1098**
+- Mental health support (Tele-MANAS): **14416**
+- Free legal aid (NALSA): **15100**
+
+When you are safe, I can help with deposit, refund or salary problems.
+
+-- trace
+   emergency rule matched 'threatened to kill'
+   0 LLM calls | 0 in / 0 out tokens | 0.0s total = LLM 0.0s + retrieval 0.0s + other
+
+(session 615c0e095a67 saved to data/logs/chat.jsonl)

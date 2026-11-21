@@ -1,0 +1,40 @@
+LawBuddy [groq / openai/gpt-oss-120b]  -  legal information for Karnataka: deposits, refunds, unpaid salary. Type 'quit' to stop.
+
+You: Amazon delivered a phone with a cracked screen on 2 November and keeps rejecting my return request. I paid Rs. 32,000. I live in Mysuru. What can I do?
+
+LawBuddy [advice]:
+**Where you stand**  
+You are a consumer because you bought a phone online and paid Rs 32,000 [5]. The phone arrived with a cracked screen, which makes it a defective good [3]. Under the Consumer Protection (E-Commerce) Rules, 2020 the seller (or the marketplace) may not refuse to take back or refund a defective product [1][2]. The platform must also have a grievance officer who must acknowledge your complaint within 48 hours and resolve it within one month [1][2].
+
+**What you can do**  
+1. **Write to Amazon’s grievance officer** in writing (email or letter), attaching the order ID, invoice, delivery proof, photos/video of the cracked screen and any chat/email with customer care. Note the date you send it. [1]  
+2. If the grievance officer does not resolve the issue within one month, you can **approach the consumer redressal system**: call the National Consumer Helpline (1915) and then file a complaint with the District Consumer Commission (Mysuru) online via e-Jagriti. The commission can order a replacement, a refund with interest, or compensation [3].  
+3. All refunds that are accepted must be paid within a reasonable time as prescribed by the RBI or other law [1][2].
+
+**Next step**  
+Send a written complaint to Amazon’s grievance officer today, attaching all proof (order details, invoice, delivery slip, photos of the cracked screen, and any prior communications). Keep a copy for your records. If you do not receive a resolution within one month from the date of your complaint, you may file a complaint with the Mysuru District Consumer Commission [1][2][3].  
+
+*If you have the delivery proof, photos/video of the damage, and the chat/email records, keep them ready for the next steps.*
+
+If you like, I can draft a legal notice for you to send - just say "draft the notice".
+
+*LawBuddy gives legal information, not legal advice.*
+
+Sources:
+  [1] Online orders: what sellers and platforms must do about returns and refunds  (https://prsindia.org/files/bills_acts/bills_parliament/2021/Consumer%20Protection%20(E-Commerce)%20Rules,%202020.pdf)
+  [2] Consumer Protection (E-Commerce) Rules, 2020, rules 4(5), 4(10) and 6(3) (text)  (https://prsindia.org/files/bills_acts/bills_parliament/2021/Consumer%20Protection%20(E-Commerce)%20Rules,%202020.pdf)
+  [3] Refund, replacement or compensation for a bad product or service  (https://prsindia.org/files/bills_acts/bills_parliament/2021/Consumer%20Protection%20Act%202019.pdf)
+  [5] Are you a "consumer" under the law?  (https://prsindia.org/files/bills_acts/bills_parliament/2021/Consumer%20Protection%20Act%202019.pdf)
+
+-- trace
+   analysis: category=consumer intent=question language=English emergency=False query='online purchase phone cracked screen return rejected Amazon consumer rights Karnataka'
+   case category: None -> consumer
+   advising without ['purchase_date'] (question)
+   retrieval: primary top=0.0512 floor=0.035 ids=['consumer-ecommerce-refunds', 'statute-cp-ecommerce-rules', 'consumer-overview', 'general-when-lawyer', 'consumer-who-is-consumer']
+   guard: unlisted_section: s. 2(10) (Consumer Protection (E-Commerce) Rules, 2020 2 is not in LawBuddy's sources); unlisted_section: s. 39(1) (Consumer Protection (E-Commerce) Rules, 2020 39 is not in LawBuddy's sources) -> regenerating once
+   guard: 1 sentence(s) without a citation (warning only)
+   guard first: ['unlisted_section: s. 2(10)', 'unlisted_section: s. 39(1)']
+   guard final: []
+   3 LLM calls | 5646 in / 1332 out tokens | 43.42s total = LLM 42.14s + retrieval 1.22s + other
+
+(session 7682e722a697 saved to data/logs/chat.jsonl)

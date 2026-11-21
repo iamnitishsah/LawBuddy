@@ -1,0 +1,82 @@
+LawBuddy [groq / openai/gpt-oss-120b]  -  legal information for Karnataka: deposits, refunds, unpaid salary. Type 'quit' to stop.
+
+You: bhai mera owner deposit wapas nahi kar raha, maine flat chhod diya
+
+LawBuddy [follow_up]:
+Samajh aaya ki aapka owner deposit wapas nahi kar raha after aapne flat chhod diya.  
+1. Aapne kitna deposit (advance) diya tha?  
+2. Aap kab move out kiye aur keys handover ki?  
+3. Kya aapke paas likhit rental agreement hai?
+
+-- trace
+   analysis: category=deposit intent=story language=Hinglish emergency=False query='landlord not returning security deposit after tenant vacated'
+   case category: None -> deposit
+   follow-up 1/2: missing ['deposit_amount', 'move_out_date']
+   2 LLM calls | 1447 in / 388 out tokens | 1.64s total = LLM 1.63s + retrieval 0.0s + other
+
+You: 2 lakh diya tha advance, 30 september ko keys de di thi. Bangalore me hai, HSR layout
+
+LawBuddy [advice]:
+**Where you stand**  
+Security deposit wapas milna ya na milna aapke rental agreement par depend karta hai [1]. Agar agreement mein deposit return ka clause hai aur landlord usko rok raha hai, to yeh contract ka breach hai aur aap compensation maang sakte hain [1].
+
+**What you can do** - cheapest se start karein:  
+1. **Written demand** - landlord ko message/email bhejein, “₹2 lakh deposit 7 din ke andar wapas karo” likhe [3]. Reply ya non-reply ka record rakhein.  
+2. **Legal notice** - agar demand ka koi response nahi milta, to registered post (aur email/WhatsApp copy) se legal notice bhejein, amount, deadline aur court action ka warning dekar [3].  
+3. **Lok Adalat** - DLSA ke through settlement ke liye apply karein; yeh final award ban jata hai agar landlord agree kare [3].  
+4. **Civil suit** - sab fail ho to contract breach ke liye suit file kar sakte hain; limitation 3 saal hai breach ke date se [3].
+
+**Next step**  
+Aaj hi landlord ko ek written demand bhejein, 7-din ki deadline ke saath, aur uska screenshot ya email copy save karein [3]. Agar aapke paas rental agreement, payment receipt ya bank/UPI proof hai, to unhe sambhal ke rakhein - court ya Lok Adalat mein zaroori honge.  
+
+Agar aapko pata nahi ki agreement mein kya likha hai ya rent/age ke hisaab se Karnataka Rent Act apply hota hai ya nahi, to District Legal Services Authority se confirm kar lein.
+
+Agar chahein to main aapke liye ek legal notice draft kar sakta hoon - bas likhiye "notice draft karo".
+
+*LawBuddy gives legal information, not legal advice.*
+
+Sources:
+  [1] Getting your security deposit back from a landlord in Karnataka  (https://www.indiacode.nic.in, https://www.indiacode.nic.in/handle/123456789/7810)
+  [3] Steps to recover a deposit, from demand to court  (https://www.indiacode.nic.in/handle/123456789/1925, https://www.indiacode.nic.in)
+
+-- trace
+   analysis: category=deposit intent=story language=Hinglish emergency=False query='landlord not returning security deposit after tenant vacated flat in Bangalore'
+   retrieval: primary top=0.1145 floor=0.035 ids=['deposit-overview', 'deposit-rent-act-tenants', 'deposit-steps', 'deposit-rent-act-scope', 'deposit-no-cap']
+   guard: all legal references traced
+   guard: 3 sentence(s) without a citation (warning only)
+   2 LLM calls | 3538 in / 790 out tokens | 5.21s total = LLM 2.72s + retrieval 2.45s + other
+
+You: haan agreement hai, bank transfer se diya tha. owner bolta hai painting aur cleaning ka paisa katega
+
+LawBuddy [advice]:
+**Where you stand**  
+Security deposit ke return ka decision aapke likhit rental agreement par hi hota hai [1]. Agar agreement mein painting ya cleaning ke liye koi specific deduction ka clause nahi hai, to landlord ko sirf wahi amount katna chahiye jo aapke dwara kiye gaye actual loss ko dikhata ho [4]. Agar wo bina itemised bill ya photo ke sirf “painting aur cleaning ka paisa” keh raha hai, to wo contract breach ke roop mein aapko compensation ke liye claim kar sakta hai, lekin uske liye usko saboot dena hoga [4].
+
+**What you can do**  
+1. **Written demand** - landlord ko email ya message mein likhit roop se deposit wapas maange, aur ek final payment date (jaise 15 din ke andar) de [1].  
+2. **Itemised deduction list** - unse painting/cleaning ke actual kharch ki bill ya photo maange; phir agreement ke clauses se compare kare [4].  
+3. **Legal notice** - agar response nahi milta, to ek legal notice bheje jisme facts, amount (₹2 lakh) aur deadline ho [1].  
+4. **Lok Adalat** - DLSA ke through settlement ke liye Lok Adalat ka prayog kar sakte hain, jo sabse sasta aur tezi se hota hai [1].  
+5. **Civil suit** - ant mein civil suit file kar sakte hain, lekin ye sabse formal aur mehenga raasta hai [1].
+
+**Next step**  
+Abhi turant landlord ko email likh kar deposit ki full refund maange, aur unse painting/cleaning ke itemised bills maange, saath hi 15 din ke andar payment ki deadline de [1][4].  
+
+*Keep* aapke paas jo rental agreement aur bank transfer receipt hai - ye aapke claim ko strong banayenge [1]. If you need help drafting the notice or approaching Lok Adalat, contact the District Legal Services Authority.
+
+Agar chahein to main aapke liye ek legal notice draft kar sakta hoon - bas likhiye "notice draft karo".
+
+*LawBuddy gives legal information, not legal advice.*
+
+Sources:
+  [1] Getting your security deposit back from a landlord in Karnataka  (https://www.indiacode.nic.in, https://www.indiacode.nic.in/handle/123456789/7810)
+  [4] What a landlord may deduct from the deposit  (https://www.indiacode.nic.in)
+
+-- trace
+   analysis: category=deposit intent=story language=Hinglish emergency=False query='landlord refusing to return security deposit citing painting and cleaning deductions Karnataka'
+   retrieval: primary top=0.1047 floor=0.035 ids=['deposit-overview', 'deposit-no-cap', 'deposit-rent-act-tenants', 'deposit-deductions', 'deposit-rent-act-scope']
+   guard: all legal references traced
+   guard: 1 sentence(s) without a citation (warning only)
+   2 LLM calls | 3989 in / 982 out tokens | 12.32s total = LLM 11.3s + retrieval 1.0s + other
+
+(session 580ef9ad8617 saved to data/logs/chat.jsonl)

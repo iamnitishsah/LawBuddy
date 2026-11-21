@@ -11,8 +11,8 @@ prepares what they need to act, such as a legal notice.
 small, hand-verified knowledge base, and code checks every Act and section the answer names. When the knowledge
 base does not cover a question, or the matter needs a real lawyer, LawBuddy says so.
 
-> Status: **Phase 2** (conversation engine: classification, case intake, grounded advice, legal-reference guard;
-> terminal chat). See [docs/ROADMAP.md](docs/ROADMAP.md) for the plan and [docs/SOURCES.md](docs/SOURCES.md) for
+> Status: **Phase 3** (conversation engine with grounded advice and a legal-reference guard; drafts a legal notice
+> the user can send; terminal chat). See [docs/ROADMAP.md](docs/ROADMAP.md) for the plan and [docs/SOURCES.md](docs/SOURCES.md) for
 > the legal sources.
 
 ---
@@ -50,7 +50,7 @@ src/lawbuddy/
   kb/               knowledge-base loading, validation and index build
   conversation/     classification (triage), case file, replies, the turn engine
   chat.py           terminal chat
-  drafting/         legal notices and complaints (Phase 3)
+  drafting/         legal notices: legal parts written in code, facts by the model, checked
   api/              FastAPI service
   evaluation/       test-case runner and scoring (Phase 6)
 kb/                 the curated legal knowledge base: <category>/*.md chunks, registry.yaml, index/

@@ -70,12 +70,15 @@ each chunk covers one question fully, and more can be added where the Phase 6 te
 
 **Done when:** the Hinglish deposit script ends in grounded advice, and the 420 / judgment / deposit-cap traps produce no untraceable law.
 
-## Phase 3: Documents
+## Phase 3: Documents ✅
 
-- [ ] Legal-notice templates in code (deposit, salary); the LLM writes only the facts narrative from the `CaseFile`; law references inserted from the KB
-- [ ] Unknown facts become `[● fill: ...]` placeholders, never invented; code counts and lists them
-- [ ] Optional: consumer-complaint draft (e-Jagriti structure); PDF/.docx export
-- [ ] The notice is in English; the explanation is in the user's language
+- [x] Legal notice for all three problem types (`drafting/notice.py`): layout, legal basis, demand (15-day deadline) and consequence written in code; the model writes only the facts, as JSON paragraphs that code numbers
+- [x] Legal basis chosen per case (salary: s. 17(2) if the user left, s. 17(1) if still employed, both if unknown, plus s. 45; consumer: e-commerce rule 6(3) only for online purchases); every legal sentence is tested against the KB chunks it names with the guard
+- [x] Facts checked in code: no law at all, and every number must appear in what the user said ("2 lakh" = "Rs. 2,00,000"); regenerated once with the problems named, then law is removed and unsupported numbers are listed as warnings
+- [x] Unknown details become visible `[● fill: ...]` placeholders, listed to the user; the salary total is never computed (placeholder)
+- [x] Triggered by asking ("draft the notice", "notice bana do": analysis intent `draft`); every advice reply offers it; intro in the user's language (English / Hindi / Hinglish offer), notice in English; CLI saves to `data/drafts/`
+- [x] `make chat-smoke` run 3 (scripts 06 and 07) reviewed ([findings.md](findings.md)): both notices correct in structure, law and numbers; fixed: unformatted amounts, embellished facts (prompt), two guard false alarms (anchoring direction; Hindi law names added to the registry)
+- [ ] Optional: consumer-complaint draft (e-Jagriti structure); .docx / PDF export (Phase 5 download)
 
 **Done when:** each test case produces a draft with zero invented facts, and the guard passes.
 

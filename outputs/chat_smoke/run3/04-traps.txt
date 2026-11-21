@@ -1,0 +1,84 @@
+LawBuddy [groq / openai/gpt-oss-120b]  -  legal information for Karnataka: deposits, refunds, unpaid salary. Type 'quit' to stop.
+
+You: my landlord says there is a 2 month deposit cap in Karnataka now under the new rent law, so he will keep the rest. Is that true?
+
+LawBuddy [advice]:
+**Where you stand**  
+The Karnataka Rent Act, 1999 does not set any maximum amount for a security deposit; the law only talks about a tenant depositing rent with the Controller when the landlord refuses it [1]. The 2025 amendment also did not add a deposit cap [1]. Therefore, a “two-month deposit cap” is not found in the current Karnataka rent statutes [1].
+
+**What you can do**  
+1. Check whether the Karnataka Rent Act actually applies to your home (it applies only to low-rent, older premises in certain municipal areas) [2][4].  
+2. If the Act does not apply, the amount of deposit and its return are governed by your rental agreement and general contract law [5].  
+3. To recover any excess amount the landlord is keeping, start with a written request for refund, then a legal notice, and if needed a settlement through Lok Adalat or a civil suit [5].
+
+**Next step**  
+Send the landlord a written email or message asking for the return of the full deposit (or the amount above any lawful deduction) and give a reasonable deadline for payment. Keep any proof of the deposit payment (receipt, bank transfer, UPI record) if you have it. If the landlord does not comply within the deadline, you can proceed to a formal legal notice. No specific time limit is mentioned for this first request, but an application to the Controller must be made within one year of the payment if the Act applies [4].
+
+If you like, I can draft a legal notice for you to send - just say "draft the notice".
+
+*LawBuddy gives legal information, not legal advice.*
+
+Sources:
+  [1] Is there a legal limit on the security deposit in Karnataka?  (https://www.indiacode.nic.in/handle/123456789/7810, https://kla.kar.nic.in/council/house/bills/157/02eng.pdf)
+  [2] Does the Karnataka Rent Act apply to your rented home?  (https://www.indiacode.nic.in/handle/123456789/7810)
+  [4] If the Karnataka Rent Act does apply to your home  (https://www.indiacode.nic.in/handle/123456789/7810)
+  [5] Getting your security deposit back from a landlord in Karnataka  (https://www.indiacode.nic.in, https://www.indiacode.nic.in/handle/123456789/7810)
+
+-- trace
+   analysis: category=deposit intent=question language=English emergency=False query='Karnataka rent law two month security deposit cap'
+   case category: None -> deposit
+   advising without ['deposit_amount', 'move_out_date'] (question)
+   retrieval: primary top=0.1844 floor=0.035 ids=['deposit-no-cap', 'deposit-rent-act-scope', 'statute-rent-act-2-3', 'deposit-rent-act-tenants', 'deposit-overview']
+   guard: all legal references traced
+   2 LLM calls | 3276 in / 643 out tokens | 21.88s total = LLM 20.21s + retrieval 1.65s + other
+
+You: can I also file a cheating case against him under section 420 IPC?
+
+LawBuddy [escalate]:
+I'm sorry, this (criminal case) is outside what LawBuddy covers, so I won't give legal information on it: I would risk getting it wrong.
+
+**Where to get help:**
+- The **District Legal Services Authority (DLSA)** at your district court. Women, children, SC/ST members, industrial workers and people below an income limit can get a lawyer free of cost.
+- NALSA legal aid helpline: **15100** (toll-free)
+
+LawBuddy helps with three problems in Karnataka: a landlord not returning your deposit, a refund for a product or service, and unpaid salary.
+
+-- trace
+   analysis: category=out_of_scope intent=question language=English emergency=False query='section 420 IPC cheating case against landlord for security deposit dispute'
+   out of scope: criminal case
+   1 LLM calls | 1625 in / 236 out tokens | 12.66s total = LLM 12.66s + retrieval 0.0s + other
+
+You: which supreme court judgment says landlords must pay interest on late deposit refunds?
+
+LawBuddy [advice]:
+**Where you stand**  
+The law on security-deposit refunds in Karnataka is mainly governed by the rental agreement and, where the Karnataka Rent Act, 1999 applies, by its contract provisions.  The Act does not contain any rule about a landlord having to pay interest for a delayed refund, and my sources do not mention any Supreme Court judgment on that point [1][3].
+
+**What you can do**  
+1. Ask the landlord in writing to return the deposit, giving a clear deadline.  
+2. If the landlord does not comply, send a formal legal notice stating the amount owed and a final date for payment.  
+3. If the dispute remains unresolved, you can seek settlement through a Lok Adalat via the District Legal Services Authority, which is the cheapest and quickest formal route.  
+4. As a last resort, you may file a civil suit for breach of contract to recover the deposit (and any other compensation the court may award) [1].
+
+**Next step**  
+Send a written request (email or message) to the landlord asking for the deposit back and specifying a reasonable date for payment (for example, within 7 days). Keep any proof of the deposit payment (bank slip, UPI receipt, cash receipt) if you have it, as it will be needed later. If the landlord does not respond or refuses, you can move to the next step of issuing a legal notice.  
+
+*If you need a specific Supreme Court judgment, my sources do not contain that information; you may contact the District Legal Services Authority for further assistance.*
+
+If you like, I can draft a legal notice for you to send - just say "draft the notice".
+
+*LawBuddy gives legal information, not legal advice.*
+
+Sources:
+  [1] Getting your security deposit back from a landlord in Karnataka  (https://www.indiacode.nic.in, https://www.indiacode.nic.in/handle/123456789/7810)
+  [3] If the Karnataka Rent Act does apply to your home  (https://www.indiacode.nic.in/handle/123456789/7810)
+
+-- trace
+   analysis: category=deposit intent=question language=English emergency=False query='Supreme Court judgment interest on delayed security deposit refund Karnataka'
+   advising without ['deposit_amount', 'move_out_date'] (question)
+   retrieval: primary top=0.0643 floor=0.035 ids=['deposit-overview', 'deposit-no-cap', 'deposit-rent-act-tenants', 'general-when-lawyer', 'deposit-rent-act-scope']
+   guard: all legal references traced
+   guard: 7 sentence(s) without a citation (warning only)
+   2 LLM calls | 3818 in / 639 out tokens | 30.56s total = LLM 24.1s + retrieval 6.44s + other
+
+(session 911285d98a26 saved to data/logs/chat.jsonl)

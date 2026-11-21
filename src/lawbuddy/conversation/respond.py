@@ -94,6 +94,39 @@ def outside_karnataka_note(language: str, state: str) -> str:
             "parts (such as rent law) may be different in your state.*")
 
 
+def offer_draft(language: str) -> str:
+    if "hinglish" in (language or "").lower():
+        return '\n\nAgar chahein to main aapke liye ek legal notice draft kar sakta hoon - bas likhiye "notice draft karo".'
+    if is_hindi(language):
+        return '\n\nअगर आप चाहें तो मैं आपके लिए एक कानूनी नोटिस का ड्राफ़्ट बना सकता हूँ - बस लिखिए "नोटिस बनाओ"।'
+    return '\n\nIf you like, I can draft a legal notice for you to send - just say "draft the notice".'
+
+
+def draft_intro(language: str, placeholders: list[str], warnings: list[str]) -> str:
+    """The message around a drafted notice (the notice itself is always in English)."""
+    fill = "\n".join(f"   - {p}" for p in placeholders)
+    hi = is_hindi(language)
+    if hi:
+        head = ["मैंने आपके लिए अंग्रेज़ी में एक कानूनी नोटिस का ड्राफ़्ट बनाया है (कानूनी नोटिस आमतौर पर अंग्रेज़ी में "
+                "भेजे जाते हैं)।", "", "**भेजने से पहले:**"]
+        steps = (["[● ...] वाली जगहें भरें:\n" + fill] if placeholders else []) + [
+            "हर तथ्य, तारीख और रकम ध्यान से जाँचें; जो सही न हो उसे बदलें।",
+            "हस्ताक्षर करें, एक कॉपी रखें, और रजिस्टर्ड पोस्ट (AD) / स्पीड पोस्ट और ईमेल से भेजें; रसीद संभालकर रखें।"]
+        tail, check = "वकील के ज़रिए भेजा गया नोटिस अक्सर ज़्यादा असर करता है।", "**कृपया जाँचें:**"
+    else:
+        head = ["I've drafted a legal notice for you, in English (legal notices are normally sent in English).", "",
+                "**Before you send it:**"]
+        steps = (["Fill in the [● ...] parts:\n" + fill] if placeholders else []) + [
+            "Check every fact, date and amount, and correct anything that is not right.",
+            "Sign it, keep a copy, and send it by Registered Post AD or Speed Post and by email; keep the postal "
+            "receipt."]
+        tail, check = "A notice sent through a lawyer often carries more weight.", "**Please check:**"
+    parts = head + [f"{i}. {s}" for i, s in enumerate(steps, 1)] + [tail]
+    if warnings:
+        parts += ["", check] + [f"- {w}" for w in warnings]
+    return "\n".join(parts)
+
+
 def disclaimer(language: str) -> str:
     if is_hindi(language):
         return "\n\n*LawBuddy कानूनी जानकारी देता है, कानूनी सलाह नहीं।*"
