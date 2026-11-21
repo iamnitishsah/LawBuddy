@@ -1,0 +1,130 @@
+# The same questions as retrieval_smoke.yaml, reworded the way people actually type them: as a story, with
+# everyday words instead of the KB's terms ("advance", "owner", "money I gave"), in Hinglish or Hindi, with typos.
+# The KB and the original questions share an author and wording; these test whether retrieval survives without it.
+# Each `id` matches the original; tests/test_retrieval_smoke.py checks the wording really differs.
+#
+# lang: en | hinglish | hi (Devanagari). Retrieval is English-first: the Phase 2 intake step will rewrite every
+# message into an English case summary before searching, so the hi/hinglish rows measure the raw worst case.
+#
+# The near-scope out-of-scope questions at the end are deliberately close to a covered topic.
+# Run: python -m lawbuddy.evaluation.retrieval_smoke --set paraphrased
+
+questions:
+  - id: dep-not-returned
+    lang: en
+    q: shifted out of my PG in HSR last month, owner still sitting on the 2L I gave when moving in and not picking calls
+    expect: [deposit-overview, deposit-steps]
+  - id: dep-deductions
+    lang: en
+    q: house owner cut 18k for repainting walls from the money I paid upfront, can he do that legally
+    expect: [deposit-deductions]
+  - id: dep-cap
+    lang: en
+    q: owner asking 10 months rent as advance, I heard the new rule says max 2 months, is that true here
+    expect: [deposit-no-cap]
+  - id: dep-rent-act
+    lang: en
+    q: my apartment is 4 years old and I pay 25k monthly, am I protected under the karnataka tenancy law
+    expect: [deposit-rent-act-scope, statute-rent-act-2-3]
+  - id: dep-evidence
+    lang: en
+    q: what documents and photos should I keep so the owner cant claim I damaged the place when I leave
+    expect: [deposit-evidence]
+  - id: dep-time-limit
+    lang: en
+    q: it has been 2 years since I moved out and the owner never paid back, is it too late to go to court
+    expect: [deposit-steps, statute-limitation-55-113]
+  - id: con-ecom-refund
+    lang: en
+    q: amazon delivered a phone with cracked screen and the return request keeps getting rejected, money not back
+    expect: [consumer-ecommerce-refunds, statute-cp-ecommerce-rules, consumer-overview]
+  - id: con-where-file
+    lang: en
+    q: the brand is headquartered in gurgaon, do I have to travel there to take them to the forum or can I do it from mysore
+    expect: [consumer-commission-complaint, statute-cpa-34-69]
+  - id: con-time-limit
+    lang: en
+    q: AC stopped cooling within the warranty in 2023 and the service centre kept delaying, can I still fight it now
+    expect: [consumer-time-limit, statute-cpa-34-69]
+  - id: con-helpline
+    lang: en
+    q: is there a government number I can call to complain about a company that is cheating me
+    expect: [consumer-helpline]
+  - id: con-who-is-consumer
+    lang: en
+    q: I run a small xerox shop and bought machines for it which turned out faulty, will the forum even hear me
+    expect: [consumer-who-is-consumer]
+  - id: sal-after-resign
+    lang: en
+    q: served my notice period and left in august, still no full and final settlement, HR keeps saying next week
+    expect: [salary-overview, statute-wages-17, salary-steps]
+  - id: sal-hinglish
+    lang: hinglish
+    q: boss ne pichle 2 month ka paisa nahi diya, bolta hai company loss me hai, ab mai kaha complaint karu
+    expect: [salary-overview, salary-steps, salary-claim]
+  - id: sal-compensation
+    lang: en
+    q: if I complain to the government about my unpaid pay, can the employer be made to pay extra as a penalty
+    expect: [salary-claim, statute-wages-45]
+  - id: gen-legal-aid
+    lang: en
+    q: I am a single mother and cant afford a lawyer, does the govt give one for free
+    expect: [general-legal-aid, statute-lsa-12-21]
+  - id: gen-lok-adalat
+    lang: en
+    q: someone told me to settle in the peoples court instead of a regular case, if we agree there can he appeal later
+    expect: [general-lok-adalat, statute-lsa-12-21]
+  - id: gen-old-ipc
+    lang: en
+    q: my friend says I should file a cheating case under 420, does that law still exist
+    expect: [general-old-laws]
+
+  # Devanagari Hindi versions of three questions (no ids in the original set)
+  - id: hi-dep-not-returned
+    lang: hi
+    q: मकान मालिक मेरा जमा किया हुआ पैसा वापस नहीं कर रहा है, मैंने घर खाली कर दिया है
+    expect: [deposit-overview, deposit-steps]
+  - id: hi-sal-unpaid
+    lang: hi
+    q: कंपनी ने तीन महीने से तनख्वाह नहीं दी, मैं क्या करूं
+    expect: [salary-overview, salary-steps, salary-claim]
+  - id: hi-con-refund
+    lang: hi
+    q: ऑनलाइन खरीदा फोन खराब निकला और कंपनी पैसे वापस नहीं कर रही
+    expect: [consumer-ecommerce-refunds, statute-cp-ecommerce-rules, consumer-overview]
+
+  # out of scope, reworded
+  - id: oos-divorce
+    lang: en
+    q: my husband and I want to separate, who keeps our 6 year old
+    expect: []
+  - id: oos-fir
+    lang: en
+    q: went to the station to report my stolen bike and the inspector sent me away
+    expect: []
+  - id: oos-tax
+    lang: en
+    q: which investments reduce what I pay to the income tax department this year
+    expect: []
+  - id: oos-land
+    lang: en
+    q: the plot next to mine has a new compound that eats 3 feet into my site
+    expect: []
+
+  # out of scope, close to a covered topic
+  - id: oos-eviction
+    lang: en
+    q: owner wants me out of the flat in 15 days even though my agreement runs till march
+    expect: []
+  - id: oos-pf
+    lang: en
+    q: my employer deducted PF from my salary for a year but never deposited it with EPFO
+    expect: []
+  - id: oos-cheque
+    lang: en
+    q: my tenant gave me a cheque for rent and it bounced
+    expect: []
+  - id: oos-bank
+    lang: en
+    q: bank debited 40000 from my account for a loan I never took
+    expect: []

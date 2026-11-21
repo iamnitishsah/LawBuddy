@@ -1,0 +1,701 @@
+{
+ "set": "original",
+ "mode": "dense",
+ "summary": {
+  "in_scope": 17,
+  "hit@1": 16,
+  "hit@3": 17,
+  "fallbacks": 0,
+  "hit@3_by_lang": {
+   "en": [
+    17,
+    17
+   ]
+  },
+  "in_scope_top_min": 0.3298451602458954,
+  "in_scope_n": 17,
+  "out_scope_top_max": 0.3862175941467285,
+  "out_scope_n": 4,
+  "misses": []
+ },
+ "results": [
+  {
+   "id": "dep-not-returned",
+   "lang": "en",
+   "q": "my landlord in Bangalore is not returning my 2 lakh deposit after I vacated",
+   "expect": [
+    "deposit-overview",
+    "deposit-steps"
+   ],
+   "answered_by": "primary",
+   "seconds": 0.87,
+   "hits": [
+    {
+     "chunk_id": "deposit-overview",
+     "score": 0.5643
+    },
+    {
+     "chunk_id": "deposit-steps",
+     "score": 0.4993
+    },
+    {
+     "chunk_id": "deposit-evidence",
+     "score": 0.4279
+    },
+    {
+     "chunk_id": "deposit-no-cap",
+     "score": 0.4231
+    },
+    {
+     "chunk_id": "deposit-deductions",
+     "score": 0.4132
+    }
+   ]
+  },
+  {
+   "id": "dep-deductions",
+   "lang": "en",
+   "q": "landlord deducted painting charges from my advance, is that allowed?",
+   "expect": [
+    "deposit-deductions"
+   ],
+   "answered_by": "primary",
+   "seconds": 0.63,
+   "hits": [
+    {
+     "chunk_id": "deposit-deductions",
+     "score": 0.5395
+    },
+    {
+     "chunk_id": "deposit-rent-act-tenants",
+     "score": 0.3097
+    },
+    {
+     "chunk_id": "deposit-overview",
+     "score": 0.2992
+    },
+    {
+     "chunk_id": "deposit-evidence",
+     "score": 0.2805
+    },
+    {
+     "chunk_id": "deposit-steps",
+     "score": 0.264
+    }
+   ]
+  },
+  {
+   "id": "dep-cap",
+   "lang": "en",
+   "q": "is there a 2 month limit on deposit in karnataka",
+   "expect": [
+    "deposit-no-cap"
+   ],
+   "answered_by": "primary",
+   "seconds": 2.27,
+   "hits": [
+    {
+     "chunk_id": "deposit-no-cap",
+     "score": 0.5331
+    },
+    {
+     "chunk_id": "statute-cpa-34-69",
+     "score": 0.3865
+    },
+    {
+     "chunk_id": "salary-overview",
+     "score": 0.3583
+    },
+    {
+     "chunk_id": "consumer-time-limit",
+     "score": 0.348
+    },
+    {
+     "chunk_id": "salary-claim",
+     "score": 0.3347
+    }
+   ]
+  },
+  {
+   "id": "dep-rent-act",
+   "lang": "en",
+   "q": "does the rent control act apply to my flat in Whitefield, rent is 25000",
+   "expect": [
+    "deposit-rent-act-scope",
+    "statute-rent-act-2-3"
+   ],
+   "answered_by": "primary",
+   "seconds": 1.44,
+   "hits": [
+    {
+     "chunk_id": "deposit-rent-act-scope",
+     "score": 0.5878
+    },
+    {
+     "chunk_id": "statute-rent-act-2-3",
+     "score": 0.5346
+    },
+    {
+     "chunk_id": "deposit-rent-act-tenants",
+     "score": 0.4379
+    },
+    {
+     "chunk_id": "deposit-no-cap",
+     "score": 0.3526
+    },
+    {
+     "chunk_id": "deposit-overview",
+     "score": 0.3229
+    }
+   ]
+  },
+  {
+   "id": "dep-evidence",
+   "lang": "en",
+   "q": "what proof do I need to show I paid the deposit and left the house in good condition",
+   "expect": [
+    "deposit-evidence"
+   ],
+   "answered_by": "primary",
+   "seconds": 0.37,
+   "hits": [
+    {
+     "chunk_id": "deposit-evidence",
+     "score": 0.615
+    },
+    {
+     "chunk_id": "salary-evidence",
+     "score": 0.3924
+    },
+    {
+     "chunk_id": "deposit-deductions",
+     "score": 0.3396
+    },
+    {
+     "chunk_id": "deposit-steps",
+     "score": 0.277
+    },
+    {
+     "chunk_id": "general-legal-notice",
+     "score": 0.274
+    }
+   ]
+  },
+  {
+   "id": "dep-time-limit",
+   "lang": "en",
+   "q": "how many years do I have to sue the owner for my deposit",
+   "expect": [
+    "deposit-steps",
+    "statute-limitation-55-113"
+   ],
+   "answered_by": "primary",
+   "seconds": 1.07,
+   "hits": [
+    {
+     "chunk_id": "deposit-steps",
+     "score": 0.4402
+    },
+    {
+     "chunk_id": "statute-limitation-55-113",
+     "score": 0.4052
+    },
+    {
+     "chunk_id": "deposit-overview",
+     "score": 0.3638
+    },
+    {
+     "chunk_id": "consumer-time-limit",
+     "score": 0.3593
+    },
+    {
+     "chunk_id": "salary-claim",
+     "score": 0.3152
+    }
+   ]
+  },
+  {
+   "id": "con-ecom-refund",
+   "lang": "en",
+   "q": "online seller refused to take back a defective phone and won't refund",
+   "expect": [
+    "consumer-ecommerce-refunds",
+    "statute-cp-ecommerce-rules",
+    "consumer-overview"
+   ],
+   "answered_by": "primary",
+   "seconds": 0.55,
+   "hits": [
+    {
+     "chunk_id": "consumer-ecommerce-refunds",
+     "score": 0.5405
+    },
+    {
+     "chunk_id": "consumer-overview",
+     "score": 0.5088
+    },
+    {
+     "chunk_id": "statute-cp-ecommerce-rules",
+     "score": 0.4452
+    },
+    {
+     "chunk_id": "consumer-after-filing",
+     "score": 0.3018
+    },
+    {
+     "chunk_id": "consumer-helpline",
+     "score": 0.2951
+    }
+   ]
+  },
+  {
+   "id": "con-where-file",
+   "lang": "en",
+   "q": "where can I file consumer case, company is in Delhi but I live in Mysuru",
+   "expect": [
+    "consumer-commission-complaint",
+    "statute-cpa-34-69"
+   ],
+   "answered_by": "primary",
+   "seconds": 0.33,
+   "hits": [
+    {
+     "chunk_id": "consumer-commission-complaint",
+     "score": 0.6598
+    },
+    {
+     "chunk_id": "statute-cpa-34-69",
+     "score": 0.5853
+    },
+    {
+     "chunk_id": "consumer-helpline",
+     "score": 0.4807
+    },
+    {
+     "chunk_id": "consumer-overview",
+     "score": 0.4655
+    },
+    {
+     "chunk_id": "statute-cp-jurisdiction-rules",
+     "score": 0.4627
+    }
+   ]
+  },
+  {
+   "id": "con-time-limit",
+   "lang": "en",
+   "q": "I bought a fridge 3 years ago, can I still file a consumer complaint",
+   "expect": [
+    "consumer-time-limit",
+    "statute-cpa-34-69"
+   ],
+   "answered_by": "primary",
+   "seconds": 0.56,
+   "hits": [
+    {
+     "chunk_id": "consumer-time-limit",
+     "score": 0.4464
+    },
+    {
+     "chunk_id": "consumer-commission-complaint",
+     "score": 0.3932
+    },
+    {
+     "chunk_id": "consumer-overview",
+     "score": 0.3795
+    },
+    {
+     "chunk_id": "statute-cpa-34-69",
+     "score": 0.3706
+    },
+    {
+     "chunk_id": "consumer-after-filing",
+     "score": 0.3485
+    }
+   ]
+  },
+  {
+   "id": "con-helpline",
+   "lang": "en",
+   "q": "consumer helpline number",
+   "expect": [
+    "consumer-helpline"
+   ],
+   "answered_by": "primary",
+   "seconds": 0.33,
+   "hits": [
+    {
+     "chunk_id": "consumer-helpline",
+     "score": 0.6123
+    },
+    {
+     "chunk_id": "consumer-overview",
+     "score": 0.4152
+    },
+    {
+     "chunk_id": "consumer-commission-complaint",
+     "score": 0.3682
+    },
+    {
+     "chunk_id": "consumer-who-is-consumer",
+     "score": 0.3415
+    },
+    {
+     "chunk_id": "consumer-ecommerce-refunds",
+     "score": 0.3382
+    }
+   ]
+  },
+  {
+   "id": "con-who-is-consumer",
+   "lang": "en",
+   "q": "I bought printers for my shop to resell, am I a consumer",
+   "expect": [
+    "consumer-who-is-consumer"
+   ],
+   "answered_by": "primary",
+   "seconds": 2.18,
+   "hits": [
+    {
+     "chunk_id": "consumer-who-is-consumer",
+     "score": 0.5696
+    },
+    {
+     "chunk_id": "consumer-overview",
+     "score": 0.3229
+    },
+    {
+     "chunk_id": "consumer-commission-complaint",
+     "score": 0.2603
+    },
+    {
+     "chunk_id": "consumer-ecommerce-refunds",
+     "score": 0.2595
+    },
+    {
+     "chunk_id": "statute-cp-ecommerce-rules",
+     "score": 0.2479
+    }
+   ]
+  },
+  {
+   "id": "sal-after-resign",
+   "lang": "en",
+   "q": "company has not paid salary for 3 months after I resigned",
+   "expect": [
+    "salary-overview",
+    "statute-wages-17",
+    "salary-steps"
+   ],
+   "answered_by": "primary",
+   "seconds": 1.26,
+   "hits": [
+    {
+     "chunk_id": "salary-evidence",
+     "score": 0.4482
+    },
+    {
+     "chunk_id": "salary-steps",
+     "score": 0.4425
+    },
+    {
+     "chunk_id": "salary-overview",
+     "score": 0.4355
+    },
+    {
+     "chunk_id": "statute-wages-45",
+     "score": 0.3576
+    },
+    {
+     "chunk_id": "salary-claim",
+     "score": 0.3387
+    }
+   ]
+  },
+  {
+   "id": "sal-hinglish",
+   "lang": "en",
+   "q": "mera salary 2 mahine se nahi mila, kya karu",
+   "expect": [
+    "salary-overview",
+    "salary-steps",
+    "salary-claim"
+   ],
+   "answered_by": "primary",
+   "seconds": 0.53,
+   "hits": [
+    {
+     "chunk_id": "salary-steps",
+     "score": 0.4784
+    },
+    {
+     "chunk_id": "salary-overview",
+     "score": 0.4215
+    },
+    {
+     "chunk_id": "salary-evidence",
+     "score": 0.3888
+    },
+    {
+     "chunk_id": "general-legal-notice",
+     "score": 0.3588
+    },
+    {
+     "chunk_id": "general-when-lawyer",
+     "score": 0.3422
+    }
+   ]
+  },
+  {
+   "id": "sal-compensation",
+   "lang": "en",
+   "q": "how much compensation can the labour authority give for unpaid wages",
+   "expect": [
+    "salary-claim",
+    "statute-wages-45"
+   ],
+   "answered_by": "primary",
+   "seconds": 0.53,
+   "hits": [
+    {
+     "chunk_id": "statute-wages-45",
+     "score": 0.5032
+    },
+    {
+     "chunk_id": "salary-claim",
+     "score": 0.4721
+    },
+    {
+     "chunk_id": "salary-steps",
+     "score": 0.366
+    },
+    {
+     "chunk_id": "salary-overview",
+     "score": 0.3225
+    },
+    {
+     "chunk_id": "statute-wages-17",
+     "score": 0.3188
+    }
+   ]
+  },
+  {
+   "id": "gen-legal-aid",
+   "lang": "en",
+   "q": "can I get free legal aid, I am a woman",
+   "expect": [
+    "general-legal-aid",
+    "statute-lsa-12-21"
+   ],
+   "answered_by": "primary",
+   "seconds": 0.32,
+   "hits": [
+    {
+     "chunk_id": "general-legal-aid",
+     "score": 0.6076
+    },
+    {
+     "chunk_id": "statute-lsa-12-21",
+     "score": 0.5056
+    },
+    {
+     "chunk_id": "general-when-lawyer",
+     "score": 0.3396
+    },
+    {
+     "chunk_id": "general-lok-adalat",
+     "score": 0.3108
+    },
+    {
+     "chunk_id": "consumer-who-is-consumer",
+     "score": 0.3031
+    }
+   ]
+  },
+  {
+   "id": "gen-lok-adalat",
+   "lang": "en",
+   "q": "what is a lok adalat and is its decision final",
+   "expect": [
+    "general-lok-adalat",
+    "statute-lsa-12-21"
+   ],
+   "answered_by": "primary",
+   "seconds": 0.54,
+   "hits": [
+    {
+     "chunk_id": "general-lok-adalat",
+     "score": 0.6435
+    },
+    {
+     "chunk_id": "statute-lsa-12-21",
+     "score": 0.5185
+    },
+    {
+     "chunk_id": "deposit-steps",
+     "score": 0.3563
+    },
+    {
+     "chunk_id": "general-legal-notice",
+     "score": 0.3037
+    },
+    {
+     "chunk_id": "general-legal-aid",
+     "score": 0.2861
+    }
+   ]
+  },
+  {
+   "id": "gen-old-ipc",
+   "lang": "en",
+   "q": "is section 420 IPC still valid",
+   "expect": [
+    "general-old-laws"
+   ],
+   "answered_by": "primary",
+   "seconds": 0.68,
+   "hits": [
+    {
+     "chunk_id": "general-old-laws",
+     "score": 0.3298
+    },
+    {
+     "chunk_id": "statute-contract-act-73-74",
+     "score": 0.1989
+    },
+    {
+     "chunk_id": "statute-cpa-34-69",
+     "score": 0.191
+    },
+    {
+     "chunk_id": "statute-lsa-12-21",
+     "score": 0.1882
+    },
+    {
+     "chunk_id": "deposit-rent-act-scope",
+     "score": 0.1832
+    }
+   ]
+  },
+  {
+   "id": "oos-divorce",
+   "lang": "en",
+   "q": "how do I file for divorce and get custody of my child",
+   "expect": [],
+   "answered_by": "primary",
+   "seconds": 0.54,
+   "hits": [
+    {
+     "chunk_id": "general-legal-aid",
+     "score": 0.3075
+    },
+    {
+     "chunk_id": "consumer-commission-complaint",
+     "score": 0.2952
+    },
+    {
+     "chunk_id": "deposit-steps",
+     "score": 0.2926
+    },
+    {
+     "chunk_id": "general-when-lawyer",
+     "score": 0.2627
+    },
+    {
+     "chunk_id": "deposit-evidence",
+     "score": 0.2365
+    }
+   ]
+  },
+  {
+   "id": "oos-fir",
+   "lang": "en",
+   "q": "the police refused to register my FIR",
+   "expect": [],
+   "answered_by": "primary",
+   "seconds": 0.33,
+   "hits": [
+    {
+     "chunk_id": "consumer-commission-complaint",
+     "score": 0.3311
+    },
+    {
+     "chunk_id": "general-legal-notice",
+     "score": 0.3068
+    },
+    {
+     "chunk_id": "consumer-ecommerce-refunds",
+     "score": 0.2813
+    },
+    {
+     "chunk_id": "consumer-overview",
+     "score": 0.2779
+    },
+    {
+     "chunk_id": "consumer-after-filing",
+     "score": 0.2746
+    }
+   ]
+  },
+  {
+   "id": "oos-tax",
+   "lang": "en",
+   "q": "how to save income tax on my salary",
+   "expect": [],
+   "answered_by": "primary",
+   "seconds": 1.31,
+   "hits": [
+    {
+     "chunk_id": "salary-steps",
+     "score": 0.3862
+    },
+    {
+     "chunk_id": "salary-evidence",
+     "score": 0.317
+    },
+    {
+     "chunk_id": "general-legal-notice",
+     "score": 0.2861
+    },
+    {
+     "chunk_id": "salary-overview",
+     "score": 0.2803
+    },
+    {
+     "chunk_id": "general-legal-aid",
+     "score": 0.2609
+    }
+   ]
+  },
+  {
+   "id": "oos-land",
+   "lang": "en",
+   "q": "my neighbour built a wall on my land",
+   "expect": [],
+   "answered_by": "primary",
+   "seconds": 0.61,
+   "hits": [
+    {
+     "chunk_id": "deposit-evidence",
+     "score": 0.2659
+    },
+    {
+     "chunk_id": "salary-steps",
+     "score": 0.23
+    },
+    {
+     "chunk_id": "deposit-steps",
+     "score": 0.2249
+    },
+    {
+     "chunk_id": "salary-evidence",
+     "score": 0.2151
+    },
+    {
+     "chunk_id": "general-legal-notice",
+     "score": 0.2092
+    }
+   ]
+  }
+ ]
+}

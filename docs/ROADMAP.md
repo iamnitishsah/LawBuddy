@@ -44,8 +44,9 @@ a legal problem.* Built phase by phase; each phase ends with a check that it wor
 - [x] `python -m lawbuddy.kb.loader` validates the KB against the registry (unknown law, unlisted section, repealed law, wrong folder, too long)
 - [x] `python -m lawbuddy.kb.build`: embeds only new or changed chunks into `kb/index/` (committed, ~130 KB); in-memory dense search with category/kind filters, then reranking
 - [x] Keyword (BM25) fallback when the embedding or rerank API fails (the NVIDIA endpoint timed out during the build session)
-- [ ] **Human check:** read every chunk against its source and set `verified_on` (32 chunks, 0 verified)
-- [ ] Run `make smoke` and set `search.min_score` from the in-scope / out-of-scope score ranges
+- [x] **Human check:** every chunk read against its source; `verified_on: 2026-11-21` set with `python -m lawbuddy.kb.verify --all`
+- [x] Retrieval smoke sets: `eval/retrieval_smoke.yaml` (17 in scope, 4 out) and `eval/retrieval_smoke_paraphrased.yaml` (same ids reworded as people type them, + 3 Hindi, + 4 near-scope out-of-scope); a test enforces ≤ 30% word overlap with the original
+- [ ] Run `make smoke` on both sets and decide `search.min_score` (original set, rerank: lowest in-scope 0.059 vs highest out-of-scope 0.045, a thin margin)
 
 **Result:** 32 chunks (deposit 10, consumer 10, salary 6, general 6; 18 guides, 9 statute extracts, 5 practice
 notes), ~5,800 words, every legal chunk linked to a registered source. Fewer chunks than the 60–120 first planned:
@@ -59,6 +60,7 @@ each chunk covers one question fully, and more can be added where the Phase 6 te
 - [ ] Graph: `message → triage → intake → (follow-up | advise) → guard → localize → reply`; triage can branch to escalate
 - [ ] `triage`: rules in code first (emergency, criminal, out of scope), then an LLM classifier (category, urgency)
 - [ ] `intake`: structured `CaseFile` (parties, timeline of dated events, amounts, state, evidence held vs missing, desired outcome, language); at most 2–3 targeted follow-up questions, only when key facts are missing
+- [ ] Query rewriting: intake turns the user's message (any language, everyday words) into a short English search query in the KB's vocabulary before retrieval. Reason: on the paraphrased smoke set, keyword search fell from 17/17 to 8/16 (English) and 0/4 (Hindi/Hinglish) hit@3
 - [ ] `advise`: retrieval within the category → plain-language answer with `[n]` citations: where they stand, options ranked by cost and effort, deadlines, next step
 - [ ] `guard`: every Act/Section/Article named must be in a cited passage or the registry; case-law patterns ("X v. Y", AIR, SCC) are blocked; invalid citations flagged; on failure regenerate once, then remove the claim and add "verify with a lawyer"
 - [ ] `localize`: reply in the user's language, citations intact

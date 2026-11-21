@@ -1,0 +1,930 @@
+{
+ "set": "paraphrased",
+ "mode": "rerank",
+ "summary": {
+  "in_scope": 20,
+  "hit@1": 19,
+  "hit@3": 20,
+  "fallbacks": 0,
+  "hit@3_by_lang": {
+   "en": [
+    16,
+    16
+   ],
+   "hi": [
+    3,
+    3
+   ],
+   "hinglish": [
+    1,
+    1
+   ]
+  },
+  "in_scope_top_min": 0.042630421636710755,
+  "in_scope_n": 20,
+  "out_scope_top_max": 0.057376908419001144,
+  "out_scope_n": 8,
+  "misses": []
+ },
+ "results": [
+  {
+   "id": "dep-not-returned",
+   "lang": "en",
+   "q": "shifted out of my PG in HSR last month, owner still sitting on the 2L I gave when moving in and not picking calls",
+   "expect": [
+    "deposit-overview",
+    "deposit-steps"
+   ],
+   "answered_by": "primary",
+   "seconds": 1.22,
+   "hits": [
+    {
+     "chunk_id": "deposit-overview",
+     "score": 0.0516
+    },
+    {
+     "chunk_id": "deposit-steps",
+     "score": 0.0474
+    },
+    {
+     "chunk_id": "deposit-evidence",
+     "score": 0.0449
+    },
+    {
+     "chunk_id": "deposit-no-cap",
+     "score": 0.0392
+    },
+    {
+     "chunk_id": "general-legal-notice",
+     "score": 0.0354
+    }
+   ]
+  },
+  {
+   "id": "dep-deductions",
+   "lang": "en",
+   "q": "house owner cut 18k for repainting walls from the money I paid upfront, can he do that legally",
+   "expect": [
+    "deposit-deductions"
+   ],
+   "answered_by": "primary",
+   "seconds": 1.8,
+   "hits": [
+    {
+     "chunk_id": "deposit-deductions",
+     "score": 0.0589
+    },
+    {
+     "chunk_id": "deposit-overview",
+     "score": 0.0502
+    },
+    {
+     "chunk_id": "deposit-rent-act-tenants",
+     "score": 0.0491
+    },
+    {
+     "chunk_id": "deposit-evidence",
+     "score": 0.0408
+    },
+    {
+     "chunk_id": "deposit-no-cap",
+     "score": 0.0399
+    }
+   ]
+  },
+  {
+   "id": "dep-cap",
+   "lang": "en",
+   "q": "owner asking 10 months rent as advance, I heard the new rule says max 2 months, is that true here",
+   "expect": [
+    "deposit-no-cap"
+   ],
+   "answered_by": "primary",
+   "seconds": 1.09,
+   "hits": [
+    {
+     "chunk_id": "deposit-no-cap",
+     "score": 0.0597
+    },
+    {
+     "chunk_id": "deposit-rent-act-tenants",
+     "score": 0.0534
+    },
+    {
+     "chunk_id": "deposit-rent-act-scope",
+     "score": 0.0509
+    },
+    {
+     "chunk_id": "statute-rent-act-2-3",
+     "score": 0.0477
+    },
+    {
+     "chunk_id": "deposit-overview",
+     "score": 0.0362
+    }
+   ]
+  },
+  {
+   "id": "dep-rent-act",
+   "lang": "en",
+   "q": "my apartment is 4 years old and I pay 25k monthly, am I protected under the karnataka tenancy law",
+   "expect": [
+    "deposit-rent-act-scope",
+    "statute-rent-act-2-3"
+   ],
+   "answered_by": "primary",
+   "seconds": 2.66,
+   "hits": [
+    {
+     "chunk_id": "deposit-rent-act-scope",
+     "score": 0.0868
+    },
+    {
+     "chunk_id": "deposit-rent-act-tenants",
+     "score": 0.0793
+    },
+    {
+     "chunk_id": "statute-rent-act-2-3",
+     "score": 0.0759
+    },
+    {
+     "chunk_id": "deposit-overview",
+     "score": 0.0539
+    },
+    {
+     "chunk_id": "deposit-no-cap",
+     "score": 0.0467
+    }
+   ]
+  },
+  {
+   "id": "dep-evidence",
+   "lang": "en",
+   "q": "what documents and photos should I keep so the owner cant claim I damaged the place when I leave",
+   "expect": [
+    "deposit-evidence"
+   ],
+   "answered_by": "primary",
+   "seconds": 1.12,
+   "hits": [
+    {
+     "chunk_id": "deposit-evidence",
+     "score": 0.0738
+    },
+    {
+     "chunk_id": "deposit-deductions",
+     "score": 0.0533
+    },
+    {
+     "chunk_id": "deposit-overview",
+     "score": 0.0433
+    },
+    {
+     "chunk_id": "deposit-steps",
+     "score": 0.0391
+    },
+    {
+     "chunk_id": "deposit-rent-act-tenants",
+     "score": 0.0375
+    }
+   ]
+  },
+  {
+   "id": "dep-time-limit",
+   "lang": "en",
+   "q": "it has been 2 years since I moved out and the owner never paid back, is it too late to go to court",
+   "expect": [
+    "deposit-steps",
+    "statute-limitation-55-113"
+   ],
+   "answered_by": "primary",
+   "seconds": 1.11,
+   "hits": [
+    {
+     "chunk_id": "deposit-steps",
+     "score": 0.0747
+    },
+    {
+     "chunk_id": "statute-limitation-55-113",
+     "score": 0.0569
+    },
+    {
+     "chunk_id": "deposit-overview",
+     "score": 0.0564
+    },
+    {
+     "chunk_id": "general-when-lawyer",
+     "score": 0.0514
+    },
+    {
+     "chunk_id": "salary-steps",
+     "score": 0.0502
+    }
+   ]
+  },
+  {
+   "id": "con-ecom-refund",
+   "lang": "en",
+   "q": "amazon delivered a phone with cracked screen and the return request keeps getting rejected, money not back",
+   "expect": [
+    "consumer-ecommerce-refunds",
+    "statute-cp-ecommerce-rules",
+    "consumer-overview"
+   ],
+   "answered_by": "primary",
+   "seconds": 1.22,
+   "hits": [
+    {
+     "chunk_id": "consumer-ecommerce-refunds",
+     "score": 0.0629
+    },
+    {
+     "chunk_id": "statute-cp-ecommerce-rules",
+     "score": 0.0568
+    },
+    {
+     "chunk_id": "consumer-overview",
+     "score": 0.0529
+    },
+    {
+     "chunk_id": "consumer-helpline",
+     "score": 0.0401
+    },
+    {
+     "chunk_id": "consumer-commission-complaint",
+     "score": 0.0391
+    }
+   ]
+  },
+  {
+   "id": "con-where-file",
+   "lang": "en",
+   "q": "the brand is headquartered in gurgaon, do I have to travel there to take them to the forum or can I do it from mysore",
+   "expect": [
+    "consumer-commission-complaint",
+    "statute-cpa-34-69"
+   ],
+   "answered_by": "primary",
+   "seconds": 1.42,
+   "hits": [
+    {
+     "chunk_id": "consumer-commission-complaint",
+     "score": 0.0462
+    },
+    {
+     "chunk_id": "statute-cpa-34-69",
+     "score": 0.0401
+    },
+    {
+     "chunk_id": "statute-cp-jurisdiction-rules",
+     "score": 0.0367
+    },
+    {
+     "chunk_id": "consumer-after-filing",
+     "score": 0.03
+    },
+    {
+     "chunk_id": "consumer-helpline",
+     "score": 0.0294
+    }
+   ]
+  },
+  {
+   "id": "con-time-limit",
+   "lang": "en",
+   "q": "AC stopped cooling within the warranty in 2023 and the service centre kept delaying, can I still fight it now",
+   "expect": [
+    "consumer-time-limit",
+    "statute-cpa-34-69"
+   ],
+   "answered_by": "primary",
+   "seconds": 1.13,
+   "hits": [
+    {
+     "chunk_id": "consumer-time-limit",
+     "score": 0.0536
+    },
+    {
+     "chunk_id": "statute-cpa-34-69",
+     "score": 0.0451
+    },
+    {
+     "chunk_id": "consumer-after-filing",
+     "score": 0.0392
+    },
+    {
+     "chunk_id": "consumer-commission-complaint",
+     "score": 0.037
+    },
+    {
+     "chunk_id": "consumer-overview",
+     "score": 0.0369
+    }
+   ]
+  },
+  {
+   "id": "con-helpline",
+   "lang": "en",
+   "q": "is there a government number I can call to complain about a company that is cheating me",
+   "expect": [
+    "consumer-helpline"
+   ],
+   "answered_by": "primary",
+   "seconds": 1.35,
+   "hits": [
+    {
+     "chunk_id": "consumer-helpline",
+     "score": 0.1005
+    },
+    {
+     "chunk_id": "consumer-overview",
+     "score": 0.0656
+    },
+    {
+     "chunk_id": "consumer-commission-complaint",
+     "score": 0.0617
+    },
+    {
+     "chunk_id": "general-when-lawyer",
+     "score": 0.0503
+    },
+    {
+     "chunk_id": "consumer-after-filing",
+     "score": 0.0496
+    }
+   ]
+  },
+  {
+   "id": "con-who-is-consumer",
+   "lang": "en",
+   "q": "I run a small xerox shop and bought machines for it which turned out faulty, will the forum even hear me",
+   "expect": [
+    "consumer-who-is-consumer"
+   ],
+   "answered_by": "primary",
+   "seconds": 1.43,
+   "hits": [
+    {
+     "chunk_id": "statute-cp-jurisdiction-rules",
+     "score": 0.0426
+    },
+    {
+     "chunk_id": "consumer-who-is-consumer",
+     "score": 0.0412
+    },
+    {
+     "chunk_id": "consumer-commission-complaint",
+     "score": 0.0406
+    },
+    {
+     "chunk_id": "consumer-after-filing",
+     "score": 0.0387
+    },
+    {
+     "chunk_id": "statute-cpa-34-69",
+     "score": 0.0386
+    }
+   ]
+  },
+  {
+   "id": "sal-after-resign",
+   "lang": "en",
+   "q": "served my notice period and left in august, still no full and final settlement, HR keeps saying next week",
+   "expect": [
+    "salary-overview",
+    "statute-wages-17",
+    "salary-steps"
+   ],
+   "answered_by": "primary",
+   "seconds": 1.03,
+   "hits": [
+    {
+     "chunk_id": "salary-overview",
+     "score": 0.055
+    },
+    {
+     "chunk_id": "statute-wages-17",
+     "score": 0.0512
+    },
+    {
+     "chunk_id": "salary-steps",
+     "score": 0.0495
+    },
+    {
+     "chunk_id": "salary-evidence",
+     "score": 0.0443
+    },
+    {
+     "chunk_id": "statute-wages-45",
+     "score": 0.0417
+    }
+   ]
+  },
+  {
+   "id": "sal-hinglish",
+   "lang": "hinglish",
+   "q": "boss ne pichle 2 month ka paisa nahi diya, bolta hai company loss me hai, ab mai kaha complaint karu",
+   "expect": [
+    "salary-overview",
+    "salary-steps",
+    "salary-claim"
+   ],
+   "answered_by": "primary",
+   "seconds": 1.02,
+   "hits": [
+    {
+     "chunk_id": "salary-claim",
+     "score": 0.0637
+    },
+    {
+     "chunk_id": "salary-steps",
+     "score": 0.0634
+    },
+    {
+     "chunk_id": "statute-wages-45",
+     "score": 0.0597
+    },
+    {
+     "chunk_id": "salary-evidence",
+     "score": 0.0575
+    },
+    {
+     "chunk_id": "salary-overview",
+     "score": 0.0561
+    }
+   ]
+  },
+  {
+   "id": "sal-compensation",
+   "lang": "en",
+   "q": "if I complain to the government about my unpaid pay, can the employer be made to pay extra as a penalty",
+   "expect": [
+    "salary-claim",
+    "statute-wages-45"
+   ],
+   "answered_by": "primary",
+   "seconds": 1.11,
+   "hits": [
+    {
+     "chunk_id": "statute-wages-45",
+     "score": 0.0973
+    },
+    {
+     "chunk_id": "salary-claim",
+     "score": 0.0864
+    },
+    {
+     "chunk_id": "salary-steps",
+     "score": 0.0601
+    },
+    {
+     "chunk_id": "salary-overview",
+     "score": 0.0543
+    },
+    {
+     "chunk_id": "statute-wages-17",
+     "score": 0.051
+    }
+   ]
+  },
+  {
+   "id": "gen-legal-aid",
+   "lang": "en",
+   "q": "I am a single mother and cant afford a lawyer, does the govt give one for free",
+   "expect": [
+    "general-legal-aid",
+    "statute-lsa-12-21"
+   ],
+   "answered_by": "primary",
+   "seconds": 1.24,
+   "hits": [
+    {
+     "chunk_id": "general-legal-aid",
+     "score": 0.0916
+    },
+    {
+     "chunk_id": "statute-lsa-12-21",
+     "score": 0.0707
+    },
+    {
+     "chunk_id": "general-when-lawyer",
+     "score": 0.0522
+    },
+    {
+     "chunk_id": "general-lok-adalat",
+     "score": 0.0452
+    },
+    {
+     "chunk_id": "salary-steps",
+     "score": 0.0435
+    }
+   ]
+  },
+  {
+   "id": "gen-lok-adalat",
+   "lang": "en",
+   "q": "someone told me to settle in the peoples court instead of a regular case, if we agree there can he appeal later",
+   "expect": [
+    "general-lok-adalat",
+    "statute-lsa-12-21"
+   ],
+   "answered_by": "primary",
+   "seconds": 3.69,
+   "hits": [
+    {
+     "chunk_id": "general-lok-adalat",
+     "score": 0.0644
+    },
+    {
+     "chunk_id": "deposit-steps",
+     "score": 0.0358
+    },
+    {
+     "chunk_id": "statute-lsa-12-21",
+     "score": 0.0354
+    },
+    {
+     "chunk_id": "consumer-after-filing",
+     "score": 0.0323
+    },
+    {
+     "chunk_id": "deposit-overview",
+     "score": 0.0293
+    }
+   ]
+  },
+  {
+   "id": "gen-old-ipc",
+   "lang": "en",
+   "q": "my friend says I should file a cheating case under 420, does that law still exist",
+   "expect": [
+    "general-old-laws"
+   ],
+   "answered_by": "primary",
+   "seconds": 1.23,
+   "hits": [
+    {
+     "chunk_id": "general-old-laws",
+     "score": 0.0492
+    },
+    {
+     "chunk_id": "general-when-lawyer",
+     "score": 0.0306
+    },
+    {
+     "chunk_id": "consumer-overview",
+     "score": 0.0296
+    },
+    {
+     "chunk_id": "consumer-commission-complaint",
+     "score": 0.0279
+    },
+    {
+     "chunk_id": "deposit-overview",
+     "score": 0.0273
+    }
+   ]
+  },
+  {
+   "id": "hi-dep-not-returned",
+   "lang": "hi",
+   "q": "मकान मालिक मेरा जमा किया हुआ पैसा वापस नहीं कर रहा है, मैंने घर खाली कर दिया है",
+   "expect": [
+    "deposit-overview",
+    "deposit-steps"
+   ],
+   "answered_by": "primary",
+   "seconds": 1.18,
+   "hits": [
+    {
+     "chunk_id": "deposit-steps",
+     "score": 0.0789
+    },
+    {
+     "chunk_id": "deposit-overview",
+     "score": 0.0767
+    },
+    {
+     "chunk_id": "deposit-evidence",
+     "score": 0.0762
+    },
+    {
+     "chunk_id": "deposit-deductions",
+     "score": 0.0632
+    },
+    {
+     "chunk_id": "deposit-rent-act-tenants",
+     "score": 0.0565
+    }
+   ]
+  },
+  {
+   "id": "hi-sal-unpaid",
+   "lang": "hi",
+   "q": "कंपनी ने तीन महीने से तनख्वाह नहीं दी, मैं क्या करूं",
+   "expect": [
+    "salary-overview",
+    "salary-steps",
+    "salary-claim"
+   ],
+   "answered_by": "primary",
+   "seconds": 0.96,
+   "hits": [
+    {
+     "chunk_id": "salary-steps",
+     "score": 0.0964
+    },
+    {
+     "chunk_id": "salary-evidence",
+     "score": 0.0771
+    },
+    {
+     "chunk_id": "salary-claim",
+     "score": 0.0764
+    },
+    {
+     "chunk_id": "statute-wages-45",
+     "score": 0.0711
+    },
+    {
+     "chunk_id": "salary-overview",
+     "score": 0.0681
+    }
+   ]
+  },
+  {
+   "id": "hi-con-refund",
+   "lang": "hi",
+   "q": "ऑनलाइन खरीदा फोन खराब निकला और कंपनी पैसे वापस नहीं कर रही",
+   "expect": [
+    "consumer-ecommerce-refunds",
+    "statute-cp-ecommerce-rules",
+    "consumer-overview"
+   ],
+   "answered_by": "primary",
+   "seconds": 1.28,
+   "hits": [
+    {
+     "chunk_id": "consumer-ecommerce-refunds",
+     "score": 0.0768
+    },
+    {
+     "chunk_id": "consumer-overview",
+     "score": 0.0754
+    },
+    {
+     "chunk_id": "statute-cp-ecommerce-rules",
+     "score": 0.0681
+    },
+    {
+     "chunk_id": "consumer-helpline",
+     "score": 0.0546
+    },
+    {
+     "chunk_id": "consumer-after-filing",
+     "score": 0.0525
+    }
+   ]
+  },
+  {
+   "id": "oos-divorce",
+   "lang": "en",
+   "q": "my husband and I want to separate, who keeps our 6 year old",
+   "expect": [],
+   "answered_by": "primary",
+   "seconds": 2.39,
+   "hits": [
+    {
+     "chunk_id": "general-legal-aid",
+     "score": 0.0334
+    },
+    {
+     "chunk_id": "general-when-lawyer",
+     "score": 0.0328
+    },
+    {
+     "chunk_id": "general-lok-adalat",
+     "score": 0.0275
+    },
+    {
+     "chunk_id": "statute-lsa-12-21",
+     "score": 0.0266
+    },
+    {
+     "chunk_id": "general-old-laws",
+     "score": 0.0255
+    }
+   ]
+  },
+  {
+   "id": "oos-fir",
+   "lang": "en",
+   "q": "went to the station to report my stolen bike and the inspector sent me away",
+   "expect": [],
+   "answered_by": "primary",
+   "seconds": 1.2,
+   "hits": [
+    {
+     "chunk_id": "general-legal-aid",
+     "score": 0.032
+    },
+    {
+     "chunk_id": "general-when-lawyer",
+     "score": 0.0287
+    },
+    {
+     "chunk_id": "general-old-laws",
+     "score": 0.0271
+    },
+    {
+     "chunk_id": "general-lok-adalat",
+     "score": 0.0213
+    },
+    {
+     "chunk_id": "consumer-after-filing",
+     "score": 0.0208
+    }
+   ]
+  },
+  {
+   "id": "oos-tax",
+   "lang": "en",
+   "q": "which investments reduce what I pay to the income tax department this year",
+   "expect": [],
+   "answered_by": "primary",
+   "seconds": 1.35,
+   "hits": [
+    {
+     "chunk_id": "general-when-lawyer",
+     "score": 0.0219
+    },
+    {
+     "chunk_id": "deposit-deductions",
+     "score": 0.0216
+    },
+    {
+     "chunk_id": "salary-evidence",
+     "score": 0.0215
+    },
+    {
+     "chunk_id": "general-old-laws",
+     "score": 0.0213
+    },
+    {
+     "chunk_id": "salary-steps",
+     "score": 0.0212
+    }
+   ]
+  },
+  {
+   "id": "oos-land",
+   "lang": "en",
+   "q": "the plot next to mine has a new compound that eats 3 feet into my site",
+   "expect": [],
+   "answered_by": "primary",
+   "seconds": 1.25,
+   "hits": [
+    {
+     "chunk_id": "general-legal-aid",
+     "score": 0.0295
+    },
+    {
+     "chunk_id": "general-lok-adalat",
+     "score": 0.0293
+    },
+    {
+     "chunk_id": "general-when-lawyer",
+     "score": 0.0248
+    },
+    {
+     "chunk_id": "statute-contract-act-73-74",
+     "score": 0.0214
+    },
+    {
+     "chunk_id": "deposit-steps",
+     "score": 0.0204
+    }
+   ]
+  },
+  {
+   "id": "oos-eviction",
+   "lang": "en",
+   "q": "owner wants me out of the flat in 15 days even though my agreement runs till march",
+   "expect": [],
+   "answered_by": "primary",
+   "seconds": 0.93,
+   "hits": [
+    {
+     "chunk_id": "deposit-rent-act-scope",
+     "score": 0.0485
+    },
+    {
+     "chunk_id": "deposit-rent-act-tenants",
+     "score": 0.0445
+    },
+    {
+     "chunk_id": "deposit-deductions",
+     "score": 0.0405
+    },
+    {
+     "chunk_id": "general-when-lawyer",
+     "score": 0.0394
+    },
+    {
+     "chunk_id": "deposit-evidence",
+     "score": 0.0383
+    }
+   ]
+  },
+  {
+   "id": "oos-pf",
+   "lang": "en",
+   "q": "my employer deducted PF from my salary for a year but never deposited it with EPFO",
+   "expect": [],
+   "answered_by": "primary",
+   "seconds": 1.22,
+   "hits": [
+    {
+     "chunk_id": "general-legal-notice",
+     "score": 0.0539
+    },
+    {
+     "chunk_id": "salary-evidence",
+     "score": 0.0528
+    },
+    {
+     "chunk_id": "salary-steps",
+     "score": 0.0497
+    },
+    {
+     "chunk_id": "statute-wages-45",
+     "score": 0.0488
+    },
+    {
+     "chunk_id": "salary-claim",
+     "score": 0.0477
+    }
+   ]
+  },
+  {
+   "id": "oos-cheque",
+   "lang": "en",
+   "q": "my tenant gave me a cheque for rent and it bounced",
+   "expect": [],
+   "answered_by": "primary",
+   "seconds": 1.33,
+   "hits": [
+    {
+     "chunk_id": "deposit-rent-act-tenants",
+     "score": 0.0574
+    },
+    {
+     "chunk_id": "general-when-lawyer",
+     "score": 0.0535
+    },
+    {
+     "chunk_id": "deposit-steps",
+     "score": 0.0503
+    },
+    {
+     "chunk_id": "deposit-rent-act-scope",
+     "score": 0.0453
+    },
+    {
+     "chunk_id": "deposit-overview",
+     "score": 0.0446
+    }
+   ]
+  },
+  {
+   "id": "oos-bank",
+   "lang": "en",
+   "q": "bank debited 40000 from my account for a loan I never took",
+   "expect": [],
+   "answered_by": "primary",
+   "seconds": 1.34,
+   "hits": [
+    {
+     "chunk_id": "general-legal-notice",
+     "score": 0.0401
+    },
+    {
+     "chunk_id": "general-legal-aid",
+     "score": 0.0401
+    },
+    {
+     "chunk_id": "general-when-lawyer",
+     "score": 0.0398
+    },
+    {
+     "chunk_id": "statute-limitation-55-113",
+     "score": 0.0381
+    },
+    {
+     "chunk_id": "consumer-commission-complaint",
+     "score": 0.0374
+    }
+   ]
+  }
+ ]
+}
