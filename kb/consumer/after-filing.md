@@ -9,7 +9,7 @@ cites:
   - {doc: cpa-2019, section: "37"}
   - {doc: cpa-2019, section: "41"}
   - {doc: cpa-2019, section: "72"}
-verified_on: null
+verified_on: 2026-11-21
 ---
 - **Admission.** The District Commission should ordinarily decide within 21 days whether to admit the complaint. It
   cannot reject it without hearing you, and if it does not decide in time, the complaint is treated as admitted

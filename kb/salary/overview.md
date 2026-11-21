@@ -8,7 +8,7 @@ cites:
   - {doc: code-on-wages-2019, section: "2"}
   - {doc: code-on-wages-2019, section: "17"}
   - {doc: code-on-wages-2019, section: "69"}
-verified_on: null
+verified_on: 2026-11-21
 ---
 Wages are governed by the Code on Wages, 2019, which replaced the Payment of Wages Act, 1936, the Minimum Wages Act,
 1948, the Payment of Bonus Act, 1965 and the Equal Remuneration Act, 1976 (Code on Wages, 2019, s. 69).

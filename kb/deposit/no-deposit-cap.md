@@ -7,7 +7,7 @@ jurisdiction: karnataka
 cites:
   - {doc: karnataka-rent-act-1999, section: "17"}
   - {doc: karnataka-rent-amendment-2025, section: "2"}
-verified_on: null
+verified_on: 2026-11-21
 ---
 LawBuddy's sources contain no legal limit on the size of a security deposit for homes in Karnataka.
 

@@ -8,7 +8,7 @@ cites:
   - {doc: cp-jurisdiction-rules-2021, section: "3"}
   - {doc: cp-jurisdiction-rules-2021, section: "4"}
   - {doc: cp-jurisdiction-rules-2021, section: "5"}
-verified_on: null
+verified_on: 2026-11-21
 ---
 **3. Jurisdiction of District Commission.** Subject to the other provisions of the Act and in pursuance of proviso to
 sub-section (1) of section 34 of the Act, the District Commission shall have jurisdiction to entertain complaints

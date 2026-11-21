@@ -8,7 +8,7 @@ cites:
   - {doc: cpa-2019, section: "107"}
   - {doc: code-on-wages-2019, section: "69"}
   - {doc: karnataka-rent-act-1999, section: "70"}
-verified_on: null
+verified_on: 2026-11-21
 ---
 Many websites and older documents still quote laws that have been repealed. Do not rely on them:
 

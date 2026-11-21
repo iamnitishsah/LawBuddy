@@ -17,6 +17,15 @@ def test_scoring_counts_hits_and_threshold_ranges():
     assert s["in_scope_top_min"] == 0.3 and s["out_scope_top_max"] == 0.2 and s["misses"] == ["c"]
 
 
+def test_fallback_searches_count_for_hits_but_not_for_score_ranges():
+    questions = [{"q": "a", "expect": ["x"]}, {"q": "b", "expect": ["y"]}, {"q": "out", "expect": []}]
+    results = [hits(("x", 0.5)), hits(("y", 7.2)), hits(("x", 5.9))]       # b and out answered by BM25
+    s = score_run(questions, results, ["primary", "fallback", "fallback"])
+    assert s["hit@1"] == 2 and s["fallbacks"] == 2
+    assert (s["in_scope_top_min"], s["in_scope_n"]) == (0.5, 1)
+    assert (s["out_scope_top_max"], s["out_scope_n"]) == (None, 0)         # no primary out-of-scope search left
+
+
 def test_every_expected_chunk_exists_in_the_kb():
     ids = {c.id for c in load_kb()}
     questions = load_questions()

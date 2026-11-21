@@ -5,7 +5,7 @@ category: deposit
 kind: practice
 jurisdiction: karnataka
 cites: []
-verified_on: null
+verified_on: 2026-11-21
 ---
 Collect these before you send a demand or a notice. Keep copies; give originals to no one.
 

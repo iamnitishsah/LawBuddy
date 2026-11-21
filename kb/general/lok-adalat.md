@@ -8,7 +8,7 @@ cites:
   - {doc: lsa-act-1987, section: "19"}
   - {doc: lsa-act-1987, section: "20"}
   - {doc: lsa-act-1987, section: "21"}
-verified_on: null
+verified_on: 2026-11-21
 ---
 Lok Adalats are organised by the State and District Legal Services Authorities (Legal Services Authorities Act, 1987,
 s. 19). They settle disputes by compromise.

@@ -7,7 +7,7 @@ jurisdiction: central
 cites:
   - {doc: cp-ecommerce-rules-2020, section: "4"}
   - {doc: cp-ecommerce-rules-2020, section: "6"}
-verified_on: null
+verified_on: 2026-11-21
 ---
 **Rule 4(5).** Every e-commerce entity shall ensure that the grievance officer referred to in sub-rule (4)
 acknowledges the receipt of any consumer complaint within forty-eight hours and redresses the complaint within one

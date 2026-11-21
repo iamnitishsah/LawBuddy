@@ -8,7 +8,7 @@ cites:
   - {doc: cpa-2019, section: "34"}
   - {doc: cpa-2019, section: "35"}
   - {doc: cpa-2019, section: "69"}
-verified_on: null
+verified_on: 2026-11-21
 ---
 **Section 34(2).** A complaint shall be instituted in a District Commission within the local limits of whose
 jurisdiction,

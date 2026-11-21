@@ -10,7 +10,7 @@ cites:
   - {doc: cp-jurisdiction-rules-2021, section: "3"}
   - {doc: cp-jurisdiction-rules-2021, section: "4"}
   - {doc: cp-jurisdiction-rules-2021, section: "5"}
-verified_on: null
+verified_on: 2026-11-21
 ---
 **Which Commission.** It depends on the value of the goods or services you paid for: up to Rs. 50 lakh goes to the
 District Commission; above Rs. 50 lakh and up to Rs. 2 crore to the State Commission; above Rs. 2 crore to the

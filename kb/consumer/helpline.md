@@ -5,7 +5,7 @@ category: consumer
 kind: practice
 jurisdiction: central
 cites: []
-verified_on: null
+verified_on: 2026-11-21
 ---
 The National Consumer Helpline (NCH), run by the Department of Consumer Affairs, Government of India, helps resolve
 consumer grievances with companies before a formal complaint.

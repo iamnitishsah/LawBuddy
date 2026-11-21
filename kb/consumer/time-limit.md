@@ -6,7 +6,7 @@ kind: guide
 jurisdiction: central
 cites:
   - {doc: cpa-2019, section: "69"}
-verified_on: null
+verified_on: 2026-11-21
 ---
 A Consumer Commission will not admit a complaint unless it is filed within **two years** from the date the cause of
 action arose (Consumer Protection Act, 2019, s. 69(1)). The cause of action is usually when the defect appeared, the

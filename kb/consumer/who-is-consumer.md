@@ -6,7 +6,7 @@ kind: guide
 jurisdiction: central
 cites:
   - {doc: cpa-2019, section: "2"}
-verified_on: null
+verified_on: 2026-11-21
 ---
 You are a consumer if you bought goods, or hired or used a service, for a price that was paid or promised, fully or
 in part, including in instalments (Consumer Protection Act, 2019, s. 2(7)). Someone who uses the goods or service

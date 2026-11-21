@@ -7,7 +7,7 @@ jurisdiction: karnataka
 cites:
   - {doc: contract-act-1872, section: "73"}
   - {doc: karnataka-rent-act-1999, section: "2"}
-verified_on: null
+verified_on: 2026-11-21
 ---
 A security deposit is money you gave the landlord to hold, to be returned when you leave. Whether you get it back,
 and how much may be deducted, is decided mainly by your rental agreement.

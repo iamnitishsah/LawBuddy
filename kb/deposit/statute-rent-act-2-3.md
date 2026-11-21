@@ -6,7 +6,7 @@ kind: statute
 jurisdiction: karnataka
 cites:
   - {doc: karnataka-rent-act-1999, section: "2"}
-verified_on: null
+verified_on: 2026-11-21
 ---
 **Section 2(3).** Nothing contained in this Act shall apply, ...
 

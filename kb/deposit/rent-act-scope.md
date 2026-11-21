@@ -6,7 +6,7 @@ kind: guide
 jurisdiction: karnataka
 cites:
   - {doc: karnataka-rent-act-1999, section: "2"}
-verified_on: null
+verified_on: 2026-11-21
 ---
 The Karnataka Rent Act, 1999 regulates rent and eviction, but only for some premises. Its main rules (Chapters I to
 III and V to VIII) apply in the areas listed in its First Schedule: Part A covers the cities constituted under the

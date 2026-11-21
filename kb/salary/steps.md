@@ -7,7 +7,7 @@ jurisdiction: central
 cites:
   - {doc: code-on-wages-2019, section: "45"}
   - {doc: limitation-act-1963, section: "Article 7"}
-verified_on: null
+verified_on: 2026-11-21
 ---
 1. **Written demand** to HR or the owner by email, listing the unpaid months and amounts and a date to pay by.
 2. **Legal notice** if there is no payment: facts, amounts, the legal deadline for payment, and a warning that you

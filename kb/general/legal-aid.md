@@ -8,7 +8,7 @@ cites:
   - {doc: constitution, section: "Article 39A"}
   - {doc: lsa-act-1987, section: "12"}
   - {doc: lsa-act-1987, section: "13"}
-verified_on: null
+verified_on: 2026-11-21
 ---
 The Constitution directs the State to provide free legal aid so that no citizen is denied justice because of
 economic or other disabilities (Constitution of India, Article 39A). The Legal Services Authorities Act, 1987 puts

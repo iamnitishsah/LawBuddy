@@ -7,6 +7,7 @@ import pytest
 
 from lawbuddy.kb.build import build, content_hash
 from lawbuddy.kb.extract import decode_glyphs
+from lawbuddy.kb.verify import verify
 from lawbuddy.kb.loader import CATEGORIES, load_kb, load_registry, parse_file, validate
 from lawbuddy.retrieval.index import KBIndex
 
@@ -83,6 +84,8 @@ def test_the_committed_index_matches_the_kb():
     assert [c["id"] for c in meta["chunks"]] == [c.id for c in chunks]
     assert [c["hash"] for c in meta["chunks"]] == [content_hash(c.embed_text(), meta["model"]) for c in chunks], \
         "the KB changed since the index was built; run: python -m lawbuddy.kb.build"
+    assert [c["verified_on"] for c in meta["chunks"]] == [c.verified_on for c in chunks], \
+        "verification dates changed since the index was built; run: python -m lawbuddy.kb.build"
     assert np.load("kb/index/vectors.npz")["vectors"].shape == (len(chunks), meta["dimensions"])
 
 
@@ -163,6 +166,20 @@ def test_search_ranks_and_filters_by_category_and_kind(kb, tmp_path):
     assert [h["chunk_id"] for h in index.search("salary", category="salary", kinds=["guide"])] == ["sal"]
     assert {h["chunk_id"] for h in index.search("x", category=["deposit", "consumer"])} == {"dep", "ref"}
     assert index.search("x", category="general") == []
+
+
+def test_verify_sets_the_date_without_changing_the_text_hash(kb):
+    write_chunk(kb, "a", body="deposit")
+    write_chunk(kb, "b", body="refund")
+    registry = load_registry(kb)
+    before = {c.id: content_hash(c.embed_text(), "m") for c in load_kb(kb, registry)}
+    assert verify(["a"], "2026-11-21", kb_dir=kb) == ["a"]
+    after = {c.id: c for c in load_kb(kb, registry)}
+    assert after["a"].verified_on == "2026-11-21" and after["b"].verified_on is None
+    assert {i: content_hash(c.embed_text(), "m") for i, c in after.items()} == before
+    assert verify(None, "2026-11-21", kb_dir=kb) == ["b"]                 # "a" already has that date
+    with pytest.raises(ValueError, match="unknown chunk ids"):
+        verify(["nope"], "2026-11-21", kb_dir=kb)
 
 
 def test_glyph_codes_from_the_rent_act_pdf_are_decoded():

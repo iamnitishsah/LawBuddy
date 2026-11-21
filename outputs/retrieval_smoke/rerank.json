@@ -4,11 +4,13 @@
   "in_scope": 17,
   "hit@1": 16,
   "hit@3": 17,
+  "fallbacks": 0,
   "in_scope_top_min": 0.05891956381804395,
+  "in_scope_n": 17,
   "out_scope_top_max": 0.04517212474823082,
+  "out_scope_n": 4,
   "misses": []
  },
- "fallbacks": 1,
  "results": [
   {
    "q": "my landlord in Bangalore is not returning my 2 lakh deposit after I vacated",
@@ -16,6 +18,8 @@
     "deposit-overview",
     "deposit-steps"
    ],
+   "answered_by": "primary",
+   "seconds": 1.49,
    "hits": [
     {
      "chunk_id": "deposit-overview",
@@ -44,6 +48,8 @@
    "expect": [
     "deposit-deductions"
    ],
+   "answered_by": "primary",
+   "seconds": 1.07,
    "hits": [
     {
      "chunk_id": "deposit-deductions",
@@ -72,6 +78,8 @@
    "expect": [
     "deposit-no-cap"
    ],
+   "answered_by": "primary",
+   "seconds": 1.26,
    "hits": [
     {
      "chunk_id": "deposit-no-cap",
@@ -101,6 +109,8 @@
     "deposit-rent-act-scope",
     "statute-rent-act-2-3"
    ],
+   "answered_by": "primary",
+   "seconds": 0.87,
    "hits": [
     {
      "chunk_id": "deposit-rent-act-scope",
@@ -129,6 +139,8 @@
    "expect": [
     "deposit-evidence"
    ],
+   "answered_by": "primary",
+   "seconds": 0.95,
    "hits": [
     {
      "chunk_id": "deposit-evidence",
@@ -158,6 +170,8 @@
     "deposit-steps",
     "statute-limitation-55-113"
    ],
+   "answered_by": "primary",
+   "seconds": 5.2,
    "hits": [
     {
      "chunk_id": "deposit-steps",
@@ -188,26 +202,28 @@
     "statute-cp-ecommerce-rules",
     "consumer-overview"
    ],
+   "answered_by": "primary",
+   "seconds": 0.92,
    "hits": [
     {
-     "chunk_id": "statute-cp-ecommerce-rules",
-     "score": 9.8036
+     "chunk_id": "consumer-ecommerce-refunds",
+     "score": 0.0955
     },
     {
-     "chunk_id": "consumer-ecommerce-refunds",
-     "score": 9.713
+     "chunk_id": "statute-cp-ecommerce-rules",
+     "score": 0.0787
     },
     {
      "chunk_id": "consumer-overview",
-     "score": 9.148
+     "score": 0.0772
+    },
+    {
+     "chunk_id": "consumer-after-filing",
+     "score": 0.0514
     },
     {
      "chunk_id": "consumer-time-limit",
-     "score": 5.6866
-    },
-    {
-     "chunk_id": "deposit-overview",
-     "score": 4.9521
+     "score": 0.0489
     }
    ]
   },
@@ -217,6 +233,8 @@
     "consumer-commission-complaint",
     "statute-cpa-34-69"
    ],
+   "answered_by": "primary",
+   "seconds": 0.92,
    "hits": [
     {
      "chunk_id": "consumer-commission-complaint",
@@ -246,6 +264,8 @@
     "consumer-time-limit",
     "statute-cpa-34-69"
    ],
+   "answered_by": "primary",
+   "seconds": 1.64,
    "hits": [
     {
      "chunk_id": "consumer-time-limit",
@@ -274,6 +294,8 @@
    "expect": [
     "consumer-helpline"
    ],
+   "answered_by": "primary",
+   "seconds": 0.96,
    "hits": [
     {
      "chunk_id": "consumer-helpline",
@@ -302,6 +324,8 @@
    "expect": [
     "consumer-who-is-consumer"
    ],
+   "answered_by": "primary",
+   "seconds": 1.09,
    "hits": [
     {
      "chunk_id": "consumer-who-is-consumer",
@@ -332,6 +356,8 @@
     "statute-wages-17",
     "salary-steps"
    ],
+   "answered_by": "primary",
+   "seconds": 2.25,
    "hits": [
     {
      "chunk_id": "salary-evidence",
@@ -362,6 +388,8 @@
     "salary-steps",
     "salary-claim"
    ],
+   "answered_by": "primary",
+   "seconds": 1.13,
    "hits": [
     {
      "chunk_id": "salary-steps",
@@ -391,6 +419,8 @@
     "salary-claim",
     "statute-wages-45"
    ],
+   "answered_by": "primary",
+   "seconds": 1.19,
    "hits": [
     {
      "chunk_id": "salary-claim",
@@ -420,6 +450,8 @@
     "general-legal-aid",
     "statute-lsa-12-21"
    ],
+   "answered_by": "primary",
+   "seconds": 2.65,
    "hits": [
     {
      "chunk_id": "general-legal-aid",
@@ -449,6 +481,8 @@
     "general-lok-adalat",
     "statute-lsa-12-21"
    ],
+   "answered_by": "primary",
+   "seconds": 1.59,
    "hits": [
     {
      "chunk_id": "general-lok-adalat",
@@ -477,6 +511,8 @@
    "expect": [
     "general-old-laws"
    ],
+   "answered_by": "primary",
+   "seconds": 1.14,
    "hits": [
     {
      "chunk_id": "general-old-laws",
@@ -503,6 +539,8 @@
   {
    "q": "how do I file for divorce and get custody of my child",
    "expect": [],
+   "answered_by": "primary",
+   "seconds": 1.03,
    "hits": [
     {
      "chunk_id": "general-legal-aid",
@@ -529,6 +567,8 @@
   {
    "q": "the police refused to register my FIR",
    "expect": [],
+   "answered_by": "primary",
+   "seconds": 0.92,
    "hits": [
     {
      "chunk_id": "general-legal-aid",
@@ -555,6 +595,8 @@
   {
    "q": "how to save income tax on my salary",
    "expect": [],
+   "answered_by": "primary",
+   "seconds": 1.96,
    "hits": [
     {
      "chunk_id": "salary-evidence",
@@ -581,6 +623,8 @@
   {
    "q": "my neighbour built a wall on my land",
    "expect": [],
+   "answered_by": "primary",
+   "seconds": 1.06,
    "hits": [
     {
      "chunk_id": "general-legal-aid",

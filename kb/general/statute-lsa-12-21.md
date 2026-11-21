@@ -8,7 +8,7 @@ cites:
   - {doc: lsa-act-1987, section: "12"}
   - {doc: lsa-act-1987, section: "21"}
   - {doc: constitution, section: "Article 39A"}
-verified_on: null
+verified_on: 2026-11-21
 ---
 **Constitution of India, Article 39A. Equal justice and free legal aid.** The State shall secure that the operation
 of the legal system promotes justice, on a basis of equal opportunity, and shall, in particular, provide free legal

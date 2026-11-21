@@ -8,7 +8,7 @@ cites:
   - {doc: limitation-act-1963, section: "Article 22"}
   - {doc: limitation-act-1963, section: "Article 55"}
   - {doc: limitation-act-1963, section: "Article 113"}
-verified_on: null
+verified_on: 2026-11-21
 ---
 | Article | Description of suit | Period of limitation | Time from which period begins to run |
 |---|---|---|---|

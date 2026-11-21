@@ -8,7 +8,7 @@ cites:
   - {doc: lsa-act-1987, section: "20"}
   - {doc: lsa-act-1987, section: "21"}
   - {doc: limitation-act-1963, section: "Article 55"}
-verified_on: null
+verified_on: 2026-11-21
 ---
 1. **Written demand.** Message or email the landlord asking for the deposit by a clear date (for example, 7 days).
    Keep the reply, or the lack of one.

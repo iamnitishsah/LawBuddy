@@ -10,7 +10,7 @@ cites:
   - {doc: karnataka-rent-act-1999, section: "16"}
   - {doc: karnataka-rent-act-1999, section: "17"}
   - {doc: karnataka-rent-act-1999, section: "23"}
-verified_on: null
+verified_on: 2026-11-21
 ---
 For the smaller group of tenancies the Karnataka Rent Act, 1999 covers (low rent, older buildings, in listed areas):
 

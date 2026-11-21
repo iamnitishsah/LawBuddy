@@ -6,7 +6,7 @@ kind: statute
 jurisdiction: central
 cites:
   - {doc: code-on-wages-2019, section: "17"}
-verified_on: null
+verified_on: 2026-11-21
 ---
 **17. Time limit for payment of wages.** (1) The employer shall pay or cause to be paid wages to the employees,
 engaged on,

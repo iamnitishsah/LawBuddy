@@ -5,7 +5,7 @@ category: general
 kind: practice
 jurisdiction: central
 cites: []
-verified_on: null
+verified_on: 2026-11-21
 ---
 A legal notice is a formal letter telling the other side what they owe or must do, by when, and that you will take
 legal action if they do not. For deposit, refund and salary disputes, none of the laws in LawBuddy's sources requires

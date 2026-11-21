@@ -7,7 +7,7 @@ jurisdiction: central
 cites:
   - {doc: contract-act-1872, section: "73"}
   - {doc: contract-act-1872, section: "74"}
-verified_on: null
+verified_on: 2026-11-21
 ---
 **Section 73. Compensation for loss or damage caused by breach of contract.** When a contract has been broken, the
 party who suffers by such breach is entitled to receive, from the party who has broken the contract, compensation

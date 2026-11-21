@@ -5,7 +5,7 @@ category: salary
 kind: practice
 jurisdiction: central
 cites: []
-verified_on: null
+verified_on: 2026-11-21
 ---
 - **Proof you were employed**: offer or appointment letter, ID card, joining email, PF/ESI number, or messages from
   your manager.

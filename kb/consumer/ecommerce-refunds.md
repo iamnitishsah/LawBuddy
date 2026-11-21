@@ -8,7 +8,7 @@ cites:
   - {doc: cp-ecommerce-rules-2020, section: "4"}
   - {doc: cp-ecommerce-rules-2020, section: "6"}
   - {doc: cp-ecommerce-rules-2020, section: "7"}
-verified_on: null
+verified_on: 2026-11-21
 ---
 The Consumer Protection (E-Commerce) Rules, 2020 put duties on online platforms and sellers:
 

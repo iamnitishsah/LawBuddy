@@ -5,7 +5,7 @@ category: general
 kind: practice
 jurisdiction: central
 cites: []
-verified_on: null
+verified_on: 2026-11-21
 ---
 LawBuddy covers three everyday problems in Karnataka: a security deposit not returned, a consumer refund or defect,
 and unpaid salary or final dues. It gives legal information, not legal advice.

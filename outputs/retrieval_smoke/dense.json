@@ -2,13 +2,15 @@
  "mode": "dense",
  "summary": {
   "in_scope": 17,
-  "hit@1": 14,
+  "hit@1": 16,
   "hit@3": 17,
-  "in_scope_top_min": 0.44640061259269714,
-  "out_scope_top_max": 4.919762636319183,
+  "fallbacks": 0,
+  "in_scope_top_min": 0.3298451602458954,
+  "in_scope_n": 17,
+  "out_scope_top_max": 0.386177122592926,
+  "out_scope_n": 4,
   "misses": []
  },
- "fallbacks": 6,
  "results": [
   {
    "q": "my landlord in Bangalore is not returning my 2 lakh deposit after I vacated",
@@ -16,6 +18,8 @@
     "deposit-overview",
     "deposit-steps"
    ],
+   "answered_by": "primary",
+   "seconds": 1.07,
    "hits": [
     {
      "chunk_id": "deposit-overview",
@@ -44,6 +48,8 @@
    "expect": [
     "deposit-deductions"
    ],
+   "answered_by": "primary",
+   "seconds": 11.95,
    "hits": [
     {
      "chunk_id": "deposit-deductions",
@@ -51,7 +57,7 @@
     },
     {
      "chunk_id": "deposit-rent-act-tenants",
-     "score": 0.3097
+     "score": 0.3096
     },
     {
      "chunk_id": "deposit-overview",
@@ -72,6 +78,8 @@
    "expect": [
     "deposit-no-cap"
    ],
+   "answered_by": "primary",
+   "seconds": 5.02,
    "hits": [
     {
      "chunk_id": "deposit-no-cap",
@@ -87,7 +95,7 @@
     },
     {
      "chunk_id": "consumer-time-limit",
-     "score": 0.3479
+     "score": 0.348
     },
     {
      "chunk_id": "salary-claim",
@@ -101,6 +109,8 @@
     "deposit-rent-act-scope",
     "statute-rent-act-2-3"
    ],
+   "answered_by": "primary",
+   "seconds": 0.4,
    "hits": [
     {
      "chunk_id": "deposit-rent-act-scope",
@@ -129,6 +139,8 @@
    "expect": [
     "deposit-evidence"
    ],
+   "answered_by": "primary",
+   "seconds": 2.3,
    "hits": [
     {
      "chunk_id": "deposit-evidence",
@@ -144,7 +156,7 @@
     },
     {
      "chunk_id": "deposit-steps",
-     "score": 0.277
+     "score": 0.2769
     },
     {
      "chunk_id": "general-legal-notice",
@@ -158,26 +170,28 @@
     "deposit-steps",
     "statute-limitation-55-113"
    ],
+   "answered_by": "primary",
+   "seconds": 2.92,
    "hits": [
     {
+     "chunk_id": "deposit-steps",
+     "score": 0.4403
+    },
+    {
      "chunk_id": "statute-limitation-55-113",
-     "score": 5.5742
+     "score": 0.4053
     },
     {
      "chunk_id": "deposit-overview",
-     "score": 5.2706
+     "score": 0.3638
     },
     {
-     "chunk_id": "salary-steps",
-     "score": 4.765
-    },
-    {
-     "chunk_id": "deposit-steps",
-     "score": 3.0056
+     "chunk_id": "consumer-time-limit",
+     "score": 0.3593
     },
     {
      "chunk_id": "salary-claim",
-     "score": 2.9555
+     "score": 0.3152
     }
    ]
   },
@@ -188,6 +202,8 @@
     "statute-cp-ecommerce-rules",
     "consumer-overview"
    ],
+   "answered_by": "primary",
+   "seconds": 0.42,
    "hits": [
     {
      "chunk_id": "consumer-ecommerce-refunds",
@@ -217,6 +233,8 @@
     "consumer-commission-complaint",
     "statute-cpa-34-69"
    ],
+   "answered_by": "primary",
+   "seconds": 0.32,
    "hits": [
     {
      "chunk_id": "consumer-commission-complaint",
@@ -246,6 +264,8 @@
     "consumer-time-limit",
     "statute-cpa-34-69"
    ],
+   "answered_by": "primary",
+   "seconds": 3.73,
    "hits": [
     {
      "chunk_id": "consumer-time-limit",
@@ -253,15 +273,15 @@
     },
     {
      "chunk_id": "consumer-commission-complaint",
-     "score": 0.3932
+     "score": 0.3931
     },
     {
      "chunk_id": "consumer-overview",
-     "score": 0.3795
+     "score": 0.3794
     },
     {
      "chunk_id": "statute-cpa-34-69",
-     "score": 0.3706
+     "score": 0.3705
     },
     {
      "chunk_id": "consumer-after-filing",
@@ -274,6 +294,8 @@
    "expect": [
     "consumer-helpline"
    ],
+   "answered_by": "primary",
+   "seconds": 5.26,
    "hits": [
     {
      "chunk_id": "consumer-helpline",
@@ -302,26 +324,28 @@
    "expect": [
     "consumer-who-is-consumer"
    ],
+   "answered_by": "primary",
+   "seconds": 0.41,
    "hits": [
     {
      "chunk_id": "consumer-who-is-consumer",
-     "score": 6.733
-    },
-    {
-     "chunk_id": "consumer-helpline",
-     "score": 5.5373
-    },
-    {
-     "chunk_id": "consumer-time-limit",
-     "score": 1.8917
-    },
-    {
-     "chunk_id": "consumer-commission-complaint",
-     "score": 1.8615
+     "score": 0.5696
     },
     {
      "chunk_id": "consumer-overview",
-     "score": 1.8181
+     "score": 0.3229
+    },
+    {
+     "chunk_id": "consumer-commission-complaint",
+     "score": 0.2603
+    },
+    {
+     "chunk_id": "consumer-ecommerce-refunds",
+     "score": 0.2595
+    },
+    {
+     "chunk_id": "statute-cp-ecommerce-rules",
+     "score": 0.2479
     }
    ]
   },
@@ -332,10 +356,12 @@
     "statute-wages-17",
     "salary-steps"
    ],
+   "answered_by": "primary",
+   "seconds": 0.6,
    "hits": [
     {
      "chunk_id": "salary-evidence",
-     "score": 0.4482
+     "score": 0.4483
     },
     {
      "chunk_id": "salary-steps",
@@ -351,7 +377,7 @@
     },
     {
      "chunk_id": "salary-claim",
-     "score": 0.3387
+     "score": 0.3388
     }
    ]
   },
@@ -362,26 +388,28 @@
     "salary-steps",
     "salary-claim"
    ],
+   "answered_by": "primary",
+   "seconds": 0.82,
    "hits": [
     {
-     "chunk_id": "salary-evidence",
-     "score": 3.616
-    },
-    {
      "chunk_id": "salary-steps",
-     "score": 3.4058
+     "score": 0.4784
     },
     {
      "chunk_id": "salary-overview",
-     "score": 3.1257
+     "score": 0.4215
+    },
+    {
+     "chunk_id": "salary-evidence",
+     "score": 0.3888
     },
     {
      "chunk_id": "general-legal-notice",
-     "score": 1.8181
+     "score": 0.3588
     },
     {
      "chunk_id": "general-when-lawyer",
-     "score": 1.8053
+     "score": 0.3422
     }
    ]
   },
@@ -391,26 +419,28 @@
     "salary-claim",
     "statute-wages-45"
    ],
+   "answered_by": "primary",
+   "seconds": 0.32,
    "hits": [
     {
-     "chunk_id": "salary-steps",
-     "score": 10.682
-    },
-    {
-     "chunk_id": "salary-overview",
-     "score": 8.0039
+     "chunk_id": "statute-wages-45",
+     "score": 0.5032
     },
     {
      "chunk_id": "salary-claim",
-     "score": 7.6772
+     "score": 0.4721
     },
     {
-     "chunk_id": "statute-wages-45",
-     "score": 5.4249
+     "chunk_id": "salary-steps",
+     "score": 0.366
     },
     {
-     "chunk_id": "deposit-overview",
-     "score": 5.2384
+     "chunk_id": "salary-overview",
+     "score": 0.3225
+    },
+    {
+     "chunk_id": "statute-wages-17",
+     "score": 0.3188
     }
    ]
   },
@@ -420,6 +450,8 @@
     "general-legal-aid",
     "statute-lsa-12-21"
    ],
+   "answered_by": "primary",
+   "seconds": 0.41,
    "hits": [
     {
      "chunk_id": "general-legal-aid",
@@ -449,6 +481,8 @@
     "general-lok-adalat",
     "statute-lsa-12-21"
    ],
+   "answered_by": "primary",
+   "seconds": 0.34,
    "hits": [
     {
      "chunk_id": "general-lok-adalat",
@@ -477,36 +511,40 @@
    "expect": [
     "general-old-laws"
    ],
+   "answered_by": "primary",
+   "seconds": 0.33,
    "hits": [
     {
      "chunk_id": "general-old-laws",
-     "score": 5.4674
+     "score": 0.3298
     },
     {
-     "chunk_id": "statute-wages-45",
-     "score": 2.7714
-    },
-    {
-     "chunk_id": "statute-wages-17",
-     "score": 2.6669
-    },
-    {
-     "chunk_id": "consumer-time-limit",
-     "score": 2.6129
+     "chunk_id": "statute-contract-act-73-74",
+     "score": 0.1989
     },
     {
      "chunk_id": "statute-cpa-34-69",
-     "score": 2.5311
+     "score": 0.191
+    },
+    {
+     "chunk_id": "statute-lsa-12-21",
+     "score": 0.1882
+    },
+    {
+     "chunk_id": "deposit-rent-act-scope",
+     "score": 0.1832
     }
    ]
   },
   {
    "q": "how do I file for divorce and get custody of my child",
    "expect": [],
+   "answered_by": "primary",
+   "seconds": 1.41,
    "hits": [
     {
      "chunk_id": "general-legal-aid",
-     "score": 0.3075
+     "score": 0.3074
     },
     {
      "chunk_id": "consumer-commission-complaint",
@@ -514,7 +552,7 @@
     },
     {
      "chunk_id": "deposit-steps",
-     "score": 0.2926
+     "score": 0.2927
     },
     {
      "chunk_id": "general-when-lawyer",
@@ -522,13 +560,15 @@
     },
     {
      "chunk_id": "deposit-evidence",
-     "score": 0.2365
+     "score": 0.2366
     }
    ]
   },
   {
    "q": "the police refused to register my FIR",
    "expect": [],
+   "answered_by": "primary",
+   "seconds": 0.45,
    "hits": [
     {
      "chunk_id": "consumer-commission-complaint",
@@ -555,32 +595,36 @@
   {
    "q": "how to save income tax on my salary",
    "expect": [],
+   "answered_by": "primary",
+   "seconds": 0.53,
    "hits": [
     {
-     "chunk_id": "general-when-lawyer",
-     "score": 4.9198
+     "chunk_id": "salary-steps",
+     "score": 0.3862
     },
     {
      "chunk_id": "salary-evidence",
-     "score": 3.616
+     "score": 0.317
     },
     {
-     "chunk_id": "general-legal-aid",
-     "score": 3.6066
-    },
-    {
-     "chunk_id": "salary-steps",
-     "score": 2.6328
+     "chunk_id": "general-legal-notice",
+     "score": 0.2861
     },
     {
      "chunk_id": "salary-overview",
-     "score": 2.4163
+     "score": 0.2803
+    },
+    {
+     "chunk_id": "general-legal-aid",
+     "score": 0.2609
     }
    ]
   },
   {
    "q": "my neighbour built a wall on my land",
    "expect": [],
+   "answered_by": "primary",
+   "seconds": 0.42,
    "hits": [
     {
      "chunk_id": "deposit-evidence",
@@ -588,11 +632,11 @@
     },
     {
      "chunk_id": "salary-steps",
-     "score": 0.2299
+     "score": 0.23
     },
     {
      "chunk_id": "deposit-steps",
-     "score": 0.2248
+     "score": 0.2249
     },
     {
      "chunk_id": "salary-evidence",

@@ -7,7 +7,7 @@ jurisdiction: karnataka
 cites:
   - {doc: contract-act-1872, section: "73"}
   - {doc: contract-act-1872, section: "74"}
-verified_on: null
+verified_on: 2026-11-21
 ---
 What can be deducted depends on your rental agreement. Read its clauses on the deposit, notice period, painting,
 repairs and unpaid bills.

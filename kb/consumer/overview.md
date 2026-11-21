@@ -7,7 +7,7 @@ jurisdiction: central
 cites:
   - {doc: cpa-2019, section: "2"}
   - {doc: cpa-2019, section: "39"}
-verified_on: null
+verified_on: 2026-11-21
 ---
 If you paid for goods or a service and got something defective, deficient, not as promised, or no refund that was
 due, the Consumer Protection Act, 2019 protects you. It applies to purchases made online or offline, including by

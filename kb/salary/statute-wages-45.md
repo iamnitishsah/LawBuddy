@@ -6,7 +6,7 @@ kind: statute
 jurisdiction: central
 cites:
   - {doc: code-on-wages-2019, section: "45"}
-verified_on: null
+verified_on: 2026-11-21
 ---
 **45. Claims under Code and procedure thereof.** (1) The appropriate Government may, by notification, appoint one or
 more authorities, not below the rank of a Gazetted Officer, to hear and determine the claims which arises under the

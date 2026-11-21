@@ -8,7 +8,7 @@ cites:
   - {doc: code-on-wages-2019, section: "43"}
   - {doc: code-on-wages-2019, section: "45"}
   - {doc: code-on-wages-2019, section: "49"}
-verified_on: null
+verified_on: 2026-11-21
 ---
 The government appoints authorities (officers not below the rank of Gazetted Officer) to hear and decide claims under
 the Code (Code on Wages, 2019, s. 45(1)). In Karnataka, ask the Labour Department which officer hears these
