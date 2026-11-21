@@ -52,7 +52,7 @@ a legal problem.* Built phase by phase; each phase ends with a check that it wor
 notes), ~5,800 words, every legal chunk linked to a registered source. Fewer chunks than the 60–120 first planned:
 each chunk covers one question fully, and more can be added where the Phase 6 test cases show gaps.
 
-## Phase 2: Conversation engine
+## Phase 2: Conversation engine ✅
 
 **Goal:** a multi-turn CLI chat that understands the case, asks for what's missing and advises using only the KB.
 
@@ -66,7 +66,7 @@ each chunk covers one question fully, and more can be added where the Phase 6 te
 - [x] Guard (`guard/legal_refs.py`): every law, section, article and rule is traced to the registry or the passages shown; case law, unknown laws, wrong years, repealed laws used as current, unlisted or unanchored sections and invalid citations are caught; regenerate once with the problems named, then remove the offending sentences and add a note
 - [x] CLI `python -m lawbuddy.chat` (interactive or `--script`, `--debug` trace); every turn logged to `data/logs/chat.jsonl`
 - [x] Offline tests: 106, with a scripted fake model (every branch of a turn, guard regeneration and removal, API failure)
-- [ ] Run `make chat-smoke` (5 scripted conversations, raw transcripts to `outputs/chat_smoke/`) and review them
+- [x] `make chat-smoke`, two runs reviewed ([findings.md](findings.md)): run 1 exposed 5 failures (empty reply, an invented user fact, wrong script for Hinglish, a guard false alarm, 27-60 s turns); all fixed with regression tests; run 2 clean on traps, scope and safety; raw transcripts in `outputs/chat_smoke/run1/` and `run2/`
 
 **Done when:** the Hinglish deposit script ends in grounded advice, and the 420 / judgment / deposit-cap traps produce no untraceable law.
 

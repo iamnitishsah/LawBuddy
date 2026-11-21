@@ -57,12 +57,14 @@ Read the conversation and the case file so far, then reply with ONLY one JSON ob
   "out_of_scope_topic": "",            // if out_of_scope: the topic in 2-5 words, e.g. "divorce and custody"
   "intent": "story" | "question" | "other",
       // story: describes their own situation; question: a general legal question; other: greetings, thanks
-  "language": "",                      // the language the user writes in: English, Hindi, Hinglish, Kannada, ...
+  "language": "",                      // the user's language AND script: "English", "Hindi" (Devanagari),
+                                       // "Hinglish" (Hindi words in Latin letters, e.g. "mera paisa nahi mila"),
+                                       // "Kannada", ...  Hindi typed in Latin letters is always "Hinglish".
   "state": "",                         // Indian state where the problem happened, or "" if not said
   "facts": {},                         // values for the fact keys below, only if the user said them; else null
   "timeline": [{"date": "", "event": ""}],   // dated events the user mentioned, in order
   "evidence_have": [],                 // documents or proof the user says they have
-  "evidence_missing": [],              // proof that would help and the user says they do not have
+  "evidence_missing": [],              // ONLY proof the user explicitly says they do not have; never guess
   "other_party": "",                   // who the dispute is with (name or role)
   "user_goal": "",                     // what the user wants, in a few words
   "summary": "",                       // 1-3 neutral English sentences: the case so far

@@ -42,7 +42,8 @@ def get_retriever(variant: str = "rerank", log=None):
         reranker = Reranker(r["url"], r["model"], r["api_key_env"], max_retries=r.get("max_retries", 2),
                             timeout=r.get("timeout_s", 15))
         primary = RerankRetriever(dense, reranker, candidates=r["candidates"], default_k=cfg["search"].get("top_k", 5))
-    return FallbackRetriever(primary, LexicalIndex(), log=log)
+    return FallbackRetriever(primary, LexicalIndex(), log=log,
+                             cooldown_s=cfg["search"].get("fallback_cooldown_s", 120))
 
 
 def main() -> None:  # pragma: no cover - needs the embedding API

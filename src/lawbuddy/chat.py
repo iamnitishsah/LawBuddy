@@ -35,7 +35,8 @@ def show(reply: Reply, debug: bool) -> None:
             print(f"   guard final: {[p['kind'] + ': ' + p['text'] for p in reply.guard.get('problems', [])]}")
         u = reply.usage
         print(f"   {u.get('llm_calls', 0)} LLM calls | {u.get('input_tokens', 0)} in / {u.get('output_tokens', 0)} "
-              f"out tokens | {reply.latency_s}s")
+              f"out tokens | {reply.latency_s}s total = LLM {u.get('llm_s', 0)}s + retrieval "
+              f"{u.get('retrieval_s', 0)}s + other")
 
 
 def main() -> None:  # pragma: no cover - needs API keys

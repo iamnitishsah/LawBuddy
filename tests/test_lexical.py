@@ -49,3 +49,23 @@ def test_primary_is_used_when_it_works():
 def test_missing_index_says_how_to_build_it(tmp_path):
     with pytest.raises(RuntimeError, match="python -m lawbuddy.kb.build"):
         LexicalIndex(tmp_path)
+
+
+def test_after_a_failure_the_primary_is_skipped_until_the_cooldown_ends():
+    now = [0.0]
+
+    class Counting(Boom):
+        calls = 0
+
+        def search(self, query, **kw):
+            Counting.calls += 1
+            return super().search(query, **kw)
+
+    r = FallbackRetriever(Counting(), Fixed([{"chunk_id": "kw"}]), cooldown_s=120, clock=lambda: now[0])
+    r.search("q", k=3)
+    now[0] = 60.0
+    r.search("q", k=3)                                                    # inside the cooldown: no primary call
+    assert Counting.calls == 1 and r.last_mode == "fallback" and "skipped" in r.last_error
+    now[0] = 130.0
+    r.search("q", k=3)                                                    # cooldown over: primary tried again
+    assert Counting.calls == 2

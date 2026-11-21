@@ -11,6 +11,10 @@ backends:
     base_url: https://api.groq.com/openai/v1
     api_key_env: GROQ_API_KEY
     model: openai/gpt-oss-120b             # confirm with: python -m lawbuddy.llm.base groq
+    # gpt-oss is a reasoning model: its hidden reasoning counts against max_tokens and adds latency (one chat smoke
+    # turn spent its whole budget reasoning and returned an empty answer). Low effort is enough for extraction and
+    # for answering from given passages. Remove this line if a model rejects the parameter.
+    extra_body: {reasoning_effort: low}
   gemini:
     # OpenAI-compatible Gemini API
     base_url: https://generativelanguage.googleapis.com/v1beta/openai/

@@ -30,6 +30,16 @@ def split_sentences(text: str) -> list[str]:
     return out
 
 
+DASHES_RE = re.compile("[‐‑‒–—―−]")      # hyphen-like characters -> "-"
+SPACES_RE = re.compile("[   ]")                              # no-break spaces -> " "
+
+
+def normalize_text(text: str) -> str:
+    """Models often write "E‑Commerce" with a no-break hyphen or use no-break spaces; law names in the registry
+    use plain ones, so normalise before any matching (and for display, the plain characters look the same)."""
+    return SPACES_RE.sub(" ", DASHES_RE.sub("-", text))
+
+
 def normalize_citations(text: str) -> str:
     """Different models write citations differently; convert them all to [n]."""
     text = FULLWIDTH_CITE_RE.sub(r"[\1]", text)

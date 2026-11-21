@@ -14,16 +14,19 @@ REGISTRY = load_registry()
 
 
 class ScriptedLLM:
-    """Returns the scripted replies in order; records every prompt."""
+    """Returns the scripted replies in order (a reply may be (text, finish_reason)); records prompts and budgets."""
 
     def __init__(self, *replies):
-        self.replies, self.calls = list(replies), []
+        self.replies, self.calls, self.max_tokens = list(replies), [], []
 
     def chat(self, messages, temperature=0.0, max_tokens=800):
         self.calls.append(messages)
+        self.max_tokens.append(max_tokens)
         if not self.replies:
             raise RuntimeError("the fake LLM ran out of replies")
-        return LLMResponse(self.replies.pop(0), "fake", 100, 20, 0.1)
+        reply = self.replies.pop(0)
+        text, finish = reply if isinstance(reply, tuple) else (reply, "stop")
+        return LLMResponse(text, "fake", 100, 20, 0.1, finish_reason=finish)
 
 
 class FakeRetriever:
@@ -223,3 +226,68 @@ def test_switching_problem_resets_facts_and_follow_ups():
     e.turn(s, "actually my real problem is salary from Acme")
     assert s.case.category == "salary" and s.case.facts["employer"] == "Acme" and "city" in s.case.facts
     assert s.case.facts["city"] is None and s.followup_turns == 1
+
+
+# --- fixes from the first chat smoke run (outputs/chat_smoke, 2026-11-21) ---------------------------------
+
+def test_an_empty_answer_is_retried_with_a_bigger_budget():
+    """Smoke 01 turn 3: gpt-oss spent its token budget reasoning and returned an empty answer."""
+    llm = ScriptedLLM(analysis(facts=FULL_FACTS), ("", "length"), GOOD_ADVICE)
+    r = engine(llm).turn(Session(), "deposit not returned")
+    assert r.kind == "advice" and "Where you stand" in r.text
+    assert llm.max_tokens[2] == 2 * llm.max_tokens[1] and any("empty at" in t for t in r.trace)
+
+
+def test_an_empty_answer_twice_is_an_error_not_a_blank_reply():
+    llm = ScriptedLLM(analysis(facts=FULL_FACTS), ("", "length"), ("", "stop"))
+    r = engine(llm).turn(Session(), "deposit not returned")
+    assert r.kind == "error" and r.text.strip()
+
+
+def test_the_advice_prompt_never_shows_unknown_facts_as_null():
+    """Smoke 01 turn 2: shown "written_agreement": null, the model told the user they had no agreement."""
+    llm = ScriptedLLM(analysis(facts=FULL_FACTS), GOOD_ADVICE)
+    engine(llm).turn(Session(), "deposit not returned")
+    prompt = llm.calls[1][1]["content"]
+    case_part = prompt.split("USER'S LATEST MESSAGE")[0]
+    assert "null" not in case_part and "not_discussed_yet" in case_part
+    assert "whether you have a written rental agreement" in case_part
+    assert "never" in llm.calls[1][0]["content"] and "not_discussed_yet" in llm.calls[1][0]["content"]
+
+
+def test_hinglish_replies_are_asked_for_in_latin_script():
+    """Smoke 01 turn 1: a Hinglish message got a Devanagari reply."""
+    llm = ScriptedLLM(analysis(language="Hinglish"), "theek hai, kitna deposit tha?")
+    engine(llm).turn(Session(), "owner deposit wapas nahi kar raha")
+    system = llm.calls[1][0]["content"]
+    assert "Latin" in system and "Do not use Devanagari" in system
+
+
+def test_a_greeting_does_not_trigger_a_search():
+    """Smoke 05: "hi" spent 35 s on a failing embedding API before asking what happened."""
+    llm = ScriptedLLM(analysis(category="unclear", intent="other", search_query=""), "Hi! What happened?")
+    e = engine(llm)
+    r = e.turn(Session(), "hi")
+    assert r.kind == "clarify" and e.retriever.calls == []
+
+
+def test_no_break_hyphens_from_the_model_do_not_trip_the_guard():
+    """Smoke 02: "E‑Commerce" (no-break hyphen) was flagged as an unknown law and forced a 60 s regeneration."""
+    answer = "The platform must reply within 48 hours (Consumer Protection (E‑Commerce) Rules, 2020, r. 4(5)) [1]."
+    llm = ScriptedLLM(analysis(category="consumer", intent="question"), answer)
+    hits = [hit("consumer-ecommerce-refunds", "consumer", 0.07, "Rule 4(5): acknowledge within 48 hours.")]
+    r = engine(llm, hits=hits).turn(Session(), "amazon not refunding")
+    assert r.guard["first_problems"] == [] and not r.guard["regenerated"] and "E-Commerce" in r.text
+
+
+def test_turn_time_is_split_into_llm_and_retrieval():
+    r = engine(ScriptedLLM(analysis(facts=FULL_FACTS), GOOD_ADVICE)).turn(Session(), "deposit not returned")
+    assert r.usage["llm_s"] == 0.2 and r.usage["llm_calls"] == 2                 # 0.1 s per fake call
+    assert r.usage["retrieval_s"] >= 0 and "seconds" in r.retrieval
+
+
+def test_the_advice_prompt_forbids_mentioning_passages_to_the_user():
+    """Smoke run 2: "There is no passage that records a Supreme Court judgment"."""
+    llm = ScriptedLLM(analysis(facts=FULL_FACTS), GOOD_ADVICE)
+    engine(llm).turn(Session(), "deposit not returned")
+    assert 'Never say "passage"' in llm.calls[1][0]["content"]

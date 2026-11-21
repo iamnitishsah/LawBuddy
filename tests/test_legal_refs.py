@@ -118,3 +118,10 @@ def test_every_kb_chunk_passes_the_guard_against_itself():
         text = f"{c.title}\n\n{c.text}"
         report = check_answer(text, [passage(text)], REGISTRY)
         assert report.ok, f"{c.id}: {report.summary()}"
+
+
+def test_removing_a_whole_bullet_leaves_no_empty_bullet():
+    answer = "**Where you stand**\n- As held in Sharma v. State, you get interest [1].\n- Send a notice [1]."
+    cleaned = remove_problem_sentences(answer, check_answer(answer, [passage("x")], REGISTRY))
+    assert "\n- \n" not in cleaned and not any(line.strip() == "-" for line in cleaned.splitlines())
+    assert "- Send a notice [1]." in cleaned

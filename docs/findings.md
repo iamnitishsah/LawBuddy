@@ -49,3 +49,60 @@ one dense run took 165 s for 21 questions (later runs: 31-39 s, slowest single s
 
 Limits of this evaluation: 20 in-scope paraphrases and 9 out-of-scope questions, all written by one person (with
 AI help); no Kannada; scores from one run of each mode.
+
+## Conversation, first end-to-end run (Phase 2, 2026-11-21)
+
+Setup: `make chat-smoke`, 5 scripted conversations (11 user turns), Groq `openai/gpt-oss-120b`, rerank retrieval.
+Raw transcripts: `outputs/chat_smoke/run1/`.
+
+**What worked**
+- **Traps.** "2-month deposit cap in Karnataka": "there is no legal limit ... a two-month deposit cap is not found
+  in the current statutes". "Which Supreme Court judgment says ...": "We do not have reliable information on any
+  Supreme Court judgment". "Section 420 IPC": referral reply, no criminal-law content. No untraceable law reached
+  a user.
+- **Scope and safety.** "hi" got a clarifying question; custody got the fixed referral (DLSA, 15100); "threatened to
+  kill me" got the emergency reply from the rule in 0.0 s with no model call.
+- **Hindi.** The salary conversation in Devanagari asked only for the missing fact, then gave correct rules in Hindi
+  (pay by the 7th; within 2 working days of resigning; 3-year claim; compensation up to 10x).
+- **Keyword fallback with query rewriting.** The embedding API failed during the run; keyword search over the
+  rewritten English query still returned the right chunks.
+
+**What failed, and the fix**
+
+| # | Failure | Cause | Fix |
+|---|---|---|---|
+| 1 | An advice reply was empty (only the disclaimer) | gpt-oss spent its whole token budget on hidden reasoning (2,239 output tokens) | `reasoning_effort: low`; budgets 2000; an empty or cut-off reply is retried once with double the budget, and twice empty becomes an error reply, never a blank one |
+| 2 | Told the user "you don't have a written rental agreement", which they never said | The prompt showed `"written_agreement": null`; the model read null as "no" | The case is shown as "what the user told us" and "not discussed yet", with no nulls; the prompt forbids saying the user lacks anything not discussed |
+| 3 | Hinglish (Latin script) message answered in Devanagari | Analysis labelled it "Hindi" | Analysis must label Hindi in Latin letters "Hinglish"; reply prompts state the script explicitly |
+| 4 | Guard flagged "Commerce) Rules"; the regeneration made the turn take 60 s | The model writes "E‑Commerce" with a no-break hyphen, which did not match the registry name | All model text is normalised (hyphens, no-break spaces) before checking and display |
+| 5 | Turns took 27-60 s | Reasoning tokens, and every search during the embedding outage waited ~30 s on timeouts | Low reasoning effort; after one API failure, keyword search is used directly for 120 s; no search for messages like "hi" |
+
+**Model mistakes the guard does not catch** (it checks references to law, not every claim):
+- "you have up to 21 days for admission": the Act says the *Commission* should decide admission within 21 days.
+- "The law does not specify a statutory right to interest on a delayed refund": not stated in any passage. The guard
+  logged it as an uncited sentence (a warning, not a block).
+- Law names written in Devanagari ("कर्नाटक रेंट एक्ट") are not checked; only "धारा" section references are.
+
+## Conversation, second run after the fixes (Phase 2, 2026-11-21)
+
+Same 5 scripts. Raw transcripts: `outputs/chat_smoke/run2/`.
+
+| Check | Run 1 | Run 2 |
+|---|---|---|
+| Hinglish message answered in Latin script | no (Devanagari) | yes |
+| Empty advice replies | 1 of 5 advice turns | 0 of 6 |
+| Facts about the user that the user never gave | 1 ("you don't have a written agreement") | 0 |
+| Guard regenerations / removals | 1 / 1 (a false alarm on "E-Commerce") | 0 / 0 |
+| Untraceable law shown to a user | 0 | 0 |
+| Output tokens, deposit turns 2 and 3 | 1,468 and 2,239 | 831 and 961 |
+| Deduction question answered from the deductions chunk | no (empty reply) | yes |
+
+Still wrong in run 2 (not caught by the guard):
+- Hindi salary advice: "civil suit within three years (according to the Code on Wages)". The three years is right,
+  but it comes from the Limitation Act (Art. 7). The law name was written in Devanagari, which the guard does not read.
+- "The commission will admit the complaint within 21 days": the Act says it should decide *whether* to admit within
+  21 days.
+- "There is no passage that records a Supreme Court judgment": internal wording shown to the user (prompt fixed:
+  the model must say "my sources").
+- Latency varied from 2 s to 32 s per turn; "hi" took 10 s with no retrieval, so Groq free-tier response time
+  varies on its own. The trace now splits each turn into LLM time and retrieval time.

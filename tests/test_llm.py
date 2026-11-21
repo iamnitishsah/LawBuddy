@@ -46,3 +46,19 @@ def test_unknown_backend_and_missing_key_fail_clearly(monkeypatch):
     monkeypatch.delenv("GROQ_API_KEY", raising=False)
     with pytest.raises(RuntimeError, match="GROQ_API_KEY is not set"):
         get_llm("groq")
+
+
+def test_chat_json_doubles_the_budget_when_the_reply_was_cut_off():
+    class CutOff:
+        def __init__(self):
+            self.replies = [("", "length"), ('{"ok": 1}', "stop")]
+            self.budgets = []
+
+        def chat(self, messages, temperature=0.0, max_tokens=800):
+            self.budgets.append(max_tokens)
+            text, finish = self.replies.pop(0)
+            return LLMResponse(text, "m", 1, 1, 0.0, finish_reason=finish)
+
+    llm = CutOff()
+    assert chat_json(llm, [{"role": "user", "content": "x"}], max_tokens=1000)[0] == {"ok": 1}
+    assert llm.budgets == [1000, 2000]

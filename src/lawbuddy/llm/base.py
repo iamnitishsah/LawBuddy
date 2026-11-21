@@ -89,15 +89,19 @@ def parse_json(text: str) -> dict:
 
 
 def chat_json(llm, messages: list[dict], temperature: float = 0.0, max_tokens: int = 1500) -> tuple[dict, list]:
-    """-> (parsed object, [LLMResponse, ...]). One retry with a reminder if the first reply is not valid JSON."""
+    """-> (parsed object, [LLMResponse, ...]). One retry if the first reply is not valid JSON: with double the token
+    budget if it was cut off (reasoning models can spend the budget before answering), else with a reminder."""
     responses = [llm.chat(messages, temperature, max_tokens)]
     try:
         return parse_json(responses[0].text), responses
     except ValueError as exc:
-        retry = messages + [{"role": "assistant", "content": responses[0].text},
-                            {"role": "user", "content": f"That was not valid JSON ({exc}). "
-                                                        "Reply with only the JSON object."}]
-        responses.append(llm.chat(retry, temperature, max_tokens))
+        if responses[0].finish_reason == "length" or not responses[0].text.strip():
+            responses.append(llm.chat(messages, temperature, max_tokens * 2))
+        else:
+            retry = messages + [{"role": "assistant", "content": responses[0].text},
+                                {"role": "user", "content": f"That was not valid JSON ({exc}). "
+                                                            "Reply with only the JSON object."}]
+            responses.append(llm.chat(retry, temperature, max_tokens))
         return parse_json(responses[1].text), responses
 
 

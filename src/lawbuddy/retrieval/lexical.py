@@ -10,6 +10,7 @@ from __future__ import annotations
 import json
 import math
 import re
+import time
 from collections import Counter
 from pathlib import Path
 
@@ -66,21 +67,30 @@ class LexicalIndex:
 class FallbackRetriever:
     """Tries `primary` (dense or reranked search); on any API failure, answers from `fallback` (keyword search).
 
+    After a failure the primary is skipped for `cooldown_s` seconds: during an outage every attempt costs the full
+    timeout-and-retry time (about 30 s in the chat smoke run), so trying again on every message makes each turn slow.
+
     `last_mode` says which one answered the last search ("primary" or "fallback"), so callers can log it and the
     refusal threshold can be skipped for fallback scores, which are on a different scale.
     """
 
-    def __init__(self, primary, fallback, log=None):
+    def __init__(self, primary, fallback, log=None, cooldown_s: float = 120.0, clock=time.monotonic):
         self.primary, self.fallback, self.log = primary, fallback, log
+        self.cooldown_s, self.clock, self.down_until = cooldown_s, clock, 0.0
         self.last_mode, self.last_error = "primary", ""
 
     def search(self, query: str, k: int | None = None, **filters) -> list[dict]:
+        if self.clock() < self.down_until:
+            self.last_mode = "fallback"
+            self.last_error = f"primary skipped for {self.down_until - self.clock():.0f}s more after a failure"
+            return self.fallback.search(query, k=k or 5, **filters)
         try:
             hits = self.primary.search(query, k=k, **filters) if k else self.primary.search(query, **filters)
             self.last_mode, self.last_error = "primary", ""
             return hits
         except Exception as exc:                             # network, timeout, quota or API error
             self.last_mode, self.last_error = "fallback", f"{type(exc).__name__}: {exc}"[:200]
+            self.down_until = self.clock() + self.cooldown_s
             if self.log:
-                self.log(f"retrieval fell back to keyword search ({self.last_error})")
+                self.log(f"retrieval fell back to keyword search for {self.cooldown_s:.0f}s ({self.last_error})")
             return self.fallback.search(query, k=k or 5, **filters)

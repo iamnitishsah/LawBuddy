@@ -22,7 +22,7 @@ from __future__ import annotations
 import re
 from dataclasses import dataclass, field
 
-from lawbuddy.guard.citations import check_citations, split_sentences
+from lawbuddy.guard.citations import check_citations, normalize_text, split_sentences
 
 YEAR_RE = re.compile(r"\b(1[89]\d\d|20\d\d)\b")
 
@@ -200,7 +200,11 @@ def _block_at(text: str, pos: int) -> str:
 
 
 def check_answer(answer: str, passages: list[dict], registry: dict) -> GuardReport:
-    """Every problem with the legal references and [n] citations in `answer`."""
+    """Every problem with the legal references and [n] citations in `answer`.
+    Pass text already put through normalize_text() if you will use remove_problem_sentences() on it."""
+    answer = normalize_text(answer)
+    passages = [{**p, "title": normalize_text(p.get("title", "")), "text": normalize_text(p.get("text", ""))}
+                for p in passages]
     laws = LawIndex(registry)
     report = GuardReport()
 
@@ -264,7 +268,7 @@ def remove_problem_sentences(answer: str, report: GuardReport) -> str:
     lines = []
     for line in answer.splitlines():
         prefix = re.match(r"^\s*(?:[-*•]|\d+\.)?\s*", line).group(0)
-        sentences = split_sentences(line[len(prefix):])
+        sentences = [s for s in split_sentences(line[len(prefix):]) if s.strip()]
         kept = [s for s in sentences if not any(b in s for b in bad)]
         if kept:
             lines.append(prefix + " ".join(kept))

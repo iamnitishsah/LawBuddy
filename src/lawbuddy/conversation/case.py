@@ -98,6 +98,25 @@ class CaseFile:
     def to_dict(self) -> dict:
         return asdict(self)
 
+    def for_prompt(self) -> dict:
+        """The case as the advice model should see it: what the user said, and what has not come up yet.
+        No nulls: a model reading `"written_agreement": null` told a user they had no agreement (chat smoke 01)."""
+        cat = self.category
+        view = {
+            "problem_type": cat,
+            "what_the_user_told_us": {FACTS[cat][k]: v for k, v in self.facts.items() if _known(v)} if cat else {},
+            "not_discussed_yet": [FACTS[cat][k] for k in self.missing()] if cat else [],
+            "timeline": self.timeline,
+            "proof_the_user_has": self.evidence_have,
+            "proof_the_user_said_they_lack": self.evidence_missing,
+            "other_party": self.other_party,
+            "what_the_user_wants": self.user_goal,
+            "state": self.state,
+            "summary": self.summary,
+        }
+        # "not_discussed_yet" stays even when empty; everything else is shown only when known.
+        return {k: v for k, v in view.items() if k == "not_discussed_yet" or (v not in (None, "", [], {}))}
+
 
 def _known(v) -> bool:
     return v is not None and str(v).strip().lower() not in ("", "null", "none", "unknown", "n/a", "not known")

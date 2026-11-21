@@ -29,7 +29,7 @@ from lawbuddy.conversation import respond
 from lawbuddy.conversation.case import IN_SCOPE, CaseFile
 from lawbuddy.conversation.triage import Analysis, analyze, emergency_rule
 from lawbuddy.guard.legal_refs import check_answer, remove_problem_sentences
-from lawbuddy.guard.citations import normalize_citations
+from lawbuddy.guard.citations import normalize_citations, normalize_text
 
 ROOT = Path(__file__).resolve().parents[3]
 KINDS = ("emergency", "escalate", "clarify", "follow_up", "not_found", "advice", "error")
@@ -74,7 +74,7 @@ class Engine:
     def turn(self, session: Session, message: str) -> Reply:
         t0 = time.monotonic()
         session.messages.append({"role": "user", "content": message})
-        usage = {"input_tokens": 0, "output_tokens": 0, "llm_calls": 0}
+        usage = {"input_tokens": 0, "output_tokens": 0, "llm_calls": 0, "llm_s": 0.0, "retrieval_s": 0.0}
         try:
             reply = self._turn(session, message, usage)
         except Exception as exc:                                     # an upstream API failure: say so, don't crash
@@ -125,13 +125,13 @@ class Engine:
             asks = s.case.missing()                                  # critical first, then useful extras
             trace.append(f"follow-up {s.followup_turns}/{self.cfg['max_followup_turns']}: missing {missing}")
             msgs = respond.follow_up_messages(s.case, asks, s.language, s.messages, self.cfg["max_questions_per_turn"])
-            return Reply("follow_up", self._generate(msgs, usage), s.language, category, trace=trace)
+            return Reply("follow_up", self._generate(msgs, usage, trace), s.language, category, trace=trace)
         if missing:
             trace.append(f"advising without {missing} ({'question' if a.intent != 'story' else 'follow-up limit'})")
 
         # 4. retrieval (rerank) as the evidence check
         query = a.search_query or s.case.summary or message
-        hits, retrieval = self._search(query, [category, "general"])
+        hits, retrieval = self._search(query, [category, "general"], usage=usage)
         trace.append(f"retrieval: {retrieval['mode']} top={retrieval['top_score']} floor={retrieval['floor']} "
                      f"ids={[h['chunk_id'] for h in hits]}")
         if not hits or (retrieval["floor"] is not None and retrieval["top_score"] < retrieval["floor"]):
@@ -151,33 +151,40 @@ class Engine:
     # -- steps ------------------------------------------------------------------------------------------------
 
     def _clarify(self, s: Session, a: Analysis, trace: list[str], usage: dict) -> Reply:
-        hint = None
-        query = a.search_query or s.messages[-1]["content"]
-        hits, retrieval = self._search(query, None, k=3)
-        top_floor_ok = hits and (retrieval["floor"] is None or retrieval["top_score"] >= retrieval["floor"])
-        if top_floor_ok:
-            hint = next((h["category"] for h in hits if h["category"] in IN_SCOPE), None)
-        trace.append(f"unclear: rerank hint={hint} (top={retrieval['top_score']})")
-        text = self._generate(respond.clarify_messages(s.language, s.messages, hint), usage)
+        hint, retrieval = None, {}
+        if a.search_query:                       # "hi" has nothing to search for: don't spend an API call on it
+            hits, retrieval = self._search(a.search_query, None, k=3, usage=usage)
+            if hits and (retrieval["floor"] is None or retrieval["top_score"] >= retrieval["floor"]):
+                hint = next((h["category"] for h in hits if h["category"] in IN_SCOPE), None)
+            trace.append(f"unclear: rerank hint={hint} (top={retrieval['top_score']})")
+        else:
+            trace.append("unclear: no search query, asking what happened")
+        text = self._generate(respond.clarify_messages(s.language, s.messages, hint), usage, trace)
         return Reply("clarify", text, s.language, None, retrieval=retrieval, trace=trace)
 
-    def _search(self, query: str, categories: list[str] | None, k: int | None = None) -> tuple[list[dict], dict]:
+    def _search(self, query: str, categories: list[str] | None, k: int | None = None,
+                usage: dict | None = None) -> tuple[list[dict], dict]:
+        t0 = time.monotonic()
         hits = self.retriever.search(query, k=k or self.cfg["top_k"], category=categories)
+        seconds = round(time.monotonic() - t0, 2)
+        if usage is not None:
+            usage["retrieval_s"] = round(usage["retrieval_s"] + seconds, 2)
         mode = getattr(self.retriever, "last_mode", "primary")
         floor = self.min_score if mode == "primary" else None          # keyword scores are on another scale
         top = round(hits[0]["score"], 4) if hits else None
-        return hits, {"query": query, "mode": mode, "top_score": top, "floor": floor,
+        return hits, {"query": query, "mode": mode, "top_score": top, "floor": floor, "seconds": seconds,
                       "error": getattr(self.retriever, "last_error", "")}
 
     def _advise(self, s: Session, hits: list[dict], message: str, trace: list[str], usage: dict) -> tuple[str, dict]:
-        text = normalize_citations(self._generate(respond.advise_messages(s.case, hits, s.language, message), usage))
+        text = normalize_citations(
+            self._generate(respond.advise_messages(s.case, hits, s.language, message), usage, trace))
         report = check_answer(text, hits, self.registry)
         guard = {"first_problems": [asdict(p) for p in report.problems], "regenerated": False, "removed": False}
         if not report.ok:
             trace.append(f"guard: {report.summary()} -> regenerating once")
             guard["regenerated"] = True
             text = normalize_citations(self._generate(
-                respond.advise_messages(s.case, hits, s.language, message, feedback=report.summary()), usage))
+                respond.advise_messages(s.case, hits, s.language, message, feedback=report.summary()), usage, trace))
             report = check_answer(text, hits, self.registry)
             if not report.ok:
                 trace.append(f"guard: still {report.summary()} -> removing those sentences")
@@ -186,20 +193,38 @@ class Engine:
                 report = check_answer(text, hits, self.registry)
         else:
             trace.append("guard: all legal references traced")
+        if report.uncited_sentences:
+            trace.append(f"guard: {len(report.uncited_sentences)} sentence(s) without a citation (warning only)")
         guard.update({"problems": [asdict(p) for p in report.problems], "cited": report.cited,
                       "uncited_sentences": report.uncited_sentences, "refs": report.refs})
         return text, guard
 
-    def _generate(self, messages: list[dict], usage: dict) -> str:
-        r = self.llm.chat(messages, self.cfg["temperature"], self.cfg["respond_max_tokens"])
-        self._add_usage(usage, {"input_tokens": r.input_tokens, "output_tokens": r.output_tokens, "calls": 1})
-        return r.text.strip()
+    def _generate(self, messages: list[dict], usage: dict, trace: list[str]) -> str:
+        """The model's reply text. Reasoning models (gpt-oss) spend hidden tokens before answering; if the budget runs
+        out the reply is empty or cut off (chat smoke 01 returned an empty answer), so retry once with double."""
+        max_tokens = self.cfg["respond_max_tokens"]
+        for attempt in (1, 2):
+            r = self.llm.chat(messages, self.cfg["temperature"], max_tokens)
+            self._add_usage(usage, {"input_tokens": r.input_tokens, "output_tokens": r.output_tokens, "calls": 1,
+                                    "latency_s": r.latency_s})
+            text = normalize_text(r.text).strip()
+            if text and r.finish_reason != "length":
+                return text
+            if attempt == 1:
+                trace.append(f"generation {'empty' if not text else 'cut off'} at {max_tokens} tokens -> retrying "
+                             f"with {max_tokens * 2}")
+                max_tokens *= 2
+        if text:
+            trace.append("generation still cut off: using the partial reply")
+            return text
+        raise RuntimeError("the model returned an empty reply twice")
 
     @staticmethod
     def _add_usage(usage: dict, u: dict) -> None:
         usage["input_tokens"] += u.get("input_tokens", 0)
         usage["output_tokens"] += u.get("output_tokens", 0)
         usage["llm_calls"] += u.get("calls", 1)
+        usage["llm_s"] = round(usage["llm_s"] + u.get("latency_s", 0.0), 2)
 
 
 def build_engine(backend: str | None = None, log=None) -> Engine:  # pragma: no cover - needs API keys
