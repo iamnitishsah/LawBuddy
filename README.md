@@ -15,6 +15,16 @@ matter needs a real lawyer, LawBuddy says so.
 > Built for the Kuku AI Generalist Assignment, Problem 2. Scope: **Karnataka**, central and Karnataka law;
 > security deposits, consumer refunds, unpaid salary. Legal information, not legal advice.
 
+```mermaid
+flowchart LR
+    U(["Person with a problem<br/>text or voice"]) --> UI["Web UI (Vercel)"]
+    UI --> API["LawBuddy API (AWS EC2)"]
+    API --> LLM["Language model<br/>Groq by default, swappable"]
+    API --> W["Whisper<br/>speech to text"]
+    API --> KB[("Verified knowledge base<br/>32 articles + registry of allowed law")]
+    API -->|"answer with sources · case file · legal notice"| UI
+```
+
 ---
 
 ## What it does
@@ -41,6 +51,16 @@ matter needs a real lawyer, LawBuddy says so.
 The guard's tests catch "Section 420 IPC", an invented "Model Tenancy Act" deposit cap, "Sharma v. State" and
 "Limitation Act, 1908". In the live runs, the "2-month deposit cap in Karnataka" circulating online was answered
 correctly (no such limit exists), and no untraceable law reached a user.
+
+```mermaid
+flowchart LR
+    Q["Question"] --> R["Retrieve verified articles"]
+    R --> A["Model answers only from them,<br/>citing each [n]"]
+    A --> G{"Guard: every law, section<br/>and case named is traceable?"}
+    G -->|yes| OK["Shown to the user"]
+    G -->|no| FIX["Rewrite once, then remove<br/>the untraceable sentences"]
+    FIX --> OK
+```
 
 ## Results (details in [docs/findings.md](docs/findings.md))
 
@@ -94,9 +114,9 @@ python -m lawbuddy.chat --backend gemini                # another model
 
 ## Status
 
-Phases 0-3, 5 and 6 complete: knowledge base, conversation engine, guard, legal notices, API with voice and model
-swapping, web UI, test cases and evaluation. Practice mode (Phase 4) skipped. Next: Phase 7 (deployment), Phase 8
-(submission).
+All phases complete except the submission write-up: knowledge base, conversation engine, guard, legal notices, API
+with voice and model swapping, web UI, test cases and evaluation, and deployment (web UI on Vercel, API on AWS EC2,
+CI/CD with GitHub Actions). Practice mode (Phase 4) was skipped. See [docs/ROADMAP.md](docs/ROADMAP.md).
 
 ## Disclaimer
 

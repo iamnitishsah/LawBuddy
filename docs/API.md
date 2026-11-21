@@ -15,6 +15,22 @@ Whisper only when the chosen LLM backend is the transcription backend (Groq): a 
 
 ## Choosing the model
 
+```mermaid
+flowchart TD
+    R["Request"] --> B{"llm in the request?"}
+    B -->|yes| USE["Use it (fields not given fall back below)"]
+    B -->|no| S{"Default set on the session?"}
+    S -->|yes| SES["Session's backend / model"]
+    S -->|no| DEF["Server default: LLM_BACKEND or configs/llm.yaml"]
+    USE --> K
+    SES --> K
+    DEF --> K
+    K{"X-LLM-API-Key header?"} -->|yes| UK["User's key, for this request only<br/>never stored, logged or returned"]
+    K -->|no| SK{"Server has a key<br/>for this provider?"}
+    SK -->|yes| SV["Server's key"]
+    SK -->|no| E400["400: send your own key"]
+```
+
 Any request that runs a model accepts `llm` (form fields `backend` and `model` for voice):
 
 ```json
@@ -59,6 +75,19 @@ minutes (default 120); at most `MAX_SESSIONS` (default 500) are kept, oldest idl
 
 ### `POST /sessions/{id}/messages`
 
+```mermaid
+sequenceDiagram
+    participant C as Client
+    participant A as API
+    participant E as Engine
+    C->>A: {"message": "...", "llm": {...}} + headers
+    A->>A: access key · rate limit · session (404 if expired)
+    A->>A: resolve model and key (400 / 403 / 422 on problems)
+    A->>E: turn, one at a time per session
+    E-->>A: reply: kind, text, sources, guard, steps, usage
+    A-->>C: ChatResponse (401 if the provider rejected the key)
+```
+
 ```json
 {"message": "My landlord in Bengaluru is not returning my deposit of 1.5 lakh", "llm": {"backend": "groq"}}
 ```
@@ -82,6 +111,24 @@ minutes (default 120); at most `MAX_SESSIONS` (default 500) are kept, oldest idl
 | `latency_ms` | total time of the turn |
 
 ### `POST /sessions/{id}/voice` (multipart)
+
+```mermaid
+sequenceDiagram
+    participant C as Client
+    participant A as API
+    participant W as Whisper (Groq)
+    participant E as Engine
+    C->>A: audio + language? + backend? + model?
+    A->>A: check type and size (422 before any API call)
+    A->>W: transcribe (hint if given)
+    W-->>A: text + detected language
+    opt detected Tamil / Telugu / Malayalam and no hint
+        A->>W: transcribe again as Kannada
+    end
+    A->>E: normal turn with the transcript
+    E-->>A: reply
+    A-->>C: ChatResponse with transcript
+```
 
 Fields: `audio` (file: flac, m4a, mp3, mp4, mpeg, mpga, oga, ogg, wav, webm; up to 20 MB), optional `language`
 (`en`, `hi`, `kn`, …), optional `backend` and `model`. Transcribes, then runs a normal turn; returns a

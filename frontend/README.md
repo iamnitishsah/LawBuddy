@@ -41,6 +41,21 @@ private and the device shared). Downloads go through `fetch` so the access-key h
 
 ## Code
 
+```mermaid
+flowchart TB
+    App["App.tsx<br/>header · tabs · settings"] --> Pages["Overview · How it works · Evaluation"]
+    App --> Chat["ChatPage"]
+    Chat --> Hook["useChat<br/>session · turns · case · drafts"]
+    Chat --> Composer["Composer + useRecorder<br/>text · mic · voice language"]
+    Chat --> Reply["ReplyCard<br/>Markdown · citations · why this answer"]
+    Chat --> Side["SidePanel<br/>case · sources · notice"]
+    Hook --> Api["services/api.ts"]
+    Composer --> Hook
+    Settings["SettingsModal"] --> Store["services/settings.ts<br/>provider key in memory only"]
+    Store --> Api
+    Api -->|"/api/* through the Vercel rewrite"| Backend[("LawBuddy API")]
+```
+
 ```
 src/
   services/api.ts        API client (headers, errors, download)

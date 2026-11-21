@@ -80,6 +80,18 @@ ones), the retriever and Whisper. Many tests are named after the real failure th
 
 ## Evaluation workflow
 
+```mermaid
+flowchart LR
+    C["Change code, KB or prompt"] --> UT["make test (offline)"]
+    UT --> RUN["Live runs: make smoke · chat-smoke ·<br/>api-smoke · eval"]
+    RUN --> READ["Read the outputs:<br/>automatic checks + by hand"]
+    READ --> F{"A failure?"}
+    F -->|"a bug"| FIX["Fix + regression test<br/>named after the run"]
+    F -->|"a wrong expectation"| EXP["Correct the case,<br/>--rescore (no API)"]
+    F -->|"a real limit"| DOC["findings.md · AI_LOG.md"]
+    FIX --> C
+```
+
 1. Unit tests on every change (`make test`).
 2. Retrieval: `make smoke` after any KB change.
 3. Conversations: `make chat-smoke`, then read the transcripts; each failure gets a fix and a regression test, and is

@@ -8,6 +8,13 @@ a legal problem.* Built phase by phase; each phase ends with a check that it wor
 
 ---
 
+```mermaid
+flowchart LR
+    P0["0 · Skeleton ✅"] --> P1["1 · Knowledge base ✅"] --> P2["2 · Conversation engine ✅"]
+    P2 --> P3["3 · Legal notices ✅"] --> P4["4 · Practice mode<br/>(skipped)"] --> P5["5 · API + web UI ✅"]
+    P5 --> P6["6 · Evaluation ✅"] --> P7["7 · Deployment ✅"] --> P8["8 · Submission"]
+```
+
 ## Scope decisions (assumptions to state in the doc)
 
 | Decision | Choice |
@@ -110,7 +117,7 @@ Skipped to keep within the time budget; the prototype link (Phase 5) is a requir
 - [x] Failures and a sample of replies reviewed by hand: 3 bugs fixed in code (repeat follow-ups, language by script) and prompts (PF, exceptions, search query keeps outcome-changing facts), 1 wrong expectation corrected, limits recorded
 - [ ] Optional: re-run con-05 to confirm the search-query fix (`python -m lawbuddy.evaluation.run_cases --cases con-05-commercial-buyer`)
 
-## Phase 7: Deployment
+## Phase 7: Deployment ✅
 
 - [x] Frontend on Vercel; `/api/*` rewritten to the API, so the browser talks only to the Vercel origin
 - [x] API on AWS EC2 (t3.micro) with Docker Compose; image built by GitHub Actions and pulled from GHCR
@@ -118,7 +125,7 @@ Skipped to keep within the time budget; the prototype link (Phase 5) is a requir
 - [x] Secrets stay on the server (`/opt/lawbuddy/lawbuddy.env`); GitHub holds only the deploy SSH key
 - [x] Real client IP through `X-Forwarded-For` (uvicorn `--proxy-headers`), so the rate limit is per user
 - [x] Cost and scale: [ARCHITECTURE.md](ARCHITECTURE.md#10-scale-and-cost); runbook: [DEPLOYMENT.md](DEPLOYMENT.md)
-- [ ] One-time setup (Elastic IP, security group, `setup-ec2.sh`, GitHub secrets, Vercel `VITE_API_BASE_URL=/api`) and the first deploy
+- [x] One-time setup (Elastic IP, security group, `setup-ec2.sh`, GitHub secrets, Vercel `VITE_API_BASE_URL=/api`); first deploy through GitHub Actions passed
 
 ## Phase 8: Submission
 

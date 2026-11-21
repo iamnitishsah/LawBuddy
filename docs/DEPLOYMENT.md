@@ -1,8 +1,12 @@
 # Deployment
 
-```
-browser ──► Vercel (frontend; rewrites /api/*) ──► AWS EC2 :8000 (API container)
-GitHub push to main ──► Actions: tests · frontend build · image → GHCR ──SSH──► EC2: pull, restart, health check
+```mermaid
+flowchart LR
+    B(["Browser"]) --> V["Vercel<br/>web UI · rewrite /api/* to the API"]
+    V --> E["AWS EC2 t3.micro<br/>Docker: API container :8000"]
+    E --> X["Groq · NVIDIA · Gemini APIs"]
+    E --- F[("/opt/lawbuddy<br/>lawbuddy.env (keys) · logs/")]
+    GH["GitHub Actions"] -->|"image via GHCR, deploy over SSH"| E
 ```
 
 - **Frontend:** Vercel, deployed by Vercel's Git integration. `frontend/vercel.json` rewrites `/api/*` to the API, so
@@ -54,13 +58,29 @@ approve each deploy). The first push creates the GHCR package `lawbuddy`; the de
 short-lived token, so the package can stay private.
 
 **4. Vercel**
-- `frontend/vercel.json`: `"destination": "http://<elastic-ip>:8000/:path*"` (currently 16.179.200.29).
+- `frontend/vercel.json`: `"destination": "http://<elastic-ip>:8000/:path*"` (currently 54.253.206.245).
 - Project → Settings → Environment Variables: **`VITE_API_BASE_URL=/api`**, so the app calls through the rewrite.
   Leave `VITE_API_KEY` empty unless the server sets `LAWBUDDY_API_KEY`. Redeploy after changing variables.
 
 **5. Deploy:** push to `main`. Actions runs tests → image → deploy → health check.
 
 ## Every deploy
+
+```mermaid
+flowchart TD
+    P(["Push or pull request"]) --> T["Backend tests<br/>209 offline + KB validation"]
+    P --> FE["Frontend lint + build"]
+    T --> MAIN{"Push to main?"}
+    MAIN -->|no| DONE(["Checks only"])
+    MAIN -->|yes| IMG["Build the image<br/>push to GHCR as :sha and :latest"]
+    IMG --> DEP["Deploy job (environment: production)"]
+    FE --> DEP
+    DEP --> SSH["SSH: copy compose file and deploy.sh<br/>docker login with the job's token"]
+    SSH --> RUN["deploy.sh: pull · up -d · wait for /health"]
+    RUN --> H{"Healthy within 60 s?"}
+    H -->|yes| PUB["Check PUBLIC_URL/health from GitHub"]
+    H -->|no| RB["Roll back to the previous image<br/>the job fails"]
+```
 
 1. `backend-tests` (209 offline tests, KB validation) and `frontend` (lint, build) run on every push and PR.
 2. On `main`: the image is built with layer caching and pushed as `ghcr.io/<owner>/lawbuddy:<sha>` and `:latest`.

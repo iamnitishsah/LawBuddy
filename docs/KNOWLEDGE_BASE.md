@@ -31,6 +31,18 @@ Key facts the articles establish (each traced to its section in the article itse
 - Wages: monthly wages before the 7th of the next month; within 2 working days of leaving; claims within 3 years
   before the wage authority, which can add compensation up to 10 times the claim.
 
+## How the pieces fit
+
+```mermaid
+flowchart TB
+    SRC[("Official PDFs<br/>data/sources/")] -->|"written from, checked against"| ART["Article (.md)<br/>id · category · kind · cites · verified_on"]
+    ART -->|"cites doc + section"| REG["registry.yaml<br/>laws · sections · aliases (incl. Hindi) · repealed"]
+    ART -->|"embedded into"| IDX["index/<br/>vectors.npz + chunks.json"]
+    IDX -->|"searched for each question"| ANS["Answers and notices"]
+    REG -->|"every law named is checked against"| G["Guard"]
+    G --> ANS
+```
+
 ## Files
 
 ```
@@ -69,6 +81,19 @@ Act and three other labour laws, Karnataka Rent Control Act 1961). BNS, BNSS and
 "IPC was replaced by the BNS" passes but any BNS section is flagged as out of scope.
 
 ## Adding or changing an article
+
+```mermaid
+flowchart LR
+    PDF[("Source PDF")] --> EX["kb.extract<br/>page-marked text"]
+    EX --> W["Write or edit<br/>kb/category/*.md"]
+    W --> REG["Add laws / sections<br/>to registry.yaml"]
+    REG --> VAL{"make kb<br/>valid?"}
+    VAL -->|no| W
+    VAL -->|yes| VER["Check against the source<br/>kb.verify sets verified_on"]
+    VER --> BUILD["make kb-build<br/>embed changed articles"]
+    BUILD --> TEST["make test<br/>index fresh · KB passes its own guard"]
+    TEST --> SMOKE["make smoke<br/>right article still found?"]
+```
 
 ```bash
 python -m lawbuddy.kb.extract                 # 1. PDFs in data/sources/ -> data/text/*.txt (page-marked)
