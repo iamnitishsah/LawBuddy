@@ -31,7 +31,7 @@ a legal problem.* Built phase by phase; each phase ends with a check that it wor
 - [x] Frontend rebranded; hard-coded server IP and default API key removed
 - [x] Checks: `pytest` (15 pass), `/health` serves, `npm run build` + lint pass, no traces of the old project
 
-## Phase 1: Legal knowledge base (built; human check and threshold pending)
+## Phase 1: Legal knowledge base ✅
 
 **Goal:** a small, hand-checked law base. Every fact in it has a source; nothing outside it can be cited.
 
@@ -46,7 +46,7 @@ a legal problem.* Built phase by phase; each phase ends with a check that it wor
 - [x] Keyword (BM25) fallback when the embedding or rerank API fails (the NVIDIA endpoint timed out during the build session)
 - [x] **Human check:** every chunk read against its source; `verified_on: 2026-11-21` set with `python -m lawbuddy.kb.verify --all`
 - [x] Retrieval smoke sets: `eval/retrieval_smoke.yaml` (17 in scope, 4 out) and `eval/retrieval_smoke_paraphrased.yaml` (same ids reworded as people type them, + 3 Hindi, + 4 near-scope out-of-scope); a test enforces ≤ 30% word overlap with the original
-- [ ] Run `make smoke` on both sets and decide `search.min_score` (original set, rerank: lowest in-scope 0.059 vs highest out-of-scope 0.045, a thin margin)
+- [x] `make smoke` on both sets ([findings.md](findings.md)): rerank hit@3 20/20 on paraphrases (Hindi 3/3), keyword 8/20; `search.min_score` set as a safety floor (rerank 0.035, dense 0.28), since near-topic out-of-scope questions score like real ones and scope must be decided by triage
 
 **Result:** 32 chunks (deposit 10, consumer 10, salary 6, general 6; 18 guides, 9 statute extracts, 5 practice
 notes), ~5,800 words, every legal chunk linked to a registered source. Fewer chunks than the 60–120 first planned:

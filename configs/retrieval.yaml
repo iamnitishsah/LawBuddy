@@ -19,4 +19,11 @@ rerank:
 
 search:
   top_k: 5                           # passages given to the LLM
-  min_score: null                    # refusal threshold; calibrated on the KB in Phase 1
+  # Safety floor, not a scope decision: below it, no chunk is shown to the model. Set from make smoke
+  # (docs/findings.md): real questions scored >= 0.043 (rerank) and >= 0.316 (dense) across both question sets,
+  # while clearly unrelated ones (tax, land, FIR, divorce) scored 0.022-0.033 (rerank). Near-topic out-of-scope
+  # questions (eviction, PF, bounced cheque) score like real ones, so the triage step decides scope, not this.
+  # Keyword fallback scores (BM25) are on another scale: no floor is applied to them.
+  min_score:
+    rerank: 0.035
+    dense: 0.28
