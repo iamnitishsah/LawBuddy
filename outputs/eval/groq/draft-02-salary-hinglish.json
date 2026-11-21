@@ -1,0 +1,348 @@
+{
+ "case": {
+  "id": "draft-02-salary-hinglish",
+  "group": "draft",
+  "lang": "hinglish",
+  "turns": [
+   "Maine 31 August ko Apex Logistics, Hubballi se resign kiya. July aur August ki salary, 22,000 per month, abhi tak nahi mili.",
+   "notice draft karo"
+  ],
+  "expect": {
+   "kinds": [
+    [
+     "advice",
+     "follow_up"
+    ],
+    "draft"
+   ],
+   "category": "salary",
+   "draft": true
+  }
+ },
+ "backend": "groq",
+ "model": "openai/gpt-oss-120b",
+ "at": "2026-11-21T02:58:44+00:00",
+ "attempts": 1,
+ "seconds": 49.5,
+ "case_file": {
+  "category": "salary",
+  "facts": {
+   "employer": "Apex Logistics",
+   "monthly_salary": "22000",
+   "unpaid_period": "July and August",
+   "employment_status": "resigned",
+   "city": "Hubballi",
+   "proof_of_employment": null
+  },
+  "timeline": [
+   {
+    "date": "31 August",
+    "event": "Resigned from Apex Logistics"
+   }
+  ],
+  "evidence_have": [],
+  "evidence_missing": [],
+  "other_party": "Apex Logistics",
+  "user_goal": "receive unpaid July and August salary",
+  "state": "Karnataka",
+  "summary": "The user resigned from Apex Logistics in Hubballi on 31 August and has not received the salary of ₹22,000 for July and August. They want a legal notice to claim the unpaid wages.",
+  "parties": {}
+ },
+ "checks": [
+  {
+   "name": "completed",
+   "passed": true,
+   "detail": ""
+  },
+  {
+   "name": "kinds",
+   "passed": true,
+   "detail": ""
+  },
+  {
+   "name": "category",
+   "passed": true,
+   "detail": "got salary"
+  },
+  {
+   "name": "grounded",
+   "passed": true,
+   "detail": ""
+  },
+  {
+   "name": "cited",
+   "passed": true,
+   "detail": ""
+  },
+  {
+   "name": "draft",
+   "passed": true,
+   "detail": "4 placeholder(s): ['your full name', 'your full address', 'their full address', 'total amount due']"
+  }
+ ],
+ "passed": true,
+ "replies": [
+  {
+   "kind": "advice",
+   "text": "**Where you stand**  \nAap ek “employee” ke roop mein Code on Wages, 2019 ke antargat aate hain, isliye aapko apni July-August ki salary milni hi chahiye [1]. Aapne resign kiya (31 August) aur Code ke s. 17(2) ke mutabik employer ko aapki due wages **do kaam-kaji dinon ke andar** deni hoti hai [4]. Yeh deadline ab guzar chuki hai, lekin aapke paas abhi bhi **3 saal** ka limitation period hai wage claim file karne ka (Code on Wages, 2019, s. 45(6)) [3][5].\n\n**What you can do**  \n1. **Written demand** - HR ya malik ko email/letter bheje, unpaid months (July, August) aur har mahine ₹22,000 ka zikr kare, aur ek final payment date de (jaise 7 din ke andar).  \n2. Agar koi response nahi milta, **legal notice** bheje (facts, amounts, 2-din ki legal deadline, warning of claim).  \n3. Phir **wage claim** file karein Labour Department ke appointed officer ke saamne - yeh court se sasta aur tezi se hota hai, aur aapko claim ke 10 guna tak ka compensation mil sakta hai [3][5].  \n4. Agar aap chahein, **civil suit** bhi daal sakte hain, lekin uska limitation bhi 3 saal hai aur court ka process mehenga ho sakta hai [3].\n\n**Next step**  \nAbhi turant ek **written demand** email/letter bhejein, jisme:  \n- July aur August ka ₹22,000-₹22,000 (total ₹44,000) likhe,  \n- payment ki deadline (7 din ke andar) de,  \n- aapka resignation date (31 August) aur contact details ho.  \n\nAgar aapke paas **employment proof** (offer letter, payslips, bank statements, resignation email, relieving letter) hai, to usko sambhal kar rakhein - yeh claim ya notice mein zaroori honge [2].  \n\nAgar employer 7 din ke andar nahi deta, to agle hafte ke andar legal notice aur phir wage claim file karne ki taiyari shuru karein.\n\nAgar chahein to main aapke liye ek legal notice draft kar sakta hoon - bas likhiye \"notice draft karo\".\n\n*LawBuddy gives legal information, not legal advice.*",
+   "language": "Hinglish",
+   "category": "salary",
+   "passages": [
+    {
+     "chunk_id": "salary-overview",
+     "score": 0.07632081026184079,
+     "header": "Unpaid salary or final dues: your rights | salary | guide",
+     "title": "Unpaid salary or final dues: your rights",
+     "text": "Wages are governed by the Code on Wages, 2019, which replaced the Payment of Wages Act, 1936, the Minimum Wages Act,\n1948, the Payment of Bonus Act, 1965 and the Equal Remuneration Act, 1976 (Code on Wages, 2019, s. 69).\n\n\"Employee\" under the Code covers anyone employed on wages by an establishment to do skilled, semi-skilled, unskilled,\nmanual, operational, supervisory, managerial, administrative, technical or clerical work, except apprentices and\nmembers of the Armed Forces (Code on Wages, 2019, s. 2(k)).\n\n**When wages must be paid** (Code on Wages, 2019, s. 17(1)):\n- daily workers: at the end of the shift;\n- weekly: on the last working day of the week;\n- fortnightly: before the end of the second day after the fortnight ends;\n- **monthly: before the seventh day of the next month ends.**\n\n**When you leave.** If you resign, or are removed, dismissed or retrenched, or the establishment closes, the wages due\nto you must be paid **within two working days** (Code on Wages, 2019, s. 17(2)).\n\nThe government may set other time limits in some circumstances (s. 17(3)). Karnataka's own rules under the Code were\nstill in draft when LawBuddy's sources were collected, so check with the Karnataka Labour Department for procedure.",
+     "category": "salary",
+     "kind": "guide",
+     "jurisdiction": "central",
+     "cites": [
+      {
+       "doc": "code-on-wages-2019",
+       "section": "2"
+      },
+      {
+       "doc": "code-on-wages-2019",
+       "section": "17"
+      },
+      {
+       "doc": "code-on-wages-2019",
+       "section": "69"
+      }
+     ],
+     "sources": [
+      {
+       "doc": "code-on-wages-2019",
+       "title": "Code on Wages, 2019",
+       "url": "https://www.indiacode.nic.in/bitstream/123456789/15793/1/aA2019-29.pdf"
+      }
+     ],
+     "path": "kb/salary/overview.md",
+     "verified_on": "2026-11-21",
+     "dense_score": 0.43496015667915344
+    },
+    {
+     "chunk_id": "salary-evidence",
+     "score": 0.07601313041728522,
+     "header": "Evidence to collect for unpaid salary | salary | practice",
+     "title": "Evidence to collect for unpaid salary",
+     "text": "- **Proof you were employed**: offer or appointment letter, ID card, joining email, PF/ESI number, or messages from\n  your manager.\n- **Proof of salary**: payslips, bank statements showing earlier salary credits, or the salary stated in the offer.\n- **Proof of work in the unpaid period**: attendance records, timesheets, emails or work you submitted.\n- **Exit documents** if you left: resignation email, acceptance, relieving letter, last working day.\n- **Every message** asking for payment, and any promise the employer made to pay.\n- **Who the employer is**: the company or proprietor's legal name and address, from the offer letter, payslip or\n  GST/website details. You need the correct name for a notice or claim.\n\nWrite down the months unpaid and the exact amount for each month; LawBuddy will put them in a table.",
+     "category": "salary",
+     "kind": "practice",
+     "jurisdiction": "central",
+     "cites": [],
+     "sources": [],
+     "path": "kb/salary/evidence.md",
+     "verified_on": "2026-11-21",
+     "dense_score": 0.36477112770080566
+    },
+    {
+     "chunk_id": "salary-steps",
+     "score": 0.07351347502621379,
+     "header": "Steps to recover unpaid salary | salary | guide",
+     "title": "Steps to recover unpaid salary",
+     "text": "1. **Written demand** to HR or the owner by email, listing the unpaid months and amounts and a date to pay by.\n2. **Legal notice** if there is no payment: facts, amounts, the legal deadline for payment, and a warning that you\n   will file a claim. LawBuddy can draft one for you to review and sign.\n3. **Wage claim** before the authority appointed under the Code on Wages (ask the Karnataka Labour Department which\n   officer hears claims for your area), within three years (Code on Wages, 2019, s. 45(6)). This is usually faster and cheaper than court, and can award compensation\n   of up to ten times the claim (s. 45(2)).\n4. **Civil suit** as an alternative: a suit for wages must be filed within three years from when the wages became\n   due (Limitation Act, 1963, Schedule, Article 7). Talk to a lawyer or the DLSA before choosing this route.\n\nFree help: industrial workmen are among those entitled to free legal services (see \"Free legal aid\").",
+     "category": "salary",
+     "kind": "guide",
+     "jurisdiction": "central",
+     "cites": [
+      {
+       "doc": "code-on-wages-2019",
+       "section": "45"
+      },
+      {
+       "doc": "limitation-act-1963",
+       "section": "Article 7"
+      }
+     ],
+     "sources": [
+      {
+       "doc": "code-on-wages-2019",
+       "title": "Code on Wages, 2019",
+       "url": "https://www.indiacode.nic.in/bitstream/123456789/15793/1/aA2019-29.pdf"
+      },
+      {
+       "doc": "limitation-act-1963",
+       "title": "Limitation Act, 1963",
+       "url": "https://www.indiacode.nic.in"
+      }
+     ],
+     "path": "kb/salary/steps.md",
+     "verified_on": "2026-11-21",
+     "dense_score": 0.3109896183013916
+    },
+    {
+     "chunk_id": "statute-wages-17",
+     "score": 0.07136422706270297,
+     "header": "Code on Wages, 2019, section 17 (text) | salary | statute",
+     "title": "Code on Wages, 2019, section 17 (text)",
+     "text": "**17. Time limit for payment of wages.** (1) The employer shall pay or cause to be paid wages to the employees,\nengaged on,\n(i) daily basis, at the end of the shift;\n(ii) weekly basis, on the last working day of the week, that is to say, before the weekly holiday;\n(iii) fortnightly basis, before the end of the second day after the end of the fortnight;\n(iv) monthly basis, before the expiry of the seventh day of the succeeding month.\n(2) Where an employee has been, (i) removed or dismissed from service; or (ii) retrenched or has resigned from\nservice, or became unemployed due to closure of the establishment, the wages payable to him shall be paid within two\nworking days of his removal, dismissal, retrenchment or, as the case may be, his resignation.\n(3) Notwithstanding anything contained in sub-section (1) or sub-section (2), the appropriate Government may,\nprovide any other time limit for payment of wages where it considers reasonable having regard to the circumstances\nunder which the wages are to be paid.\n(4) Nothing contained in sub-section (1) or sub-section (2) shall affect any time limit for payment of wages provided\nin any other law for the time being in force.",
+     "category": "salary",
+     "kind": "statute",
+     "jurisdiction": "central",
+     "cites": [
+      {
+       "doc": "code-on-wages-2019",
+       "section": "17"
+      }
+     ],
+     "sources": [
+      {
+       "doc": "code-on-wages-2019",
+       "title": "Code on Wages, 2019",
+       "url": "https://www.indiacode.nic.in/bitstream/123456789/15793/1/aA2019-29.pdf"
+      }
+     ],
+     "path": "kb/salary/statute-wages-17.md",
+     "verified_on": "2026-11-21",
+     "dense_score": 0.3757320046424866
+    },
+    {
+     "chunk_id": "salary-claim",
+     "score": 0.05744646395962937,
+     "header": "Filing a wage claim under the Code on Wages | salary | guide",
+     "title": "Filing a wage claim under the Code on Wages",
+     "text": "The government appoints authorities (officers not below the rank of Gazetted Officer) to hear and decide claims under\nthe Code (Code on Wages, 2019, s. 45(1)). In Karnataka, ask the Labour Department which officer hears these\nclaims for your area.\n\n- **Who can file:** you, a registered trade union you belong to, or an Inspector-cum-Facilitator. One application\n  can cover many employees of the same establishment (s. 45(4) and (5)).\n- **Time limit:** within **three years** from when the claim arises; a later application may be accepted if you show\n  sufficient cause (s. 45(6)).\n- **What you can get:** the amount due, plus compensation of up to **ten times** the claim, depending on the\n  circumstances. The authority should try to decide within three months (s. 45(2)).\n- **If the employer still does not pay:** the authority sends a recovery certificate to the Collector or District\n  Magistrate, who recovers it as arrears of land revenue (s. 45(3)).\n- **Who is responsible:** the employer; if the employer fails, the company, firm or proprietor of the establishment\n  (s. 43).\n- **Appeal:** either side may appeal the authority's order within 90 days (s. 49(1)).",
+     "category": "salary",
+     "kind": "guide",
+     "jurisdiction": "central",
+     "cites": [
+      {
+       "doc": "code-on-wages-2019",
+       "section": "43"
+      },
+      {
+       "doc": "code-on-wages-2019",
+       "section": "45"
+      },
+      {
+       "doc": "code-on-wages-2019",
+       "section": "49"
+      }
+     ],
+     "sources": [
+      {
+       "doc": "code-on-wages-2019",
+       "title": "Code on Wages, 2019",
+       "url": "https://www.indiacode.nic.in/bitstream/123456789/15793/1/aA2019-29.pdf"
+      }
+     ],
+     "path": "kb/salary/claim.md",
+     "verified_on": "2026-11-21",
+     "dense_score": 0.21898937225341797
+    }
+   ],
+   "cited": [
+    1,
+    2,
+    3,
+    4,
+    5
+   ],
+   "guard": {
+    "first_problems": [],
+    "regenerated": false,
+    "removed": false,
+    "problems": [],
+    "cited": [
+     1,
+     2,
+     3,
+     4,
+     5
+    ],
+    "uncited_sentences": [
+     "**Written demand** - HR ya malik ko email/letter bheje, unpaid months (July, August) aur har mahine ₹22,000 ka zikr kare, aur ek final payment date de (jaise 7 din ke andar).",
+     "Agar koi response nahi milta, **legal notice** bheje (facts, amounts, 2-din ki legal deadline, warning of claim).",
+     "July aur August ka ₹22,000-₹22,000 (total ₹44,000) likhe,",
+     "payment ki deadline (7 din ke andar) de,",
+     "aapka resignation date (31 August) aur contact details ho.",
+     "Agar employer 7 din ke andar nahi deta, to agle hafte ke andar legal notice aur phir wage claim file karne ki taiyari shuru karein."
+    ],
+    "refs": [
+     {
+      "kind": "section",
+      "text": "s. 17(2)",
+      "doc": "code-on-wages-2019",
+      "section": "17"
+     },
+     {
+      "kind": "section",
+      "text": "s. 45(6)",
+      "doc": "code-on-wages-2019",
+      "section": "45"
+     }
+    ]
+   },
+   "retrieval": {
+    "query": "employer not paying salary for July and August after employee resignation",
+    "mode": "primary",
+    "top_score": 0.0763,
+    "floor": 0.035,
+    "seconds": 1.16,
+    "error": ""
+   },
+   "trace": [
+    "analysis: category=salary intent=story language=Hinglish emergency=False query='employer not paying salary for July and August after employee resignation'",
+    "case category: None -> salary",
+    "retrieval: primary top=0.0763 floor=0.035 ids=['salary-overview', 'salary-evidence', 'salary-steps', 'statute-wages-17', 'salary-claim']",
+    "guard: all legal references traced",
+    "guard: 6 sentence(s) without a citation (warning only)"
+   ],
+   "usage": {
+    "input_tokens": 3567,
+    "output_tokens": 1097,
+    "llm_calls": 2,
+    "llm_s": 28.82,
+    "retrieval_s": 1.16
+   },
+   "latency_s": 30.01,
+   "draft": {}
+  },
+  {
+   "kind": "draft",
+   "text": "I've drafted a legal notice for you, in English (legal notices are normally sent in English).\n\n**Before you send it:**\n1. Fill in the [● ...] parts:\n   - your full name\n   - your full address\n   - their full address\n   - total amount due\n2. Check every fact, date and amount, and correct anything that is not right.\n3. Sign it, keep a copy, and send it by Registered Post AD or Speed Post and by email; keep the postal receipt.\nA notice sent through a lawyer often carries more weight.\n\n---\n\n**LEGAL NOTICE**\n\nDate: 21 November 2026\nBy Registered Post with Acknowledgement Due / Speed Post, and by email\n\n**From:** [● fill: your full name]\n[● fill: your full address]\n\n**To:** Apex Logistics\n[● fill: their full address]\n\n**Subject:** Legal notice for payment of unpaid wages for July and August\n\nSir/Madam,\n\nI, the undersigned, hereby give you notice as follows:\n\n**Facts**\n\n1. I was employed by you, Apex Logistics, at your Hubballi office, where my monthly salary was ₹22,000.\n\n2. I resigned from your employment on 31 August.\n\n3. Since my resignation, I have not received the salary for the months of July and August, each amounting to ₹22,000.\n\n**Legal position**\n\n4. Under section 17(2) of the Code on Wages, 2019, where an employee has resigned, or has been removed, dismissed or retrenched, the wages payable to the employee must be paid within two working days of the resignation, removal, dismissal or retrenchment.\n\n5. Under section 45 of the Code on Wages, 2019, the authority appointed to hear claims may, in addition to the amount due, order compensation of up to ten times the claim.\n\n**Demand**\n\n6. I therefore call upon you to pay me the unpaid wages for July and August, at a monthly salary of Rs. 22,000, amounting to [● fill: total amount due], within 15 (fifteen) days of receipt of this notice.\n\n7. If you fail to do so within the said period, I shall file a claim before the authority under section 45 of the Code on Wages, 2019 for the unpaid wages and compensation, without further notice to you.\n\nA copy of this notice is retained by me for further action.\n\nYours faithfully,\n\n\n(Signature)\n[● fill: your full name]\n\n*LawBuddy gives legal information, not legal advice.*",
+   "language": "Hinglish",
+   "category": "salary",
+   "passages": [],
+   "cited": [],
+   "guard": {},
+   "retrieval": {},
+   "trace": [
+    "analysis: category=salary intent=draft language=Hinglish emergency=False query='legal notice for unpaid salary under Karnataka Code on Wages 2019'",
+    "facts: 3 paragraphs, no law, every number given by the user",
+    "draft: salary notice, 4 placeholder(s), 0 warning(s), legal basis from ['salary-claim', 'salary-overview', 'statute-wages-17', 'statute-wages-45']"
+   ],
+   "usage": {
+    "input_tokens": 2582,
+    "output_tokens": 517,
+    "llm_calls": 2,
+    "llm_s": 17.44,
+    "retrieval_s": 0.0
+   },
+   "latency_s": 17.45,
+   "draft": {
+    "kind": "legal_notice",
+    "category": "salary",
+    "text": "**LEGAL NOTICE**\n\nDate: 21 November 2026\nBy Registered Post with Acknowledgement Due / Speed Post, and by email\n\n**From:** [● fill: your full name]\n[● fill: your full address]\n\n**To:** Apex Logistics\n[● fill: their full address]\n\n**Subject:** Legal notice for payment of unpaid wages for July and August\n\nSir/Madam,\n\nI, the undersigned, hereby give you notice as follows:\n\n**Facts**\n\n1. I was employed by you, Apex Logistics, at your Hubballi office, where my monthly salary was ₹22,000.\n\n2. I resigned from your employment on 31 August.\n\n3. Since my resignation, I have not received the salary for the months of July and August, each amounting to ₹22,000.\n\n**Legal position**\n\n4. Under section 17(2) of the Code on Wages, 2019, where an employee has resigned, or has been removed, dismissed or retrenched, the wages payable to the employee must be paid within two working days of the resignation, removal, dismissal or retrenchment.\n\n5. Under section 45 of the Code on Wages, 2019, the authority appointed to hear claims may, in addition to the amount due, order compensation of up to ten times the claim.\n\n**Demand**\n\n6. I therefore call upon you to pay me the unpaid wages for July and August, at a monthly salary of Rs. 22,000, amounting to [● fill: total amount due], within 15 (fifteen) days of receipt of this notice.\n\n7. If you fail to do so within the said period, I shall file a claim before the authority under section 45 of the Code on Wages, 2019 for the unpaid wages and compensation, without further notice to you.\n\nA copy of this notice is retained by me for further action.\n\nYours faithfully,\n\n\n(Signature)\n[● fill: your full name]",
+    "placeholders": [
+     "your full name",
+     "your full address",
+     "their full address",
+     "total amount due"
+    ],
+    "warnings": [],
+    "chunks": [
+     "salary-claim",
+     "salary-overview",
+     "statute-wages-17",
+     "statute-wages-45"
+    ],
+    "trace": [
+     "facts: 3 paragraphs, no law, every number given by the user"
+    ]
+   }
+  }
+ ]
+}

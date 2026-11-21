@@ -1,0 +1,304 @@
+{
+ "case": {
+  "id": "sal-01-resigned",
+  "group": "salary",
+  "lang": "en",
+  "turns": [
+   "I resigned from a Bengaluru startup called Nimbus Labs on 31 August. My last two months' salary of Rs 45,000 each and my final settlement are still unpaid."
+  ],
+  "expect": {
+   "kinds": [
+    "advice"
+   ],
+   "category": "salary",
+   "script": "latin",
+   "must_cite": [
+    "salary-overview",
+    "statute-wages-17",
+    "salary-claim",
+    "salary-steps"
+   ],
+   "mention_any": [
+    "two working days",
+    "2 working days"
+   ]
+  }
+ },
+ "backend": "groq",
+ "model": "openai/gpt-oss-120b",
+ "at": "2026-11-21T02:27:08+00:00",
+ "attempts": 1,
+ "seconds": 32.0,
+ "case_file": {
+  "category": "salary",
+  "facts": {
+   "employer": "Nimbus Labs",
+   "monthly_salary": null,
+   "unpaid_period": "September and October 2024",
+   "employment_status": "resigned",
+   "city": "Bengaluru",
+   "proof_of_employment": null
+  },
+  "timeline": [
+   {
+    "date": "2024-08-31",
+    "event": "Resigned from Nimbus Labs"
+   }
+  ],
+  "evidence_have": [],
+  "evidence_missing": [],
+  "other_party": "Nimbus Labs",
+  "user_goal": "receive unpaid salary and final settlement",
+  "state": "Karnataka",
+  "summary": "The user resigned from Nimbus Labs on 31 August 2024. The employer has not paid the last two months' salary of Rs 45,000 each nor the final settlement. The user seeks to recover these dues.",
+  "parties": {
+   "other_name": "Nimbus Labs"
+  }
+ },
+ "checks": [
+  {
+   "name": "completed",
+   "passed": true,
+   "detail": ""
+  },
+  {
+   "name": "kinds",
+   "passed": true,
+   "detail": ""
+  },
+  {
+   "name": "category",
+   "passed": true,
+   "detail": "got salary"
+  },
+  {
+   "name": "grounded",
+   "passed": true,
+   "detail": ""
+  },
+  {
+   "name": "cited",
+   "passed": true,
+   "detail": ""
+  },
+  {
+   "name": "must_cite",
+   "passed": true,
+   "detail": "cited ['salary-claim', 'salary-overview', 'salary-steps', 'statute-wages-17']"
+  },
+  {
+   "name": "script",
+   "passed": true,
+   "detail": ""
+  },
+  {
+   "name": "mention_any",
+   "passed": true,
+   "detail": "found ['two working days']"
+  }
+ ],
+ "passed": true,
+ "replies": [
+  {
+   "kind": "advice",
+   "text": "**Where you stand**  \nBecause you resigned on 31 August 2024, the Code on Wages, 2019 requires your employer to pay all wages and any final settlement **within two working days of your resignation** [1][3]. That deadline has now passed, so you are entitled to recover the September and October salaries (₹ 45,000 each) and any other dues.  \n\n**What you can do**  \n1. **Send a written demand** to Nimbus Labs (HR or the owner) by email, listing the unpaid months, amounts and a reasonable date for payment [2].  \n2. If there is no response, **serve a legal notice** stating the facts, the amounts owed, the legal deadline for payment and that you will file a claim [2].  \n3. **File a wage claim** with the authority appointed under the Code on Wages (ask the Karnataka Labour Department which officer handles claims in Bengaluru). The claim must be filed **within three years** from when the wages became due [2][5]. The authority can order payment of the dues and may award compensation of up to ten times the claim [5].  \n4. As a fallback, you could file a civil suit for wages within the same three-year limitation, but the wage-claim route is usually faster and cheaper [2].  \n\n**Next step**  \nDraft and send a written demand email today, giving Nimbus Labs a clear deadline (e.g., 10 working days) to pay the ₹ 90,000 salary arrears plus the final settlement. Keep any proof of employment, salary credits, attendance records, resignation email and any prior communication about payment [4]. If they do not comply, you can proceed to a legal notice and then file a wage claim before the labour-department authority (still well within the three-year limit).\n\nIf you like, I can draft a legal notice for you to send - just say \"draft the notice\".\n\n*LawBuddy gives legal information, not legal advice.*",
+   "language": "English",
+   "category": "salary",
+   "passages": [
+    {
+     "chunk_id": "salary-overview",
+     "score": 0.08785545732844965,
+     "header": "Unpaid salary or final dues: your rights | salary | guide",
+     "title": "Unpaid salary or final dues: your rights",
+     "text": "Wages are governed by the Code on Wages, 2019, which replaced the Payment of Wages Act, 1936, the Minimum Wages Act,\n1948, the Payment of Bonus Act, 1965 and the Equal Remuneration Act, 1976 (Code on Wages, 2019, s. 69).\n\n\"Employee\" under the Code covers anyone employed on wages by an establishment to do skilled, semi-skilled, unskilled,\nmanual, operational, supervisory, managerial, administrative, technical or clerical work, except apprentices and\nmembers of the Armed Forces (Code on Wages, 2019, s. 2(k)).\n\n**When wages must be paid** (Code on Wages, 2019, s. 17(1)):\n- daily workers: at the end of the shift;\n- weekly: on the last working day of the week;\n- fortnightly: before the end of the second day after the fortnight ends;\n- **monthly: before the seventh day of the next month ends.**\n\n**When you leave.** If you resign, or are removed, dismissed or retrenched, or the establishment closes, the wages due\nto you must be paid **within two working days** (Code on Wages, 2019, s. 17(2)).\n\nThe government may set other time limits in some circumstances (s. 17(3)). Karnataka's own rules under the Code were\nstill in draft when LawBuddy's sources were collected, so check with the Karnataka Labour Department for procedure.",
+     "category": "salary",
+     "kind": "guide",
+     "jurisdiction": "central",
+     "cites": [
+      {
+       "doc": "code-on-wages-2019",
+       "section": "2"
+      },
+      {
+       "doc": "code-on-wages-2019",
+       "section": "17"
+      },
+      {
+       "doc": "code-on-wages-2019",
+       "section": "69"
+      }
+     ],
+     "sources": [
+      {
+       "doc": "code-on-wages-2019",
+       "title": "Code on Wages, 2019",
+       "url": "https://www.indiacode.nic.in/bitstream/123456789/15793/1/aA2019-29.pdf"
+      }
+     ],
+     "path": "kb/salary/overview.md",
+     "verified_on": "2026-11-21",
+     "dense_score": 0.5776934623718262
+    },
+    {
+     "chunk_id": "salary-steps",
+     "score": 0.07950205003597446,
+     "header": "Steps to recover unpaid salary | salary | guide",
+     "title": "Steps to recover unpaid salary",
+     "text": "1. **Written demand** to HR or the owner by email, listing the unpaid months and amounts and a date to pay by.\n2. **Legal notice** if there is no payment: facts, amounts, the legal deadline for payment, and a warning that you\n   will file a claim. LawBuddy can draft one for you to review and sign.\n3. **Wage claim** before the authority appointed under the Code on Wages (ask the Karnataka Labour Department which\n   officer hears claims for your area), within three years (Code on Wages, 2019, s. 45(6)). This is usually faster and cheaper than court, and can award compensation\n   of up to ten times the claim (s. 45(2)).\n4. **Civil suit** as an alternative: a suit for wages must be filed within three years from when the wages became\n   due (Limitation Act, 1963, Schedule, Article 7). Talk to a lawyer or the DLSA before choosing this route.\n\nFree help: industrial workmen are among those entitled to free legal services (see \"Free legal aid\").",
+     "category": "salary",
+     "kind": "guide",
+     "jurisdiction": "central",
+     "cites": [
+      {
+       "doc": "code-on-wages-2019",
+       "section": "45"
+      },
+      {
+       "doc": "limitation-act-1963",
+       "section": "Article 7"
+      }
+     ],
+     "sources": [
+      {
+       "doc": "code-on-wages-2019",
+       "title": "Code on Wages, 2019",
+       "url": "https://www.indiacode.nic.in/bitstream/123456789/15793/1/aA2019-29.pdf"
+      },
+      {
+       "doc": "limitation-act-1963",
+       "title": "Limitation Act, 1963",
+       "url": "https://www.indiacode.nic.in"
+      }
+     ],
+     "path": "kb/salary/steps.md",
+     "verified_on": "2026-11-21",
+     "dense_score": 0.4563824534416199
+    },
+    {
+     "chunk_id": "statute-wages-17",
+     "score": 0.07332379135123888,
+     "header": "Code on Wages, 2019, section 17 (text) | salary | statute",
+     "title": "Code on Wages, 2019, section 17 (text)",
+     "text": "**17. Time limit for payment of wages.** (1) The employer shall pay or cause to be paid wages to the employees,\nengaged on,\n(i) daily basis, at the end of the shift;\n(ii) weekly basis, on the last working day of the week, that is to say, before the weekly holiday;\n(iii) fortnightly basis, before the end of the second day after the end of the fortnight;\n(iv) monthly basis, before the expiry of the seventh day of the succeeding month.\n(2) Where an employee has been, (i) removed or dismissed from service; or (ii) retrenched or has resigned from\nservice, or became unemployed due to closure of the establishment, the wages payable to him shall be paid within two\nworking days of his removal, dismissal, retrenchment or, as the case may be, his resignation.\n(3) Notwithstanding anything contained in sub-section (1) or sub-section (2), the appropriate Government may,\nprovide any other time limit for payment of wages where it considers reasonable having regard to the circumstances\nunder which the wages are to be paid.\n(4) Nothing contained in sub-section (1) or sub-section (2) shall affect any time limit for payment of wages provided\nin any other law for the time being in force.",
+     "category": "salary",
+     "kind": "statute",
+     "jurisdiction": "central",
+     "cites": [
+      {
+       "doc": "code-on-wages-2019",
+       "section": "17"
+      }
+     ],
+     "sources": [
+      {
+       "doc": "code-on-wages-2019",
+       "title": "Code on Wages, 2019",
+       "url": "https://www.indiacode.nic.in/bitstream/123456789/15793/1/aA2019-29.pdf"
+      }
+     ],
+     "path": "kb/salary/statute-wages-17.md",
+     "verified_on": "2026-11-21",
+     "dense_score": 0.46917495131492615
+    },
+    {
+     "chunk_id": "salary-evidence",
+     "score": 0.07180223126098864,
+     "header": "Evidence to collect for unpaid salary | salary | practice",
+     "title": "Evidence to collect for unpaid salary",
+     "text": "- **Proof you were employed**: offer or appointment letter, ID card, joining email, PF/ESI number, or messages from\n  your manager.\n- **Proof of salary**: payslips, bank statements showing earlier salary credits, or the salary stated in the offer.\n- **Proof of work in the unpaid period**: attendance records, timesheets, emails or work you submitted.\n- **Exit documents** if you left: resignation email, acceptance, relieving letter, last working day.\n- **Every message** asking for payment, and any promise the employer made to pay.\n- **Who the employer is**: the company or proprietor's legal name and address, from the offer letter, payslip or\n  GST/website details. You need the correct name for a notice or claim.\n\nWrite down the months unpaid and the exact amount for each month; LawBuddy will put them in a table.",
+     "category": "salary",
+     "kind": "practice",
+     "jurisdiction": "central",
+     "cites": [],
+     "sources": [],
+     "path": "kb/salary/evidence.md",
+     "verified_on": "2026-11-21",
+     "dense_score": 0.4354037046432495
+    },
+    {
+     "chunk_id": "salary-claim",
+     "score": 0.06524857245104942,
+     "header": "Filing a wage claim under the Code on Wages | salary | guide",
+     "title": "Filing a wage claim under the Code on Wages",
+     "text": "The government appoints authorities (officers not below the rank of Gazetted Officer) to hear and decide claims under\nthe Code (Code on Wages, 2019, s. 45(1)). In Karnataka, ask the Labour Department which officer hears these\nclaims for your area.\n\n- **Who can file:** you, a registered trade union you belong to, or an Inspector-cum-Facilitator. One application\n  can cover many employees of the same establishment (s. 45(4) and (5)).\n- **Time limit:** within **three years** from when the claim arises; a later application may be accepted if you show\n  sufficient cause (s. 45(6)).\n- **What you can get:** the amount due, plus compensation of up to **ten times** the claim, depending on the\n  circumstances. The authority should try to decide within three months (s. 45(2)).\n- **If the employer still does not pay:** the authority sends a recovery certificate to the Collector or District\n  Magistrate, who recovers it as arrears of land revenue (s. 45(3)).\n- **Who is responsible:** the employer; if the employer fails, the company, firm or proprietor of the establishment\n  (s. 43).\n- **Appeal:** either side may appeal the authority's order within 90 days (s. 49(1)).",
+     "category": "salary",
+     "kind": "guide",
+     "jurisdiction": "central",
+     "cites": [
+      {
+       "doc": "code-on-wages-2019",
+       "section": "43"
+      },
+      {
+       "doc": "code-on-wages-2019",
+       "section": "45"
+      },
+      {
+       "doc": "code-on-wages-2019",
+       "section": "49"
+      }
+     ],
+     "sources": [
+      {
+       "doc": "code-on-wages-2019",
+       "title": "Code on Wages, 2019",
+       "url": "https://www.indiacode.nic.in/bitstream/123456789/15793/1/aA2019-29.pdf"
+      }
+     ],
+     "path": "kb/salary/claim.md",
+     "verified_on": "2026-11-21",
+     "dense_score": 0.39401620626449585
+    }
+   ],
+   "cited": [
+    1,
+    2,
+    3,
+    4,
+    5
+   ],
+   "guard": {
+    "first_problems": [],
+    "regenerated": false,
+    "removed": false,
+    "problems": [],
+    "cited": [
+     1,
+     2,
+     3,
+     4,
+     5
+    ],
+    "uncited_sentences": [
+     "That deadline has now passed, so you are entitled to recover the September and October salaries (₹ 45,000 each) and any other dues.",
+     "If they do not comply, you can proceed to a legal notice and then file a wage claim before the labour-department authority (still well within the three-year limit)."
+    ],
+    "refs": []
+   },
+   "retrieval": {
+    "query": "unpaid salary after resignation employer not paying final settlement India",
+    "mode": "primary",
+    "top_score": 0.0879,
+    "floor": 0.035,
+    "seconds": 3.91,
+    "error": ""
+   },
+   "trace": [
+    "analysis: category=salary intent=story language=English emergency=False query='unpaid salary after resignation employer not paying final settlement India'",
+    "case category: None -> salary",
+    "retrieval: primary top=0.0879 floor=0.035 ids=['salary-overview', 'salary-steps', 'statute-wages-17', 'salary-evidence', 'salary-claim']",
+    "guard: all legal references traced",
+    "guard: 2 sentence(s) without a citation (warning only)"
+   ],
+   "usage": {
+    "input_tokens": 3414,
+    "output_tokens": 973,
+    "llm_calls": 2,
+    "llm_s": 27.05,
+    "retrieval_s": 3.91
+   },
+   "latency_s": 30.99,
+   "draft": {}
+  }
+ ]
+}

@@ -49,6 +49,8 @@ Everything else is "out_of_scope", including: criminal matters, police and FIRs,
 (divorce, custody, maintenance), property ownership or land disputes, eviction cases, cheque bounce, provident fund
 (PF/EPFO), bank or loan disputes, tax, insurance claims, government service matters.
 Use "unclear" when the message does not yet say what the problem is (for example only "hi" or "I need help").
+Contrast: salary that was not paid is "salary"; provident fund (PF) deducted but not deposited with EPFO is
+"out_of_scope", even though it is deducted from salary.
 
 Read the conversation and the case file so far, then reply with ONLY one JSON object:
 {
@@ -73,7 +75,9 @@ Read the conversation and the case file so far, then reply with ONLY one JSON ob
   "user_goal": "",                     // what the user wants, in a few words
   "summary": "",                       // 1-3 neutral English sentences: the case so far
   "search_query": ""                   // one English sentence in legal terms to search a legal knowledge base,
-                                       // e.g. "landlord not returning security deposit after tenant vacated"
+                                       // e.g. "landlord not returning security deposit after tenant vacated";
+                                       // keep every fact that could change the legal answer: bought for a
+                                       // shop or business, online or offline, still employed or left, the state
 }
 
 Fact keys by category:
@@ -81,6 +85,7 @@ Fact keys by category:
 
 Rules:
 - Record only what the user actually said. Never guess amounts, dates or names. Unknown facts are null.
+- A relative date is an answer: record it as said ("last night", "kal raat", "two weeks ago"), do not leave it null.
 - Keep facts already in the case file unless the user corrects them.
 - The category describes the user's main problem in the whole conversation, not only the last message, unless
   the user clearly moves to a new problem.

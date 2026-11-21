@@ -1,0 +1,322 @@
+{
+ "case": {
+  "id": "con-04-service-gym",
+  "group": "consumer",
+  "lang": "en",
+  "turns": [
+   "A gym in Mangaluru took Rs 12,000 from me for a one-year membership on 1 August and shut down in September without any refund."
+  ],
+  "expect": {
+   "kinds": [
+    [
+     "advice",
+     "follow_up"
+    ]
+   ],
+   "category": "consumer",
+   "script": "latin"
+  }
+ },
+ "backend": "groq",
+ "model": "openai/gpt-oss-120b",
+ "at": "2026-11-21T02:58:44+00:00",
+ "attempts": 1,
+ "seconds": 19.6,
+ "case_file": {
+  "category": "consumer",
+  "facts": {
+   "product_or_service": "one-year gym membership",
+   "seller": "gym",
+   "amount_paid": "Rs 12,000",
+   "purchase_date": "1 August",
+   "problem": "gym shut down in September without refund",
+   "complaint_made": null
+  },
+  "timeline": [
+   {
+    "date": "1 August",
+    "event": "Paid Rs 12,000 for one-year gym membership"
+   },
+   {
+    "date": "September",
+    "event": "Gym shut down and did not refund"
+   }
+  ],
+  "evidence_have": [],
+  "evidence_missing": [],
+  "other_party": null,
+  "user_goal": "refund of membership fee",
+  "state": "Karnataka",
+  "summary": "The user paid Rs 12,000 on 1 August for a one-year gym membership in Mangaluru. The gym closed in September and has not refunded the amount.",
+  "parties": {}
+ },
+ "checks": [
+  {
+   "name": "completed",
+   "passed": true,
+   "detail": ""
+  },
+  {
+   "name": "kinds",
+   "passed": true,
+   "detail": ""
+  },
+  {
+   "name": "category",
+   "passed": true,
+   "detail": "got consumer"
+  },
+  {
+   "name": "grounded",
+   "passed": true,
+   "detail": ""
+  },
+  {
+   "name": "cited",
+   "passed": true,
+   "detail": ""
+  },
+  {
+   "name": "script",
+   "passed": true,
+   "detail": ""
+  }
+ ],
+ "passed": true,
+ "replies": [
+  {
+   "kind": "advice",
+   "text": "**Where you stand**  \nYou are a consumer because you paid Rs 12,000 for a gym service (Consumer Protection Act, 2019, s. 2(7)) [5]. The gym’s closure without refund is a deficiency in the service you purchased, and the law allows you to claim a refund with interest [1].  \n\n**What you can do**  \n1. **Complain to the gym** (and any platform, if applicable) and ask for a refund.  \n2. If the gym does not respond or refuses, you can file a complaint with the **District Consumer Commission** (value is well below Rs 50 lakh) [2]. You may file online via the e-Jagriti portal, pay the prescribed fee, and you do not need a lawyer [2].  \n3. The Commission will decide within 21 days whether to admit the complaint; if it does not decide, the complaint is treated as admitted [3]. It may try mediation, but if the complaint is proved it can order a refund with interest and costs [3].  \n\n**Next step**  \nSend a written request for refund (keep a copy) to the gym; if you receive no satisfactory reply within a reasonable time (e.g., 7 days), file the consumer complaint online on e-Jagriti, selecting the District Commission for Mangaluru [2]. The filing itself has no strict deadline, but acting promptly helps preserve any interest claim.  \n\n*If you have any written communication with the gym (emails, letters, receipts), keep it as evidence.*\n\nIf you like, I can draft a legal notice for you to send - just say \"draft the notice\".\n\n*LawBuddy gives legal information, not legal advice.*",
+   "language": "English",
+   "category": "consumer",
+   "passages": [
+    {
+     "chunk_id": "consumer-overview",
+     "score": 0.04974241424038836,
+     "header": "Refund, replacement or compensation for a bad product or service | consumer | guide",
+     "title": "Refund, replacement or compensation for a bad product or service",
+     "text": "If you paid for goods or a service and got something defective, deficient, not as promised, or no refund that was\ndue, the Consumer Protection Act, 2019 protects you. It applies to purchases made online or offline, including by\nteleshopping and direct selling (Consumer Protection Act, 2019, s. 2(7), Explanation (b)).\n\nYou can complain about (Consumer Protection Act, 2019, s. 2(6)):\n- goods with a defect: a fault or shortcoming in quality, quantity, purity or standard (s. 2(10));\n- a service with a deficiency: a shortcoming in quality or manner of performance, including negligence or\n  deliberately withholding relevant information (s. 2(11));\n- an unfair trade practice, or being charged more than the displayed, fixed or agreed price.\n\nIf the complaint is proved, a Consumer Commission can order the trader to remove the defect, replace the goods,\nreturn the price with interest, pay compensation for loss or injury, pay punitive damages, and pay your costs\n(Consumer Protection Act, 2019, s. 39(1)).\n\nUsual path: complain to the seller (and the platform's grievance officer) → National Consumer Helpline 1915 →\ncomplaint to the District Consumer Commission, which can be filed online on e-Jagriti.",
+     "category": "consumer",
+     "kind": "guide",
+     "jurisdiction": "central",
+     "cites": [
+      {
+       "doc": "cpa-2019",
+       "section": "2"
+      },
+      {
+       "doc": "cpa-2019",
+       "section": "39"
+      }
+     ],
+     "sources": [
+      {
+       "doc": "cpa-2019",
+       "title": "Consumer Protection Act, 2019",
+       "url": "https://prsindia.org/files/bills_acts/bills_parliament/2021/Consumer%20Protection%20Act%202019.pdf"
+      }
+     ],
+     "path": "kb/consumer/overview.md",
+     "verified_on": "2026-11-21",
+     "dense_score": 0.40573176741600037
+    },
+    {
+     "chunk_id": "consumer-commission-complaint",
+     "score": 0.044188638476949024,
+     "header": "Filing a complaint with the District Consumer Commission | consumer | guide",
+     "title": "Filing a complaint with the District Consumer Commission",
+     "text": "**Which Commission.** It depends on the value of the goods or services you paid for: up to Rs. 50 lakh goes to the\nDistrict Commission; above Rs. 50 lakh and up to Rs. 2 crore to the State Commission; above Rs. 2 crore to the\nNational Commission (Consumer Protection (Jurisdiction) Rules, 2021, rr. 3 to 5). Most everyday complaints go to the\nDistrict Commission.\n\n**Which district.** You can file where the opposite party lives or does business or has a branch, where the cause of\naction arose, or **where you live or work** (Consumer Protection Act, 2019, s. 34(2)). So you can usually file in\nyour own district, even against a company based elsewhere.\n\n**Who can file.** The consumer, a recognised consumer association, or several consumers with the same interest\ntogether, with the Commission's permission (Consumer Protection Act, 2019, s. 35(1)).\n\n**How.** A complaint may be filed electronically (Consumer Protection Act, 2019, s. 35(1), proviso), through the\ne-Jagriti portal (e-jagriti.gov.in). It must be accompanied by the prescribed fee (s. 35(2)); check the current fee\non e-Jagriti for your claim amount.\n\nYou do not need a lawyer to file; you can present your own case.",
+     "category": "consumer",
+     "kind": "guide",
+     "jurisdiction": "central",
+     "cites": [
+      {
+       "doc": "cpa-2019",
+       "section": "34"
+      },
+      {
+       "doc": "cpa-2019",
+       "section": "35"
+      },
+      {
+       "doc": "cp-jurisdiction-rules-2021",
+       "section": "3"
+      },
+      {
+       "doc": "cp-jurisdiction-rules-2021",
+       "section": "4"
+      },
+      {
+       "doc": "cp-jurisdiction-rules-2021",
+       "section": "5"
+      }
+     ],
+     "sources": [
+      {
+       "doc": "cpa-2019",
+       "title": "Consumer Protection Act, 2019",
+       "url": "https://prsindia.org/files/bills_acts/bills_parliament/2021/Consumer%20Protection%20Act%202019.pdf"
+      },
+      {
+       "doc": "cp-jurisdiction-rules-2021",
+       "title": "Consumer Protection (Jurisdiction of the District Commission, the State Commission and the National Commission) Rules, 2021",
+       "url": "https://www.thc.nic.in/Central%20Governmental%20Rules/Consumer%20Protection%20(Jurisdiction%20of%20the%20District%20Commission,%20the%20State%20Commission%20and%20the%20National%20Commission)%20Rules,%202021.pdf"
+      }
+     ],
+     "path": "kb/consumer/commission-complaint.md",
+     "verified_on": "2026-11-21",
+     "dense_score": 0.33951398730278015
+    },
+    {
+     "chunk_id": "consumer-after-filing",
+     "score": 0.043665934317042805,
+     "header": "What happens after you file a consumer complaint | consumer | guide",
+     "title": "What happens after you file a consumer complaint",
+     "text": "- **Admission.** The District Commission should ordinarily decide within 21 days whether to admit the complaint. It\n  cannot reject it without hearing you, and if it does not decide in time, the complaint is treated as admitted\n  (Consumer Protection Act, 2019, s. 36(2) and (3)).\n- **Mediation.** If a settlement looks possible, the Commission may ask both sides to agree in writing, within five\n  days, to mediation (Consumer Protection Act, 2019, s. 37(1)).\n- **Order.** If your complaint is proved, the Commission orders relief such as replacement, refund with interest,\n  compensation and costs.\n- **Appeal.** Either side can appeal a District Commission order to the State Commission within 45 days of the order\n  (Consumer Protection Act, 2019, s. 41).\n- **If the trader ignores the order.** Not complying with a Commission's order is punishable with imprisonment from\n  one month up to three years, or a fine from Rs. 25,000 up to Rs. 1 lakh, or both (Consumer Protection Act, 2019,\n  s. 72(1)).",
+     "category": "consumer",
+     "kind": "guide",
+     "jurisdiction": "central",
+     "cites": [
+      {
+       "doc": "cpa-2019",
+       "section": "36"
+      },
+      {
+       "doc": "cpa-2019",
+       "section": "37"
+      },
+      {
+       "doc": "cpa-2019",
+       "section": "41"
+      },
+      {
+       "doc": "cpa-2019",
+       "section": "72"
+      }
+     ],
+     "sources": [
+      {
+       "doc": "cpa-2019",
+       "title": "Consumer Protection Act, 2019",
+       "url": "https://prsindia.org/files/bills_acts/bills_parliament/2021/Consumer%20Protection%20Act%202019.pdf"
+      }
+     ],
+     "path": "kb/consumer/after-filing.md",
+     "verified_on": "2026-11-21",
+     "dense_score": 0.31988295912742615
+    },
+    {
+     "chunk_id": "statute-cp-ecommerce-rules",
+     "score": 0.04124324279914555,
+     "header": "Consumer Protection (E-Commerce) Rules, 2020, rules 4(5), 4(10) and 6(3) (text) | consumer | statute",
+     "title": "Consumer Protection (E-Commerce) Rules, 2020, rules 4(5), 4(10) and 6(3) (text)",
+     "text": "**Rule 4(5).** Every e-commerce entity shall ensure that the grievance officer referred to in sub-rule (4)\nacknowledges the receipt of any consumer complaint within forty-eight hours and redresses the complaint within one\nmonth from the date of receipt of the complaint.\n\n**Rule 4(10).** Every e-commerce entity shall effect all payments towards accepted refund requests of the consumers\nas prescribed by the Reserve Bank of India or any other competent authority under any law for the time being in\nforce, within a reasonable period of time, or as prescribed under applicable laws.\n\n**Rule 6(3).** No seller offering goods or services through a marketplace e-commerce entity shall refuse to take\nback goods, or withdraw or discontinue services purchased or agreed to be purchased, or refuse to refund\nconsideration, if paid, if such goods or services are defective, deficient or spurious, or if the goods or services\nare not of the characteristics or features as advertised or as agreed to, or if such goods or services are delivered\nlate from the stated delivery schedule: Provided that in the case of late delivery, this sub-rule shall not be\napplied if such late delivery was due to force majeure.",
+     "category": "consumer",
+     "kind": "statute",
+     "jurisdiction": "central",
+     "cites": [
+      {
+       "doc": "cp-ecommerce-rules-2020",
+       "section": "4"
+      },
+      {
+       "doc": "cp-ecommerce-rules-2020",
+       "section": "6"
+      }
+     ],
+     "sources": [
+      {
+       "doc": "cp-ecommerce-rules-2020",
+       "title": "Consumer Protection (E-Commerce) Rules, 2020",
+       "url": "https://prsindia.org/files/bills_acts/bills_parliament/2021/Consumer%20Protection%20(E-Commerce)%20Rules,%202020.pdf"
+      }
+     ],
+     "path": "kb/consumer/statute-ecommerce-rules.md",
+     "verified_on": "2026-11-21",
+     "dense_score": 0.37111854553222656
+    },
+    {
+     "chunk_id": "consumer-who-is-consumer",
+     "score": 0.04082840193972074,
+     "header": "Are you a \"consumer\" under the law? | consumer | guide",
+     "title": "Are you a \"consumer\" under the law?",
+     "text": "You are a consumer if you bought goods, or hired or used a service, for a price that was paid or promised, fully or\nin part, including in instalments (Consumer Protection Act, 2019, s. 2(7)). Someone who uses the goods or service\nwith the buyer's approval, such as a family member, also counts.\n\nYou are **not** a consumer if you bought the goods for resale or for a commercial purpose, or used the service for a\ncommercial purpose. Buying something to earn your own livelihood by self-employment is not a commercial purpose\n(Consumer Protection Act, 2019, s. 2(7), Explanation (a)).\n\nOnline purchases count: buying goods or hiring services includes transactions made online or through electronic\nmeans, teleshopping, direct selling or multi-level marketing (Consumer Protection Act, 2019, s. 2(7),\nExplanation (b)).",
+     "category": "consumer",
+     "kind": "guide",
+     "jurisdiction": "central",
+     "cites": [
+      {
+       "doc": "cpa-2019",
+       "section": "2"
+      }
+     ],
+     "sources": [
+      {
+       "doc": "cpa-2019",
+       "title": "Consumer Protection Act, 2019",
+       "url": "https://prsindia.org/files/bills_acts/bills_parliament/2021/Consumer%20Protection%20Act%202019.pdf"
+      }
+     ],
+     "path": "kb/consumer/who-is-consumer.md",
+     "verified_on": "2026-11-21",
+     "dense_score": 0.32031580805778503
+    }
+   ],
+   "cited": [
+    1,
+    2,
+    3,
+    5
+   ],
+   "guard": {
+    "first_problems": [],
+    "regenerated": false,
+    "removed": false,
+    "problems": [],
+    "cited": [
+     1,
+     2,
+     3,
+     5
+    ],
+    "uncited_sentences": [
+     "**Complain to the gym** (and any platform, if applicable) and ask for a refund.",
+     "The filing itself has no strict deadline, but acting promptly helps preserve any interest claim.",
+     "If you have any written communication with the gym (emails, letters, receipts), keep it as evidence.*"
+    ],
+    "refs": [
+     {
+      "kind": "section",
+      "text": "s. 2(7)",
+      "doc": "cpa-2019",
+      "section": "2"
+     }
+    ]
+   },
+   "retrieval": {
+    "query": "gym closed after taking membership fee without refund consumer rights",
+    "mode": "primary",
+    "top_score": 0.0497,
+    "floor": 0.035,
+    "seconds": 2.48,
+    "error": ""
+   },
+   "trace": [
+    "analysis: category=consumer intent=story language=English emergency=False query='gym closed after taking membership fee without refund consumer rights'",
+    "case category: None -> consumer",
+    "retrieval: primary top=0.0497 floor=0.035 ids=['consumer-overview', 'consumer-commission-complaint', 'consumer-after-filing', 'statute-cp-ecommerce-rules', 'consumer-who-is-consumer']",
+    "guard: all legal references traced",
+    "guard: 3 sentence(s) without a citation (warning only)"
+   ],
+   "usage": {
+    "input_tokens": 3528,
+    "output_tokens": 855,
+    "llm_calls": 2,
+    "llm_s": 16.1,
+    "retrieval_s": 2.48
+   },
+   "latency_s": 18.6,
+   "draft": {}
+  }
+ ]
+}

@@ -1,0 +1,318 @@
+{
+ "case": {
+  "id": "trap-04-repealed-law",
+  "group": "trap",
+  "lang": "en",
+  "turns": [
+   "Under the Payment of Wages Act 1936, by what date must my employer pay my monthly wages?"
+  ],
+  "expect": {
+   "kinds": [
+    "advice"
+   ],
+   "category": "salary",
+   "script": "latin",
+   "must_cite": [
+    "general-old-laws",
+    "salary-overview",
+    "statute-wages-17"
+   ],
+   "mention_any": [
+    "Code on Wages"
+   ]
+  }
+ },
+ "backend": "groq",
+ "model": "openai/gpt-oss-120b",
+ "at": "2026-11-21T02:27:08+00:00",
+ "attempts": 1,
+ "seconds": 23.2,
+ "case_file": {
+  "category": "salary",
+  "facts": {
+   "employer": null,
+   "monthly_salary": null,
+   "unpaid_period": null,
+   "employment_status": null,
+   "city": null,
+   "proof_of_employment": null
+  },
+  "timeline": [],
+  "evidence_have": [],
+  "evidence_missing": [],
+  "other_party": "employer",
+  "user_goal": "know deadline for wage payment",
+  "state": null,
+  "summary": "User asks under the Payment of Wages Act 1936 by what date the employer must pay monthly wages.",
+  "parties": {}
+ },
+ "checks": [
+  {
+   "name": "completed",
+   "passed": true,
+   "detail": ""
+  },
+  {
+   "name": "kinds",
+   "passed": true,
+   "detail": ""
+  },
+  {
+   "name": "category",
+   "passed": true,
+   "detail": "got salary"
+  },
+  {
+   "name": "grounded",
+   "passed": true,
+   "detail": ""
+  },
+  {
+   "name": "cited",
+   "passed": true,
+   "detail": ""
+  },
+  {
+   "name": "must_cite",
+   "passed": true,
+   "detail": "cited ['salary-overview', 'statute-wages-17']"
+  },
+  {
+   "name": "script",
+   "passed": true,
+   "detail": ""
+  },
+  {
+   "name": "mention_any",
+   "passed": true,
+   "detail": "found ['Code on Wages']"
+  }
+ ],
+ "passed": true,
+ "replies": [
+  {
+   "kind": "advice",
+   "text": "**Where you stand**  \nFor employees paid on a monthly basis, the employer must pay the wages **before the expiry of the seventh day of the succeeding month** [1][2].\n\n**What you can do**  \n1. Send a written demand to your employer asking for payment by that deadline.  \n2. If the employer does not pay, you may issue a legal notice stating the statutory deadline and that you will file a claim.  \n3. File a wage claim with the authority appointed under the Code on Wages (usually a labour officer) - the claim must be made within **three years** from when the wages became due [3][5].\n\n**Next step**  \nDraft and send a written demand to your employer, specifying that the wages are overdue and must be paid **by the seventh day of the next month** as required by law. Keep any proof of employment (offer letter, payslips, bank statements) you have, as it will be needed if you later file a claim. If you receive no response within a reasonable time (e.g., 7-10 days), consider issuing a legal notice or filing a claim.\n\nIf you like, I can draft a legal notice for you to send - just say \"draft the notice\".\n\n*LawBuddy gives legal information, not legal advice.*",
+   "language": "English",
+   "category": "salary",
+   "passages": [
+    {
+     "chunk_id": "statute-wages-17",
+     "score": 0.10490603301709006,
+     "header": "Code on Wages, 2019, section 17 (text) | salary | statute",
+     "title": "Code on Wages, 2019, section 17 (text)",
+     "text": "**17. Time limit for payment of wages.** (1) The employer shall pay or cause to be paid wages to the employees,\nengaged on,\n(i) daily basis, at the end of the shift;\n(ii) weekly basis, on the last working day of the week, that is to say, before the weekly holiday;\n(iii) fortnightly basis, before the end of the second day after the end of the fortnight;\n(iv) monthly basis, before the expiry of the seventh day of the succeeding month.\n(2) Where an employee has been, (i) removed or dismissed from service; or (ii) retrenched or has resigned from\nservice, or became unemployed due to closure of the establishment, the wages payable to him shall be paid within two\nworking days of his removal, dismissal, retrenchment or, as the case may be, his resignation.\n(3) Notwithstanding anything contained in sub-section (1) or sub-section (2), the appropriate Government may,\nprovide any other time limit for payment of wages where it considers reasonable having regard to the circumstances\nunder which the wages are to be paid.\n(4) Nothing contained in sub-section (1) or sub-section (2) shall affect any time limit for payment of wages provided\nin any other law for the time being in force.",
+     "category": "salary",
+     "kind": "statute",
+     "jurisdiction": "central",
+     "cites": [
+      {
+       "doc": "code-on-wages-2019",
+       "section": "17"
+      }
+     ],
+     "sources": [
+      {
+       "doc": "code-on-wages-2019",
+       "title": "Code on Wages, 2019",
+       "url": "https://www.indiacode.nic.in/bitstream/123456789/15793/1/aA2019-29.pdf"
+      }
+     ],
+     "path": "kb/salary/statute-wages-17.md",
+     "verified_on": "2026-11-21",
+     "dense_score": 0.5853952169418335
+    },
+    {
+     "chunk_id": "salary-overview",
+     "score": 0.09837532453444302,
+     "header": "Unpaid salary or final dues: your rights | salary | guide",
+     "title": "Unpaid salary or final dues: your rights",
+     "text": "Wages are governed by the Code on Wages, 2019, which replaced the Payment of Wages Act, 1936, the Minimum Wages Act,\n1948, the Payment of Bonus Act, 1965 and the Equal Remuneration Act, 1976 (Code on Wages, 2019, s. 69).\n\n\"Employee\" under the Code covers anyone employed on wages by an establishment to do skilled, semi-skilled, unskilled,\nmanual, operational, supervisory, managerial, administrative, technical or clerical work, except apprentices and\nmembers of the Armed Forces (Code on Wages, 2019, s. 2(k)).\n\n**When wages must be paid** (Code on Wages, 2019, s. 17(1)):\n- daily workers: at the end of the shift;\n- weekly: on the last working day of the week;\n- fortnightly: before the end of the second day after the fortnight ends;\n- **monthly: before the seventh day of the next month ends.**\n\n**When you leave.** If you resign, or are removed, dismissed or retrenched, or the establishment closes, the wages due\nto you must be paid **within two working days** (Code on Wages, 2019, s. 17(2)).\n\nThe government may set other time limits in some circumstances (s. 17(3)). Karnataka's own rules under the Code were\nstill in draft when LawBuddy's sources were collected, so check with the Karnataka Labour Department for procedure.",
+     "category": "salary",
+     "kind": "guide",
+     "jurisdiction": "central",
+     "cites": [
+      {
+       "doc": "code-on-wages-2019",
+       "section": "2"
+      },
+      {
+       "doc": "code-on-wages-2019",
+       "section": "17"
+      },
+      {
+       "doc": "code-on-wages-2019",
+       "section": "69"
+      }
+     ],
+     "sources": [
+      {
+       "doc": "code-on-wages-2019",
+       "title": "Code on Wages, 2019",
+       "url": "https://www.indiacode.nic.in/bitstream/123456789/15793/1/aA2019-29.pdf"
+      }
+     ],
+     "path": "kb/salary/overview.md",
+     "verified_on": "2026-11-21",
+     "dense_score": 0.5355548858642578
+    },
+    {
+     "chunk_id": "salary-steps",
+     "score": 0.052320557116535216,
+     "header": "Steps to recover unpaid salary | salary | guide",
+     "title": "Steps to recover unpaid salary",
+     "text": "1. **Written demand** to HR or the owner by email, listing the unpaid months and amounts and a date to pay by.\n2. **Legal notice** if there is no payment: facts, amounts, the legal deadline for payment, and a warning that you\n   will file a claim. LawBuddy can draft one for you to review and sign.\n3. **Wage claim** before the authority appointed under the Code on Wages (ask the Karnataka Labour Department which\n   officer hears claims for your area), within three years (Code on Wages, 2019, s. 45(6)). This is usually faster and cheaper than court, and can award compensation\n   of up to ten times the claim (s. 45(2)).\n4. **Civil suit** as an alternative: a suit for wages must be filed within three years from when the wages became\n   due (Limitation Act, 1963, Schedule, Article 7). Talk to a lawyer or the DLSA before choosing this route.\n\nFree help: industrial workmen are among those entitled to free legal services (see \"Free legal aid\").",
+     "category": "salary",
+     "kind": "guide",
+     "jurisdiction": "central",
+     "cites": [
+      {
+       "doc": "code-on-wages-2019",
+       "section": "45"
+      },
+      {
+       "doc": "limitation-act-1963",
+       "section": "Article 7"
+      }
+     ],
+     "sources": [
+      {
+       "doc": "code-on-wages-2019",
+       "title": "Code on Wages, 2019",
+       "url": "https://www.indiacode.nic.in/bitstream/123456789/15793/1/aA2019-29.pdf"
+      },
+      {
+       "doc": "limitation-act-1963",
+       "title": "Limitation Act, 1963",
+       "url": "https://www.indiacode.nic.in"
+      }
+     ],
+     "path": "kb/salary/steps.md",
+     "verified_on": "2026-11-21",
+     "dense_score": 0.35461199283599854
+    },
+    {
+     "chunk_id": "general-old-laws",
+     "score": 0.04980801042448747,
+     "header": "Laws that have been replaced | general | guide",
+     "title": "Laws that have been replaced",
+     "text": "Many websites and older documents still quote laws that have been repealed. Do not rely on them:\n\n- The **Consumer Protection Act, 1986** was repealed by the Consumer Protection Act, 2019 (s. 107). Consumer\n  complaints now go to District, State and National Consumer **Commissions** (earlier called Forums).\n- The **Payment of Wages Act, 1936**, the **Minimum Wages Act, 1948**, the **Payment of Bonus Act, 1965** and the\n  **Equal Remuneration Act, 1976** were repealed by the Code on Wages, 2019 (s. 69).\n- The **Karnataka Rent Control Act, 1961** was replaced by the Karnataka Rent Act, 1999 (s. 70).\n- The **Indian Penal Code (IPC)**, the **Code of Criminal Procedure (CrPC)** and the **Indian Evidence Act** were\n  replaced in 2024 by the Bharatiya Nyaya Sanhita, the Bharatiya Nagarik Suraksha Sanhita and the Bharatiya Sakshya\n  Adhiniyam. Criminal matters are outside LawBuddy's scope; see a lawyer.",
+     "category": "general",
+     "kind": "guide",
+     "jurisdiction": "central",
+     "cites": [
+      {
+       "doc": "cpa-2019",
+       "section": "107"
+      },
+      {
+       "doc": "code-on-wages-2019",
+       "section": "69"
+      },
+      {
+       "doc": "karnataka-rent-act-1999",
+       "section": "70"
+      }
+     ],
+     "sources": [
+      {
+       "doc": "cpa-2019",
+       "title": "Consumer Protection Act, 2019",
+       "url": "https://prsindia.org/files/bills_acts/bills_parliament/2021/Consumer%20Protection%20Act%202019.pdf"
+      },
+      {
+       "doc": "code-on-wages-2019",
+       "title": "Code on Wages, 2019",
+       "url": "https://www.indiacode.nic.in/bitstream/123456789/15793/1/aA2019-29.pdf"
+      },
+      {
+       "doc": "karnataka-rent-act-1999",
+       "title": "Karnataka Rent Act, 1999",
+       "url": "https://www.indiacode.nic.in/handle/123456789/7810"
+      }
+     ],
+     "path": "kb/general/old-laws.md",
+     "verified_on": "2026-11-21",
+     "dense_score": 0.21935948729515076
+    },
+    {
+     "chunk_id": "statute-wages-45",
+     "score": 0.04874374213235047,
+     "header": "Code on Wages, 2019, section 45 (text, extract) | salary | statute",
+     "title": "Code on Wages, 2019, section 45 (text, extract)",
+     "text": "**45. Claims under Code and procedure thereof.** (1) The appropriate Government may, by notification, appoint one or\nmore authorities, not below the rank of a Gazetted Officer, to hear and determine the claims which arises under the\nprovisions of this Code.\n(2) The authority appointed under sub-section (1), while deciding the claim under that sub-section, may order,\nhaving regard to the circumstances under which the claim arises, the payment of compensation in addition to the claim\ndetermined, which may extend to ten times of the claim determined and endeavour shall be made by the authority to\ndecide the claim within a period of three months.\n(3) If an employer fails to pay the claim determined and compensation ordered to be paid under sub-section (2), the\nauthority shall issue a certificate of recovery to the Collector or District Magistrate of the district where the\nestablishment is located who shall recover the same as arrears of land revenue and remit the same to the authority\nfor payment to the concerned employee.\n(4) Any application before the authority for claim referred to in sub-section (1) may be filed by, (a) the employee\nconcerned; or (b) any Trade Union registered under the Trade Unions Act, 1926 of which the employee is a member; or\n(c) the Inspector-cum-Facilitator.\n(6) The application under sub-section (4) may be filed within a period of three years from the date on which claims\nreferred to in sub-section (1) arises: Provided that the authority referred to in sub-section (1) may, entertain the\napplication after three years on sufficient cause being shown by the applicant for such delay.",
+     "category": "salary",
+     "kind": "statute",
+     "jurisdiction": "central",
+     "cites": [
+      {
+       "doc": "code-on-wages-2019",
+       "section": "45"
+      }
+     ],
+     "sources": [
+      {
+       "doc": "code-on-wages-2019",
+       "title": "Code on Wages, 2019",
+       "url": "https://www.indiacode.nic.in/bitstream/123456789/15793/1/aA2019-29.pdf"
+      }
+     ],
+     "path": "kb/salary/statute-wages-45.md",
+     "verified_on": "2026-11-21",
+     "dense_score": 0.364820659160614
+    }
+   ],
+   "cited": [
+    1,
+    2,
+    3,
+    5
+   ],
+   "guard": {
+    "first_problems": [],
+    "regenerated": false,
+    "removed": false,
+    "problems": [],
+    "cited": [
+     1,
+     2,
+     3,
+     5
+    ],
+    "uncited_sentences": [
+     "Send a written demand to your employer asking for payment by that deadline.",
+     "If the employer does not pay, you may issue a legal notice stating the statutory deadline and that you will file a claim.",
+     "Draft and send a written demand to your employer, specifying that the wages are overdue and must be paid **by the seventh day of the next month** as required by law.",
+     "Keep any proof of employment (offer letter, payslips, bank statements) you have, as it will be needed if you later file a claim.",
+     "If you receive no response within a reasonable time (e.g., 7-10 days), consider issuing a legal notice or filing a claim."
+    ],
+    "refs": []
+   },
+   "retrieval": {
+    "query": "Payment of Wages Act 1936 deadline for employer to pay monthly wages",
+    "mode": "primary",
+    "top_score": 0.1049,
+    "floor": 0.035,
+    "seconds": 2.22,
+    "error": ""
+   },
+   "trace": [
+    "analysis: category=salary intent=question language=English emergency=False query='Payment of Wages Act 1936 deadline for employer to pay monthly wages'",
+    "case category: None -> salary",
+    "advising without ['employer', 'unpaid_period', 'employment_status'] (question)",
+    "retrieval: primary top=0.1049 floor=0.035 ids=['statute-wages-17', 'salary-overview', 'salary-steps', 'general-old-laws', 'statute-wages-45']",
+    "guard: all legal references traced",
+    "guard: 5 sentence(s) without a citation (warning only)"
+   ],
+   "usage": {
+    "input_tokens": 3428,
+    "output_tokens": 550,
+    "llm_calls": 2,
+    "llm_s": 19.91,
+    "retrieval_s": 2.22
+   },
+   "latency_s": 22.16,
+   "draft": {}
+  }
+ ]
+}

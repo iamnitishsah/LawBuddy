@@ -1,0 +1,311 @@
+{
+ "case": {
+  "id": "sal-04-hindi-multiturn",
+  "group": "salary",
+  "lang": "hi",
+  "turns": [
+   "कंपनी ने दो महीने से तनख्वाह नहीं दी",
+   "कंपनी का नाम सनराइज़ टेक्सटाइल्स है, मैसूर में। मैं अभी भी वहीं काम करता हूँ। सितंबर और अक्टूबर की तनख्वाह बाकी है।"
+  ],
+  "expect": {
+   "kinds": [
+    "follow_up",
+    "advice"
+   ],
+   "category": "salary",
+   "script": "devanagari",
+   "must_cite": [
+    "salary-overview",
+    "statute-wages-17",
+    "salary-claim",
+    "salary-steps"
+   ]
+  }
+ },
+ "backend": "groq",
+ "model": "openai/gpt-oss-120b",
+ "at": "2026-11-21T02:58:44+00:00",
+ "attempts": 1,
+ "seconds": 39.3,
+ "case_file": {
+  "category": "salary",
+  "facts": {
+   "employer": "सनराइज़ टेक्सटाइल्स",
+   "monthly_salary": null,
+   "unpaid_period": "September and October",
+   "employment_status": "still working",
+   "city": "मैसूर",
+   "proof_of_employment": null
+  },
+  "timeline": [],
+  "evidence_have": [],
+  "evidence_missing": [],
+  "other_party": "सनराइज़ टेक्सटाइल्स",
+  "user_goal": "salary payment",
+  "state": "Karnataka",
+  "summary": "The user works at Sunrise Textiles in Mysore and has not received salary for September and October while still employed.",
+  "parties": {
+   "other_name": "सनराइज़ टेक्सटाइल्स"
+  }
+ },
+ "checks": [
+  {
+   "name": "completed",
+   "passed": true,
+   "detail": ""
+  },
+  {
+   "name": "kinds",
+   "passed": true,
+   "detail": ""
+  },
+  {
+   "name": "category",
+   "passed": true,
+   "detail": "got salary"
+  },
+  {
+   "name": "grounded",
+   "passed": true,
+   "detail": ""
+  },
+  {
+   "name": "cited",
+   "passed": true,
+   "detail": ""
+  },
+  {
+   "name": "must_cite",
+   "passed": true,
+   "detail": "cited ['salary-claim', 'salary-overview', 'salary-steps']"
+  },
+  {
+   "name": "script",
+   "passed": true,
+   "detail": ""
+  }
+ ],
+ "passed": true,
+ "replies": [
+  {
+   "kind": "follow_up",
+   "text": "समझ गया, आप दो महीने से वेतन न मिलने की समस्या बता रहे हैं।  \n1. आपके नियोक्ता का नाम क्या है?  \n2. क्या आप अभी भी वहाँ काम कर रहे हैं, या आपका अंतिम कार्य दिवस कब था?  \n3. आपका मासिक वेतन कितना है?",
+   "language": "Hindi",
+   "category": "salary",
+   "passages": [],
+   "cited": [],
+   "guard": {},
+   "retrieval": {},
+   "trace": [
+    "analysis: category=salary intent=story language=Hindi emergency=False query='employer not paying salary for two months'",
+    "case category: None -> salary",
+    "follow-up 1/2: missing ['employer', 'employment_status']"
+   ],
+   "usage": {
+    "input_tokens": 1477,
+    "output_tokens": 363,
+    "llm_calls": 2,
+    "llm_s": 10.21,
+    "retrieval_s": 0.0
+   },
+   "latency_s": 10.21,
+   "draft": {}
+  },
+  {
+   "kind": "advice",
+   "text": "**Where you stand**  \nकोड ऑन वेजेज, 2019 के तहत आपका वेतन एक ‘वेज’ माना जाता है और इसे **अगले महीने के सातवें दिन** तक भुगतान किया जाना चाहिए (Code on Wages, 2019, s. 17(1)) [3]। चूँकि आपका वेतन सितंबर और अक्टूबर के लिए अभी तक नहीं मिला है, यह देय है और आप इसे कानूनी तौर पर वसूले जा सकते हैं।  \n\n**What you can do**  \n1. **लिखित मांग** - सबसे पहले HR या मालिक को ई-मेल के माध्यम से लिखित मांग भेजें, जिसमें बकाया महीनों (सितंबर, अक्टूबर) और राशि का विवरण हो, तथा भुगतान की अंतिम तिथि बताएं [1]।  \n2. **कानूनी नोटिस** - यदि लिखित मांग के बाद भी भुगतान नहीं होता, तो आप एक कानूनी नोटिस भेज सकते हैं जिसमें तथ्य, बकाया राशि और भुगतान की अंतिम तिथि दी गई हो [1]।  \n3. **कोड ऑन वेजेज के तहत वेज क्लेम** - यह सबसे तेज़ और सस्ता तरीका है। आप या आपका ट्रेड यूनियन/इंस्पेक्टर-कम-फैसिलिटेटर इस क्लेम को तीन साल के भीतर (वेज़ के देय होने की तिथि से) दायर कर सकते हैं [1][2]। यह प्राधिकरण बकाया वेतन के साथ-साथ अधिकतम **दस गुना** तक का मुआवजा भी दे सकता है [2]।  \n\n**Next step**  \nअभी तुरंत अपने **HR को लिखित मांग** ई-मेल भेजें, जिसमें:  \n- बकाया महीनों (सितंबर, अक्टूबर)  \n- प्रत्येक महीने की सटीक राशि (यदि आपके पास है)  \n- भुगतान की अंतिम तिथि (उदाहरण के लिए, 7 दिन के भीतर)  \n\nयदि आपके पास **रोज़गार का प्रमाण** (ऑफ़र लेटर, पेस्लिप, बैंक स्टेटमेंट आदि) है, तो उसे सुरक्षित रखें [5]। यह दस्तावेज़ आगे के क्लेम या नोटिस में आवश्यक होगा।  \n\nसमय सीमा: लिखित मांग भेजने के बाद यदि 7 दिन में भुगतान नहीं मिलता, तो आप 3 वर्ष के भीतर वेज क्लेम दायर कर सकते हैं [2]।\n\nअगर आप चाहें तो मैं आपके लिए एक कानूनी नोटिस का ड्राफ़्ट बना सकता हूँ - बस लिखिए \"नोटिस बनाओ\"।\n\n*LawBuddy कानूनी जानकारी देता है, कानूनी सलाह नहीं।*",
+   "language": "Hindi",
+   "category": "salary",
+   "passages": [
+    {
+     "chunk_id": "salary-steps",
+     "score": 0.12833844392647362,
+     "header": "Steps to recover unpaid salary | salary | guide",
+     "title": "Steps to recover unpaid salary",
+     "text": "1. **Written demand** to HR or the owner by email, listing the unpaid months and amounts and a date to pay by.\n2. **Legal notice** if there is no payment: facts, amounts, the legal deadline for payment, and a warning that you\n   will file a claim. LawBuddy can draft one for you to review and sign.\n3. **Wage claim** before the authority appointed under the Code on Wages (ask the Karnataka Labour Department which\n   officer hears claims for your area), within three years (Code on Wages, 2019, s. 45(6)). This is usually faster and cheaper than court, and can award compensation\n   of up to ten times the claim (s. 45(2)).\n4. **Civil suit** as an alternative: a suit for wages must be filed within three years from when the wages became\n   due (Limitation Act, 1963, Schedule, Article 7). Talk to a lawyer or the DLSA before choosing this route.\n\nFree help: industrial workmen are among those entitled to free legal services (see \"Free legal aid\").",
+     "category": "salary",
+     "kind": "guide",
+     "jurisdiction": "central",
+     "cites": [
+      {
+       "doc": "code-on-wages-2019",
+       "section": "45"
+      },
+      {
+       "doc": "limitation-act-1963",
+       "section": "Article 7"
+      }
+     ],
+     "sources": [
+      {
+       "doc": "code-on-wages-2019",
+       "title": "Code on Wages, 2019",
+       "url": "https://www.indiacode.nic.in/bitstream/123456789/15793/1/aA2019-29.pdf"
+      },
+      {
+       "doc": "limitation-act-1963",
+       "title": "Limitation Act, 1963",
+       "url": "https://www.indiacode.nic.in"
+      }
+     ],
+     "path": "kb/salary/steps.md",
+     "verified_on": "2026-11-21",
+     "dense_score": 0.5410601496696472
+    },
+    {
+     "chunk_id": "salary-claim",
+     "score": 0.10420335566874676,
+     "header": "Filing a wage claim under the Code on Wages | salary | guide",
+     "title": "Filing a wage claim under the Code on Wages",
+     "text": "The government appoints authorities (officers not below the rank of Gazetted Officer) to hear and decide claims under\nthe Code (Code on Wages, 2019, s. 45(1)). In Karnataka, ask the Labour Department which officer hears these\nclaims for your area.\n\n- **Who can file:** you, a registered trade union you belong to, or an Inspector-cum-Facilitator. One application\n  can cover many employees of the same establishment (s. 45(4) and (5)).\n- **Time limit:** within **three years** from when the claim arises; a later application may be accepted if you show\n  sufficient cause (s. 45(6)).\n- **What you can get:** the amount due, plus compensation of up to **ten times** the claim, depending on the\n  circumstances. The authority should try to decide within three months (s. 45(2)).\n- **If the employer still does not pay:** the authority sends a recovery certificate to the Collector or District\n  Magistrate, who recovers it as arrears of land revenue (s. 45(3)).\n- **Who is responsible:** the employer; if the employer fails, the company, firm or proprietor of the establishment\n  (s. 43).\n- **Appeal:** either side may appeal the authority's order within 90 days (s. 49(1)).",
+     "category": "salary",
+     "kind": "guide",
+     "jurisdiction": "central",
+     "cites": [
+      {
+       "doc": "code-on-wages-2019",
+       "section": "43"
+      },
+      {
+       "doc": "code-on-wages-2019",
+       "section": "45"
+      },
+      {
+       "doc": "code-on-wages-2019",
+       "section": "49"
+      }
+     ],
+     "sources": [
+      {
+       "doc": "code-on-wages-2019",
+       "title": "Code on Wages, 2019",
+       "url": "https://www.indiacode.nic.in/bitstream/123456789/15793/1/aA2019-29.pdf"
+      }
+     ],
+     "path": "kb/salary/claim.md",
+     "verified_on": "2026-11-21",
+     "dense_score": 0.4361264705657959
+    },
+    {
+     "chunk_id": "salary-overview",
+     "score": 0.10402255976661327,
+     "header": "Unpaid salary or final dues: your rights | salary | guide",
+     "title": "Unpaid salary or final dues: your rights",
+     "text": "Wages are governed by the Code on Wages, 2019, which replaced the Payment of Wages Act, 1936, the Minimum Wages Act,\n1948, the Payment of Bonus Act, 1965 and the Equal Remuneration Act, 1976 (Code on Wages, 2019, s. 69).\n\n\"Employee\" under the Code covers anyone employed on wages by an establishment to do skilled, semi-skilled, unskilled,\nmanual, operational, supervisory, managerial, administrative, technical or clerical work, except apprentices and\nmembers of the Armed Forces (Code on Wages, 2019, s. 2(k)).\n\n**When wages must be paid** (Code on Wages, 2019, s. 17(1)):\n- daily workers: at the end of the shift;\n- weekly: on the last working day of the week;\n- fortnightly: before the end of the second day after the fortnight ends;\n- **monthly: before the seventh day of the next month ends.**\n\n**When you leave.** If you resign, or are removed, dismissed or retrenched, or the establishment closes, the wages due\nto you must be paid **within two working days** (Code on Wages, 2019, s. 17(2)).\n\nThe government may set other time limits in some circumstances (s. 17(3)). Karnataka's own rules under the Code were\nstill in draft when LawBuddy's sources were collected, so check with the Karnataka Labour Department for procedure.",
+     "category": "salary",
+     "kind": "guide",
+     "jurisdiction": "central",
+     "cites": [
+      {
+       "doc": "code-on-wages-2019",
+       "section": "2"
+      },
+      {
+       "doc": "code-on-wages-2019",
+       "section": "17"
+      },
+      {
+       "doc": "code-on-wages-2019",
+       "section": "69"
+      }
+     ],
+     "sources": [
+      {
+       "doc": "code-on-wages-2019",
+       "title": "Code on Wages, 2019",
+       "url": "https://www.indiacode.nic.in/bitstream/123456789/15793/1/aA2019-29.pdf"
+      }
+     ],
+     "path": "kb/salary/overview.md",
+     "verified_on": "2026-11-21",
+     "dense_score": 0.5028408765792847
+    },
+    {
+     "chunk_id": "general-when-lawyer",
+     "score": 0.07551099234080674,
+     "header": "When you need a real lawyer, and what LawBuddy does not cover | general | practice",
+     "title": "When you need a real lawyer, and what LawBuddy does not cover",
+     "text": "LawBuddy covers three everyday problems in Karnataka: a security deposit not returned, a consumer refund or defect,\nand unpaid salary or final dues. It gives legal information, not legal advice.\n\n**Talk to a lawyer or your District Legal Services Authority (free if you qualify) when:**\n- you have received a court summons, a court notice or a legal notice with a deadline;\n- the other side has already filed a case against you, or a case is pending;\n- the amount is large, or the matter involves property ownership, title or eviction proceedings;\n- the employer has closed down, become insolvent, or you are a government employee with service rules;\n- you are unsure which court or authority to approach, or a time limit may have passed.\n\n**Not covered by LawBuddy:** criminal matters, police complaints and FIRs, arrest or bail, family matters (divorce,\ncustody, maintenance), property title disputes, cheque bounce cases, tax, immigration, and law outside Karnataka's\ncentral and state laws listed in its sources. LawBuddy says so and points to a lawyer or the DLSA.\n\n**In an emergency** (violence, threats to safety, someone in danger), call **112** first.",
+     "category": "general",
+     "kind": "practice",
+     "jurisdiction": "central",
+     "cites": [],
+     "sources": [],
+     "path": "kb/general/when-to-get-a-lawyer.md",
+     "verified_on": "2026-11-21",
+     "dense_score": 0.3925054669380188
+    },
+    {
+     "chunk_id": "salary-evidence",
+     "score": 0.07090641524194254,
+     "header": "Evidence to collect for unpaid salary | salary | practice",
+     "title": "Evidence to collect for unpaid salary",
+     "text": "- **Proof you were employed**: offer or appointment letter, ID card, joining email, PF/ESI number, or messages from\n  your manager.\n- **Proof of salary**: payslips, bank statements showing earlier salary credits, or the salary stated in the offer.\n- **Proof of work in the unpaid period**: attendance records, timesheets, emails or work you submitted.\n- **Exit documents** if you left: resignation email, acceptance, relieving letter, last working day.\n- **Every message** asking for payment, and any promise the employer made to pay.\n- **Who the employer is**: the company or proprietor's legal name and address, from the offer letter, payslip or\n  GST/website details. You need the correct name for a notice or claim.\n\nWrite down the months unpaid and the exact amount for each month; LawBuddy will put them in a table.",
+     "category": "salary",
+     "kind": "practice",
+     "jurisdiction": "central",
+     "cites": [],
+     "sources": [],
+     "path": "kb/salary/evidence.md",
+     "verified_on": "2026-11-21",
+     "dense_score": 0.3650085926055908
+    }
+   ],
+   "cited": [
+    1,
+    2,
+    3,
+    5
+   ],
+   "guard": {
+    "first_problems": [],
+    "regenerated": false,
+    "removed": false,
+    "problems": [],
+    "cited": [
+     1,
+     2,
+     3,
+     5
+    ],
+    "uncited_sentences": [
+     "चूँकि आपका वेतन सितंबर और अक्टूबर के लिए अभी तक नहीं मिला है, यह देय है और आप इसे कानूनी तौर पर वसूले जा सकते हैं।",
+     "प्रत्येक महीने की सटीक राशि (यदि आपके पास है)",
+     "भुगतान की अंतिम तिथि (उदाहरण के लिए, 7 दिन के भीतर)",
+     "यह दस्तावेज़ आगे के क्लेम या नोटिस में आवश्यक होगा।"
+    ],
+    "refs": [
+     {
+      "kind": "section",
+      "text": "s. 17(1)",
+      "doc": "code-on-wages-2019",
+      "section": "17"
+     }
+    ]
+   },
+   "retrieval": {
+    "query": "employer not paying salary for two months in Karnataka",
+    "mode": "primary",
+    "top_score": 0.1283,
+    "floor": 0.035,
+    "seconds": 1.06,
+    "error": ""
+   },
+   "trace": [
+    "analysis: category=salary intent=story language=Hindi emergency=False query='employer not paying salary for two months in Karnataka'",
+    "retrieval: primary top=0.1283 floor=0.035 ids=['salary-steps', 'salary-claim', 'salary-overview', 'general-when-lawyer', 'salary-evidence']",
+    "guard: all legal references traced",
+    "guard: 4 sentence(s) without a citation (warning only)"
+   ],
+   "usage": {
+    "input_tokens": 3619,
+    "output_tokens": 989,
+    "llm_calls": 2,
+    "llm_s": 25.92,
+    "retrieval_s": 1.06
+   },
+   "latency_s": 27.01,
+   "draft": {}
+  }
+ ]
+}

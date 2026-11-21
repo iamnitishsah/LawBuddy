@@ -1,0 +1,102 @@
+{
+ "case": {
+  "id": "con-04-service-gym",
+  "group": "consumer",
+  "lang": "en",
+  "turns": [
+   "A gym in Mangaluru took Rs 12,000 from me for a one-year membership on 1 August and shut down in September without any refund."
+  ],
+  "expect": {
+   "kinds": [
+    [
+     "advice",
+     "follow_up"
+    ]
+   ],
+   "category": "consumer",
+   "script": "latin"
+  }
+ },
+ "backend": "groq",
+ "model": "openai/gpt-oss-120b",
+ "at": "2026-11-21T02:27:08+00:00",
+ "attempts": 1,
+ "seconds": 13.6,
+ "case_file": {
+  "category": "consumer",
+  "facts": {
+   "product_or_service": "gym membership",
+   "seller": null,
+   "amount_paid": "12000",
+   "purchase_date": "1 August",
+   "problem": "gym shut down in September without refund",
+   "complaint_made": null
+  },
+  "timeline": [
+   {
+    "date": "1 August",
+    "event": "Paid Rs 12,000 for one-year gym membership"
+   },
+   {
+    "date": "September",
+    "event": "Gym shut down and did not refund the amount"
+   }
+  ],
+  "evidence_have": [],
+  "evidence_missing": [],
+  "other_party": "gym",
+  "user_goal": "refund of paid amount",
+  "state": "Karnataka",
+  "summary": "The user paid Rs 12,000 on 1 August for a one-year gym membership in Mangaluru. The gym closed in September and has not refunded the money. The user seeks a refund.",
+  "parties": {}
+ },
+ "checks": [
+  {
+   "name": "completed",
+   "passed": true,
+   "detail": ""
+  },
+  {
+   "name": "kinds",
+   "passed": true,
+   "detail": ""
+  },
+  {
+   "name": "category",
+   "passed": true,
+   "detail": "got consumer"
+  },
+  {
+   "name": "script",
+   "passed": true,
+   "detail": ""
+  }
+ ],
+ "passed": true,
+ "replies": [
+  {
+   "kind": "follow_up",
+   "text": "I see you paid Rs 12,000 for a one-year gym membership on 1 August, but the gym closed in September and you haven’t received a refund.  \n\n1. Who sold you the membership - was it the gym’s company, a shop, or an app?  \n2. Did you complain to the seller, and what response did they give?",
+   "language": "English",
+   "category": "consumer",
+   "passages": [],
+   "cited": [],
+   "guard": {},
+   "retrieval": {},
+   "trace": [
+    "analysis: category=consumer intent=story language=English emergency=False query='gym closed after taking membership fee, consumer refund under Indian law'",
+    "case category: None -> consumer",
+    "follow-up 1/2: missing ['seller']"
+   ],
+   "usage": {
+    "input_tokens": 1438,
+    "output_tokens": 535,
+    "llm_calls": 2,
+    "llm_s": 12.64,
+    "retrieval_s": 0.0
+   },
+   "latency_s": 12.64,
+   "draft": {}
+  }
+ ]
+}

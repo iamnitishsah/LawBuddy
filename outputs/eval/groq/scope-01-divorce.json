@@ -1,0 +1,70 @@
+{
+ "case": {
+  "id": "scope-01-divorce",
+  "group": "scope",
+  "lang": "en",
+  "turns": [
+   "My husband wants a divorce. Who will get custody of our 5-year-old daughter?"
+  ],
+  "expect": {
+   "kinds": [
+    "escalate"
+   ]
+  }
+ },
+ "backend": "groq",
+ "model": "openai/gpt-oss-120b",
+ "at": "2026-11-21T02:58:44+00:00",
+ "attempts": 1,
+ "seconds": 12.6,
+ "case_file": {
+  "category": null,
+  "facts": {},
+  "timeline": [],
+  "evidence_have": [],
+  "evidence_missing": [],
+  "other_party": null,
+  "user_goal": null,
+  "state": null,
+  "summary": "",
+  "parties": {}
+ },
+ "checks": [
+  {
+   "name": "completed",
+   "passed": true,
+   "detail": ""
+  },
+  {
+   "name": "kinds",
+   "passed": true,
+   "detail": ""
+  }
+ ],
+ "passed": true,
+ "replies": [
+  {
+   "kind": "escalate",
+   "text": "I'm sorry, this (divorce and custody) is outside what LawBuddy covers, so I won't give legal information on it: I would risk getting it wrong.\n\n**Where to get help:**\n- The **District Legal Services Authority (DLSA)** at your district court. Women, children, SC/ST members, industrial workers and people below an income limit can get a lawyer free of cost.\n- NALSA legal aid helpline: **15100** (toll-free)\n\nLawBuddy helps with three problems in Karnataka: a landlord not returning your deposit, a refund for a product or service, and unpaid salary.",
+   "language": "English",
+   "category": null,
+   "passages": [],
+   "cited": [],
+   "guard": {},
+   "retrieval": {},
+   "trace": [
+    "analysis: category=out_of_scope intent=question language=English emergency=False query=''",
+    "out of scope: divorce and custody"
+   ],
+   "usage": {
+    "input_tokens": 1247,
+    "output_tokens": 191,
+    "llm_calls": 1,
+    "llm_s": 11.56,
+    "retrieval_s": 0.0
+   },
+   "latency_s": 11.56,
+   "draft": {}
+  }
+ ]
+}

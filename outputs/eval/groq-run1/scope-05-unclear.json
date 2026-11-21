@@ -1,0 +1,76 @@
+{
+ "case": {
+  "id": "scope-05-unclear",
+  "group": "scope",
+  "lang": "en",
+  "turns": [
+   "hello, I need some legal help"
+  ],
+  "expect": {
+   "kinds": [
+    "clarify"
+   ],
+   "script": "latin"
+  }
+ },
+ "backend": "groq",
+ "model": "openai/gpt-oss-120b",
+ "at": "2026-11-21T02:27:08+00:00",
+ "attempts": 1,
+ "seconds": 11.4,
+ "case_file": {
+  "category": null,
+  "facts": {},
+  "timeline": [],
+  "evidence_have": [],
+  "evidence_missing": [],
+  "other_party": null,
+  "user_goal": null,
+  "state": null,
+  "summary": "",
+  "parties": {}
+ },
+ "checks": [
+  {
+   "name": "completed",
+   "passed": true,
+   "detail": ""
+  },
+  {
+   "name": "kinds",
+   "passed": true,
+   "detail": ""
+  },
+  {
+   "name": "script",
+   "passed": true,
+   "detail": ""
+  }
+ ],
+ "passed": true,
+ "replies": [
+  {
+   "kind": "clarify",
+   "text": "Sure, I’m happy to help! Could you please tell me what happened?  \n\nI can assist with matters such as a landlord not returning a deposit, a refund for a product or service, or unpaid salary. Let me know the details so I can guide you further.",
+   "language": "English",
+   "category": null,
+   "passages": [],
+   "cited": [],
+   "guard": {},
+   "retrieval": {},
+   "trace": [
+    "analysis: category=unclear intent=other language=English emergency=False query=''",
+    "unclear: no search query, asking what happened"
+   ],
+   "usage": {
+    "input_tokens": 1328,
+    "output_tokens": 279,
+    "llm_calls": 2,
+    "llm_s": 10.42,
+    "retrieval_s": 0.0
+   },
+   "latency_s": 10.42,
+   "draft": {}
+  }
+ ]
+}

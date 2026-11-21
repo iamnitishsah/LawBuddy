@@ -44,13 +44,16 @@ Adding an OpenAI-compatible provider is a new entry under `backends:` in `llm.ya
 
 | Command | Network | Does |
 |---|---|---|
-| `make test` | no | all unit tests (182): every turn branch, the guard, notices, KB, API, voice, with fakes |
+| `make test` | no | all unit tests (209): every turn branch, the guard, notices, KB, API, voice, with fakes |
 | `make kb` | no | validate the knowledge base against the registry |
 | `make kb-build` | embeddings | embed new or changed articles into `kb/index/` |
 | `make smoke` | embeddings, rerank | retrieval smoke test on the original and paraphrased question sets |
 | `python -m lawbuddy.evaluation.retrieval_smoke --modes keyword` | no | the same, keyword search only |
 | `make chat` | all | terminal chat with the decision trace (`case` shows the case file, `quit` exits) |
 | `make chat-smoke` | all | replay `eval/chat_smoke/*.txt`; transcripts to `outputs/chat_smoke/` |
+| `make eval` | all | the 31 test cases on the default backend; raw results and `summary.md` in `outputs/eval/<backend>/` |
+| `make eval-gemini`, `make eval-compare` | all / no | the same on Gemini; a side-by-side comparison of the saved runs |
+| `python -m lawbuddy.evaluation.run_cases --group trap` / `--cases id` / `--rescore groq` | all / all / no | a subset; re-score a saved run with the current `cases.yaml` |
 | `make api` | at request time | the API on :8000 (`/docs`) |
 | `make api-smoke` | all | every endpoint against a running API; responses to `outputs/api_smoke/` |
 | `make frontend` | no | the web UI on :5173 |
@@ -71,6 +74,7 @@ ones), the retriever and Whisper. Many tests are named after the real failure th
 | `test_legal_refs.py` | the guard: what must pass, what must be caught, anchoring, Hindi names, sentence removal, the KB against itself |
 | `test_notice.py` | every legal sentence of a notice against its KB chunks; number checks; amounts; placeholders |
 | `test_api.py` | all endpoints, model swapping, user keys never returned, 401/403/409/422, voice, sessions, rate limit |
+| `test_cases.py` | the test-case file (well formed, every group and language, safety cases not caught by rules) and every automatic check |
 | `test_kb.py`, `test_lexical.py`, `test_retrieval_smoke.py` | KB validation, index build and freshness, search, fallback and cooldown, smoke sets and paraphrase overlap |
 | `test_llm.py`, `test_case.py`, `test_citations.py`, `test_reranker.py`, `test_transcribe.py` | the rest |
 
@@ -81,6 +85,7 @@ ones), the retriever and Whisper. Many tests are named after the real failure th
 3. Conversations: `make chat-smoke`, then read the transcripts; each failure gets a fix and a regression test, and is
    written up in [findings.md](findings.md). AI-tool mistakes go in [AI_LOG.md](AI_LOG.md).
 4. API: `make api` + `make api-smoke`.
+5. Test cases: `make eval` (and `make eval-gemini`, `make eval-compare`); read `outputs/eval/<run>/summary.md`.
 
 Raw outputs are kept unedited in `outputs/` (see `outputs/README.md`); earlier runs are archived in `runN/` folders.
 Every chat turn is also appended to `data/logs/chat.jsonl` (gitignored); it records the backend name, never a key.

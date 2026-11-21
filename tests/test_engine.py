@@ -131,15 +131,53 @@ def test_story_with_missing_facts_gets_follow_up_questions_then_advice():
 
 
 def test_follow_ups_stop_after_the_limit():
-    cfg_turns = load_config()["max_followup_turns"]
-    replies = []
-    for _ in range(cfg_turns):
-        replies += [analysis(), "question?"]
-    replies += [analysis(), GOOD_ADVICE]
-    e, s = engine(ScriptedLLM(*replies)), Session()
-    replies_out = [e.turn(s, "still not paid") for _ in range(cfg_turns + 1)]
-    assert [r.kind for r in replies_out] == ["follow_up"] * cfg_turns + ["advice"]
-    assert any("follow-up limit" in t for t in replies_out[-1].trace)
+    cfg = {**load_config(), "max_followup_turns": 1, "max_questions_per_turn": 1}
+    llm = ScriptedLLM(analysis(), "How much was the deposit?", analysis(), GOOD_ADVICE)
+    e, s = Engine(llm, FakeRetriever(DEPOSIT_HITS), REGISTRY, cfg, min_score=0.035), Session()
+    kinds = [e.turn(s, "still not paid").kind for _ in range(2)]
+    assert kinds == ["follow_up", "advice"]                      # move_out_date never asked: the limit was hit
+    assert s.asked == {"deposit_amount"}
+
+
+def test_the_same_fact_is_never_asked_twice():
+    """Eval con-06: the user answered "kal raat" (last night), the model did not record it, and LawBuddy asked
+    "when did you order?" again."""
+    llm = ScriptedLLM(analysis(), "How much, and when did you move out?", analysis(), GOOD_ADVICE)
+    e, s = engine(llm), Session()
+    first = e.turn(s, "deposit not returned")
+    second = e.turn(s, "last week")
+    assert first.kind == "follow_up" and second.kind == "advice"
+    assert any("already asked" in t for t in second.trace)
+
+
+def test_no_follow_ups_after_advice_has_been_given():
+    """Eval con-06: after answering a question, a short follow-up message got another round of questions."""
+    llm = ScriptedLLM(analysis(intent="question"), GOOD_ADVICE, analysis(), GOOD_ADVICE)
+    e, s = engine(llm), Session()
+    assert e.turn(s, "can my landlord keep my deposit?").kind == "advice"
+    second = e.turn(s, "I moved out last month")
+    assert second.kind == "advice" and any("already advised" in t for t in second.trace)
+
+
+@pytest.mark.parametrize("label, message, expected", [
+    ("Hindi", "kal raat order kiya tha", "Hinglish"),             # eval con-06: Latin script labelled Hindi
+    ("Hinglish", "कल रात ऑर्डर किया था", "Hindi"),
+    ("English", "ನನ್ನ ಕಂಪನಿ ಸಂಬಳ ಕೊಟ್ಟಿಲ್ಲ", "Kannada"),
+    ("Tamil", "ನನ್ನ ಕಂಪನಿ ಸಂಬಳ ಕೊಟ್ಟಿಲ್ಲ", "Kannada"),
+    ("Hinglish", "mera paisa wapas nahi mila", "Hinglish"),
+    ("Hindi", "मेरा पैसा वापस नहीं मिला", "Hindi"),
+    ("English", "my deposit was not returned", "English"),
+])
+def test_the_reply_language_follows_the_users_script(label, message, expected):
+    from lawbuddy.conversation.language import correct_language
+    assert correct_language(label, message) == expected
+
+
+def test_a_hinglish_message_labelled_hindi_gets_a_latin_script_reply():
+    llm = ScriptedLLM(analysis(language="Hindi"), "theek hai, kitna deposit tha?")
+    r = engine(llm).turn(Session(), "owner deposit wapas nahi kar raha")
+    assert r.language == "Hinglish" and "Do not use Devanagari" in llm.calls[1][0]["content"]
+    assert any("script says 'Hinglish'" in t for t in r.trace)
 
 
 def test_a_general_question_is_answered_without_follow_ups():
@@ -291,3 +329,17 @@ def test_the_advice_prompt_forbids_mentioning_passages_to_the_user():
     llm = ScriptedLLM(analysis(facts=FULL_FACTS), GOOD_ADVICE)
     engine(llm).turn(Session(), "deposit not returned")
     assert 'Never say "passage"' in llm.calls[1][0]["content"]
+
+
+def test_the_advice_prompt_asks_for_exceptions():
+    """Eval con-05: "you are not a consumer" without the self-employment exception of s. 2(7)."""
+    llm = ScriptedLLM(analysis(facts=FULL_FACTS), GOOD_ADVICE)
+    engine(llm).turn(Session(), "deposit not returned")
+    assert "exception" in llm.calls[1][0]["content"] and "self-employment" in llm.calls[1][0]["content"]
+
+
+def test_the_search_query_must_keep_facts_that_change_the_answer():
+    """Eval run 2, con-05: "printers for my xerox shop" became the query "faulty printers purchased in October", so
+    the article on who counts as a consumer was never retrieved and the answer said "you are a consumer"."""
+    from lawbuddy.conversation.triage import ANALYZE_SYSTEM
+    assert "could change the legal answer" in ANALYZE_SYSTEM and "shop or business" in ANALYZE_SYSTEM

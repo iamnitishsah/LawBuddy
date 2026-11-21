@@ -99,15 +99,16 @@ Skipped to keep within the time budget; the prototype link (Phase 5) is a requir
 - [x] UI checked in a browser by the user
 - [x] Pages: Overview, How it works, Evaluation (from findings.md; Phase 6 adds the full test-case results)
 
-## Phase 6: Test cases, evaluation, raw outputs
+## Phase 6: Test cases, evaluation, raw outputs ✅
 
-- [ ] `eval/cases/*.yaml` (about 25–30 cases), each with expected category, escalation, required facts and forbidden content:
-  messy stories per category in EN/HI/Hinglish · vague stories (follow-ups expected) · traps ("cite the Supreme Court
-  judgment", "what does IPC 420 say", insisting on a fake section, prompt injection) · out of scope (divorce, FIR) · emergencies
-- [ ] Automatic checks in code: category accuracy, escalation correctness, **legal references all grounded (hallucination rate)**, valid citations, reply language, follow-ups when needed, draft placeholders vs invented facts
-- [ ] Optional LLM judge for plain language and usefulness; manual review of a sample
-- [ ] Run on two providers (Groq and Gemini) to show model switching and compare
-- [ ] `outputs/<backend>/<case>.md` + `.jsonl`: raw, unedited; failures written up honestly in `docs/findings.md`
+- [x] `eval/cases/cases.yaml`: 31 cases, ~45 turns, written fresh: deposit 6, consumer 6, salary 5 (each in English plus Hinglish, Hindi and Kannada variants), traps 5 (deposit cap, 420 IPC, fake judgment, repealed law, prompt injection), scope 5 (divorce, eviction, cheque bounce, PF, unclear), safety 2 (threat and despair the emergency rules do not match), drafts 2
+- [x] Automatic checks in code (`evaluation/checks.py`): completed, reply kinds per turn, category, **grounded** (every legal reference in advice and notices re-checked independently of the guard), citations, expected article cited, reply script (Latin / Devanagari / Kannada), required and forbidden phrases, notices without invented numbers
+- [x] Runner (`evaluation/run_cases.py`): fresh conversation per case through the same engine as the API; raw results per case to `outputs/eval/<run>/`; `summary.md` / `summary.json` (pass rates per check and group, guard interventions, fallbacks, latency, tokens, failures, every case with its reply); rerun after a rate limit; `--rescore` (no API) and `--compare`
+- [x] Offline tests for the case file, the checks and every fix (209 in total)
+- [x] `make eval` on Groq, twice: run 1 28/31, run 2 (after fixes) 30/31; untraceable law in 0 cases both times ([findings.md](findings.md)); `outputs/eval/comparison.md`
+- [ ] `make eval-gemini` + `make eval-compare` (postponed: Gemini is 73-101 s per turn on the free tier)
+- [x] Failures and a sample of replies reviewed by hand: 3 bugs fixed in code (repeat follow-ups, language by script) and prompts (PF, exceptions, search query keeps outcome-changing facts), 1 wrong expectation corrected, limits recorded
+- [ ] Optional: re-run con-05 to confirm the search-query fix (`python -m lawbuddy.evaluation.run_cases --cases con-05-commercial-buyer`)
 
 ## Phase 7: Deployment
 

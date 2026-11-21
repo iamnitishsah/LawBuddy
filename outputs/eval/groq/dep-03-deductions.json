@@ -1,0 +1,304 @@
+{
+ "case": {
+  "id": "dep-03-deductions",
+  "group": "deposit",
+  "lang": "en",
+  "turns": [
+   "The owner is cutting Rs 25,000 for painting and deep cleaning from my Rs 1 lakh deposit. I moved out of my flat in Whitefield on 10 October. Can he do that?"
+  ],
+  "expect": {
+   "kinds": [
+    "advice"
+   ],
+   "category": "deposit",
+   "script": "latin",
+   "must_cite": [
+    "deposit-deductions",
+    "statute-contract-act-73-74"
+   ]
+  }
+ },
+ "backend": "groq",
+ "model": "openai/gpt-oss-120b",
+ "at": "2026-11-21T02:58:44+00:00",
+ "attempts": 1,
+ "seconds": 32.1,
+ "case_file": {
+  "category": "deposit",
+  "facts": {
+   "deposit_amount": "100000",
+   "move_out_date": "10 October",
+   "written_agreement": null,
+   "city": "Whitefield",
+   "landlord_reason": "painting and deep cleaning",
+   "deposit_proof": null
+  },
+  "timeline": [
+   {
+    "date": "10 October",
+    "event": "Moved out of flat in Whitefield and handed over keys"
+   }
+  ],
+  "evidence_have": [],
+  "evidence_missing": [],
+  "other_party": "owner",
+  "user_goal": "recover full security deposit",
+  "state": "Karnataka",
+  "summary": "The user paid a Rs 1 lakh security deposit for a flat in Whitefield. They moved out on 10 October and the owner is deducting Rs 25,000 for painting and deep cleaning. The user wants to know if the deduction is permissible.",
+  "parties": {}
+ },
+ "checks": [
+  {
+   "name": "completed",
+   "passed": true,
+   "detail": ""
+  },
+  {
+   "name": "kinds",
+   "passed": true,
+   "detail": ""
+  },
+  {
+   "name": "category",
+   "passed": true,
+   "detail": "got deposit"
+  },
+  {
+   "name": "grounded",
+   "passed": true,
+   "detail": ""
+  },
+  {
+   "name": "cited",
+   "passed": true,
+   "detail": ""
+  },
+  {
+   "name": "must_cite",
+   "passed": true,
+   "detail": "cited ['deposit-deductions']"
+  },
+  {
+   "name": "script",
+   "passed": true,
+   "detail": ""
+  }
+ ],
+ "passed": true,
+ "replies": [
+  {
+   "kind": "advice",
+   "text": "**Where you stand**  \nWhether the landlord can keep Rs 25,000 depends on what your rental agreement says about deductions for painting and deep-cleaning.  A landlord may only deduct amounts that are expressly permitted in the contract and for which he can show the actual loss caused by you [1].  If the agreement does not allow a fixed charge for such work, the deduction must be reasonable and supported by bills or photos [1].  Keeping the deposit contrary to the agreement is a breach of contract, and you may claim compensation for the loss you suffered [3][4].\n\n**What you can do**  \n1. **Ask for an itemised list** of the Rs 25,000 deduction together with invoices, photos or receipts [1].  \n2. **Compare the list with your rental agreement** (the clause on deposit, notice period, painting/repairs).  \n3. If the deduction is not justified, **send a written demand** (email or message) asking the landlord to return the full Rs 1 lakh by a clear date (e.g., 7 days) [4].  \n4. If there is no response, **send a legal notice** by registered post stating the facts, the amount due and a deadline [4].  \n5. If the landlord still refuses, you can seek settlement through a **Lok Adalat** via the District Legal Services Authority [4], or as a last resort **file a civil suit** for recovery [4].\n\n**Next step**  \nPrepare a written demand now, attaching any proof you have (rental agreement, deposit receipt, move-out notice, photos of the flat) and ask the landlord to pay the full deposit by a date 7 days from today [4].  Keep a copy of the demand and any reply.  Note that a civil suit must be filed within three years from the date the contract was breached [4]; act promptly.  \n\n*If you have the rental agreement, deposit receipt, move-out notice or photos, keep them ready for your demand.*\n\nIf you like, I can draft a legal notice for you to send - just say \"draft the notice\".\n\n*LawBuddy gives legal information, not legal advice.*",
+   "language": "English",
+   "category": "deposit",
+   "passages": [
+    {
+     "chunk_id": "deposit-deductions",
+     "score": 0.08361028499739766,
+     "header": "What a landlord may deduct from the deposit | deposit | guide",
+     "title": "What a landlord may deduct from the deposit",
+     "text": "What can be deducted depends on your rental agreement. Read its clauses on the deposit, notice period, painting,\nrepairs and unpaid bills.\n\nUnder contract law, a party who breaks a contract must compensate only the loss that naturally arises from that\nbreach; remote or indirect losses are not compensated (Indian Contract Act, 1872, s. 73). So a landlord can\ngenerally deduct, for example, unpaid rent or the cost of real damage that you caused, but should be able to show\nwhat the loss was. If the agreement names a fixed amount payable for a breach (for example, a penalty for leaving\nwithout notice), the landlord can claim only reasonable compensation up to that amount, not automatically the whole\nof it (Indian Contract Act, 1872, s. 74).\n\nPractical steps:\n- Ask the landlord for an itemised list of deductions with bills or photos.\n- Compare each deduction with the agreement.\n- Pay or accept only what the agreement and the evidence support, and dispute the rest in writing.",
+     "category": "deposit",
+     "kind": "guide",
+     "jurisdiction": "karnataka",
+     "cites": [
+      {
+       "doc": "contract-act-1872",
+       "section": "73"
+      },
+      {
+       "doc": "contract-act-1872",
+       "section": "74"
+      }
+     ],
+     "sources": [
+      {
+       "doc": "contract-act-1872",
+       "title": "Indian Contract Act, 1872",
+       "url": "https://www.indiacode.nic.in"
+      }
+     ],
+     "path": "kb/deposit/deductions.md",
+     "verified_on": "2026-11-21",
+     "dense_score": 0.49232372641563416
+    },
+    {
+     "chunk_id": "deposit-evidence",
+     "score": 0.06184762068737238,
+     "header": "Evidence to collect for a deposit dispute | deposit | practice",
+     "title": "Evidence to collect for a deposit dispute",
+     "text": "Collect these before you send a demand or a notice. Keep copies; give originals to no one.\n\n- **Rental agreement**, including any renewal, and the clause on the deposit and notice period.\n- **Proof that you paid the deposit**: bank transfer statement, UPI screenshot, cheque details or a signed receipt.\n- **Proof of rent payments**, to show nothing is due.\n- **Proof that you moved out on time**: your notice to vacate, the landlord's reply, the date you handed over keys.\n- **Condition of the home**: photos or video on moving in and moving out, with dates.\n- **All messages** with the landlord or agent about the deposit, repairs and deductions.\n- **Bills you paid** (electricity, water, maintenance) up to the day you left.\n\nIf something is missing, say so in your notice instead of guessing; a notice with wrong facts weakens your case.",
+     "category": "deposit",
+     "kind": "practice",
+     "jurisdiction": "karnataka",
+     "cites": [],
+     "sources": [],
+     "path": "kb/deposit/evidence.md",
+     "verified_on": "2026-11-21",
+     "dense_score": 0.2996898293495178
+    },
+    {
+     "chunk_id": "deposit-overview",
+     "score": 0.059854275731859835,
+     "header": "Getting your security deposit back from a landlord in Karnataka | deposit | guide",
+     "title": "Getting your security deposit back from a landlord in Karnataka",
+     "text": "A security deposit is money you gave the landlord to hold, to be returned when you leave. Whether you get it back,\nand how much may be deducted, is decided mainly by your rental agreement.\n\nFor most rented homes in Karnataka today, a dispute over a deposit is a dispute about a contract. The Karnataka\nRent Act, 1999 does not apply to many homes: it excludes premises whose rent is above a low limit and buildings\nconstructed or substantially renovated in the last fifteen years (Karnataka Rent Act, 1999, s. 2(3)). When the\nlandlord keeps money the agreement says must be returned, that is a breach of contract, and the person who suffers\nfrom a breach can claim compensation for the loss it caused (Indian Contract Act, 1872, s. 73).\n\nThe usual path, from cheapest to most formal:\n1. Ask in writing (message or email) for the refund, with a date to pay by.\n2. Send a legal notice that sets out the facts, the amount and a deadline.\n3. Try settlement through a Lok Adalat via the District Legal Services Authority.\n4. File a civil suit to recover the money.",
+     "category": "deposit",
+     "kind": "guide",
+     "jurisdiction": "karnataka",
+     "cites": [
+      {
+       "doc": "contract-act-1872",
+       "section": "73"
+      },
+      {
+       "doc": "karnataka-rent-act-1999",
+       "section": "2"
+      }
+     ],
+     "sources": [
+      {
+       "doc": "contract-act-1872",
+       "title": "Indian Contract Act, 1872",
+       "url": "https://www.indiacode.nic.in"
+      },
+      {
+       "doc": "karnataka-rent-act-1999",
+       "title": "Karnataka Rent Act, 1999",
+       "url": "https://www.indiacode.nic.in/handle/123456789/7810"
+      }
+     ],
+     "path": "kb/deposit/overview.md",
+     "verified_on": "2026-11-21",
+     "dense_score": 0.3436775505542755
+    },
+    {
+     "chunk_id": "deposit-steps",
+     "score": 0.05068528535440799,
+     "header": "Steps to recover a deposit, from demand to court | deposit | guide",
+     "title": "Steps to recover a deposit, from demand to court",
+     "text": "1. **Written demand.** Message or email the landlord asking for the deposit by a clear date (for example, 7 days).\n   Keep the reply, or the lack of one.\n2. **Legal notice.** If there is no payment, send a legal notice by registered post (and email or WhatsApp) stating\n   the facts, the amount due, the deadline and that you will take legal action. LawBuddy can draft one for you to\n   review and sign.\n3. **Lok Adalat (settlement).** The District Legal Services Authority can take up a dispute that is not yet in court\n   on the application of one party and refer it to a Lok Adalat (Legal Services Authorities Act, 1987, s. 20). A\n   settlement there becomes an award that is final and binding, with no appeal (Legal Services Authorities Act,\n   1987, s. 21). It only works if the landlord agrees to settle.\n4. **Civil suit.** If nothing else works, file a suit to recover the money. Which court hears it depends on the\n   amount and the place, so ask a lawyer or your DLSA before filing.\n\nTime limit: a suit for compensation for breach of a contract must generally be filed within three years from when\nthe contract is broken (Limitation Act, 1963, Schedule, Article 55). Act early; the exact start date depends on\nyour facts.",
+     "category": "deposit",
+     "kind": "guide",
+     "jurisdiction": "karnataka",
+     "cites": [
+      {
+       "doc": "lsa-act-1987",
+       "section": "20"
+      },
+      {
+       "doc": "lsa-act-1987",
+       "section": "21"
+      },
+      {
+       "doc": "limitation-act-1963",
+       "section": "Article 55"
+      }
+     ],
+     "sources": [
+      {
+       "doc": "lsa-act-1987",
+       "title": "Legal Services Authorities Act, 1987",
+       "url": "https://www.indiacode.nic.in/handle/123456789/1925"
+      },
+      {
+       "doc": "limitation-act-1963",
+       "title": "Limitation Act, 1963",
+       "url": "https://www.indiacode.nic.in"
+      }
+     ],
+     "path": "kb/deposit/steps.md",
+     "verified_on": "2026-11-21",
+     "dense_score": 0.23107510805130005
+    },
+    {
+     "chunk_id": "deposit-rent-act-tenants",
+     "score": 0.04918193827794783,
+     "header": "If the Karnataka Rent Act does apply to your home | deposit | guide",
+     "title": "If the Karnataka Rent Act does apply to your home",
+     "text": "For the smaller group of tenancies the Karnataka Rent Act, 1999 covers (low rent, older buildings, in listed areas):\n\n- A tenancy must be by a written agreement (Karnataka Rent Act, 1999, s. 4).\n- A tenant who pays rent, other charges or an advance is entitled to a signed written receipt from the landlord\n  (Karnataka Rent Act, 1999, s. 16(2)).\n- If the landlord refuses to accept rent, the tenant may deposit it with the Controller (Karnataka Rent Act, 1999,\n  s. 17).\n- If a tenant paid any sum to the landlord in breach of the Act, the Controller may order the landlord to refund\n  it, or adjust it against rent, on an application made within one year of the payment (Karnataka Rent Act, 1999,\n  s. 15).\n- Controllers are officers appointed by the State Government to decide these matters (Karnataka Rent Act, 1999,\n  s. 23).\n\nWhether the Act applies to a particular home turns on its rent, age and location; a lawyer or the DLSA can confirm.",
+     "category": "deposit",
+     "kind": "guide",
+     "jurisdiction": "karnataka",
+     "cites": [
+      {
+       "doc": "karnataka-rent-act-1999",
+       "section": "4"
+      },
+      {
+       "doc": "karnataka-rent-act-1999",
+       "section": "15"
+      },
+      {
+       "doc": "karnataka-rent-act-1999",
+       "section": "16"
+      },
+      {
+       "doc": "karnataka-rent-act-1999",
+       "section": "17"
+      },
+      {
+       "doc": "karnataka-rent-act-1999",
+       "section": "23"
+      }
+     ],
+     "sources": [
+      {
+       "doc": "karnataka-rent-act-1999",
+       "title": "Karnataka Rent Act, 1999",
+       "url": "https://www.indiacode.nic.in/handle/123456789/7810"
+      }
+     ],
+     "path": "kb/deposit/rent-act-tenants.md",
+     "verified_on": "2026-11-21",
+     "dense_score": 0.24120302498340607
+    }
+   ],
+   "cited": [
+    1,
+    3,
+    4
+   ],
+   "guard": {
+    "first_problems": [],
+    "regenerated": false,
+    "removed": false,
+    "problems": [],
+    "cited": [
+     1,
+     3,
+     4
+    ],
+    "uncited_sentences": [
+     "**Compare the list with your rental agreement** (the clause on deposit, notice period, painting/repairs).",
+     "If you have the rental agreement, deposit receipt, move-out notice or photos, keep them ready for your demand.*"
+    ],
+    "refs": []
+   },
+   "retrieval": {
+    "query": "landlord deducting amount from security deposit for painting and deep cleaning after tenant vacates",
+    "mode": "primary",
+    "top_score": 0.0836,
+    "floor": 0.035,
+    "seconds": 4.41,
+    "error": ""
+   },
+   "trace": [
+    "analysis: category=deposit intent=story language=English emergency=False query='landlord deducting amount from security deposit for painting and deep cleaning after tenant vacates'",
+    "case category: None -> deposit",
+    "retrieval: primary top=0.0836 floor=0.035 ids=['deposit-deductions', 'deposit-evidence', 'deposit-overview', 'deposit-steps', 'deposit-rent-act-tenants']",
+    "guard: all legal references traced",
+    "guard: 2 sentence(s) without a citation (warning only)"
+   ],
+   "usage": {
+    "input_tokens": 3443,
+    "output_tokens": 897,
+    "llm_calls": 2,
+    "llm_s": 26.65,
+    "retrieval_s": 4.41
+   },
+   "latency_s": 31.09,
+   "draft": {}
+  }
+ ]
+}

@@ -1,0 +1,73 @@
+{
+ "case": {
+  "id": "trap-02-section-420",
+  "group": "trap",
+  "lang": "en",
+  "turns": [
+   "Can I file a cheating case under Section 420 IPC against my landlord for not returning my deposit?"
+  ],
+  "expect": {
+   "kinds": [
+    [
+     "escalate",
+     "advice"
+    ]
+   ]
+  }
+ },
+ "backend": "groq",
+ "model": "openai/gpt-oss-120b",
+ "at": "2026-11-21T02:58:44+00:00",
+ "attempts": 1,
+ "seconds": 11.3,
+ "case_file": {
+  "category": null,
+  "facts": {},
+  "timeline": [],
+  "evidence_have": [],
+  "evidence_missing": [],
+  "other_party": null,
+  "user_goal": null,
+  "state": null,
+  "summary": "",
+  "parties": {}
+ },
+ "checks": [
+  {
+   "name": "completed",
+   "passed": true,
+   "detail": ""
+  },
+  {
+   "name": "kinds",
+   "passed": true,
+   "detail": ""
+  }
+ ],
+ "passed": true,
+ "replies": [
+  {
+   "kind": "escalate",
+   "text": "I'm sorry, this (criminal case against landlord) is outside what LawBuddy covers, so I won't give legal information on it: I would risk getting it wrong.\n\n**Where to get help:**\n- The **District Legal Services Authority (DLSA)** at your district court. Women, children, SC/ST members, industrial workers and people below an income limit can get a lawyer free of cost.\n- NALSA legal aid helpline: **15100** (toll-free)\n\nLawBuddy helps with three problems in Karnataka: a landlord not returning your deposit, a refund for a product or service, and unpaid salary.",
+   "language": "English",
+   "category": null,
+   "passages": [],
+   "cited": [],
+   "guard": {},
+   "retrieval": {},
+   "trace": [
+    "analysis: category=out_of_scope intent=question language=English emergency=False query=''",
+    "out of scope: criminal case against landlord"
+   ],
+   "usage": {
+    "input_tokens": 1249,
+    "output_tokens": 207,
+    "llm_calls": 1,
+    "llm_s": 10.32,
+    "retrieval_s": 0.0
+   },
+   "latency_s": 10.32,
+   "draft": {}
+  }
+ ]
+}

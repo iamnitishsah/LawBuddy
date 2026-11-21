@@ -1,0 +1,323 @@
+{
+ "case": {
+  "id": "con-02-where-to-file",
+  "group": "consumer",
+  "lang": "en",
+  "turns": [
+   "The company is based in Mumbai but I live in Hubballi. Where can I file a consumer complaint about a faulty washing machine I bought for Rs 30,000?"
+  ],
+  "expect": {
+   "kinds": [
+    "advice"
+   ],
+   "category": "consumer",
+   "script": "latin",
+   "must_cite": [
+    "consumer-commission-complaint",
+    "statute-cpa-34-69"
+   ]
+  }
+ },
+ "backend": "groq",
+ "model": "openai/gpt-oss-120b",
+ "at": "2026-11-21T02:27:08+00:00",
+ "attempts": 1,
+ "seconds": 29.4,
+ "case_file": {
+  "category": "consumer",
+  "facts": {
+   "product_or_service": "washing machine",
+   "seller": "company based in Mumbai",
+   "amount_paid": "30000",
+   "purchase_date": null,
+   "problem": "faulty",
+   "complaint_made": null
+  },
+  "timeline": [],
+  "evidence_have": [],
+  "evidence_missing": [],
+  "other_party": null,
+  "user_goal": "file consumer complaint",
+  "state": "Karnataka",
+  "summary": "User bought a Rs 30,000 washing machine that is faulty and wants to know where to file a consumer complaint. The seller is a company based in Mumbai, and the user resides in Hubballi, Karnataka.",
+  "parties": {}
+ },
+ "checks": [
+  {
+   "name": "completed",
+   "passed": true,
+   "detail": ""
+  },
+  {
+   "name": "kinds",
+   "passed": true,
+   "detail": ""
+  },
+  {
+   "name": "category",
+   "passed": true,
+   "detail": "got consumer"
+  },
+  {
+   "name": "grounded",
+   "passed": true,
+   "detail": ""
+  },
+  {
+   "name": "cited",
+   "passed": true,
+   "detail": ""
+  },
+  {
+   "name": "must_cite",
+   "passed": true,
+   "detail": "cited ['consumer-commission-complaint', 'statute-cpa-34-69']"
+  },
+  {
+   "name": "script",
+   "passed": true,
+   "detail": ""
+  }
+ ],
+ "passed": true,
+ "replies": [
+  {
+   "kind": "advice",
+   "text": "**Where you stand**  \nThe value of your washing-machine (₹30,000) is well below ₹50 lakh, so the appropriate forum is the District Consumer Commission [1][3]. You may file the complaint in the district where you live (Hubballi), even though the seller is based in Mumbai, because a consumer can sue where the cause of action arose or where the complainant resides [1][2]. A complaint must be lodged within two years from the date the defect became apparent [2].\n\n**What you can do**  \n1. **Try the seller first** - inform them of the defect and ask for repair, replacement or refund (the Act protects you for defective goods) [4].  \n2. **If the seller does not resolve it**, file a complaint with the Hubballi District Consumer Commission. You do not need a lawyer; you can file yourself [1].  \n3. The filing can be done electronically through the e-Jagriti portal (e-jagriti.gov.in) and you will have to pay the prescribed fee based on your claim amount [1].\n\n**Next step**  \nPrepare the purchase invoice/receipt and any communication with the seller (keep them if you have them) [4]. Then, within the next two years, submit an online complaint on e-Jagriti, selecting the Hubballi District Consumer Commission and paying the required fee [1][2]. This is the simplest and cheapest way to start your consumer redressal.\n\nIf you like, I can draft a legal notice for you to send - just say \"draft the notice\".\n\n*LawBuddy gives legal information, not legal advice.*",
+   "language": "English",
+   "category": "consumer",
+   "passages": [
+    {
+     "chunk_id": "consumer-commission-complaint",
+     "score": 0.07902529102406224,
+     "header": "Filing a complaint with the District Consumer Commission | consumer | guide",
+     "title": "Filing a complaint with the District Consumer Commission",
+     "text": "**Which Commission.** It depends on the value of the goods or services you paid for: up to Rs. 50 lakh goes to the\nDistrict Commission; above Rs. 50 lakh and up to Rs. 2 crore to the State Commission; above Rs. 2 crore to the\nNational Commission (Consumer Protection (Jurisdiction) Rules, 2021, rr. 3 to 5). Most everyday complaints go to the\nDistrict Commission.\n\n**Which district.** You can file where the opposite party lives or does business or has a branch, where the cause of\naction arose, or **where you live or work** (Consumer Protection Act, 2019, s. 34(2)). So you can usually file in\nyour own district, even against a company based elsewhere.\n\n**Who can file.** The consumer, a recognised consumer association, or several consumers with the same interest\ntogether, with the Commission's permission (Consumer Protection Act, 2019, s. 35(1)).\n\n**How.** A complaint may be filed electronically (Consumer Protection Act, 2019, s. 35(1), proviso), through the\ne-Jagriti portal (e-jagriti.gov.in). It must be accompanied by the prescribed fee (s. 35(2)); check the current fee\non e-Jagriti for your claim amount.\n\nYou do not need a lawyer to file; you can present your own case.",
+     "category": "consumer",
+     "kind": "guide",
+     "jurisdiction": "central",
+     "cites": [
+      {
+       "doc": "cpa-2019",
+       "section": "34"
+      },
+      {
+       "doc": "cpa-2019",
+       "section": "35"
+      },
+      {
+       "doc": "cp-jurisdiction-rules-2021",
+       "section": "3"
+      },
+      {
+       "doc": "cp-jurisdiction-rules-2021",
+       "section": "4"
+      },
+      {
+       "doc": "cp-jurisdiction-rules-2021",
+       "section": "5"
+      }
+     ],
+     "sources": [
+      {
+       "doc": "cpa-2019",
+       "title": "Consumer Protection Act, 2019",
+       "url": "https://prsindia.org/files/bills_acts/bills_parliament/2021/Consumer%20Protection%20Act%202019.pdf"
+      },
+      {
+       "doc": "cp-jurisdiction-rules-2021",
+       "title": "Consumer Protection (Jurisdiction of the District Commission, the State Commission and the National Commission) Rules, 2021",
+       "url": "https://www.thc.nic.in/Central%20Governmental%20Rules/Consumer%20Protection%20(Jurisdiction%20of%20the%20District%20Commission,%20the%20State%20Commission%20and%20the%20National%20Commission)%20Rules,%202021.pdf"
+      }
+     ],
+     "path": "kb/consumer/commission-complaint.md",
+     "verified_on": "2026-11-21",
+     "dense_score": 0.5054099559783936
+    },
+    {
+     "chunk_id": "statute-cpa-34-69",
+     "score": 0.05936063709219957,
+     "header": "Consumer Protection Act, 2019, sections 34(2), 35(1) proviso and 69 (text) | consumer | statute",
+     "title": "Consumer Protection Act, 2019, sections 34(2), 35(1) proviso and 69 (text)",
+     "text": "**Section 34(2).** A complaint shall be instituted in a District Commission within the local limits of whose\njurisdiction,\n(a) the opposite party or each of the opposite parties, where there are more than one, at the time of the\ninstitution of the complaint, ordinarily resides or carries on business or has a branch office or personally works\nfor gain; or\n(b) any of the opposite parties, where there are more than one, at the time of the institution of the complaint,\nactually and voluntarily resides, or carries on business or has a branch office, or personally works for gain,\nprovided that in such case the permission of the District Commission is given; or\n(c) the cause of action, wholly or in part, arises; or\n(d) the complainant resides or personally works for gain.\n\n**Section 35(1), proviso.** Provided that the complaint under this sub-section may be filed electronically in such\nmanner as may be prescribed.\n\n**Section 69.** (1) The District Commission, the State Commission or the National Commission shall not admit a\ncomplaint unless it is filed within two years from the date on which the cause of action has arisen.\n(2) Notwithstanding anything contained in sub-section (1), a complaint may be entertained after the period specified\nin sub-section (1), if the complainant satisfies the District Commission, the State Commission or the National\nCommission, as the case may be, that he had sufficient cause for not filing the complaint within such period:\nProvided that no such complaint shall be entertained unless the District Commission or the State Commission or the\nNational Commission, as the case may be, records its reasons for condoning such delay.",
+     "category": "consumer",
+     "kind": "statute",
+     "jurisdiction": "central",
+     "cites": [
+      {
+       "doc": "cpa-2019",
+       "section": "34"
+      },
+      {
+       "doc": "cpa-2019",
+       "section": "35"
+      },
+      {
+       "doc": "cpa-2019",
+       "section": "69"
+      }
+     ],
+     "sources": [
+      {
+       "doc": "cpa-2019",
+       "title": "Consumer Protection Act, 2019",
+       "url": "https://prsindia.org/files/bills_acts/bills_parliament/2021/Consumer%20Protection%20Act%202019.pdf"
+      }
+     ],
+     "path": "kb/consumer/statute-cpa-34-69.md",
+     "verified_on": "2026-11-21",
+     "dense_score": 0.4346868395805359
+    },
+    {
+     "chunk_id": "statute-cp-jurisdiction-rules",
+     "score": 0.05409303667996632,
+     "header": "Consumer Protection (Jurisdiction) Rules, 2021, rules 3 to 5 (text) | consumer | statute",
+     "title": "Consumer Protection (Jurisdiction) Rules, 2021, rules 3 to 5 (text)",
+     "text": "**3. Jurisdiction of District Commission.** Subject to the other provisions of the Act and in pursuance of proviso to\nsub-section (1) of section 34 of the Act, the District Commission shall have jurisdiction to entertain complaints\nwhere the value of the goods or services paid as consideration does not exceed fifty lakh rupees.\n\n**4. Jurisdiction of State Commission.** ... the State Commission shall have jurisdiction to entertain complaints\nwhere the value of the goods or services paid as consideration exceeds fifty lakh but does not exceed two crore\nrupees.\n\n**5. Jurisdiction of National Commission.** ... the National Commission shall have jurisdiction to entertain\ncomplaints where the value of the goods or services paid as consideration, exceeds two crore rupees.",
+     "category": "consumer",
+     "kind": "statute",
+     "jurisdiction": "central",
+     "cites": [
+      {
+       "doc": "cp-jurisdiction-rules-2021",
+       "section": "3"
+      },
+      {
+       "doc": "cp-jurisdiction-rules-2021",
+       "section": "4"
+      },
+      {
+       "doc": "cp-jurisdiction-rules-2021",
+       "section": "5"
+      }
+     ],
+     "sources": [
+      {
+       "doc": "cp-jurisdiction-rules-2021",
+       "title": "Consumer Protection (Jurisdiction of the District Commission, the State Commission and the National Commission) Rules, 2021",
+       "url": "https://www.thc.nic.in/Central%20Governmental%20Rules/Consumer%20Protection%20(Jurisdiction%20of%20the%20District%20Commission,%20the%20State%20Commission%20and%20the%20National%20Commission)%20Rules,%202021.pdf"
+      }
+     ],
+     "path": "kb/consumer/statute-jurisdiction-rules.md",
+     "verified_on": "2026-11-21",
+     "dense_score": 0.31735897064208984
+    },
+    {
+     "chunk_id": "consumer-overview",
+     "score": 0.05253914193651375,
+     "header": "Refund, replacement or compensation for a bad product or service | consumer | guide",
+     "title": "Refund, replacement or compensation for a bad product or service",
+     "text": "If you paid for goods or a service and got something defective, deficient, not as promised, or no refund that was\ndue, the Consumer Protection Act, 2019 protects you. It applies to purchases made online or offline, including by\nteleshopping and direct selling (Consumer Protection Act, 2019, s. 2(7), Explanation (b)).\n\nYou can complain about (Consumer Protection Act, 2019, s. 2(6)):\n- goods with a defect: a fault or shortcoming in quality, quantity, purity or standard (s. 2(10));\n- a service with a deficiency: a shortcoming in quality or manner of performance, including negligence or\n  deliberately withholding relevant information (s. 2(11));\n- an unfair trade practice, or being charged more than the displayed, fixed or agreed price.\n\nIf the complaint is proved, a Consumer Commission can order the trader to remove the defect, replace the goods,\nreturn the price with interest, pay compensation for loss or injury, pay punitive damages, and pay your costs\n(Consumer Protection Act, 2019, s. 39(1)).\n\nUsual path: complain to the seller (and the platform's grievance officer) → National Consumer Helpline 1915 →\ncomplaint to the District Consumer Commission, which can be filed online on e-Jagriti.",
+     "category": "consumer",
+     "kind": "guide",
+     "jurisdiction": "central",
+     "cites": [
+      {
+       "doc": "cpa-2019",
+       "section": "2"
+      },
+      {
+       "doc": "cpa-2019",
+       "section": "39"
+      }
+     ],
+     "sources": [
+      {
+       "doc": "cpa-2019",
+       "title": "Consumer Protection Act, 2019",
+       "url": "https://prsindia.org/files/bills_acts/bills_parliament/2021/Consumer%20Protection%20Act%202019.pdf"
+      }
+     ],
+     "path": "kb/consumer/overview.md",
+     "verified_on": "2026-11-21",
+     "dense_score": 0.4232630729675293
+    },
+    {
+     "chunk_id": "consumer-after-filing",
+     "score": 0.050722076633057736,
+     "header": "What happens after you file a consumer complaint | consumer | guide",
+     "title": "What happens after you file a consumer complaint",
+     "text": "- **Admission.** The District Commission should ordinarily decide within 21 days whether to admit the complaint. It\n  cannot reject it without hearing you, and if it does not decide in time, the complaint is treated as admitted\n  (Consumer Protection Act, 2019, s. 36(2) and (3)).\n- **Mediation.** If a settlement looks possible, the Commission may ask both sides to agree in writing, within five\n  days, to mediation (Consumer Protection Act, 2019, s. 37(1)).\n- **Order.** If your complaint is proved, the Commission orders relief such as replacement, refund with interest,\n  compensation and costs.\n- **Appeal.** Either side can appeal a District Commission order to the State Commission within 45 days of the order\n  (Consumer Protection Act, 2019, s. 41).\n- **If the trader ignores the order.** Not complying with a Commission's order is punishable with imprisonment from\n  one month up to three years, or a fine from Rs. 25,000 up to Rs. 1 lakh, or both (Consumer Protection Act, 2019,\n  s. 72(1)).",
+     "category": "consumer",
+     "kind": "guide",
+     "jurisdiction": "central",
+     "cites": [
+      {
+       "doc": "cpa-2019",
+       "section": "36"
+      },
+      {
+       "doc": "cpa-2019",
+       "section": "37"
+      },
+      {
+       "doc": "cpa-2019",
+       "section": "41"
+      },
+      {
+       "doc": "cpa-2019",
+       "section": "72"
+      }
+     ],
+     "sources": [
+      {
+       "doc": "cpa-2019",
+       "title": "Consumer Protection Act, 2019",
+       "url": "https://prsindia.org/files/bills_acts/bills_parliament/2021/Consumer%20Protection%20Act%202019.pdf"
+      }
+     ],
+     "path": "kb/consumer/after-filing.md",
+     "verified_on": "2026-11-21",
+     "dense_score": 0.3620554208755493
+    }
+   ],
+   "cited": [
+    1,
+    2,
+    3,
+    4
+   ],
+   "guard": {
+    "first_problems": [],
+    "regenerated": false,
+    "removed": false,
+    "problems": [],
+    "cited": [
+     1,
+     2,
+     3,
+     4
+    ],
+    "uncited_sentences": [
+     "This is the simplest and cheapest way to start your consumer redressal."
+    ],
+    "refs": []
+   },
+   "retrieval": {
+    "query": "filing consumer complaint for faulty washing machine purchased in Karnataka against Mumbai based company",
+    "mode": "primary",
+    "top_score": 0.079,
+    "floor": 0.035,
+    "seconds": 0.92,
+    "error": ""
+   },
+   "trace": [
+    "analysis: category=consumer intent=question language=English emergency=False query='filing consumer complaint for faulty washing machine purchased in Karnataka against Mumbai based company'",
+    "case category: None -> consumer",
+    "advising without ['purchase_date'] (question)",
+    "retrieval: primary top=0.079 floor=0.035 ids=['consumer-commission-complaint', 'statute-cpa-34-69', 'statute-cp-jurisdiction-rules', 'consumer-overview', 'consumer-after-filing']",
+    "guard: all legal references traced",
+    "guard: 1 sentence(s) without a citation (warning only)"
+   ],
+   "usage": {
+    "input_tokens": 3419,
+    "output_tokens": 730,
+    "llm_calls": 2,
+    "llm_s": 27.47,
+    "retrieval_s": 0.92
+   },
+   "latency_s": 28.41,
+   "draft": {}
+  }
+ ]
+}

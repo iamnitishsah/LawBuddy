@@ -1,0 +1,302 @@
+{
+ "case": {
+  "id": "sal-02-still-employed",
+  "group": "salary",
+  "lang": "en",
+  "turns": [
+   "I still work at a garment factory in Mysuru called Sri Lakshmi Garments. They have not paid my October salary of Rs 14,000 yet. When should they have paid it?"
+  ],
+  "expect": {
+   "kinds": [
+    "advice"
+   ],
+   "category": "salary",
+   "script": "latin",
+   "must_cite": [
+    "salary-overview",
+    "statute-wages-17"
+   ],
+   "mention_any": [
+    "7th",
+    "seventh"
+   ]
+  }
+ },
+ "backend": "groq",
+ "model": "openai/gpt-oss-120b",
+ "at": "2026-11-21T02:58:44+00:00",
+ "attempts": 1,
+ "seconds": 33.2,
+ "case_file": {
+  "category": "salary",
+  "facts": {
+   "employer": "Sri Lakshmi Garments",
+   "monthly_salary": null,
+   "unpaid_period": "October salary",
+   "employment_status": "still employed",
+   "city": "Mysuru",
+   "proof_of_employment": null
+  },
+  "timeline": [],
+  "evidence_have": [],
+  "evidence_missing": [],
+  "other_party": "Sri Lakshmi Garments",
+  "user_goal": "know when salary should be paid",
+  "state": "Karnataka",
+  "summary": "The user works at Sri Lakshmi Garments in Mysuru and has not received the October salary of Rs 14,000. They ask when the salary should have been paid.",
+  "parties": {}
+ },
+ "checks": [
+  {
+   "name": "completed",
+   "passed": true,
+   "detail": ""
+  },
+  {
+   "name": "kinds",
+   "passed": true,
+   "detail": ""
+  },
+  {
+   "name": "category",
+   "passed": true,
+   "detail": "got salary"
+  },
+  {
+   "name": "grounded",
+   "passed": true,
+   "detail": ""
+  },
+  {
+   "name": "cited",
+   "passed": true,
+   "detail": ""
+  },
+  {
+   "name": "must_cite",
+   "passed": true,
+   "detail": "cited ['salary-overview']"
+  },
+  {
+   "name": "script",
+   "passed": true,
+   "detail": ""
+  },
+  {
+   "name": "mention_any",
+   "passed": true,
+   "detail": "found ['seventh']"
+  }
+ ],
+ "passed": true,
+ "replies": [
+  {
+   "kind": "advice",
+   "text": "**Where you stand**  \nYour October salary should have been paid **before the seventh day of the next month** (i.e., by 7 November) because you are paid monthly under the Code on Wages, 2019 [s. 17(1)][1].  \n\n**What you can do**  \n1. Send a **written demand** (email or letter) to the factory’s HR/owner, listing the unpaid October amount and asking for payment by a reasonable date (e.g., within a week).  \n2. If there is no response, you may issue a **legal notice** stating the legal deadline for payment and warning of a wage claim.  \n3. File a **wage claim** with the authority appointed under the Code on Wages (the Labour Department will tell you which officer handles Mysuru). The claim must be made **within three years** from when the wage became due[3][4]. The authority can order payment of the due amount plus compensation (up to ten times the claim).  \n\n**Next step**  \nSend a written demand to your employer today, asking that the October salary of Rs 14,000 be paid **by 7 November** (the legal deadline) or, at the latest, within a few days of your notice. Keep any proof of employment you have (offer letter, payslips, bank statements) as it will be needed if you later file a claim[5]. If the employer does not pay, consider the legal notice and wage claim within the three-year limitation period.\n\nIf you like, I can draft a legal notice for you to send - just say \"draft the notice\".\n\n*LawBuddy gives legal information, not legal advice.*",
+   "language": "English",
+   "category": "salary",
+   "passages": [
+    {
+     "chunk_id": "salary-overview",
+     "score": 0.14415217681167222,
+     "header": "Unpaid salary or final dues: your rights | salary | guide",
+     "title": "Unpaid salary or final dues: your rights",
+     "text": "Wages are governed by the Code on Wages, 2019, which replaced the Payment of Wages Act, 1936, the Minimum Wages Act,\n1948, the Payment of Bonus Act, 1965 and the Equal Remuneration Act, 1976 (Code on Wages, 2019, s. 69).\n\n\"Employee\" under the Code covers anyone employed on wages by an establishment to do skilled, semi-skilled, unskilled,\nmanual, operational, supervisory, managerial, administrative, technical or clerical work, except apprentices and\nmembers of the Armed Forces (Code on Wages, 2019, s. 2(k)).\n\n**When wages must be paid** (Code on Wages, 2019, s. 17(1)):\n- daily workers: at the end of the shift;\n- weekly: on the last working day of the week;\n- fortnightly: before the end of the second day after the fortnight ends;\n- **monthly: before the seventh day of the next month ends.**\n\n**When you leave.** If you resign, or are removed, dismissed or retrenched, or the establishment closes, the wages due\nto you must be paid **within two working days** (Code on Wages, 2019, s. 17(2)).\n\nThe government may set other time limits in some circumstances (s. 17(3)). Karnataka's own rules under the Code were\nstill in draft when LawBuddy's sources were collected, so check with the Karnataka Labour Department for procedure.",
+     "category": "salary",
+     "kind": "guide",
+     "jurisdiction": "central",
+     "cites": [
+      {
+       "doc": "code-on-wages-2019",
+       "section": "2"
+      },
+      {
+       "doc": "code-on-wages-2019",
+       "section": "17"
+      },
+      {
+       "doc": "code-on-wages-2019",
+       "section": "69"
+      }
+     ],
+     "sources": [
+      {
+       "doc": "code-on-wages-2019",
+       "title": "Code on Wages, 2019",
+       "url": "https://www.indiacode.nic.in/bitstream/123456789/15793/1/aA2019-29.pdf"
+      }
+     ],
+     "path": "kb/salary/overview.md",
+     "verified_on": "2026-11-21",
+     "dense_score": 0.5773550868034363
+    },
+    {
+     "chunk_id": "statute-wages-17",
+     "score": 0.08073628274091606,
+     "header": "Code on Wages, 2019, section 17 (text) | salary | statute",
+     "title": "Code on Wages, 2019, section 17 (text)",
+     "text": "**17. Time limit for payment of wages.** (1) The employer shall pay or cause to be paid wages to the employees,\nengaged on,\n(i) daily basis, at the end of the shift;\n(ii) weekly basis, on the last working day of the week, that is to say, before the weekly holiday;\n(iii) fortnightly basis, before the end of the second day after the end of the fortnight;\n(iv) monthly basis, before the expiry of the seventh day of the succeeding month.\n(2) Where an employee has been, (i) removed or dismissed from service; or (ii) retrenched or has resigned from\nservice, or became unemployed due to closure of the establishment, the wages payable to him shall be paid within two\nworking days of his removal, dismissal, retrenchment or, as the case may be, his resignation.\n(3) Notwithstanding anything contained in sub-section (1) or sub-section (2), the appropriate Government may,\nprovide any other time limit for payment of wages where it considers reasonable having regard to the circumstances\nunder which the wages are to be paid.\n(4) Nothing contained in sub-section (1) or sub-section (2) shall affect any time limit for payment of wages provided\nin any other law for the time being in force.",
+     "category": "salary",
+     "kind": "statute",
+     "jurisdiction": "central",
+     "cites": [
+      {
+       "doc": "code-on-wages-2019",
+       "section": "17"
+      }
+     ],
+     "sources": [
+      {
+       "doc": "code-on-wages-2019",
+       "title": "Code on Wages, 2019",
+       "url": "https://www.indiacode.nic.in/bitstream/123456789/15793/1/aA2019-29.pdf"
+      }
+     ],
+     "path": "kb/salary/statute-wages-17.md",
+     "verified_on": "2026-11-21",
+     "dense_score": 0.5362210273742676
+    },
+    {
+     "chunk_id": "salary-steps",
+     "score": 0.06487381222396699,
+     "header": "Steps to recover unpaid salary | salary | guide",
+     "title": "Steps to recover unpaid salary",
+     "text": "1. **Written demand** to HR or the owner by email, listing the unpaid months and amounts and a date to pay by.\n2. **Legal notice** if there is no payment: facts, amounts, the legal deadline for payment, and a warning that you\n   will file a claim. LawBuddy can draft one for you to review and sign.\n3. **Wage claim** before the authority appointed under the Code on Wages (ask the Karnataka Labour Department which\n   officer hears claims for your area), within three years (Code on Wages, 2019, s. 45(6)). This is usually faster and cheaper than court, and can award compensation\n   of up to ten times the claim (s. 45(2)).\n4. **Civil suit** as an alternative: a suit for wages must be filed within three years from when the wages became\n   due (Limitation Act, 1963, Schedule, Article 7). Talk to a lawyer or the DLSA before choosing this route.\n\nFree help: industrial workmen are among those entitled to free legal services (see \"Free legal aid\").",
+     "category": "salary",
+     "kind": "guide",
+     "jurisdiction": "central",
+     "cites": [
+      {
+       "doc": "code-on-wages-2019",
+       "section": "45"
+      },
+      {
+       "doc": "limitation-act-1963",
+       "section": "Article 7"
+      }
+     ],
+     "sources": [
+      {
+       "doc": "code-on-wages-2019",
+       "title": "Code on Wages, 2019",
+       "url": "https://www.indiacode.nic.in/bitstream/123456789/15793/1/aA2019-29.pdf"
+      },
+      {
+       "doc": "limitation-act-1963",
+       "title": "Limitation Act, 1963",
+       "url": "https://www.indiacode.nic.in"
+      }
+     ],
+     "path": "kb/salary/steps.md",
+     "verified_on": "2026-11-21",
+     "dense_score": 0.4259941875934601
+    },
+    {
+     "chunk_id": "salary-claim",
+     "score": 0.061862064582938095,
+     "header": "Filing a wage claim under the Code on Wages | salary | guide",
+     "title": "Filing a wage claim under the Code on Wages",
+     "text": "The government appoints authorities (officers not below the rank of Gazetted Officer) to hear and decide claims under\nthe Code (Code on Wages, 2019, s. 45(1)). In Karnataka, ask the Labour Department which officer hears these\nclaims for your area.\n\n- **Who can file:** you, a registered trade union you belong to, or an Inspector-cum-Facilitator. One application\n  can cover many employees of the same establishment (s. 45(4) and (5)).\n- **Time limit:** within **three years** from when the claim arises; a later application may be accepted if you show\n  sufficient cause (s. 45(6)).\n- **What you can get:** the amount due, plus compensation of up to **ten times** the claim, depending on the\n  circumstances. The authority should try to decide within three months (s. 45(2)).\n- **If the employer still does not pay:** the authority sends a recovery certificate to the Collector or District\n  Magistrate, who recovers it as arrears of land revenue (s. 45(3)).\n- **Who is responsible:** the employer; if the employer fails, the company, firm or proprietor of the establishment\n  (s. 43).\n- **Appeal:** either side may appeal the authority's order within 90 days (s. 49(1)).",
+     "category": "salary",
+     "kind": "guide",
+     "jurisdiction": "central",
+     "cites": [
+      {
+       "doc": "code-on-wages-2019",
+       "section": "43"
+      },
+      {
+       "doc": "code-on-wages-2019",
+       "section": "45"
+      },
+      {
+       "doc": "code-on-wages-2019",
+       "section": "49"
+      }
+     ],
+     "sources": [
+      {
+       "doc": "code-on-wages-2019",
+       "title": "Code on Wages, 2019",
+       "url": "https://www.indiacode.nic.in/bitstream/123456789/15793/1/aA2019-29.pdf"
+      }
+     ],
+     "path": "kb/salary/claim.md",
+     "verified_on": "2026-11-21",
+     "dense_score": 0.3794417381286621
+    },
+    {
+     "chunk_id": "general-when-lawyer",
+     "score": 0.04938227364146403,
+     "header": "When you need a real lawyer, and what LawBuddy does not cover | general | practice",
+     "title": "When you need a real lawyer, and what LawBuddy does not cover",
+     "text": "LawBuddy covers three everyday problems in Karnataka: a security deposit not returned, a consumer refund or defect,\nand unpaid salary or final dues. It gives legal information, not legal advice.\n\n**Talk to a lawyer or your District Legal Services Authority (free if you qualify) when:**\n- you have received a court summons, a court notice or a legal notice with a deadline;\n- the other side has already filed a case against you, or a case is pending;\n- the amount is large, or the matter involves property ownership, title or eviction proceedings;\n- the employer has closed down, become insolvent, or you are a government employee with service rules;\n- you are unsure which court or authority to approach, or a time limit may have passed.\n\n**Not covered by LawBuddy:** criminal matters, police complaints and FIRs, arrest or bail, family matters (divorce,\ncustody, maintenance), property title disputes, cheque bounce cases, tax, immigration, and law outside Karnataka's\ncentral and state laws listed in its sources. LawBuddy says so and points to a lawyer or the DLSA.\n\n**In an emergency** (violence, threats to safety, someone in danger), call **112** first.",
+     "category": "general",
+     "kind": "practice",
+     "jurisdiction": "central",
+     "cites": [],
+     "sources": [],
+     "path": "kb/general/when-to-get-a-lawyer.md",
+     "verified_on": "2026-11-21",
+     "dense_score": 0.3243442177772522
+    }
+   ],
+   "cited": [
+    1,
+    3,
+    4,
+    5
+   ],
+   "guard": {
+    "first_problems": [],
+    "regenerated": false,
+    "removed": false,
+    "problems": [],
+    "cited": [
+     1,
+     3,
+     4,
+     5
+    ],
+    "uncited_sentences": [
+     "Send a **written demand** (email or letter) to the factory’s HR/owner, listing the unpaid October amount and asking for payment by a reasonable date (e.g., within a week).",
+     "If there is no response, you may issue a **legal notice** stating the legal deadline for payment and warning of a wage claim.",
+     "The authority can order payment of the due amount plus compensation (up to ten times the claim).",
+     "If the employer does not pay, consider the legal notice and wage claim within the three-year limitation period."
+    ],
+    "refs": [
+     {
+      "kind": "section",
+      "text": "s. 17(1)",
+      "doc": "code-on-wages-2019",
+      "section": "17"
+     }
+    ]
+   },
+   "retrieval": {
+    "query": "when is salary due to be paid to employee in Karnataka",
+    "mode": "primary",
+    "top_score": 0.1442,
+    "floor": 0.035,
+    "seconds": 0.84,
+    "error": ""
+   },
+   "trace": [
+    "analysis: category=salary intent=question language=English emergency=False query='when is salary due to be paid to employee in Karnataka'",
+    "case category: None -> salary",
+    "retrieval: primary top=0.1442 floor=0.035 ids=['salary-overview', 'statute-wages-17', 'salary-steps', 'salary-claim', 'general-when-lawyer']",
+    "guard: all legal references traced",
+    "guard: 4 sentence(s) without a citation (warning only)"
+   ],
+   "usage": {
+    "input_tokens": 3576,
+    "output_tokens": 733,
+    "llm_calls": 2,
+    "llm_s": 31.28,
+    "retrieval_s": 0.84
+   },
+   "latency_s": 32.15,
+   "draft": {}
+  }
+ ]
+}

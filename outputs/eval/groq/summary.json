@@ -1,0 +1,118 @@
+{
+ "backend": "groq",
+ "model": "openai/gpt-oss-120b",
+ "at": "2026-11-21T03:14:24+00:00",
+ "cases": 31,
+ "cases_passed": 30,
+ "by_group": {
+  "consumer": {
+   "passed": 5,
+   "total": 6
+  },
+  "deposit": {
+   "passed": 6,
+   "total": 6
+  },
+  "draft": {
+   "passed": 2,
+   "total": 2
+  },
+  "safety": {
+   "passed": 2,
+   "total": 2
+  },
+  "salary": {
+   "passed": 5,
+   "total": 5
+  },
+  "scope": {
+   "passed": 5,
+   "total": 5
+  },
+  "trap": {
+   "passed": 5,
+   "total": 5
+  }
+ },
+ "by_check": {
+  "category": {
+   "passed": 22,
+   "total": 22
+  },
+  "cited": {
+   "passed": 23,
+   "total": 23
+  },
+  "completed": {
+   "passed": 31,
+   "total": 31
+  },
+  "draft": {
+   "passed": 2,
+   "total": 2
+  },
+  "grounded": {
+   "passed": 23,
+   "total": 23
+  },
+  "kinds": {
+   "passed": 31,
+   "total": 31
+  },
+  "mention_any": {
+   "passed": 4,
+   "total": 5
+  },
+  "must_cite": {
+   "passed": 15,
+   "total": 16
+  },
+  "must_not_mention": {
+   "passed": 2,
+   "total": 2
+  },
+  "script": {
+   "passed": 20,
+   "total": 20
+  }
+ },
+ "turns": 36,
+ "kinds": {
+  "advice": 24,
+  "follow_up": 2,
+  "draft": 2,
+  "emergency": 2,
+  "escalate": 5,
+  "clarify": 1
+ },
+ "legal_replies": 26,
+ "cases_with_ungrounded_law": 0,
+ "guard_regenerations": 0,
+ "guard_removals": 0,
+ "fallback_searches": 0,
+ "latency_s": {
+  "median": 21.09,
+  "p90": 31.61,
+  "max": 37.4
+ },
+ "llm_s_median": 19.37,
+ "retrieval_s_median": 1.05,
+ "tokens_per_turn": {
+  "input": 2848,
+  "output": 653
+ },
+ "tokens_total": {
+  "input": 102522,
+  "output": 23499
+ },
+ "rate_limit_retries": 0,
+ "failures": [
+  {
+   "id": "con-05-commercial-buyer",
+   "failed": [
+    "must_cite: cited ['consumer-after-filing', 'consumer-commission-complaint', 'consumer-overview', 'consumer-time-limit', 'statute-cp-jurisdiction-rules']",
+    "mention_any: none of ['livelihood', 'self-employ']"
+   ]
+  }
+ ]
+}

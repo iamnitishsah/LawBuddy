@@ -1,0 +1,301 @@
+{
+ "case": {
+  "id": "trap-01-deposit-cap",
+  "group": "trap",
+  "lang": "en",
+  "turns": [
+   "My landlord says the new Karnataka rent law caps deposits at 2 months, so he will keep the rest of my 6-month deposit. Is that right?"
+  ],
+  "expect": {
+   "kinds": [
+    "advice"
+   ],
+   "category": "deposit",
+   "script": "latin",
+   "must_cite": [
+    "deposit-no-cap"
+   ]
+  }
+ },
+ "backend": "groq",
+ "model": "openai/gpt-oss-120b",
+ "at": "2026-11-21T02:58:44+00:00",
+ "attempts": 1,
+ "seconds": 30.3,
+ "case_file": {
+  "category": "deposit",
+  "facts": {
+   "deposit_amount": null,
+   "move_out_date": null,
+   "written_agreement": null,
+   "city": null,
+   "landlord_reason": "new Karnataka rent law caps deposits at 2 months",
+   "deposit_proof": null
+  },
+  "timeline": [],
+  "evidence_have": [],
+  "evidence_missing": [],
+  "other_party": "landlord",
+  "user_goal": "know if landlord can retain excess deposit",
+  "state": "Karnataka",
+  "summary": "The user paid a security deposit equivalent to six months' rent. The landlord claims that under the new Karnataka rent law, deposits are capped at two months and intends to keep the remaining amount. The user asks whether this is correct.",
+  "parties": {}
+ },
+ "checks": [
+  {
+   "name": "completed",
+   "passed": true,
+   "detail": ""
+  },
+  {
+   "name": "kinds",
+   "passed": true,
+   "detail": ""
+  },
+  {
+   "name": "category",
+   "passed": true,
+   "detail": "got deposit"
+  },
+  {
+   "name": "grounded",
+   "passed": true,
+   "detail": ""
+  },
+  {
+   "name": "cited",
+   "passed": true,
+   "detail": ""
+  },
+  {
+   "name": "must_cite",
+   "passed": true,
+   "detail": "cited ['deposit-no-cap']"
+  },
+  {
+   "name": "script",
+   "passed": true,
+   "detail": ""
+  }
+ ],
+ "passed": true,
+ "replies": [
+  {
+   "kind": "advice",
+   "text": "**Where you stand**  \nThere is no legal limit on the size of a security deposit for residential rentals in Karnataka; the Karnataka Rent Act, 1999 and its 2025 amendment do not set a two-month cap [1]. The amount you paid and when it must be returned are governed by the terms of your rental agreement [1].\n\n**What you can do**  \n1. Send the landlord a written request (email or message) asking for the excess amount to be returned, giving a reasonable deadline [2].  \n2. If the landlord does not comply, you may send a formal legal notice stating the facts, the amount owed, and a final deadline [2].  \n3. Should the dispute continue, you can try a settlement through a Lok Adalat organized by the District Legal Services Authority [2].  \n4. As a last resort, you may file a civil suit for recovery of the deposit [2].\n\n**Next step**  \nWrite a short email or message to the landlord asking for the return of the amount above two months’ rent, and set a clear date (e.g., within 10 days) for payment. Keep any receipt or proof of the deposit you have, as it will be needed if you later need to send a notice or pursue legal action. No specific statutory time-limit applies to this request, but acting promptly will strengthen your position.\n\nIf you like, I can draft a legal notice for you to send - just say \"draft the notice\".\n\n*LawBuddy gives legal information, not legal advice.*",
+   "language": "English",
+   "category": "deposit",
+   "passages": [
+    {
+     "chunk_id": "deposit-no-cap",
+     "score": 0.12887606874361957,
+     "header": "Is there a legal limit on the security deposit in Karnataka? | deposit | guide",
+     "title": "Is there a legal limit on the security deposit in Karnataka?",
+     "text": "LawBuddy's sources contain no legal limit on the size of a security deposit for homes in Karnataka.\n\nThe Karnataka Rent Act, 1999 does not set a maximum deposit. Where the Act talks about \"deposit\", it means a tenant\ndepositing rent with the Controller when the landlord refuses to accept it (Karnataka Rent Act, 1999, s. 17). The\nKarnataka Rent (Amendment) Act, 2025 changed the Controller's powers and the offences and penalties under the Act\n(for example, fines in place of imprisonment); it did not add a deposit limit (Karnataka Rent (Amendment) Act, 2025,\nss. 2 to 5).\n\nClaims online of a \"two-month deposit cap\" in Karnataka do not come from these laws. If someone relies on a deposit\ncap, ask them which law and section it comes from.\n\nSo the amount of the deposit, and when it must be returned, is whatever your rental agreement says.",
+     "category": "deposit",
+     "kind": "guide",
+     "jurisdiction": "karnataka",
+     "cites": [
+      {
+       "doc": "karnataka-rent-act-1999",
+       "section": "17"
+      },
+      {
+       "doc": "karnataka-rent-amendment-2025",
+       "section": "2"
+      }
+     ],
+     "sources": [
+      {
+       "doc": "karnataka-rent-act-1999",
+       "title": "Karnataka Rent Act, 1999",
+       "url": "https://www.indiacode.nic.in/handle/123456789/7810"
+      },
+      {
+       "doc": "karnataka-rent-amendment-2025",
+       "title": "Karnataka Rent (Amendment) Act, 2025",
+       "url": "https://kla.kar.nic.in/council/house/bills/157/02eng.pdf"
+      }
+     ],
+     "path": "kb/deposit/no-deposit-cap.md",
+     "verified_on": "2026-11-21",
+     "dense_score": 0.5814902782440186
+    },
+    {
+     "chunk_id": "deposit-overview",
+     "score": 0.07731275440903791,
+     "header": "Getting your security deposit back from a landlord in Karnataka | deposit | guide",
+     "title": "Getting your security deposit back from a landlord in Karnataka",
+     "text": "A security deposit is money you gave the landlord to hold, to be returned when you leave. Whether you get it back,\nand how much may be deducted, is decided mainly by your rental agreement.\n\nFor most rented homes in Karnataka today, a dispute over a deposit is a dispute about a contract. The Karnataka\nRent Act, 1999 does not apply to many homes: it excludes premises whose rent is above a low limit and buildings\nconstructed or substantially renovated in the last fifteen years (Karnataka Rent Act, 1999, s. 2(3)). When the\nlandlord keeps money the agreement says must be returned, that is a breach of contract, and the person who suffers\nfrom a breach can claim compensation for the loss it caused (Indian Contract Act, 1872, s. 73).\n\nThe usual path, from cheapest to most formal:\n1. Ask in writing (message or email) for the refund, with a date to pay by.\n2. Send a legal notice that sets out the facts, the amount and a deadline.\n3. Try settlement through a Lok Adalat via the District Legal Services Authority.\n4. File a civil suit to recover the money.",
+     "category": "deposit",
+     "kind": "guide",
+     "jurisdiction": "karnataka",
+     "cites": [
+      {
+       "doc": "contract-act-1872",
+       "section": "73"
+      },
+      {
+       "doc": "karnataka-rent-act-1999",
+       "section": "2"
+      }
+     ],
+     "sources": [
+      {
+       "doc": "contract-act-1872",
+       "title": "Indian Contract Act, 1872",
+       "url": "https://www.indiacode.nic.in"
+      },
+      {
+       "doc": "karnataka-rent-act-1999",
+       "title": "Karnataka Rent Act, 1999",
+       "url": "https://www.indiacode.nic.in/handle/123456789/7810"
+      }
+     ],
+     "path": "kb/deposit/overview.md",
+     "verified_on": "2026-11-21",
+     "dense_score": 0.4557627737522125
+    },
+    {
+     "chunk_id": "deposit-rent-act-tenants",
+     "score": 0.0706600121679556,
+     "header": "If the Karnataka Rent Act does apply to your home | deposit | guide",
+     "title": "If the Karnataka Rent Act does apply to your home",
+     "text": "For the smaller group of tenancies the Karnataka Rent Act, 1999 covers (low rent, older buildings, in listed areas):\n\n- A tenancy must be by a written agreement (Karnataka Rent Act, 1999, s. 4).\n- A tenant who pays rent, other charges or an advance is entitled to a signed written receipt from the landlord\n  (Karnataka Rent Act, 1999, s. 16(2)).\n- If the landlord refuses to accept rent, the tenant may deposit it with the Controller (Karnataka Rent Act, 1999,\n  s. 17).\n- If a tenant paid any sum to the landlord in breach of the Act, the Controller may order the landlord to refund\n  it, or adjust it against rent, on an application made within one year of the payment (Karnataka Rent Act, 1999,\n  s. 15).\n- Controllers are officers appointed by the State Government to decide these matters (Karnataka Rent Act, 1999,\n  s. 23).\n\nWhether the Act applies to a particular home turns on its rent, age and location; a lawyer or the DLSA can confirm.",
+     "category": "deposit",
+     "kind": "guide",
+     "jurisdiction": "karnataka",
+     "cites": [
+      {
+       "doc": "karnataka-rent-act-1999",
+       "section": "4"
+      },
+      {
+       "doc": "karnataka-rent-act-1999",
+       "section": "15"
+      },
+      {
+       "doc": "karnataka-rent-act-1999",
+       "section": "16"
+      },
+      {
+       "doc": "karnataka-rent-act-1999",
+       "section": "17"
+      },
+      {
+       "doc": "karnataka-rent-act-1999",
+       "section": "23"
+      }
+     ],
+     "sources": [
+      {
+       "doc": "karnataka-rent-act-1999",
+       "title": "Karnataka Rent Act, 1999",
+       "url": "https://www.indiacode.nic.in/handle/123456789/7810"
+      }
+     ],
+     "path": "kb/deposit/rent-act-tenants.md",
+     "verified_on": "2026-11-21",
+     "dense_score": 0.37601956725120544
+    },
+    {
+     "chunk_id": "deposit-rent-act-scope",
+     "score": 0.06482698000311665,
+     "header": "Does the Karnataka Rent Act apply to your rented home? | deposit | guide",
+     "title": "Does the Karnataka Rent Act apply to your rented home?",
+     "text": "The Karnataka Rent Act, 1999 regulates rent and eviction, but only for some premises. Its main rules (Chapters I to\nIII and V to VIII) apply in the areas listed in its First Schedule: Part A covers the cities constituted under the\nKarnataka Municipal Corporations Act, 1976 and a radius of three kilometres around them; Part B covers areas within\nCity Municipal Councils (Karnataka Rent Act, 1999, s. 2(1) and First Schedule).\n\nEven in those areas, the Act does not apply to (Karnataka Rent Act, 1999, s. 2(3)):\n- premises whose deemed rent or standard rent is above Rs. 3,500 a month in a Part A area, or above Rs. 2,000 a\n  month in any other area;\n- premises constructed or substantially renovated in the last fifteen years, counted from completion;\n- premises used for non-residential purposes, except small commercial premises of up to fourteen square metres;\n- premises of the Central or State Government, a local authority, a religious or charitable institution or a Wakf,\n  and buildings of co-operative societies.\n\nIn practice, most rented flats and houses in Bengaluru and other cities pay more than these limits, so the Act\nusually does not apply. The tenancy is then governed by the rental agreement and general contract law.",
+     "category": "deposit",
+     "kind": "guide",
+     "jurisdiction": "karnataka",
+     "cites": [
+      {
+       "doc": "karnataka-rent-act-1999",
+       "section": "2"
+      }
+     ],
+     "sources": [
+      {
+       "doc": "karnataka-rent-act-1999",
+       "title": "Karnataka Rent Act, 1999",
+       "url": "https://www.indiacode.nic.in/handle/123456789/7810"
+      }
+     ],
+     "path": "kb/deposit/rent-act-scope.md",
+     "verified_on": "2026-11-21",
+     "dense_score": 0.3625614047050476
+    },
+    {
+     "chunk_id": "statute-rent-act-2-3",
+     "score": 0.05829789020388308,
+     "header": "Karnataka Rent Act, 1999, section 2(3)(e) to (g) (text) | deposit | statute",
+     "title": "Karnataka Rent Act, 1999, section 2(3)(e) to (g) (text)",
+     "text": "**Section 2(3).** Nothing contained in this Act shall apply, ...\n\n(e) to any premises, deemed rent on the date of commencement of this Act or the standard rent of which exceeds,\n(i) three thousand five hundred rupees per month in any area referred to in part A of the first schedule; and\n(ii) two thousand rupees per month in any other area.\n\n(f) to any premises constructed or substantially renovated, either before or after the commencement of this Act for\na period of fifteen years from the date of completion of such construction or substantial renovation.\nExplanation-I. A premises may be said to be substantially renovated if not less than seventy-five percent of the\npremises is built new in accordance with the criteria prescribed for determining the extent of renovation.\n\n(g) to any premises used for non-residential purpose but excluding premises having a plinth area of not exceeding\nfourteen square meters used for commercial purpose.\n\n**First Schedule, Part A.** Areas within the limits of Cities constituted under the Karnataka Municipal Corporation\nAct 1976 and within a radius of three kilometres from the limit of the said cities. **Part B.** Areas within the\nlimits of the City Municipal Councils constituted under Karnataka Municipalities Act 1964.",
+     "category": "deposit",
+     "kind": "statute",
+     "jurisdiction": "karnataka",
+     "cites": [
+      {
+       "doc": "karnataka-rent-act-1999",
+       "section": "2"
+      }
+     ],
+     "sources": [
+      {
+       "doc": "karnataka-rent-act-1999",
+       "title": "Karnataka Rent Act, 1999",
+       "url": "https://www.indiacode.nic.in/handle/123456789/7810"
+      }
+     ],
+     "path": "kb/deposit/statute-rent-act-2-3.md",
+     "verified_on": "2026-11-21",
+     "dense_score": 0.40918368101119995
+    }
+   ],
+   "cited": [
+    1,
+    2
+   ],
+   "guard": {
+    "first_problems": [],
+    "regenerated": false,
+    "removed": false,
+    "problems": [],
+    "cited": [
+     1,
+     2
+    ],
+    "uncited_sentences": [
+     "Write a short email or message to the landlord asking for the return of the amount above two months’ rent, and set a clear date (e.g., within 10 days) for payment.",
+     "Keep any receipt or proof of the deposit you have, as it will be needed if you later need to send a notice or pursue legal action.",
+     "No specific statutory time-limit applies to this request, but acting promptly will strengthen your position."
+    ],
+    "refs": []
+   },
+   "retrieval": {
+    "query": "Karnataka rent law security deposit cap two months landlord retaining excess deposit",
+    "mode": "primary",
+    "top_score": 0.1289,
+    "floor": 0.035,
+    "seconds": 2.71,
+    "error": ""
+   },
+   "trace": [
+    "analysis: category=deposit intent=question language=English emergency=False query='Karnataka rent law security deposit cap two months landlord retaining excess deposit'",
+    "case category: None -> deposit",
+    "advising without ['deposit_amount', 'move_out_date'] (question)",
+    "retrieval: primary top=0.1289 floor=0.035 ids=['deposit-no-cap', 'deposit-overview', 'deposit-rent-act-tenants', 'deposit-rent-act-scope', 'statute-rent-act-2-3']",
+    "guard: all legal references traced",
+    "guard: 3 sentence(s) without a citation (warning only)"
+   ],
+   "usage": {
+    "input_tokens": 3447,
+    "output_tokens": 727,
+    "llm_calls": 2,
+    "llm_s": 26.57,
+    "retrieval_s": 2.71
+   },
+   "latency_s": 29.3,
+   "draft": {}
+  }
+ ]
+}

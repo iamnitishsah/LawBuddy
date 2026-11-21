@@ -1,6 +1,6 @@
 .DEFAULT_GOAL := help
 
-.PHONY: help install test kb kb-build smoke chat chat-smoke api api-smoke frontend docker-build docker-run
+.PHONY: help install test kb kb-build smoke chat chat-smoke eval eval-gemini eval-compare api api-smoke frontend docker-build docker-run
 
 help:
 	@echo "make install       install the package and dev tools into the active environment"
@@ -10,6 +10,9 @@ help:
 	@echo "make smoke         retrieval smoke test: keyword, dense and rerank (API for dense and rerank)"
 	@echo "make chat          talk to LawBuddy in the terminal, with the decision trace (LLM + retrieval APIs)"
 	@echo "make chat-smoke    replay eval/chat_smoke/*.txt; raw transcripts to outputs/chat_smoke/ (APIs)"
+	@echo "make eval          run the 31 test cases on the default backend (APIs); outputs/eval/<backend>/"
+	@echo "make eval-gemini   the same cases on Gemini (slow on the free tier)"
+	@echo "make eval-compare  compare the saved groq and gemini runs (no API)"
 	@echo "make api           run the FastAPI backend on http://localhost:8000 (docs at /docs)"
 	@echo "make api-smoke     call every endpoint of a running API (APIs); raw responses to outputs/api_smoke/"
 	@echo "make frontend      run the Vite React frontend on http://localhost:5173"
@@ -39,6 +42,15 @@ chat-smoke:
 	for f in eval/chat_smoke/*.txt; do \
 		python -m lawbuddy.chat --debug --script $$f | tee outputs/chat_smoke/$$(basename $$f); \
 	done
+
+eval:
+	python -m lawbuddy.evaluation.run_cases
+
+eval-gemini:
+	python -m lawbuddy.evaluation.run_cases --backend gemini
+
+eval-compare:
+	python -m lawbuddy.evaluation.run_cases --compare groq gemini
 
 api:
 	uvicorn lawbuddy.api.main:app --reload

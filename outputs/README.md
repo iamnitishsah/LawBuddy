@@ -10,6 +10,8 @@ it, is written up in [docs/findings.md](../docs/findings.md).
 | `chat_smoke/run2/` | second run (Phase 2) | The same 5 conversations after the fixes |
 | `chat_smoke/run-partial-0102/` | an interrupted run | 3 conversations |
 | `chat_smoke/run3/` | third run (Phase 3) | 7 conversations including two legal notices; `drafts/` holds the two notices as saved |
+| `eval/groq-run1/`, `eval/groq/` | `make eval` (Phase 6), Groq, before and after the fixes | One JSON per test case (every reply with passages, guard result, trace, usage; the case file; the checks) and `summary.md` / `summary.json`. Both scored with the final `cases.yaml` |
+| `eval/comparison.md` | `run_cases --compare groq-run1 groq` | The two runs side by side |
 | `api_smoke/run1/`, `run2/` | `make api-smoke` (Phase 5) | Every API response: health, backends, sessions, advice, draft button, download, model swap to Gemini, a rejected key (401), voice in English, Hindi and Kannada. run1 shows Kannada heard as Tamil; run2 the fix |
 
 `chat_smoke/run1/`, `run2/` and `run-partial-0102/` were reconstructed from the turn log (`data/logs/chat.jsonl`)

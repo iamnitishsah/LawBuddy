@@ -1,0 +1,321 @@
+{
+ "case": {
+  "id": "con-06-hinglish",
+  "group": "consumer",
+  "lang": "hinglish",
+  "turns": [
+   "Swiggy se 1,200 ka khana order kiya tha, khana kharab tha aur refund nahi mil raha, kya karu?",
+   "kal raat order kiya tha"
+  ],
+  "expect": {
+   "kinds": [
+    [
+     "follow_up",
+     "advice"
+    ],
+    "advice"
+   ],
+   "category": "consumer",
+   "script": "latin"
+  }
+ },
+ "backend": "groq",
+ "model": "openai/gpt-oss-120b",
+ "at": "2026-11-21T02:27:08+00:00",
+ "attempts": 1,
+ "seconds": 74.3,
+ "case_file": {
+  "category": "consumer",
+  "facts": {
+   "product_or_service": "food order from Swiggy",
+   "seller": "Swiggy",
+   "amount_paid": "1200",
+   "purchase_date": null,
+   "problem": "food was bad, refund not received",
+   "complaint_made": null
+  },
+  "timeline": [
+   {
+    "date": "unknown",
+    "event": "order placed last night"
+   }
+  ],
+  "evidence_have": [],
+  "evidence_missing": [],
+  "other_party": "Swiggy",
+  "user_goal": "refund",
+  "state": null,
+  "summary": "User ordered food worth 1,200 INR from Swiggy last night, the food was bad and they have not received a refund.",
+  "parties": {}
+ },
+ "checks": [
+  {
+   "name": "completed",
+   "passed": true,
+   "detail": ""
+  },
+  {
+   "name": "kinds",
+   "passed": false,
+   "detail": "turn 2: follow_up, expected ['advice']"
+  },
+  {
+   "name": "category",
+   "passed": true,
+   "detail": "got consumer"
+  },
+  {
+   "name": "grounded",
+   "passed": true,
+   "detail": ""
+  },
+  {
+   "name": "cited",
+   "passed": true,
+   "detail": ""
+  },
+  {
+   "name": "script",
+   "passed": false,
+   "detail": "turn 2: devanagari"
+  }
+ ],
+ "passed": false,
+ "replies": [
+  {
+   "kind": "advice",
+   "text": "**Where you stand**  \nOnline order ke liye Consumer Protection (E-Commerce) Rules, 2020 ke tahat seller ya platform ko defective ya kharab food ke liye refund dena zaroori hai; refusal nahi kar sakte [1][3]. Platform ko grievance officer appoint karna hota hai jo complaint ko 48 ghante mein acknowledge kare aur ek mahine ke andar resolve kare [1][3]. Refund ko “reasonable time” mein pay karna hota hai, RBI ya anya kanooni niyam ke mutabik [1][3]. Agar aapka refund nahi milta, to Consumer Protection Act, 2019 aapko price ke saath interest aur compensation ka adhikar deta hai [2].\n\n**What you can do**  \n1. **Grievance officer ko likhit complaint bheje** - order ID, invoice, delivery proof, photos/video aur chat/email ka record lagaye. Unse likhit acknowledgement maange aur ek mahine ke andar solution ki demand kare [1][3].  \n2. **National Consumer Helpline (1915) par call ya WhatsApp kare** - unko apni grievance register karne ko kahen; ye aapki complaint ko Swiggy tak pahunchayenge [5].  \n3. Agar platform/Grievance officer se jawab nahi milta ya refund nahi milta, to **District Consumer Commission** me online complaint (e-Jagriti) file kare. Ye aapko refund + interest ya compensation dilwa sakta hai [2][4].\n\n**Next step**  \nAbhi turant Swiggy ke grievance officer ko email/WhatsApp/message bheje, apna order ID, payment proof (₹1,200), kharab food ki photos aur “refund within reasonable time” ki demand likhe [1][3]. Unko 48 ghante ke andar acknowledgment aur ek mahine ke andar solution dene ka rule hai, isliye aapke paas time limit hai. Agar iske 30 din baad koi response nahi milta, to 1915 par helpline call kare ya seedha District Consumer Commission me complaint file karen.  \n\n*If you have the order confirmation, delivery screenshot or chat with Swiggy, keep them ready for attachment.*\n\nAgar chahein to main aapke liye ek legal notice draft kar sakta hoon - bas likhiye \"notice draft karo\".\n\n*LawBuddy gives legal information, not legal advice.*",
+   "language": "Hinglish",
+   "category": "consumer",
+   "passages": [
+    {
+     "chunk_id": "consumer-ecommerce-refunds",
+     "score": 0.05883026116976552,
+     "header": "Online orders: what sellers and platforms must do about returns and refunds | consumer | guide",
+     "title": "Online orders: what sellers and platforms must do about returns and refunds",
+     "text": "The Consumer Protection (E-Commerce) Rules, 2020 put duties on online platforms and sellers:\n\n- **No refusal to take back or refund** when goods or services are defective, deficient or spurious, not as\n  advertised or agreed, or delivered late (except late delivery due to force majeure). This applies to sellers on a\n  marketplace (E-Commerce Rules, 2020, r. 6(3)) and to platforms that sell their own inventory (r. 7(4)).\n- **Grievance officer.** Every platform must appoint a grievance officer and show their name and contact details on\n  the platform (r. 4(4)). The officer must acknowledge your complaint within 48 hours and resolve it within one month\n  of receiving it (r. 4(5)). Marketplace sellers must do the same (r. 6(4)(b)).\n- **Refunds** accepted by the platform must be paid within a reasonable time, as prescribed by the Reserve Bank of\n  India or other applicable law (r. 4(10)).\n- **Cancellation charges** cannot be imposed on you unless the platform bears similar charges when it cancels an\n  order itself (r. 4(8)).\n\nKeep the order ID, invoice, delivery proof, photos or videos of the product, and every chat or email with customer\ncare. Write to the grievance officer in writing and note the date: if there is no answer within a month, you have\na clear record for the next step.",
+     "category": "consumer",
+     "kind": "guide",
+     "jurisdiction": "central",
+     "cites": [
+      {
+       "doc": "cp-ecommerce-rules-2020",
+       "section": "4"
+      },
+      {
+       "doc": "cp-ecommerce-rules-2020",
+       "section": "6"
+      },
+      {
+       "doc": "cp-ecommerce-rules-2020",
+       "section": "7"
+      }
+     ],
+     "sources": [
+      {
+       "doc": "cp-ecommerce-rules-2020",
+       "title": "Consumer Protection (E-Commerce) Rules, 2020",
+       "url": "https://prsindia.org/files/bills_acts/bills_parliament/2021/Consumer%20Protection%20(E-Commerce)%20Rules,%202020.pdf"
+      }
+     ],
+     "path": "kb/consumer/ecommerce-refunds.md",
+     "verified_on": "2026-11-21",
+     "dense_score": 0.47300827503204346
+    },
+    {
+     "chunk_id": "consumer-overview",
+     "score": 0.05343185295448137,
+     "header": "Refund, replacement or compensation for a bad product or service | consumer | guide",
+     "title": "Refund, replacement or compensation for a bad product or service",
+     "text": "If you paid for goods or a service and got something defective, deficient, not as promised, or no refund that was\ndue, the Consumer Protection Act, 2019 protects you. It applies to purchases made online or offline, including by\nteleshopping and direct selling (Consumer Protection Act, 2019, s. 2(7), Explanation (b)).\n\nYou can complain about (Consumer Protection Act, 2019, s. 2(6)):\n- goods with a defect: a fault or shortcoming in quality, quantity, purity or standard (s. 2(10));\n- a service with a deficiency: a shortcoming in quality or manner of performance, including negligence or\n  deliberately withholding relevant information (s. 2(11));\n- an unfair trade practice, or being charged more than the displayed, fixed or agreed price.\n\nIf the complaint is proved, a Consumer Commission can order the trader to remove the defect, replace the goods,\nreturn the price with interest, pay compensation for loss or injury, pay punitive damages, and pay your costs\n(Consumer Protection Act, 2019, s. 39(1)).\n\nUsual path: complain to the seller (and the platform's grievance officer) → National Consumer Helpline 1915 →\ncomplaint to the District Consumer Commission, which can be filed online on e-Jagriti.",
+     "category": "consumer",
+     "kind": "guide",
+     "jurisdiction": "central",
+     "cites": [
+      {
+       "doc": "cpa-2019",
+       "section": "2"
+      },
+      {
+       "doc": "cpa-2019",
+       "section": "39"
+      }
+     ],
+     "sources": [
+      {
+       "doc": "cpa-2019",
+       "title": "Consumer Protection Act, 2019",
+       "url": "https://prsindia.org/files/bills_acts/bills_parliament/2021/Consumer%20Protection%20Act%202019.pdf"
+      }
+     ],
+     "path": "kb/consumer/overview.md",
+     "verified_on": "2026-11-21",
+     "dense_score": 0.4997813105583191
+    },
+    {
+     "chunk_id": "statute-cp-ecommerce-rules",
+     "score": 0.05147191386430103,
+     "header": "Consumer Protection (E-Commerce) Rules, 2020, rules 4(5), 4(10) and 6(3) (text) | consumer | statute",
+     "title": "Consumer Protection (E-Commerce) Rules, 2020, rules 4(5), 4(10) and 6(3) (text)",
+     "text": "**Rule 4(5).** Every e-commerce entity shall ensure that the grievance officer referred to in sub-rule (4)\nacknowledges the receipt of any consumer complaint within forty-eight hours and redresses the complaint within one\nmonth from the date of receipt of the complaint.\n\n**Rule 4(10).** Every e-commerce entity shall effect all payments towards accepted refund requests of the consumers\nas prescribed by the Reserve Bank of India or any other competent authority under any law for the time being in\nforce, within a reasonable period of time, or as prescribed under applicable laws.\n\n**Rule 6(3).** No seller offering goods or services through a marketplace e-commerce entity shall refuse to take\nback goods, or withdraw or discontinue services purchased or agreed to be purchased, or refuse to refund\nconsideration, if paid, if such goods or services are defective, deficient or spurious, or if the goods or services\nare not of the characteristics or features as advertised or as agreed to, or if such goods or services are delivered\nlate from the stated delivery schedule: Provided that in the case of late delivery, this sub-rule shall not be\napplied if such late delivery was due to force majeure.",
+     "category": "consumer",
+     "kind": "statute",
+     "jurisdiction": "central",
+     "cites": [
+      {
+       "doc": "cp-ecommerce-rules-2020",
+       "section": "4"
+      },
+      {
+       "doc": "cp-ecommerce-rules-2020",
+       "section": "6"
+      }
+     ],
+     "sources": [
+      {
+       "doc": "cp-ecommerce-rules-2020",
+       "title": "Consumer Protection (E-Commerce) Rules, 2020",
+       "url": "https://prsindia.org/files/bills_acts/bills_parliament/2021/Consumer%20Protection%20(E-Commerce)%20Rules,%202020.pdf"
+      }
+     ],
+     "path": "kb/consumer/statute-ecommerce-rules.md",
+     "verified_on": "2026-11-21",
+     "dense_score": 0.42206504940986633
+    },
+    {
+     "chunk_id": "consumer-after-filing",
+     "score": 0.039002432982680316,
+     "header": "What happens after you file a consumer complaint | consumer | guide",
+     "title": "What happens after you file a consumer complaint",
+     "text": "- **Admission.** The District Commission should ordinarily decide within 21 days whether to admit the complaint. It\n  cannot reject it without hearing you, and if it does not decide in time, the complaint is treated as admitted\n  (Consumer Protection Act, 2019, s. 36(2) and (3)).\n- **Mediation.** If a settlement looks possible, the Commission may ask both sides to agree in writing, within five\n  days, to mediation (Consumer Protection Act, 2019, s. 37(1)).\n- **Order.** If your complaint is proved, the Commission orders relief such as replacement, refund with interest,\n  compensation and costs.\n- **Appeal.** Either side can appeal a District Commission order to the State Commission within 45 days of the order\n  (Consumer Protection Act, 2019, s. 41).\n- **If the trader ignores the order.** Not complying with a Commission's order is punishable with imprisonment from\n  one month up to three years, or a fine from Rs. 25,000 up to Rs. 1 lakh, or both (Consumer Protection Act, 2019,\n  s. 72(1)).",
+     "category": "consumer",
+     "kind": "guide",
+     "jurisdiction": "central",
+     "cites": [
+      {
+       "doc": "cpa-2019",
+       "section": "36"
+      },
+      {
+       "doc": "cpa-2019",
+       "section": "37"
+      },
+      {
+       "doc": "cpa-2019",
+       "section": "41"
+      },
+      {
+       "doc": "cpa-2019",
+       "section": "72"
+      }
+     ],
+     "sources": [
+      {
+       "doc": "cpa-2019",
+       "title": "Consumer Protection Act, 2019",
+       "url": "https://prsindia.org/files/bills_acts/bills_parliament/2021/Consumer%20Protection%20Act%202019.pdf"
+      }
+     ],
+     "path": "kb/consumer/after-filing.md",
+     "verified_on": "2026-11-21",
+     "dense_score": 0.27586811780929565
+    },
+    {
+     "chunk_id": "consumer-helpline",
+     "score": 0.03889199748938353,
+     "header": "National Consumer Helpline (1915): free help before going to a Commission | consumer | practice",
+     "title": "National Consumer Helpline (1915): free help before going to a Commission",
+     "text": "The National Consumer Helpline (NCH), run by the Department of Consumer Affairs, Government of India, helps resolve\nconsumer grievances with companies before a formal complaint.\n\n- Toll-free: **1915** (8 AM to 8 PM) or 1800-11-4000\n- WhatsApp: +91 88000 01915\n- Online: consumerhelpline.gov.in → \"Register Grievance\"\n\nMany large companies and platforms are \"convergence partners\" of the NCH, so a grievance registered there is sent to\nthe company directly. If the matter is not resolved, the next step is a complaint to the District Consumer\nCommission on e-Jagriti.\n\nSource: consumerhelpline.gov.in, checked 2026-11-21.",
+     "category": "consumer",
+     "kind": "practice",
+     "jurisdiction": "central",
+     "cites": [],
+     "sources": [],
+     "path": "kb/consumer/helpline.md",
+     "verified_on": "2026-11-21",
+     "dense_score": 0.2760944962501526
+    }
+   ],
+   "cited": [
+    1,
+    2,
+    3,
+    4,
+    5
+   ],
+   "guard": {
+    "first_problems": [
+     {
+      "kind": "unlisted_section",
+      "text": "Rule 4(5)",
+      "detail": "Consumer Protection Act, 2019 4 is not in LawBuddy's sources"
+     }
+    ],
+    "regenerated": true,
+    "removed": false,
+    "problems": [],
+    "cited": [
+     1,
+     2,
+     3,
+     4,
+     5
+    ],
+    "uncited_sentences": [
+     "Unko 48 ghante ke andar acknowledgment aur ek mahine ke andar solution dene ka rule hai, isliye aapke paas time limit hai.",
+     "Agar iske 30 din baad koi response nahi milta, to 1915 par helpline call kare ya seedha District Consumer Commission me complaint file karen.",
+     "If you have the order confirmation, delivery screenshot or chat with Swiggy, keep them ready for attachment.*"
+    ],
+    "refs": []
+   },
+   "retrieval": {
+    "query": "Swiggy food order defective refund not given",
+    "mode": "primary",
+    "top_score": 0.0588,
+    "floor": 0.035,
+    "seconds": 1.45,
+    "error": ""
+   },
+   "trace": [
+    "analysis: category=consumer intent=question language=Hinglish emergency=False query='Swiggy food order defective refund not given'",
+    "case category: None -> consumer",
+    "advising without ['purchase_date'] (question)",
+    "retrieval: primary top=0.0588 floor=0.035 ids=['consumer-ecommerce-refunds', 'consumer-overview', 'statute-cp-ecommerce-rules', 'consumer-after-filing', 'consumer-helpline']",
+    "guard: unlisted_section: Rule 4(5) (Consumer Protection Act, 2019 4 is not in LawBuddy's sources) -> regenerating once",
+    "guard: 3 sentence(s) without a citation (warning only)"
+   ],
+   "usage": {
+    "input_tokens": 5558,
+    "output_tokens": 1423,
+    "llm_calls": 3,
+    "llm_s": 49.24,
+    "retrieval_s": 1.45
+   },
+   "latency_s": 50.75,
+   "draft": {}
+  },
+  {
+   "kind": "follow_up",
+   "text": "समझ गया, आप कल रात स्विग्गी से खाना ऑर्डर किया था और वह खराब निकला, पर रिफंड नहीं मिल रहा।  \n1. आपने यह ऑर्डर कब किया?  \n2. क्या आपने विक्रेता/स्विग्गी से शिकायत की और उनका जवाब क्या था?",
+   "language": "Hindi",
+   "category": "consumer",
+   "passages": [],
+   "cited": [],
+   "guard": {},
+   "retrieval": {},
+   "trace": [
+    "analysis: category=consumer intent=story language=Hindi emergency=False query='Swiggy not refunding for defective food order'",
+    "follow-up 1/2: missing ['purchase_date']"
+   ],
+   "usage": {
+    "input_tokens": 2575,
+    "output_tokens": 489,
+    "llm_calls": 2,
+    "llm_s": 21.46,
+    "retrieval_s": 0.0
+   },
+   "latency_s": 21.47,
+   "draft": {}
+  }
+ ]
+}

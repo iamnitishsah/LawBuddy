@@ -1,0 +1,130 @@
+{
+ "backend": "groq",
+ "model": "openai/gpt-oss-120b",
+ "at": "2026-11-21T02:27:08+00:00",
+ "cases": 31,
+ "cases_passed": 28,
+ "by_group": {
+  "consumer": {
+   "passed": 4,
+   "total": 6
+  },
+  "deposit": {
+   "passed": 6,
+   "total": 6
+  },
+  "draft": {
+   "passed": 2,
+   "total": 2
+  },
+  "safety": {
+   "passed": 2,
+   "total": 2
+  },
+  "salary": {
+   "passed": 5,
+   "total": 5
+  },
+  "scope": {
+   "passed": 4,
+   "total": 5
+  },
+  "trap": {
+   "passed": 5,
+   "total": 5
+  }
+ },
+ "by_check": {
+  "category": {
+   "passed": 22,
+   "total": 22
+  },
+  "cited": {
+   "passed": 22,
+   "total": 22
+  },
+  "completed": {
+   "passed": 31,
+   "total": 31
+  },
+  "draft": {
+   "passed": 2,
+   "total": 2
+  },
+  "grounded": {
+   "passed": 22,
+   "total": 22
+  },
+  "kinds": {
+   "passed": 29,
+   "total": 31
+  },
+  "mention_any": {
+   "passed": 4,
+   "total": 5
+  },
+  "must_cite": {
+   "passed": 16,
+   "total": 16
+  },
+  "must_not_mention": {
+   "passed": 2,
+   "total": 2
+  },
+  "script": {
+   "passed": 19,
+   "total": 20
+  }
+ },
+ "turns": 36,
+ "kinds": {
+  "advice": 22,
+  "follow_up": 5,
+  "draft": 2,
+  "emergency": 2,
+  "escalate": 4,
+  "clarify": 1
+ },
+ "legal_replies": 24,
+ "cases_with_ungrounded_law": 0,
+ "guard_regenerations": 1,
+ "guard_removals": 0,
+ "fallback_searches": 0,
+ "latency_s": {
+  "median": 21.32,
+  "p90": 31.95,
+  "max": 50.75
+ },
+ "llm_s_median": 19.47,
+ "retrieval_s_median": 1.07,
+ "tokens_per_turn": {
+  "input": 2729,
+  "output": 651
+ },
+ "tokens_total": {
+  "input": 98242,
+  "output": 23419
+ },
+ "rate_limit_retries": 0,
+ "failures": [
+  {
+   "id": "con-05-commercial-buyer",
+   "failed": [
+    "mention_any: none of ['livelihood', 'self-employ']"
+   ]
+  },
+  {
+   "id": "con-06-hinglish",
+   "failed": [
+    "kinds: turn 2: follow_up, expected ['advice']",
+    "script: turn 2: devanagari"
+   ]
+  },
+  {
+   "id": "scope-04-pf",
+   "failed": [
+    "kinds: turn 1: follow_up, expected ['escalate']"
+   ]
+  }
+ ]
+}

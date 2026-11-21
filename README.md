@@ -47,9 +47,11 @@ correctly (no such limit exists), and no untraceable law reached a user.
 | | |
 |---|---|
 | Right article in the top 3 for questions reworded the way people type them | **20/20** (rerank), incl. 3/3 in Hindi; keyword search alone 8/20 |
-| Untraceable law shown to a user, across all smoke runs | **0** |
-| Typical answer time | ~5 s on Groq (Gemini: 73-101 s) |
-| Automated tests (offline) | **182** |
+| Test cases passing every automatic check (31 cases: 4 languages, traps, scope, safety, notices) | **30/31** (run 1: 28/31) |
+| Cases where untraceable law reached a user, across all test cases and smoke runs | **0** |
+| Safety messages the rules miss but the model catches; traps handled | **2/2**; **5/5** |
+| Typical answer time | ~5-20 s on Groq's free tier, which varies by the hour (Gemini: 73-101 s) |
+| Automated tests (offline) | **209** |
 
 Failures found and fixed along the way (an empty answer, a fact the user never gave, Kannada heard as Tamil, notice
 facts embellished, guard false alarms) are documented with their fixes; some limits remain (the guard checks
@@ -61,7 +63,7 @@ references to law, not every claim).
 python -m venv .venv && source .venv/bin/activate
 make install
 cp .env.example .env          # GROQ_API_KEY (LLM + voice), NVIDIA_API_KEY (search); GEMINI_API_KEY optional
-make test                     # 182 tests, no network
+make test                     # 209 tests, no network
 make api                      # API on http://localhost:8000 (docs at /docs)
 cd frontend && npm install && cp .env.example .env && npm run dev    # UI on http://localhost:5173
 ```
@@ -91,9 +93,9 @@ python -m lawbuddy.chat --backend gemini                # another model
 
 ## Status
 
-Phases 0-3 and 5 complete: knowledge base, conversation engine, guard, legal notices, API with voice and model
-swapping, web UI. Practice mode (Phase 4) skipped. Next: Phase 6 (test cases and evaluation), Phase 7 (deployment),
-Phase 8 (submission).
+Phases 0-3, 5 and 6 complete: knowledge base, conversation engine, guard, legal notices, API with voice and model
+swapping, web UI, test cases and evaluation. Practice mode (Phase 4) skipped. Next: Phase 7 (deployment), Phase 8
+(submission).
 
 ## Disclaimer
 

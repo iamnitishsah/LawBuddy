@@ -29,6 +29,7 @@ import yaml
 
 from lawbuddy.conversation import respond
 from lawbuddy.conversation.case import IN_SCOPE, CaseFile
+from lawbuddy.conversation.language import correct_language
 from lawbuddy.conversation.triage import Analysis, analyze, emergency_rule
 from lawbuddy.drafting.notice import build_notice
 from lawbuddy.guard.legal_refs import check_answer, remove_problem_sentences
@@ -45,6 +46,8 @@ class Session:
     case: CaseFile = field(default_factory=CaseFile)
     language: str = "English"
     followup_turns: int = 0
+    asked: set = field(default_factory=set)                  # fact keys already asked for in this case
+    advised: bool = False                                    # advice already given in this case
 
 
 @dataclass
@@ -117,7 +120,10 @@ class Engine:
         # 2. analysis
         a = analyze(self.llm, s.messages, s.case, self.cfg["temperature"], self.cfg["analyze_max_tokens"])
         self._add_usage(usage, a.usage)
-        s.language = a.language or s.language
+        language = correct_language(a.language, message, s.language)
+        if language != (a.language or "").strip():
+            trace.append(f"language: model said {a.language!r}, the message's script says {language!r}")
+        s.language = a.language = language
         trace.append(f"analysis: category={a.category} intent={a.intent} language={a.language} "
                      f"emergency={a.emergency} query={a.search_query!r}")
         if a.emergency:
@@ -134,7 +140,7 @@ class Engine:
         category = a.category if a.category in IN_SCOPE else s.case.category
         if category != s.case.category:
             trace.append(f"case category: {s.case.category} -> {category}")
-            s.followup_turns = 0
+            s.followup_turns, s.asked, s.advised = 0, set(), False
         s.case.set_category(category)
         s.case.merge(a.update)
 
@@ -142,16 +148,20 @@ class Engine:
         if a.intent == "draft":
             return self._draft(s, trace, usage)
 
-        # 3. follow-up questions
+        # 3. follow-up questions: only before the first advice in this case, never the same fact twice
         missing = s.case.missing(critical_only=True)
-        if missing and a.intent == "story" and s.followup_turns < self.cfg["max_followup_turns"]:
+        unasked = [k for k in missing if k not in s.asked]
+        if unasked and a.intent == "story" and not s.advised and s.followup_turns < self.cfg["max_followup_turns"]:
             s.followup_turns += 1
-            asks = s.case.missing()                                  # critical first, then useful extras
+            asks = [k for k in s.case.missing() if k not in s.asked][:self.cfg["max_questions_per_turn"]]
+            s.asked.update(asks)
             trace.append(f"follow-up {s.followup_turns}/{self.cfg['max_followup_turns']}: missing {missing}")
             msgs = respond.follow_up_messages(s.case, asks, s.language, s.messages, self.cfg["max_questions_per_turn"])
             return Reply("follow_up", self._generate(msgs, usage, trace), s.language, category, trace=trace)
         if missing:
-            trace.append(f"advising without {missing} ({'question' if a.intent != 'story' else 'follow-up limit'})")
+            why = ("question" if a.intent != "story" else "already advised" if s.advised
+                   else "already asked" if not unasked else "follow-up limit")
+            trace.append(f"advising without {missing} ({why})")
 
         # 4. retrieval (rerank) as the evidence check
         query = a.search_query or s.case.summary or message
@@ -169,6 +179,7 @@ class Engine:
             text += respond.outside_karnataka_note(s.language, s.case.state)
             trace.append(f"note added: state is {s.case.state}")
         text += respond.offer_draft(s.language) + respond.disclaimer(s.language)
+        s.advised = True
         return Reply("advice", text, s.language, category, passages=hits, cited=guard["cited"], guard=guard,
                      retrieval=retrieval, trace=trace)
 

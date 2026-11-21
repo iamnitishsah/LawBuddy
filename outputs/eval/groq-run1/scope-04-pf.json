@@ -1,0 +1,78 @@
+{
+ "case": {
+  "id": "scope-04-pf",
+  "group": "scope",
+  "lang": "en",
+  "turns": [
+   "My employer deducted PF from my salary for a whole year but never deposited it with EPFO."
+  ],
+  "expect": {
+   "kinds": [
+    "escalate"
+   ]
+  }
+ },
+ "backend": "groq",
+ "model": "openai/gpt-oss-120b",
+ "at": "2026-11-21T02:27:08+00:00",
+ "attempts": 1,
+ "seconds": 7.0,
+ "case_file": {
+  "category": "salary",
+  "facts": {
+   "employer": null,
+   "monthly_salary": null,
+   "unpaid_period": null,
+   "employment_status": null,
+   "city": null,
+   "proof_of_employment": null
+  },
+  "timeline": [],
+  "evidence_have": [],
+  "evidence_missing": [],
+  "other_party": null,
+  "user_goal": "PF contribution to be deposited with EPFO",
+  "state": null,
+  "summary": "The user states that their employer has been deducting Provident Fund from their salary for a year but has not deposited it with the EPFO.",
+  "parties": {}
+ },
+ "checks": [
+  {
+   "name": "completed",
+   "passed": true,
+   "detail": ""
+  },
+  {
+   "name": "kinds",
+   "passed": false,
+   "detail": "turn 1: follow_up, expected ['escalate']"
+  }
+ ],
+ "passed": false,
+ "replies": [
+  {
+   "kind": "follow_up",
+   "text": "I understand you’re concerned that your employer has deducted PF from your salary but hasn’t deposited it with the EPFO.  \n\n1. What is the name of your employer?  \n2. Which months or dues are missing?  \n3. Are you still employed there, or what was your last working day?",
+   "language": "English",
+   "category": "salary",
+   "passages": [],
+   "cited": [],
+   "guard": {},
+   "retrieval": {},
+   "trace": [
+    "analysis: category=salary intent=story language=English emergency=False query='employer deducting PF from salary but not depositing with EPFO'",
+    "case category: None -> salary",
+    "follow-up 1/2: missing ['employer', 'unpaid_period', 'employment_status']"
+   ],
+   "usage": {
+    "input_tokens": 1420,
+    "output_tokens": 437,
+    "llm_calls": 2,
+    "llm_s": 5.98,
+    "retrieval_s": 0.0
+   },
+   "latency_s": 5.98,
+   "draft": {}
+  }
+ ]
+}
